@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/default_layout}"
+      xmlns:th="http://www.thymeleaf.org">
+
+<style layout:fragment="css"></style>
+
+<div layout:fragment="content">
+
+    <main role="main" class="main-content">
+
+        <script>
+            const main_menu = 5;
+        </script>
+
+        <!--컨텐츠 영역-->
+        <div class="contents">
+            <div class="admin-contents-title">
+                <h3 class="admin-title">배너관리</h3>
+                <div class="top-btn">
+                    <a id="add" href="/admin/banner/insert" class="blue-btn company-add-btn cupoint">배너 추가</a>
+                    <a id="update" class="s-blue-btn cupoint">선택한 배너 수정</a>
+                    <a id="delete" class="gray-btn cupoint">선택한 배너 삭제</a>
+                </div>
+            </div><!--admin-contents-title-->
+
+            <div class="course2-list-wrap">
+                <div class="company-table course2-table">
+
+
+                    <!--table START-->
+                    <table class="admin-table admin-banner-table">
+                        <colgroup>
+                            <col style="width:6%">
+                            <col style="width:6%">
+                            <col style="width:12%">
+                            <col style="width:30%">
+                            <col style="width:24%">
+                            <col style="width:16%">
+                            <col style="width:8%">
+                        </colgroup>
+                        <thead>
+                        <tr>
+                            <th class="after-none"><input type="checkbox" class="all-check"></th>
+                            <th>번호</th>
+                            <th>이미지</th>
+                            <th>내용</th>
+                            <th>링크</th>
+                            <th>노출기간</th>
+                            <th>상태</th>
+                        </tr>
+                        </thead>
+                        <tbody id="bannerList"></tbody>
+                    </table>
+
+
+                    <div id="pagination"></div>
+
+<!--                    <ul class="paging">-->
+<!--                        <li><a href="#"><i class="fa-solid fa-chevron-left"></i></a></li>-->
+<!--                        <li class="on"><a href="#">1</a></li>-->
+<!--                        <li><a href="#">2</a></li>-->
+<!--                        <li><a href="#">3</a></li>-->
+<!--                        <li><a href="#">4</a></li>-->
+<!--                        <li><a href="#">5</a></li>-->
+<!--                        <li><a href="#">6</a></li>-->
+<!--                        <li><a href="#">7</a></li>-->
+<!--                        <li><a href="#">8</a></li>-->
+<!--                        <li><a href="#">9</a></li>-->
+<!--                        <li><a href="#"><i class="fa-solid fa-chevron-right"></i></a></li>-->
+<!--                    </ul>-->
+                </div><!--company-table-->
+            </div>
+
+        </div><!--contents-->
+
+    </main>
+
+    <script>
+        let page=1;
+        let size=10;
+        let sort="bannerSeq,desc";
+
+        fnGetBannerList();
+
+        // 페이지 번호 클릭 시
+        $("#pagination").on("click", "ul li a", function() {
+            page = parseInt($(this).attr("gopage"));
+
+            $(".all-check").prop("checked", false);
+
+            fnGetBannerList();
+        });
+
+        // 배너 목록
+        function fnGetBannerList(){
+            $.ajax({
+               type:"get",
+               url:"/api/admin/banner/list",
+               data:{
+                   "page":page-1,
+                   "size":size
+               },
+               success:function(data) {
+                   // console.log(data);
+
+                   let bannerTag = "";
+
+                   if( data.content.length != 0 ) {
+                       data.content.forEach(function (data) {
+                           let bannerStatus;
+                           if(data.bannerStatus){
+                               bannerStatus="노출";
+                           }else{
+                               bannerStatus="미노출";
+                           }
+
+                           bannerTag +=
+                               "<tr bannerSeq='"+data.bannerSeq+"'>" +
+                               "<td><input type='checkbox' class='checked'></td>" +
+                               "<td class='info rowNum'>"+data.rowNum+"</td>" +
+                               "<td class='info banner-preview'><img src='"+data.url+"' alt='메인배너 미리보기'></td>" +
+                               "<td class='info banner-title'>"+data.bannerTitle+"\n"+data.bannerContents+"</td>" +
+                               "<td class='info'>"+data.reservationUrl+"</td>" +
+                               "<td class='info'>"+data.startDate.substring(0, 10)+" ~ "+data.endDate.substring(0, 10)+"</td>" +
+                               "<td class='info'>"+bannerStatus+"</td>";
+                       });
+                       $("#bannerList").html(bannerTag);
+                   }else{
+                       toastModal("저장하신 배너 데이터가 없습니다.");
+                       $("#bannerList").html(bannerTag);
+                   }
+
+                   fPagination(data, page);
+               },
+                error:function(){
+                   console.log("ajax error (fnGetBannerList)");
+                }
+            });
+        }
+
+        $("#bannerList").on("click", ".info", function(){
+           location.href="/admin/banner/update?bannerSeq="+$(this).parent().attr("bannerSeq");
+        });
+
+        // 선택한 배너 수정 클릭 시
+        $("#update").on("click", function(e){
+            e.preventDefault();
+            if( $("#bannerList .checked:checked").length == 0){
+                toastModal("수정할 배너를 선택해주세요.");
+            }else if( $("#bannerList .checked:checked").length > 1 ){
+                toastModal("수정할 배너는 1개만 선택가능합니다.");
+                $("#bannerList .checked").prop("checked", false);
+                $(".all-check").prop("checked", false);
+            }else{
+                let bannerSeq=$("#bannerList .checked:checked").parent().parent().attr("bannerSeq");
+                location.href="/admin/banner/update?bannerSeq="+bannerSeq;
+            }
+        });
+
+        // 선택한 배너 삭제 클릭 시
+        $("#delete").click(function(){
+            if( $("#bannerList .checked:checked").length == 0 ){
+                toastModal("삭제할 배너를 선택해주세요.");
+            }else {
+                let chkLength = $("#bannerList .checked:checked").length;
+                if(!confirm("선택한 배너("+chkLength+"개)를 삭제하시겠습니까?")) return;
+
+                let arrSeq = new Array();
+                $("#bannerList .checked:checked").each(function () {
+                    let bannerSeq = $(this).parent().parent().attr("bannerSeq");
+                    arrSeq.push(bannerSeq);
+                });
+                // console.log(arrSeq);
+
+                $.ajax({
+                    type: "delete",
+                    url: "/api/admin/banner/delete",
+                    contentType:"application/json",
+                    data: JSON.stringify({"bannerSeqList": arrSeq}),
+                    success: function () {
+                        toastModal("배너 삭제가 완료되었습니다.");
+                        setTimeout(() => location.reload(), 1000);
+                    },
+                    error:function () {
+                        console.log("ajax error (delete)");
+                    }
+                });
+
+            }
+        });
+
+    </script>
+
+</div>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/login_layout}"
+      xmlns:th="http://www.thymeleaf.org">
+
+<style layout:fragment="css">
+    html, body{overflow: hidden !important;}
+    input[type='checkbox']{
+        width: 16px;
+        height: 16px;
+    }
+</style>
+
+<div layout:fragment="content">
+    <body class="no-ie">
+        <div id="biz-content-wrap" class="h100pro">
+            <div class="w100pro h100pro d-table boder-bbb" style="margin-top: 34vh">
+                <div class="w100pro d-t-cell v-middle">
+                    <div class="w100pro adm-border-tb bg-fff">
+                        <div class="pa-1em d-table auto w995px">
+
+                            <div class="d-table-cell w40pro pa-r-5em pa-tb-3em v-middle">
+                                <div class="d-table w100pro t-right ma-l-2em">
+                                    <div class="new-banner2-title2">
+                                        <img class="img-logo w50pro ma-l-2em" src="/images/admin/logo.png"/>
+                                        <!-- <p class="big-text"><span class="great-text letter-s-1">트래블 인천</span><span>!</span></p> -->
+                                        <p class="big-text bold letter-s-1 ma-r-dot6">관리자 페이지</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-table-cell w60pro adm-border-rg pa-l-5em pa-tb-2em">
+                                <div class="d-table">
+                                    <div class="ma-t-3em">
+                                        <div class="f-left ma-r-dot5">
+                                            <input type="text" name="adm-id" id="adm-id" maxlength="20" class="adm-input d-block ma-b-dot5 letter-s-1" placeholder="아이디">
+                                            <input type="password" name="adm-pw" id="adm-pw" maxlength="20" class="adm-input d-block letter-s-1" placeholder="비밀번호">
+                                        </div>
+                                        <button id="submitBtn" class="adm-button-img" type="button">
+                                            <div class="adm-key-mark whitefont fw600">로그인</div>
+                                        </button>
+                                        <!-- <input type="button" id="regist" value="회원가입" class="w100pro adm-button-img f-right ma-l-dot5 cupoint"/>  -->
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                                <div class="ma-t-dot5"><label for="rememberMe" class="d-flex a-center"><input type="checkbox" id="rememberMe" class="ma-r-dot3">자동 로그인</label></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <!--script START-->
+    <script>
+        var chkLogin = false;
+
+        $("#adm-id").on("keydown",function(e){
+            if(e.keyCode==13){
+                $("#adm-pw").focus();
+            }
+        });
+
+        $("#adm-pw").on("keydown",function(e){
+            if(e.keyCode==13){
+                $("#submitBtn").click();
+            }
+        });
+
+        $("#submitBtn").on("click", function(e) {
+            e.preventDefault();
+
+            fLogin();
+        });
+
+        function fLogin() {
+            if($("#rememberMe").prop("checked")){
+                chkLogin = true;
+            }else{
+                chkLogin = false;
+            }
+
+            var id = $("#adm-id").val();
+            var pw = $("#adm-pw").val();
+
+            if (id == "" || pw == "") {
+                alert("아이디와 비밀번호를 입력하세요!");
+                return;
+            }
+                $.ajax({
+                    type : "POST",
+                    url : "/admin/login",
+                    contentType : "application/json",
+
+                    data : JSON.stringify({
+                        "memberId" : id,
+                        "memberPwd" : pw,
+                        "chkLogin": chkLogin
+                    }),
+                    success : function(data) {
+                        location.href="/admin/second-course";
+                    },
+                    error : function(xhr, status, error) {
+                        toastModal("로그인에 실패했습니다.\n아이디와 비밀번호를 확인해주세요.", 1000);
+                        console.log(error);
+                    }
+                });
+        }
+
+    </script>
+
+</div>
+
+</html>

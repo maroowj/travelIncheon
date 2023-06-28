@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/default_layout}"
+      xmlns:th="http://www.thymeleaf.org">
+
+<style layout:fragment="css"></style>
+
+<div layout:fragment="content">
+
+    <main role="main" class="main-content">
+
+        <script>
+            const main_menu = 5;
+        </script>
+
+        <!--컨텐츠 영역-->
+        <div class="contents admin">
+            <div class="admin-contents-title">
+                <h3 class="admin-title">배너 정보 및 수정</h3>
+            </div><!--admin-contents-title-->
+
+            <div class="courseAdd-wrap">
+                <div class="courseAdd-inner">
+                    <div class="course-thumImg-wrap">
+                        <img src="/images/admin/main_test.jpg" id="bannerImage" alt="메인 배너 이미지">
+                        <div class="img-button">
+                            <a class="img-add-btn cupoint" onclick="$('#imageFile').click();">배너 이미지 등록</a>
+                            <input type="file" class="d-none" id="imageFile" accept="image/*" />
+                            <p class="img-size ma-l-10px">※ 권장 이미지 사이즈 : 1920x820</p>
+                        </div>
+                        <br/>
+                        <img src="/images/admin/main_test.jpg" id="mobileBannerImage" alt="메인 배너 이미지">
+                        <div class="img-button">
+                            <a class="img-add-btn cupoint" onclick="$('#mobileImageFile').click();">모바일 이미지 등록</a>
+                            <input type="file" class="d-none" id="mobileImageFile" accept="image/*" />
+                            <p class="img-size ma-l-10px">※ 권장 이미지 사이즈 : 900x1100</p>
+                        </div>
+                    </div>
+
+                    <div class="courseAdd-text-wrap bannerAdd-wrap">
+                        <div class="courseText-list courseText-list2">
+                            <p class="title">제목</p>
+                            <div class="add-d-flex w100pro">
+                                <input type="text" class="w100pro" id="bannerTitle">
+                            </div>
+                        </div><!--courseText-list-->
+
+                        <div class="courseText-list courseText-list1">
+                            <p class="title">배너내용</p>
+                            <div class="add-d-flex">
+                                <textarea name="" cols="30" rows="10" id="bannerContents"></textarea>
+                            </div>
+                        </div><!--courseText-list-->
+
+                        <div class="courseText-list">
+                            <p class="title">제목 및 내용 색상</p>
+                            <ul class="radio-box">
+                                <li>
+                                    <input type="radio" id="white" value="#FFFFFF" name="color"><label for="white"><span>#FFFFFF</span></label>
+                                </li>
+                                <li>
+                                    <input type="radio" id="black" value="#333333" name="color"><label for="black"><span>#333333</span></label>
+                                </li>
+                            </ul>
+                        </div><!--courseText-list-->
+
+                        <div class="courseText-list courseText-list2">
+                            <p class="title">예약 링크 URL</p>
+                            <div class="add-d-flex w100pro">
+                                <!-- <div class="select-box">
+                                     <select name="" id="courseList">
+                                         <option class='courseOpt' value="" selected>직접입력</option>
+                                     </select>
+                                 </div>-->
+                                <input type="text" id="reservationUrl" class="w100pro" placeholder="예) http://travelincheon.com">
+                            </div>
+                        </div><!--courseText-list-->
+
+                        <div class="courseText-list courseText-list2">
+                            <p class="title">노출기간</p>
+                            <div class="add-d-flex">
+                                <input type="date" id="startDate">
+                                <span class="text">~</span>
+                                <input type="date" id="endDate">
+                                <select name="" id="bannerStatus" class="select-box">
+                                    <option value="true">노출</option>
+                                    <option value="false">미노출</option>
+                                </select>
+                            </div>
+                        </div><!--courseText-list-->
+
+
+                    </div><!--courseAdd-text-wrap-->
+
+                </div>
+
+                <div class="courseAdd-button">
+                    <a href="../banner" class="none-btn">목록</a>
+                    <a class="save-btn cupoint">배너 수정</a>
+                </div>
+            </div><!--courseAdd-wrap-->
+
+
+        </div><!--contents-->
+
+    </main>
+
+    <script th:inline="javascript">
+        let bannerSeq = [[${param.bannerSeq}]][0];
+        let originPcImgUrl;
+        let originMobileImgUrl;
+        let pcImg;
+        let mImg;
+
+        fnBannerDetail();
+        // fnFirstCourseList();
+
+        // 배너 상세 정보
+        function fnBannerDetail() {
+            $.ajax({
+                type:"get",
+                url:"/api/admin/banner/detail",
+                data: { "bannerSeq":bannerSeq },
+                async:false,
+                success:function(data){
+                    $("#bannerTitle").val(data.bannerTitle);
+                    $("#bannerContents").val(data.bannerContents);
+                    $("#reservationUrl").val(data.reservationUrl);
+                    $("input[name='color']").each(function(){
+                        if($(this).val()==data.bannerColor) {
+                            $(this).prop("checked", true);
+                        }
+                    });
+
+                    $("#startDate").val(data.startDate.substring(0, 10));
+                    $("#endDate").val(data.endDate.substring(0, 10));
+                    $("#bannerImage").attr("src", data.bannerUrl);
+                    originPcImgUrl = data.bannerUrl
+                    $("#mobileBannerImage").attr("src", data.mobileBannerUrl);
+                    originMobileImgUrl = data.mobileBannerUrl;
+                    let bannerStatus;
+                    if(data.bannerStatus==true){
+                        bannerStatus="true";
+                    }else{
+                        bannerStatus="false";
+                    }
+                    $("#bannerStatus").val(bannerStatus);
+                },
+                error:function () {
+                    console.log("ajax error (fnBannerDetail)");
+                }
+            })
+        }
+
+        // 1차코스 리스트
+        /*function fnFirstCourseList(){
+            $.ajax({
+                type:"get",
+                url:"/api/admin/course/first/list",
+                data:{},
+                async:false,
+                success:function(data) {
+                    let result = data.content;
+
+                    let host = window.location.host
+
+                    result.forEach(function(arg){
+                        let url = "http://"+host+"/first-course?firstCourseSeq="+arg.firstCourseSeq;
+                        let opt = "<option class='courseOpt' value='"+url+"'>"+arg.firstCourseTitle+"</option>";
+
+                        $("#courseList").append(opt);
+                    });
+
+                    $(".courseOpt").each(function(){
+                       if($(this).val()==$("#reservationUrl").val()){
+                           $("#courseList").val($("#reservationUrl").val());
+                           return false;
+                       }
+                    });
+                }
+            });
+        }*/
+
+        $("#courseList").on("change", function (){
+           let url = $(this).val()
+           $("#reservationUrl").val(url);
+        });
+
+        // 이미지 변경 시 미리보기
+        $("#imageFile").on("change", function() {
+            pcImg = $("#imageFile")[0].files[0];
+            let files=$("#imageFile")[0].files;
+            if(files.length>0) {
+                let url=URL.createObjectURL(pcImg);
+                $("#bannerImage").attr("src", url);
+            }else {
+                $("#bannerImage").attr("src", originPcImgUrl);
+            }
+        });
+
+        // 모바일 이미지 변경 시 미리보기
+        $("#mobileImageFile").on("change", function() {
+            mImg = $("#mobileImageFile")[0].files[0];
+            let files=$("#mobileImageFile")[0].files;
+            if(files.length>0) {
+                let url=URL.createObjectURL(mImg);
+                $("#mobileBannerImage").attr("src", url);
+            }else {
+                $("#mobileBannerImage").attr("src", originMobileImgUrl);
+            }
+        });
+
+        // 배너 수정
+        $(".save-btn").on("click", function(e){
+            e.preventDefault();
+
+            let formData = new FormData();
+
+            let bannerTitle=$("#bannerTitle").val();
+            let bannerContents=$("#bannerContents").val();
+            let bannerColor=$("input[name='color']:checked").val();
+            let reservationUrl=$("#reservationUrl").val();
+            let startDate=$("#startDate").val() + " 00:00:00";
+            let endDate=$("#endDate").val() + " 23:59:59";
+
+            if(pcImg!=null && pcImg!= undefined) {
+                formData.append("bannerImage", pcImg);
+            }
+
+            if(mImg!=null && mImg!= undefined) {
+                formData.append("mobileBannerImage", mImg);
+            }
+
+            if(bannerTitle=="") {
+                toastModal("제목을 입력해주세요");
+                return;
+            }else if(bannerContents=="") {
+                toastModal("배너내용을 입력해주세요");
+                return;
+            }else if(bannerColor==null || bannerColor==undefined) {
+                toastModal("제목 및 내용 색상을 선택해주세요")
+                return;
+            }else if(reservationUrl=="") {
+                toastModal("URL을 입력해주세요")
+                return;
+            }else if(startDate=="") {
+                toastModal("노출 시작일을 선택해주세요")
+                return;
+            }else if(endDate=="") {
+                toastModal("노출 종료일을 선택해주세요")
+                return;
+            }
+
+            formData.append("bannerTitle", bannerTitle);
+            formData.append("bannerContents", bannerContents);
+            formData.append("bannerColor", bannerColor);
+            formData.append("reservationUrl", reservationUrl);
+            formData.append("startDate", startDate);
+            formData.append("endDate", endDate);
+            formData.append("bannerSeq", bannerSeq);
+            formData.append("bannerStatus", $("#bannerStatus").val());
+
+            $.ajax({
+                type:"post",
+                url:"/api/admin/banner/update",
+                data: formData,
+                processData: false,
+                contentType: false,
+                success:function (data) {
+                    toastModal("배너 정보가 수정되었습니다.");
+                    setTimeout(() => location.href="/admin/banner", 1000);
+                },
+                error:function() {
+                    toastModal("이미지 파일 용량이 10MB를 초과하여 업로드 할 수 없습니다.");
+                    console.log("ajax error (bannerUpdate)");
+                }
+            });
+
+        });
+    </script>
+
+</div>
+</html>

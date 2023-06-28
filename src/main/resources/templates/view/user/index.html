@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/default_layout_user}"
+      xmlns:th="http://www.thymeleaf.org">
+
+<style layout:fragment="css">
+    input::-webkit-inner-spin-button { appearance: none; -moz-appearance: none; -webkit-appearance: none; }
+</style>
+
+<!-- default_layout_user.html 에 정의한 main page 부분 -->
+<div layout:fragment="content">
+    <main role="main" class="main-content">
+        <script>
+            /*const main_menu = 1;*/
+        </script>
+
+        <!--메인배너 START-->
+
+        <banner id="mainBanner">
+            <div class="mainBanner-wrap swiper mySwiper">
+                <ul class="mainBanner swiper-wrapper"></ul>
+                <div class="swiper-pagination "></div>
+            </div>
+        </banner>
+
+        <!--메인배너 END-->
+
+        <div class="auto">
+            <div id="firstList" class="tripList01 tripList">
+                <h3 class="nanumS"><span style="font-size:38px;">견학 코스</span></h3>
+                <h4 class="nanumS"><span class="blue">3곳 중에 한 곳을 선택하세요. (필수)</span></h4>
+                <ul class="list-wrap">
+
+                    <li id="first0" class="first" onclick="goDetail($(this));">
+                        <a class="cupoint">
+                            <div class="img"><img class="thumbnailImage" src="/images/admin/test_1.jpg" alt="견학시설 1"></div>
+                            <div class="text-box">
+                                <p class="title nanumS firstCourseTitle"></p>
+                                <ul class="text">
+                                    <li>
+                                        <p class="list-title">소요시간</p>
+                                        <p class="info-text runningTime"></p>
+                                    </li>
+                                    <li>
+                                        <p class="list-title gap">
+                                            코<span>&nbsp;</span>스</p>
+                                        <p class="info-text info-text2 courseDetail"></p>
+                                    </li>
+                                    <li>
+                                        <p class="list-title gap">
+                                            주<span>&nbsp;</span>소</p>
+                                        <p class="info-text address"></p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </a>
+                    </li>
+                    <!--list01 END-->
+
+                </ul>
+            </div>
+
+            <div id="secondList" class="tripList02 tripList">
+                <h3 class="nanumS"><span style="font-size:38px;">체험 코스</span></h3>
+                <h4 class="nanumS"><span class="blue">내가 만드는 체험 코스! 원하는 체험을 선택하세요. (선택)</span></h4>
+                <div id="categoryList">
+                    <div class="nanumS cate" sel="1">전체</div>
+                </div>
+
+                <ul class="list-wrap">
+
+                    <li id="second0" class="second" onclick="goDetail($(this));">
+                        <a class="cupoint">
+                            <div class="img"><img class="thumbnailImage" src="/images/admin/test_1.jpg" alt="견학시설 1"></div>
+                            <div class="text-box">
+                                <p class="title nanumS secondCourseTitle"></p>
+                                <ul class="text">
+                                    <li>
+                                        <p class="list-title">소요기간</p>
+                                        <p class="info-text runningTime"></p>
+                                    </li>
+                                    <li>
+                                        <p class="list-title">체험비용</p>
+                                        <p class="info-text cost"></p>
+                                    </li>
+                                    <li>
+                                        <p class="list-title gap">
+                                            체험내용</p>
+                                        <p class="info-text info-text2 course"></p>
+                                    </li>
+                                    <li>
+                                        <p class="list-title gap">
+                                            주<span>&nbsp;</span>소</p>
+                                        <p class="info-text address"></p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <!--html END-->
+
+
+        <!--script START-->
+        <script>
+            let category="";
+            let mainAddress;
+            let subAddress;
+            let termsCheck;
+
+            let swiper = new Swiper(".mySwiper", {
+                loop : true,
+                autoplay : {
+                    delay : 3000,
+                    disableOnInteraction : true,
+                },
+                speed: 1500,
+                pagination: {
+                    el: ".swiper-pagination",
+                },
+            });
+
+            $(".mySwiper").each(function(elem, target){
+                var swp = target.swiper;
+                $(this).hover(function() {
+                    swp.autoplay.stop();
+                }, function() {
+                    swp.autoplay.start();
+                });
+            });
+
+            $(function(){
+                getBannerList();
+                getAllCourseList();
+                getCategory();
+
+                $("#currentDate").val(""); $("#currentDate2").val("");
+                $("input[type=number], input[type=radio], input[type=text], .visitGroup, .check option, textarea").prop("disabled", true);
+                $(".reservation-btn").addClass("disabled");
+            });
+
+            selectCategory();
+
+            // 배너리스트 불러오기
+            function getBannerList(){
+                $.ajax({
+                    type: "GET",
+                    url: "/api/user/banner/list",
+                    success: function(data){
+                        // console.log(data);
+                        let bannerDiv = [];
+
+                        if( data.length != 0 ) {
+                            for( let i=0; i<data.length; i++ ) {
+                                bannerDiv.push(
+                                    "<li id='banner"+(i+1)+"' class='swiper-slide banner-text-w'>" +
+                                    "<a>" +
+                                    "<img src='"+data[i].bannerImage.url+"' class='bannerImage' alt='메인배너'>" +
+                                    "<div class='mbanner-text-wrap'>" +
+                                    "<p class='title nanumS bannerTitle' style='word-break: keep-all;'>"+data[i].bannerTitle+"</p>" +
+                                    "<p class='text bannerContents'>"+data[i].bannerContents.replace(/(?:\r\n|\r|\n)/g, '<br />')+"</p>" +
+                                    "<div class='banner-btn'>" +
+                                    "<button class='reserve-btn goReservation'"+">예약 바로가기</button>" +
+                                    // "<button class='view-btn' onclick="+"location.href='"+data[i].reservationUrl+"'>상세보기</button>" +
+                                    "</div>" +
+                                    "</div>" +
+                                    "</a></li>"
+                                );
+                            }
+                            swiper.appendSlide(bannerDiv);
+                            swiper.update();
+
+                            for( let i=0; i<data.length; i++ ) {
+                                $("#banner"+(i+1)+" .bannerTitle").css("color", data[i].bannerColor);
+                                $("#banner"+(i+1)+" .bannerContents").css("color", data[i].bannerColor);
+                                $("#banner"+(i+1)+" .view-btn").css("color", data[i].bannerColor);
+                            }
+                        }
+                    }
+                });
+            }
+
+            // 메인배너-예약하러가기 클릭 시
+            $("#mainBanner").on("click", ".goReservation", function(){
+                if (matchMedia("screen and (max-width: 768px)").matches) {
+                    $('.m-modal').css('display','block');
+                } else {
+                    $('.pc-modal').css('display','block');
+                }
+            });
+
+            // 전체코스리스트 불러오기
+            function getAllCourseList(category){
+                $("#firstList .list-wrap").html(tmpFirstWrap);
+                $("#secondList .list-wrap").html(tmpSecondWrap);
+
+                $.ajax({
+                    type: "GET",
+                    url: "/api/user/course/list",
+                    data:{
+                        "category":category,
+                        "mainAddress":mainAddress,
+                        "subAddress":subAddress
+                    },
+                    success: function(data){
+                        //console.log(data);
+                        let first=data.firstCourseList;
+                        let second=data.secondCoursesList;
+
+                        let firstDiv;
+                        let secondDiv;
+
+                        if( first.length != 0 ){
+                            $("#firstList .first:first").show();
+                            //for(let i=0; i<first.length; i++){
+                            if(first[0].thumbnailImage != null) $("#firstList .first:first").find(".thumbnailImage").attr("src", first[0].thumbnailImage.url);
+                            else $("#firstList .first:first").find(".thumbnailImage").attr("src", "/images/admin/test_1.jpg");
+
+                            $("#firstList .first:first").attr("seq", first[0].firstCourseSeq);
+                            $("#firstList .first:first").find(".firstCourseTitle").text(first[0].firstCourseTitle);
+                            $("#firstList .first:first").find(".address").text(first[0].address);
+                            $("#firstList .first:first").find(".courseDetail").text(first[0].courseDetail);
+                            $("#firstList .first:first").find(".runningTime").text(first[0].runningTime+"분");
+
+                            for(let i=1; i<first.length; i++){
+                                firstDiv=$("#firstList .first:first").clone();
+                                firstDiv.attr("id", "first"+(i));
+                                $("#firstList .list-wrap").append(firstDiv);
+
+                                if(first[i].thumbnailImage != null) $("#first"+(i)).find(".thumbnailImage").attr("src", first[i].thumbnailImage.url);
+                                else $("#first"+(i)).find(".thumbnailImage").attr("src", "/images/admin/test_1.jpg");
+
+                                $("#first"+(i)).attr("seq", first[i].firstCourseSeq);
+                                $("#first"+(i)).find(".firstCourseTitle").text(first[i].firstCourseTitle);
+                                $("#first"+(i)).find(".courseDetail").text(first[i].courseDetail);
+                                $("#first"+(i)).find(".runningTime").text(first[i].runningTime+"분");
+                                $("#first"+(i)).find(".address").text(first[i].address);
+                            }
+                            //}
+                        }else{
+                            if($("#firstList .first").length == 1) $("#firstList .first:first").hide();
+                        }
+
+                        if( second.length != 0 ){
+                            $("#secondList .second:first").show();
+                            //for(let i=0; i<second.length; i++){
+                                //if( i==0 ){
+                            if(second[0].thumbnailImage != null) $("#secondList .second:first").find(".thumbnailImage").attr("src", second[0].thumbnailImage.url);
+                            else $("#secondList .second:first").find(".thumbnailImage").attr("src", "/images/admin/test_1.jpg");
+
+                            $("#secondList .second:first").attr("seq", second[0].secondCourseSeq);
+                            $("#secondList .second:first").find(".secondCourseTitle").text(second[0].secondCourseTitle);
+                            $("#secondList .second:first").find(".cost").text(fcomma(second[0].cost)+"원");
+                            $("#secondList .second:first").find(".course").text(second[0].course);
+                            $("#secondList .second:first").find(".runningTime").text(second[0].runningTime+"분");
+                            $("#secondList .second:first").find(".address").text(second[0].address);
+
+                            for(let i=1; i<second.length; i++){
+                                secondDiv=$("#secondList .second:first").clone();
+                                secondDiv.attr("id", "second"+(i));
+                                $("#secondList .list-wrap").append(secondDiv);
+
+                                if(second[i].thumbnailImage != null) $("#second"+(i)).find(".thumbnailImage").attr("src", second[i].thumbnailImage.url);
+                                else $("#second"+(i)).find(".thumbnailImage").attr("src", "/images/admin/test_1.jpg");
+
+                                $("#second"+(i)).attr("seq", second[i].secondCourseSeq);
+                                $("#second"+(i)).find(".secondCourseTitle").text(second[i].secondCourseTitle);
+                                $("#second"+(i)).find(".address").text(second[i].address);
+                                $("#second"+(i)).find(".cost").text(fcomma(second[i].cost)+"원");
+                                $("#second"+(i)).find(".course").text(second[i].course);
+                                $("#second"+(i)).find(".runningTime").text(second[i].runningTime+"분");
+                            }
+                            //}
+                        }else{
+                            if($("#secondList .second").length == 1) $("#secondList .second:first").hide();
+                        }
+                    }
+                });
+            }
+
+            // 페이지 이동
+            function goDetail(course){
+                if( course[0].className == "first" ){
+                    let first = course.attr("seq");
+                    location.href="/first-course?firstCourseSeq="+first;
+                }else{
+                    let second = course.attr("seq");
+                    location.href="/second-course?secondCourseSeq="+second;
+                }
+            }
+
+            // 카테고리 목록 가져오기
+            function getCategory() {
+                $.ajax({
+                    type:"get",
+                    url:"/api/user/course/category",
+                    data:{},
+                    success:function(data) {
+                        // console.log(data);
+                        data.forEach(function(arg){
+                           let tmpCategory = "<div class='nanumS cate' sel='0'>"+ arg.category +"</div>";
+                           $("#categoryList").append("<div class='nanumS cate' sel='0'>"+ arg.category +"</div>");
+                        });
+                        $("#categoryList").append("<div class='nanumS cate' sel='0' style='visibility: hidden'>none</div>");
+                    },
+                    error:function() {
+                       console.log("ajax error (getCategory)");
+                    }
+                });
+            }
+
+            $("#categoryList").on("click", ".cate" ,function(){
+                $("#categoryList .cate").attr("sel", "0");
+                $(this).attr("sel", "1");
+                selectCategory();
+                getAllCourseList(category);
+            });
+
+            // $(".cate").on("click", function(){
+            //     alert("aa");
+            //     $(".cate").attr("sel", "0");
+            //     $(this).attr("sel", "1");
+            //     selectCategory();
+            // });
+
+            function selectCategory(){
+                $(".cate").each(function(){
+                   let sel = $(this).attr("sel");
+                   if(sel=="1") {
+                       $(this).css("background", "#2969b0");
+                       $(this).css("color", "#fff");
+                       $(this).css("font-weight", "bold");
+                       category=$(this).html();
+                       if(category=="전체") {
+                           category="";
+                       }
+                   }else{
+                       $(this).css("background", "#fff");
+                       $(this).css("color", "#000");
+                       $(this).css("font-weight", "");
+                   }
+                });
+            }
+
+            let tmpFirstWrap =" <li id=\"first0\" class=\"first\" onclick=\"goDetail($(this));\">\n" +
+                "                        <a class=\"cupoint\">\n" +
+                "                            <div class=\"img\"><img class=\"thumbnailImage\" src=\"/images/admin/test_1.jpg\" alt=\"견학시설 1\"></div>\n" +
+                "                            <div class=\"text-box\">\n" +
+                "                                <p class=\"title nanumS firstCourseTitle\"></p>\n" +
+                "                                <ul class=\"text\">\n" +
+                "                                    <li>\n" +
+                "                                        <p class=\"list-title\">소요시간</p>\n" +
+                "                                        <p class=\"info-text runningTime\"></p>\n" +
+                "                                    </li>\n" +
+                "                                    <li>\n" +
+                "                                        <p class=\"list-title gap\">\n" +
+                "                                            코<span>&nbsp;</span>스</p>\n" +
+                "                                        <p class=\"info-text info-text2 courseDetail\"></p>\n" +
+                "                                    </li>\n" +
+                "                                    <li>\n" +
+                "                                        <p class=\"list-title gap\">\n" +
+                "                                            주<span>&nbsp;</span>소</p>\n" +
+                "                                        <p class=\"info-text address\"></p>\n" +
+                "                                    </li>\n" +
+                "                                </ul>\n" +
+                "                            </div>\n" +
+                "                        </a>\n" +
+                "                    </li>";
+
+            let tmpSecondWrap =" <li id=\"second0\" class=\"second\" onclick=\"goDetail($(this));\">\n" +
+                "                        <a class=\"cupoint\">\n" +
+                "                            <div class=\"img\"><img class=\"thumbnailImage\" src=\"/images/admin/test_1.jpg\" alt=\"견학시설 1\"></div>\n" +
+                "                            <div class=\"text-box\">\n" +
+                "                                <p class=\"title nanumS secondCourseTitle\"></p>\n" +
+                "                                <ul class=\"text\">\n" +
+                "                                    <li>\n" +
+                "                                        <p class=\"list-title\">소요기간</p>\n" +
+                "                                        <p class=\"info-text runningTime\"></p>\n" +
+                "                                    </li>\n" +
+                "                                    <li>\n" +
+                "                                        <p class=\"list-title\">체험비용</p>\n" +
+                "                                        <p class=\"info-text cost\"></p>\n" +
+                "                                    </li>\n" +
+                "                                    <li>\n" +
+                "                                        <p class=\"list-title gap\">\n" +
+                "                                            체험내용</p>\n" +
+                "                                        <p class=\"info-text info-text2 course\"></p>\n" +
+                "                                    </li>\n" +
+                "                                    <li>\n" +
+                "                                        <p class=\"list-title gap\">\n" +
+                "                                            주<span>&nbsp;</span>소</p>\n" +
+                "                                        <p class=\"info-text address\"></p>\n" +
+                "                                    </li>\n" +
+                "                                </ul>\n" +
+                "                            </div>\n" +
+                "                        </a>";
+
+
+            /*function fnMove() {
+                let offset = $("#firstList").offset();
+                $('html, body').animate({scrollTop : offset.top-110}, 400);
+            }*/
+        </script>
+    </main>
+</div>
+</html>

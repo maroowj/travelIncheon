@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/renew/layout}"
+      xmlns:th="http://www.thymeleaf.org">
+
+<style layout:fragment="css">
+    a.disabled {
+        pointer-events: none;
+        cursor: default;
+    }
+
+    input::-webkit-inner-spin-button {
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+    }
+</style>
+
+<!-- default_layout_user.html 에 정의한 main page 부분 -->
+<div layout:fragment="content">
+    <link rel="stylesheet" type="text/css" href="/css/user.css?ver=20230130_01">
+    <link rel="stylesheet" type="text/css" href="/css/responsive.css?ver=20230130_01">
+    <main role="main" class="main-content">
+        <script>
+            /*const main_menu = 1;*/
+        </script>
+
+        <!--html START-->
+
+        <div id="trip-simple-wrap" class="trip-simple-wrap">
+            <div class="auto trip-detail-inner">
+                <div class="img"><img class="thumbnailImage" alt="이미지"></div>
+                <div class="simple-text-wrap">
+                    <p class="title nanumS secondCourseTitle"></p>
+                    <ul>
+                        <li><span class="list-title">소요시간</span><span class="text runningTime"></span></li>
+                        <li><span class="list-title">체험비용</span><span class="text cost"></span></li>
+                        <li><span class="list-title">코<span class="gap">&nbsp;</span>스</span><span
+                                class="text course"></span></li>
+                    </ul>
+                    <div class="detail-btn">
+                        <a href="/vr" class="list-btn white-btn" style="background: #fff; border: 1px solid #d7d7d7; color: #666;">목록으로</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="trip1-preview-wrap auto" id="wrapFirstCoursePreview">
+            <div class="auto detail-img-wrap description" style="margin-top: 30px;">
+                <iframe id="iframe" src="https://my.matterport.com/show/?m=cDqsr6XiMyU" frameborder="0" allowfullscreen="" allow="xr-spatial-tracking" width="853" height="480" class="iframeArea d-none" style="width: 100%; position: relative; max-width: 853px;"></iframe>
+            </div>
+        </div>
+    </main>
+
+
+    <!--script START-->
+    <script>
+        let secondCourseSeq = "scnd_" + window.location.pathname.split('/')[2];
+        let termsCheck;
+        let cost;
+
+        $(function () {
+            getSecondRead();
+        });
+
+        // 상세페이지 - 2차 정보 불러오기
+        function getSecondRead() {
+            $.ajax({
+                type: "GET",
+                url: "/api/user/course/second/detail",
+                data: {"secondCourseSeq": secondCourseSeq},
+                success: function (data) {
+                    // console.log(data);
+
+                    if (data.thumbnailImage != null && data.thumbnailImage.url != null) {
+                        $("#trip-simple-wrap .thumbnailImage").attr("src", data.thumbnailImage.url);
+                    } else {
+                        $("#trip-simple-wrap .thumbnailImage").attr("src", "/images/admin/test_3.jpg");
+                    }
+                    $("#trip-simple-wrap .secondCourseTitle").text(data.secondCourseTitle);
+                    $("#trip-simple-wrap .runningTime").text(data.runningTime + "분 소요");
+                    $("#trip-simple-wrap .course").text(data.course);
+                    $("#trip-simple-wrap .cost").text(fcomma(parseInt(data.cost)) + "원");
+
+                    if (data.descriptionImage != null) {
+                        let tmpStr = data.descriptionImage;
+                        tmpStr = tmpStr.replaceAll("&lt;", "<");
+                        tmpStr = tmpStr.replaceAll("&gt;", ">");
+                        tmpStr = tmpStr.replaceAll("&amp;lt;", "<");
+                        tmpStr = tmpStr.replaceAll("&amp;gt;", "<");
+                        tmpStr = tmpStr.replaceAll("&amp;nbsp;", " ");
+                        tmpStr = tmpStr.replaceAll("&amp;amp;", "&");
+                        $(".description").append(tmpStr);
+                    }
+                    if(data.videoUrl!=null && data.videoUrl!="") {
+                        $("#iframe").removeClass("d-none");
+                        $("#iframe").attr("src", data.videoUrl);
+                    }
+                },
+                error: function (request, status, error) {
+                    alert("잘못된 접근입니다.");
+                    history.back();
+                    console.log(request.status + ' ' + error.statusText + ' ' + request.responseText);
+                }
+            });
+        }
+
+    </script>
+</div>
+</html>

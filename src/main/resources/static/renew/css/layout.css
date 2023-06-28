@@ -1,0 +1,250 @@
+
+html {width: 100%; min-height: 100%;overflow-x: hidden; overflow-y: auto; font-size: 16px;}
+body {font-size:16px; font-family:'Noto Sans KR', sans-serif;; color:#666; position: relative;height: 100%; min-height:100%;font-weight: 500;overflow-x: hidden; box-sizing: border-box;}
+.clear:after {content:''; display:block; clear:both;}
+label{outline: none; cursor: pointer}
+
+/*color*/
+a{color:#666; box-sizing:border-box;}
+a:focus, a:hover{text-decoration: none;}
+
+.blue{color: #2e3192;}
+.skyblue{color: #00b9f4 !important;}
+.black{color: #303030 !important;}
+.red{color: #dd3413 !important;}
+
+/*버튼 공통사항*/
+.comm-btn{height:50px; display:flex; justify-content: center; align-items: center; border:1px solid #d7d7d7; border-radius: 5px; color: #666; font-size: 16px;}
+.comm-btn i{color:#aaa;}
+.comm-btn-bg:hover, .comm-btn-bg.actived{background:#2e3192; color:#fff; border:0;}
+.comm-btn-bg:hover i, .comm-btn-bg.actived i{color:#fff;}
+.comm-btn-line:hover , .comm-btn-line.actived{border:1px solid #2e3192; color:#2e3192;}
+.comm-btn-line:hover i , .comm-btn-line.actived i{color:#2e3192;}
+
+.comm-btn i{color:#aaa;}
+
+.page-btn{display:flex; justify-content: center; align-items: center;}
+.page-btn a{width: 260px;}
+.page-btn2{display:flex; justify-content: space-between; align-items: center;}
+.page-btn2 a{width: calc(50% - 5px);}
+
+.white-btn{background: #fff; border:1px solid #d7d7d7; color: #666;}
+.skyblue-btn{background: #00b9f4; color:#fff; border:1px solid #00b9f4;}
+.blue-btn{background: #2e3192 ; border:1px solid #2e3192 ; color: #fff ;}
+.black-btn{background: #303030 ; border:1px solid #303030 ; color: #fff ;}
+.gray-btn{background: #f5f5f5 !important; border:1px solid #d7d7d7 !important; color: #666 !important;}
+.grey-btn{background: #f5f5f5 !important; border:1px solid #d7d7d7 !important; color: #525252 !important;}
+.bold{font-weight: 600 !important;}
+
+/*scroll 스타일*/
+.scroll-style::-webkit-scrollbar{width: 10px;}
+.scroll-style::-webkit-scrollbar-track{background: #e0e0e0;}
+.scroll-style::-webkit-scrollbar-thumb{background: #ccc;}
+
+
+
+/*input 공통사항*/
+input{height: 45px; border:1px solid #d7d7d7; border-radius: 5px; padding:0 10px; color:#666; font-size: 15px;}
+input::placeholder{color:#aaa;}
+input:read-only { background-color: #f5f5f5;}
+
+textarea{border:1px solid #d7d7d7; resize: none; width: 100%; border-radius: 5px; box-sizing: border-box; padding:10px;}
+textarea::placeholder{color:#aaa;}
+
+/*
+input[type="password"]{font-family:"Noto Sans Kr";}
+input[type="password"]::placeholder { font-family: 'roboto', sans-serif;  opacity: 1; }  
+*/
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+input[type="date"]{position:relative; border:1px solid #d7d7d7;}
+input[type="date"]::-webkit-calendar-picker-indicator { 
+    background: transparent;
+    z-index: 1;
+    width: 30px;
+    height: 100%;
+    
+}
+
+input[type="date"]:after{position:absolute; top:50%; right:10px; content:'\f133'; font-family: "Font Awesome 6 Pro"; font-weight: 400; color: #aaa; font-size: 16px; z-index: 0; transform: translateY(-50%);}
+
+
+
+/*체크박스*/
+.checkBox label{cursor: pointer; display:flex; justify-content: flex-start; align-items: center;}
+
+input[type="checkbox"]{width: 16px; height: 16px; border:1px solid #d7d7d7; border-radius: 3px; appearance:none; cursor: pointer; margin-right: 5px; background: #fff;}
+input[type="checkbox"]:checked{background:#2e3192; border:1px solid #2e3192; position:relative;}
+input[type="checkbox"]:checked:before{content:'\f00c'; color:#fff; text-align: center; font-size: 9px; position:absolute; top:50%; left:50%; transform: translate(-50%, -50%); font-family:"Font Awesome 6 Pro"; font-weight: 900;}
+
+/*라디오박스*/
+input[type="radio"]{width: 16px;height: 16px; border:1px solid #d7d7d7; appearance:none; cursor:pointer; margin-right: 5px; border-radius: 50%; margin-bottom: -1px; background: #fff;}
+input[type="radio"]:checked{border:1px solid #2e3192; position:relative;}
+input[type="radio"]:checked:before{content:''; display:flex; justify-content: center; align-items: center; width: 8px;height: 8px; border-radius: 50%; background: #2e3192; position:absolute; top:50%; left:50%; transform: translate(-50%,-50%);}
+
+/*스위치*/
+.switch-label {position: relative; display: inline-block; width: 34px; height: 20px;margin-left: 5px;}
+.switch-label input {opacity: 0; width: 0; height: 0;}
+.onf-btn {position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; border-radius:20px; background-color: #d7d7d7; -webkit-transition: .4s; transition: .4s;}
+.onf-btn:before { position: absolute; content: ""; height: 14px; width: 14px; left: 3px; bottom: 3px; background-color: #fff; -webkit-transition: .5s; transition: .4s; border-radius:20px; }
+.switch-label input:checked + .onf-btn { background-color: #d8a31e; }
+.switch-label input:checked + .onf-btn:before { -webkit-transform: translateX(14px); -ms-transform: translateX(14px); transform: translateX(14px); }
+
+
+/*검색*/
+.searchBox{position:relative;}
+.searchBox:after{content:'\f002'; font-family: "Font Awesome 6 Pro"; font-weight: 900; font-size: 16px; color: #aaa; width: 40px; height: 100%; position:absolute; top:0;right:0; display:flex; justify-content: center; align-items: center;}
+.searchBox input{width: 100%; padding-right: 40px;}
+
+
+
+/*select 공통사항*/
+
+
+select{height:40px; border:1px solid #d7d7d7; border-radius: 5px; padding: 10px; outline: none; appearance:none; background: url(../images/select_icon.png) no-repeat 90% 50%; background-size:10px; cursor: pointer; font-size: 15px;}
+
+
+
+
+/*selectBox 컨텐츠 셀렉트 박스*/
+.selectBox{position:relative; height:45px; line-height: 44px; border-radius: 5px; border:1px solid #d7d7d7; cursor: pointer; display: inline-block; vertical-align: bottom; text-align: left; background: #fff;}
+
+.selectBox .label {display:flex; align-items: center; width: inherit; height:inherit;  background: transparent; cursor: pointer; color:#666; width: 100%; font-size: 15px;font-weight: 400; padding:0 30px 0 10px; }
+.selectBox .label:after{content:'\f0d7'; font-weight: 900; font-size: 14px; color: #666; font-family: "Font Awesome 6 Pro"; position:absolute; top:35%; right:0; width: 0; height: 0; margin-right: 20px;}
+
+.selectBox .optionList{position:absolute; top:45px; left:-1px; width:calc(100% + 2px); background:#fff; color:#666; border-radius: 5px; overflow: hidden;  border:1px solid #d7d7d7; box-sizing: border-box; display:none; z-index: 999;}
+
+.selectBox.active .optionList {display:block; max-height:130px; overflow-y: auto;}
+.selectBox.active .optionList::-webkit-scrollbar{width: 8px;}
+.selectBox.active .optionList::-webkit-scrollbar-track{background: #e0e0e0;}
+.selectBox.active .optionList::-webkit-scrollbar-thumb{ width: 8px; background: #ccc; box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);}
+.selectBox .optionItem { border-bottom: 1px solid #d7d7d7; padding: 0 10px;  font-size: 15px;}
+
+.selectBox .optionItem:hover {background: #2e3192; color: #fff;}
+
+.selectBox .optionItem:last-child {
+    border-bottom: 0 none;}
+
+
+
+.sel-w120px{width: 120px;}
+.sel-w160px{width: 160px;}
+.sel-w180px{width: 180px;}
+.sel-w200px{width: 200px;}
+.sel-w240px{width: 240px;}
+.sel-w360px{width: 360px;}
+.sel-w70pro{width: 70%;}
+.sel-w100pro{width: 100%;}
+
+
+
+/*table 공통사항*/
+
+
+.page-tableBox{border-bottom:1px solid #d7d7d7;  border-top: 2px solid #2e3192;}
+.page-table1{width: 100%; table-layout: fixed;}
+.page-table1 tr{transform: inherit !important;}
+.page-table1 tr th{display:table-cell; vertical-align:middle; padding: 10px; background: #f4f4f9; border-bottom: 1px solid #d7d7d7; height: 40px; color: #666; font-size: 15px; }
+.page-table1 tr th p{font-size: 15px;  cursor: pointer; display:inline-block;}
+
+.page-table1 tr th p:after{content:'\f0dd';display:inline-block; margin-left: 5px; font-family: "Font Awesome 6 Pro"; font-weight: 900; font-size: 14px; color: #666; margin-top: -10px; vertical-align: middle;}
+.page-table1 tr th p.actived:after{content:'\f0de'; margin-top: 0; margin-bottom: -5px;}
+.page-table1 tr td{display:table-cell; vertical-align:middle; padding:10px; font-size: 15px; border-bottom: 1px solid #d7d7d7; line-height: 1.3; height: 50px; text-align: center;}
+.page-table1 tr td p{font-size: 15px;}
+
+.page-table1 tr:last-child td{border-bottom: 0;}
+
+
+
+.page-table2{width: 100%; table-layout: fixed;}
+.page-table2 tr th{display:table-cell; vertical-align:middle; padding: 10px; background: #f4f4f9; border-bottom: 1px solid #d7d7d7; border-right:1px solid #d7d7d7; height: 50px; color: #303030; font-size: 15px; font-weight: 500; }
+.page-table2 tr td{display:table-cell; vertical-align:middle; padding:10px 20px; font-size: 15px; border-bottom: 1px solid #d7d7d7; border-right:1px solid #d7d7d7; line-height: 1.3; height: 50px; text-align: left; word-break: break-all; }
+.page-table2 tr td p{font-size: 15px; line-height: 1.3;}
+.page-table2 tr td input[type="text"]{width: 100%; font-size: 15px;}
+.page-table2 tr td input[type="number"]{width: 100%; font-size: 15px;}
+
+.page-table2 tr td:last-child{border-right: 0;}
+.page-table2 tr:last-child th{border-bottom:0;}
+.page-table2 tr:last-child td{border-bottom:0;}
+
+.input-table tr td{padding: 5px 10px;}
+.input-table tr td .selectBox{height: 40px; line-height: 39px;}
+.input-table tr td .selectBox button{font-size: 15px;}
+.input-table tr td .selectBox .optionList{top:41px}
+.input-table tr td textarea{font-size: 15px; padding: 10px; font-size: 15px; }
+.input-table tr td textarea::-webkit-scrollbar{width: 10px;}
+.input-table tr td textarea::-webkit-scrollbar-track{background: #e0e0e0;}
+.input-table tr td textarea::-webkit-scrollbar-thumb{background: #ccc;}
+
+
+.table-hover tbody tr td{cursor:pointer;}
+.table-hover tbody tr:hover td, .table-hover tbody tr.actived td{background:#f4f4f9; }
+
+
+
+
+/*datepicker*/
+.datepicker--nav-title{font-size: 14px; font-family: 'roboto'; font-weight: 500; color: #666;}
+.datepicker--cell-day{font-size: 14px; color: #808080; font-family: 'roboto'; font-size: 13px; font-weight: 500;}
+.datepicker--cell-day:hover{background: #f4f4f9;}
+.datepicker--cell.-current-{color: #2e3192;}
+.datepicker--cell.-current-:hover{color: #2e3192; background: #f4f4f9; }
+.datepicker--day-name{color: #00b9f4; font-weight: 500;}
+.datepicker--cell-month{font-family: 'roboto'; font-size: 15px; color: #666; font-weight: 500;}
+
+.datepicker--cell.-selected-, .datepicker--cell.-selected-.-current-{background: #2e3192;}
+.datepicker--cell.-selected-:hover, .datepicker--cell.-selected-.-current-:hover{background: #2e3192;}
+
+.datepickerWrap{position:relative;}
+.datepickerWrap:after{content:'\f133'; display:block; font-family: "Font Awesome 6 Pro"; font-weight: 400; font-size: 17px; color: #aaa; position:absolute; top:50%; right:10px; transform: translateY(-50%); z-index: 0;}
+.datepickerWrap input{padding-right: 30px; /*background: transparent;*/ cursor: pointer;}
+
+
+
+/*paging*/
+.paging{display: flex; justify-content: center; align-items: center; margin-top: 60px;}
+.paging .page-arrow{font-size: 0; width: 35px; height: 35px; border-radius: 3px; background: #fff; display:flex; justify-content: center; align-items: center;  border:1px solid #d7d7d7;}
+.paging .page-arrow:before{display:block; color:#aaa; font-family: "Font Awesome 6 Pro"; font-weight: 900; font-size: 12px; margin-bottom:-1px;}
+.paging .page-arrow:hover{border:1px solid #2e3192; background: #2e3192;}
+.paging .page-arrow:hover:before{color: #fff;}
+.paging .page-arrow1:before{content:'\f100';}
+.paging .page-arrow2:before{content: '\f104';}
+.paging .page-arrow3:before{content: '\f105';}
+.paging .page-arrow4:before{content: '\f101';}
+.paging .page-arrow:last-child{margin-right: 0;}
+
+.paging .page-num{display:flex; justify-content: center; align-items: center; }
+.paging .page-num a{display:flex; align-items: center; justify-content: center; width: 35px; height: 35px; font-size: 14px; margin-right: 2px; border-radius: 3px;color: #808080; background: #fff; font-family: 'roboto'; font-weight: 500; }
+.paging .page-num a:last-child{margin-right: 0;}
+.paging .page-num a:hover, .paging .page-num a.actived{background: #2e3192; color: #fff; border:1px solid #2e3192;}
+
+
+/*width*/
+.w100pro{width: 100%;}
+
+.w60px{width: 60px;}
+.w80px{width: 80px;}
+.w100px{width: 100px;}
+.w120px{width: 120px;}
+.w140px{width: 140px;}
+.w150px{width: 150px;}
+.w160px{width: 160px;}
+.w180px{width: 180px;}
+.w200px{width: 200px;}
+.w220px{width: 220px;}
+.w240px{width: 240px;}
+.w300px{width: 300px;}
+
+.cupoint{
+    cursor: pointer;
+}
+
+
+
+

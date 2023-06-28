@@ -1,0 +1,312 @@
+@media screen and (max-width: 1260px) {
+    /* ruleset for 961px - 1260px */
+    /*main*/
+    .auto{width:94%;}
+    .mbanner-text-wrap{width:80%;}
+    .mbanner-text-wrap .title{font-size:42px; margin-bottom:10px;}
+    .mbanner-text-wrap .text{font-size:17px;}
+    .mbanner-text-wrap .banner-btn{margin-top:60px;}
+    .mbanner-text-wrap .banner-btn button{font-size:15px;}
+    .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction{bottom:50px;}
+
+
+    .tripList{margin-top:100px;}
+    .tripList h3{font-size:28px;}
+    .tripList ul.list-wrap{margin-bottom:-20px;}
+    .tripList ul.list-wrap > li{width:calc(33.33% - 13.33px); margin-bottom:20px;}
+    .tripList .text-box{padding:20px;}
+    .tripList .text-box .title{font-size:18px;}
+    .tripList .text-box .text{margin-top:5px;}
+    .tripList .text-box .text > li .list-title{width:62px; font-size:15px;}
+    .tripList .text-box .text > li .list-title:after{margin-left:5px;}
+    .tripList .text-box .text > li .info-text{width:calc(100% - 66px); font-size:15px; letter-spacing:-0.2px;}
+    .tripList .text-box .text > li .list-title.gap span{letter-spacing: 23px;}
+    .tripList02 > p.infoText{font-size:15px;}
+
+    .footerMenu li a{font-size: 15px;}
+    .footerMenu li:not(:nth-child(2)) a{padding:0 20px;}
+    .footerClient ul{display:flex; flex-wrap: wrap; justify-content: space-between; align-items: center;}
+
+    /*견학신청*/
+    .trip-simple-wrap{ background-size:90%;}
+    .trip-detail-inner{align-items: flex-start;}
+    .trip-detail-inner .img {width:380px; height:272px; display: flex;}
+    .simple-text-wrap{width:calc(100% - 410px);}
+    .simple-text-wrap > p.title{font-size: 28px;}
+    .simple-text-wrap > ul > li{font-size:15px; margin-top:8px;}
+    .simple-text-wrap > ul > li span.list-title{width:70px;}
+    .simple-text-wrap > ul > li span.text{width:calc(100% - 70px);}
+    .simple-text-wrap > ul > li span.gap{letter-spacing: 23px;}
+    .detail-btn a{font-size: 15px;}
+
+    /*견학신청2*/
+    .trip1-select-wrap .trip-select-title{font-size: 15px;}
+    .trip1-select-wrap .trip-select select{font-size: 14px;}
+    .trip1-preview-wrap .trip-preview-box .trip-text li{font-size: 15px;}
+    .trip1-preview-wrap .trip-preview-box .trip-text li > span.title > span.gap{letter-spacing: 20px;}
+
+
+    /*예약신청 모달*/
+    .modal-table th, .modal-table td{font-size: 15px;}
+    table input, table select ,textarea{font-size:15px;}
+    .modal-table .agree-list li p.text{font-size: 15px;}
+    .modal-table .agree-list li .radio-btn label{font-size: 15px;}
+    .modal-bottom .modal-btn{font-size: 15px; line-height: 52px;}
+    .modal-table .num-text{font-size:15px;}
+
+    /*예약확인*/
+    .reserve-date-wrap .date-wrap .date-title{font-size:28px;}
+    .reserve-date-wrap .date-wrap .today-btn{font-size:15px;}
+    .week-dayName li{font-size:14px; height:40px; line-height: 40px;}
+
+    /*예약확정 modal*/
+    .confirm-text{font-size:15px;}
+}
+@media screen and (max-width: 960px) {
+    /* ruleset for 767px - 960px */
+    .header{display:none;}
+    .m-header{display:block;}
+    .headerInner{height:80px;}
+    .logo-img img{height:30px;}
+    .menuBar{cursor: pointer; padding:10px;}
+    .menuBar > span{display:block; width:30px; height:4px; border-radius: 2px; background:#333;}
+    .menuBar > span:nth-child(2){margin:6px 0;}
+
+    .m-nav-wrap{width:60vw; transition: right 0.5s; background:#fff;}
+    .m-nav-wrap.active{right:0;}
+    .bg-cover{width:100%; background:rgba(0,0,0,0.5); position:fixed; top:0;bottom:0; left:0; right:0; z-index: 99999; opacity:0; transition: opacity 0.3s; display:none;}
+    .bg-cover.active{opacity: 1; display:block;}
+
+    .close-box{width:100%; border-bottom:1px solid #e5e5e5; display:flex; align-items: center; justify-content: flex-end; padding:0 25px; height:80px;}
+    .close-box i{font-size:40px; color:#333}
+    .m-nav-wrap .nav-wrap a{display:block;padding:20px; border-bottom:1px solid #e5e5e5; color:#333; font-size:20px; font-weight:500;}
+    .m-nav-wrap .nav-wrap a:after{content:'\f054'; display:block; position:absolute; top:50%; right:25px; font-size:16px; font-family: "Font Awesome 6 Pro"; font-weight:900; transform: translateY(-50%); color:#9c9c9c;}
+
+    .mbanner-text-wrap .title{line-height: 1.3; margin-bottom: 20px;}
+    .mbanner-text-wrap .text{font-size: 16px;}
+    .mbanner-text-wrap .banner-btn{margin-top:50px;}
+
+    .tripList{margin-top:80px;}
+    .tripList h3{font-size:25px;}
+
+    .tripList h3{margin-bottom:15px;}
+    .tripList02 > h3{margin-bottom:5px;}
+    .tripList02 > p.infoText{margin-bottom:20px;}
+
+    .tripList ul.list-wrap{flex-wrap: wrap; margin-bottom:0;}
+    .tripList ul.list-wrap > li{width:100%; margin-bottom:0;}
+    .tripList ul.list-wrap > li a{border:0; border-top:1px solid #e5e5e5; border-radius: 0; display:flex; justify-content: space-between; align-items: center; box-shadow: none; padding:20px 0;}
+    .tripList ul.list-wrap > li a:hover, .tripList ul.list-wrap > li a.on{border:0; border-top:1px solid #e5e5e5;}
+    .tripList ul.list-wrap > li:last-child a{border-bottom:1px solid #e5e5e5;}
+    .tripList ul.list-wrap > li a .img{border-radius: 0px; overflow: hidden; width:30%; height:inherit !important;}
+    .tripList ul.list-wrap > li a .img img{border-radius: 10px}
+    .tripList .text-box{width:70%; padding:0; padding-left:20px;}
+    .tripList .text-box .title{font-size:20px;}
+    .tripList .text-box .text > li .list-title{width:61px;  }
+    .tripList .text-box .text > li .info-text{width:calc(100% - 66px);}
+
+    .footer{margin-top:80px;}
+    .footerMenu{justify-content: center;}
+    .footerMenu li:not(:nth-child(2)) a{padding:0 20px;}
+    .footerInner .info{justify-content: center;}
+    .footerInner .copyright{text-align: center;}
+    .footerClient ul{display:flex; flex-wrap: wrap; justify-content: center; align-items: center;}
+    /*.footerClient li:not(:first-child){margin-left: 60px;}*/
+    .footerClient li{padding: 0px 20px;}
+    .footerClient li:nth-child(1) img{width: auto; height: 20px;}
+    .footerClient li:nth-child(2) img{width: auto; height: 30px;}
+    .footerClient li:nth-child(3) img{width: auto; height: 20px;}
+    .footerClient li:nth-child(4) img{width: auto; height: 25px;}
+    .footerClient li:nth-child(5) img{width: auto; height: 30px;}
+
+    /*견학신청*/
+    .trip-simple-wrap{padding:60px 0 80px; background-position: top 680px right -100px; background-size:100%;}
+    .trip-detail-inner{flex-wrap:wrap;}
+    .trip-detail-inner .img{width:100%; height:100%; display: flex;}
+    .simple-text-wrap{width:100%; margin-top:30px;}
+    .detail-btn{justify-content: center;}
+
+    .detail-img-wrap{margin-top: 80px;}
+    .detail-img-wrap img{width:100%;}
+
+    /*예약신청 modal*/
+    .modal-wrap{width:94%;}
+    .modal-table .datepicker-wrap input{width:250px;}
+    .modal-table .agree-list li p.text{width:68%;}
+    .modal-table .agree-list li .radio-btn{width:30%;}
+    .modal-table .agree-list li .radio-btn input{height:17px;}
+    .modal-table .car-sel{width:250px;}
+
+    /*예약확인*/
+    .reserve-date-wrap .date-wrap .date-title{font-size:25px;}
+    .week-dayName li, .dates ul li{width:15%;}
+    .week-dayName li.sun,.week-dayName li.sat, .dates ul li:first-child, .dates ul li:last-child{width:12.7%;}
+    .schList-box{font-size:13px;}
+    .schList-box:focus{font-size:13px;}
+
+    .trip1-preview-wrap{padding-bottom:0; border:none;}
+    .trip1-preview-wrap .trip-preview-box{padding:30px 0; border-left:0; border-right:0; box-shadow: none;}
+    .trip1-preview-wrap .trip-preview-box .trip-text .trip-title{font-size:20px;}
+}
+
+@media screen and (max-width: 768px) {
+    /* ruleset for 577px - 768px */
+
+    .mbanner-text-wrap .title{font-size:32px;}
+    .mbanner-text-wrap .text{font-size:15px;}
+    .mbanner-text-wrap .banner-btn button{font-size:14px; width:160px; height:45px; line-height: 43px;}
+    .tripList .text-box .title{font-size: 18px;}
+    .tripList .text-box .text > li{margin-bottom:3px;}
+    .tripList .text-box .text > li .list-title{font-size: 14px; wdith:60px;}
+    .tripList .text-box .text > li .info-text{font-size: 14px; width:calc(100% - 66px);}
+
+    .footerMenu{margin-bottom:20px;}
+    .footerMenu li a{/*padding:0 10px;*/ font-size: 13px;}
+    /*.footerMenu li:not(:nth-child(2)) a{padding:0 20px;}*/
+    .footerInner{padding:30px 0 60px;}
+    .footerInner .info li{font-size: 13px;}
+    .footerInner .copyright{font-size: 13px;}
+
+    .footerClient li{padding: 0px 20px;}
+    .footerClient li:nth-child(1) img{width: auto; height: 20px;}
+    .footerClient li:nth-child(2) img{width: auto; height: 25px;}
+    .footerClient li:nth-child(3) img{width: auto; height: 20px;}
+    .footerClient li:nth-child(4) img{width: auto; height: 25px;}
+    .footerClient li:nth-child(5) img{width: auto; height: 30px;}
+
+    .m-nav-wrap .nav-wrap a{font-size:16px;}
+    .m-nav-wrap .nav-wrap a:after{font-size: 14px;}
+
+    /*견학신청*/
+    .trip-simple-wrap{padding:30px 0 60px; background-position: top 580px right -100px;}
+    .simple-text-wrap > p.title{font-size: 25px; margin-bottom:10px;}
+    .simple-text-wrap > ul{padding-bottom:20px;}
+    .simple-text-wrap > ul > li{font-size: 14px; margin-top:6px;}
+    .simple-text-wrap > ul > li span.gap{letter-spacing: 21px;}
+
+    .detail-btn{margin-top:20px;}
+    .detail-btn a{font-size:14px; width:160px; height:45px; line-height: 44px;}
+
+    /*견학신청2*/
+    .trip1-select-wrap .trip-select-title{font-size: 14px;}
+    .trip1-select-wrap .trip-select:after{font-size: 14px;}
+
+    .trip1-preview-wrap .trip-preview-box{padding:20px 0;}
+    .trip1-preview-wrap .trip-preview-box .img{width:30%; height:auto;}
+    .trip1-preview-wrap .trip-preview-box .trip-text{width:70%; padding-left:20px;}
+    .trip1-preview-wrap .trip-preview-box .trip-text .trip-title{font-size:18px; margin-bottom:5px;}
+    .trip1-preview-wrap .trip-preview-box .trip-text li{font-size:14px;}
+    .trip1-preview-wrap .trip-preview-box .trip-text li.m-hidden{display:none;}
+    .trip1-preview-wrap .trip-preview-box .trip-text li > span.title{width:65px;}
+    .trip1-preview-wrap .trip-preview-box .trip-text li > span.title > span.gap{letter-spacing: 18px;}
+
+    /*예약신청 modal*/
+    .modal-wrap{max-height:80vh;}
+    .modal-wrap .modal-title-wrap{padding-left:20px;}
+    .modal-text-wrap{margin:20px; max-height:calc(80vh - 155px);}
+
+    .modal-table th, .modal-table td{font-size:14px;}
+    table input, table select, textarea{font-size: 14px;}
+
+
+    .modal-table .datepicker-wrap{width:100%; margin-right:0; margin-bottom:6px;}
+    .modal-table .datepicker-wrap input{width:100%;}
+    .modal-table .time-sel-box {width:calc(50% - 7px);}
+    .modal-table .time-sel-box select{width:100%;}
+    .modal-table .agree-list li{flex-wrap: wrap;}
+    .modal-table .agree-list li p.text{font-size:14px; width:100%;}
+    .modal-table .agree-list li .radio-btn{width:100%; justify-content: flex-start; margin-top:20px;}
+    .modal-table .agree-list li .radio-btn label{font-size:14px;}
+    .modal-table .num-text{font-size:14px;}
+    .modal-table .num-sel{width:calc(50% - 7px);}
+    .modal-table .warning-text{font-size:13px; margin-top:5px;}
+    .table-blue-bg{height:40px; color:#333; font-weight:500; }
+    .table-d-flex{display:flex; align-items: center; justify-content: center;}
+    .add-btn-wrap{margin-left:10px; margin-top:0;}
+    .program-detail li{margin-bottom:6px;}
+    .program-detail li:last-child{margin-bottom:0px;}
+    .program-detail p.title{width:75px; height:28px; line-height: 29px; font-size:14px;}
+    .program-detail p.text{font-size:14px;}
+    .all-time-title{font-size: 14px;}
+    .all-time-text{font-size: 14px;}
+    .modal-table td .d-flex-wrap.phone-td-wrap{justify-content: space-between;}
+    table .phone-td-wrap .select-box{width:30%}
+    table .phone-td-wrap .phone-sel{width:30%;}
+    table .phone-td-wrap .select-box > .phone-sel{width:100% !important;}
+    table .select-box.car-sel-box{width:calc(50% - 7px);}
+    .modal-table .car-sel{width:100%;}
+    .modal-table .car-text{width:30%; margin-left:10px;}
+
+    .modal-bottom{padding:0 20px 20px;}
+    .modal-bottom .modal-btn{font-size: 14px; width:calc(50% - 5px); height:45px; line-height: 47px;}
+
+    /*예약확인*/
+    .reserve-date-wrap{flex-wrap: wrap; margin-top:80px;}
+    .reserve-date-wrap .date-wrap{width:100%; position:relative;}
+    .reserve-date-wrap .date-wrap .date-title{position:absolute; top:50%; left:50%; transform: translate(-50% , -50%);}
+    .reserve-date-wrap .date-wrap .move-btn-wrap{margin:0;}
+    .reserve-date-wrap .date-wrap .move-btn-wrap a.move-btn i{font-size:14px;}
+    .reserve-date-wrap .reserve-text-wrap{justify-content: center; width:100%; margin-top:30px;}
+
+    .calender-wrap{width:calc(100% + 6%); margin-left:-3%; border-left:0; border-right:0;}
+    .week-dayName li, .dates ul li{width:16%;}
+    .week-dayName li.sun, .week-dayName li.sat, .dates ul li:first-child, .dates ul li:last-child{width:10%;}
+    .schList-box{font-size:12px; letter-spacing: -0.5px; height:25px; line-height: 27px; padding-left:5px;}
+    .schList-box:focus{font-size:12px;line-height: 27px; letter-spacing: -0.5px;}
+    .reserve-date-wrap .date-wrap .today-btn{font-size:14px;}
+
+    /*예약확정 modal*/
+    .confirm-text{font-size:14px;}
+}
+
+@media screen and (max-width: 576px) {
+    /* ruleset for 375px - 576px */
+
+    .mbanner-text-wrap .title{font-size:30px;}
+    .mbanner-text-wrap .text{font-size:14px;}
+    .mbanner-text-wrap .banner-btn button{width:140px;}
+    .mbanner-text-wrap .banner-btn button.reserve-btn{margin-right:10px;}
+
+    .tripList h3{font-size:22px;}
+    .tripList .text-box .title{font-size:17px;}
+    .tripList02 > p.infoText{font-size:14px; line-height: 1.3;}
+
+    .footerMenu{justify-content: center; flex-wrap: wrap;}
+    .footerMenu li a{/*padding:0 10px;*/ font-size: 13px;}
+    .footerInner .info{justify-content: center;}
+    .footerInner .copyright{text-align: center; font-size:11px;}
+    .footerClient li{padding: 0px 20px;}
+    .footerClient li:nth-child(1) img{width: auto; height: 20px;}
+    .footerClient li:nth-child(2) img{width: auto; height: 25px;}
+    .footerClient li:nth-child(3) img{width: auto; height: 20px;}
+    .footerClient li:nth-child(4) img{width: auto; height: 25px;}
+    .footerClient li:nth-child(5) img{width: auto; height: 30px;}
+
+    /*견학신청*/
+    .simple-text-wrap > p.title{font-size: 22px;}
+    .detail-btn a{width:calc(100% - 5px);}
+    .detail-btn a.reserve-btn{margin-right:10px;}
+
+    /*견학신청2*/
+    .trip1-preview-wrap .trip-preview-box{align-items: flex-start;]}
+    .trip1-preview-wrap .trip-preview-box .trip-text li{margin-top:2px;}
+    .trip1-preview-wrap .trip-preview-box .trip-text .trip-title{font-size:17px;}
+
+    /*예약확인 modal*/
+    .modal-table .warning-text{font-size:12px;}
+    .program-detail p.title{font-size:13px; width:70px;}
+    .program-detail p.title span.gap{letter-spacing: 21px;}
+    .program-detail p.text{font-size:13px;}
+    .program-detail li{width:100%;}
+    table .phone-td-wrap .phone-sel{width:28%;}
+
+    /*예약확인*/
+    .reserve-date-wrap{margin-top:50px;}
+    .reserve-date-wrap .date-wrap .date-title{font-size:22px;}
+    .dates ul li{height:120px;}
+    .week-dayName li{font-size:13px; height:35px; line-height: 35px;}
+    .dates ul li p{font-size:13px;}
+    .schList-box {line-height: 1.4em; height: 2.8em;-webkit-line-clamp: 2;-webkit-box-orient: vertical;}
+    .schList-box:focus{line-height: 1.4em; color:#fff; font-size:12px;}
+    .schList-box span{display:block;}
+}

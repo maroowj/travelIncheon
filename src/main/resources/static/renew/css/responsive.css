@@ -1,0 +1,1254 @@
+@media screen and (max-width: 1480px) {
+    /* ruleset for 1201px - 1480px */
+    /*메인 index*/
+    .headerWrap{height: 70px;}
+    .headerWrap .headerInner{width: 94%; height: 70px;}
+    .header-bg{top:70px;}
+    .headerWrap .headerInner .navWrap .depth1 > li a{font-size: 17px; width: 150px;}
+    .auto{width: 94%; }
+    .headerWrap .headerInner h1.logoWrap a{width: 125px;}
+    .mainBannerWrap li a{width: 100%;}
+    .mainBannerWrap li a img{width: 100%;}
+
+    .mainBannerWrap .textWrap{padding-bottom: 20px;}
+    .mainBannerWrap .textWrap p{font-size: 50px;}
+    .mainBannerWrap .textWrap p.title{font-size: 60px; }
+
+    .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction{bottom:40px;}
+    .swiper-pagination-bullet{width: 30px;height: 30px;}
+
+    .mainCont .aboutWrap .titleWrap .title{font-size: 32px; padding-top: 30px; margin-bottom: 10px;}
+    .mainCont .aboutWrap .titleWrap .title:after{font-size: 50px; letter-spacing: 0;}
+    .mainCont .aboutWrap .titleWrap .title span{font-size: 32px;}
+    .mainCont .aboutWrap .titleWrap .text{font-size: 16px;}
+    .mainCont .aboutWrap .textWrap .iconText{width: calc(50% - 40px);}
+    .mainCont .aboutWrap .textWrap .iconText li p{width: calc(100% - 70px); font-size: 16px;}
+    .mainCont .aboutWrap .textWrap .iconText li p span.blue{font-size: 16px;}
+    .mainCont .aboutWrap .textWrap .imgWrap:after{right:40px;}
+
+    .mainCont .titleWrap .title{font-size: 32px;}
+    .mainCont.businessWrap .iconWrap li{width: 220px;}
+    /*230105 수정사항 start*/
+    /*
+    .mainCont .vrTour-wrap .vrList li a img{width: 160px; height: 128px;}
+    .mainCont .vrTour-wrap .vrList li a .infoWrap{width: calc(100% - 180px);}
+    .mainCont .vrTour-wrap .vrList li a .infoWrap .type{padding: 4px 10px;}
+    .mainCont .vrTour-wrap .vrList li a .infoWrap .text{font-size: 14px;}
+    .mainCont .vrTour-wrap .vrList li a .infoWrap .priceWrap .price{font-size: 13px;}
+    .mainCont .vrTour-wrap .vrList li a .infoWrap .priceWrap .discount{margin-left: 10px; font-size: 15px;}
+    */
+    /*230105 수정사항 end*/
+
+
+    .inquiryWrap .tableWrap{width: 94%;}
+    .mainCont.inquiryWrap .titleWrap .text{margin-top: 10px;}
+
+    .inquiryWrap .privacyWrap{width: 94%;}
+    .familySite .list li a{height: 35px;}
+    .footerWrap .footerInner{width: 94%;}
+    .footerWrap .footerInner .leftWrap{width: calc(100% - 350px);}
+    .footerWrap .footerInner .leftWrap .menuList li a{font-size: 14px;}
+    .footerWrap .footerInner .leftWrap .info li{line-height: 1.3; font-size: 13px;}
+    .footerWrap .footerInner .leftWrap .adress{font-size: 13px;}
+    .footerWrap .footerInner .leftWrap .copyright{font-size: 13px;}
+    .footerWrap .footerInner .rightWrap{width: 290px;}
+    .footerWrap .footerInner .rightWrap p.number{font-size: 28px;}
+    .footerWrap .footerInner .rightWrap p{font-size: 14px;}
+    .footerWrap .footerInner .rightWrap .btnWrap a{width: 140px;}
+
+    .mainCont .mt120{margin-top: 100px !important;}
+    .mainCont.mt120{margin-top: 100px !important;}
+    .mainCont.inquiryWrap{padding: 100px 0;}
+
+
+    /*회사소개 about.html*/
+    .subCont .mt120{margin-top: 100px !important;}
+    .subCont .mb120{margin-bottom: 100px !important;}
+    .subCont .pt120{padding-top: 100px !important;}
+    .subCont .pb120{padding-bottom: 100px !important;}
+    .subBanner-wrap{margin-top: 70px;}
+    .subBanner-wrap p.subMenu{font-size: 30px;}
+
+    .subTitleWrap .title{font-size: 32px;}
+    .subTitleWrap span{font-size: 14px;}
+
+    .aboutWrap .textWrap .aboutList li{margin-bottom: 15px; height: 45px; line-height: 44px; font-size: 15px;}
+    .aboutWrap .textWrap .aboutList li span{font-size: 15px;}
+    .aboutWrap .textWrap .imgWrap:after{right:40px;}
+
+    .aboutWrap .orgWrap{padding: 100px 0;}
+    .aboutWrap .orgWrap .orgInner{width: 80%;}
+    .aboutWrap .orgWrap .orgInner img{width: 100%;}
+
+    .aboutWrap .historyChart .text:before {top:71px;}
+    .aboutWrap .historyChart .text .date{font-size: 24px;}
+
+    .aboutWrap .contactWrap{padding: 100px 0;}
+
+
+    /*vr투어 리스트 vrList.html*/
+
+    .vrList-wrap .listWrap .list li a img{width: 160px; height: 128px;}
+    .vrList-wrap .listWrap .list li a .infoWrap{width: calc(100% - 180px);}
+    .vrList-wrap .listWrap .list li a .infoWrap span.type{padding: 4px 10px;}
+    .vrList-wrap .listWrap .list li a .infoWrap .text{font-size: 14px;}
+    .vrList-wrap .listWrap .list li a .infoWrap .priceWrap .price{font-size: 13px;}
+    .vrList-wrap .listWrap .list li a .infoWrap .priceWrap .discount{margin-left: 10px; font-size: 15px;}
+
+
+    /*제작가격 price.html*/
+    .priceWrap .recomWrap .titleWrap p.title{font-size: 26px;}
+    .priceWrap .recomWrap .titleWrap p.title span{font-size: 26px;}
+    .priceWrap .recomWrap .titleWrap p.title:before{font-size: 26px; margin-right: 2px;}
+    .priceWrap .recomWrap .titleWrap p.title:after{font-size: 26px; margin-left: 2px;}
+    .priceWrap .recomWrap .titleWrap .text{margin-top: 10px;}
+
+    .priceWrap .recomWrap .list {flex-wrap:wrap; margin-bottom: 40px;}
+    .priceWrap .recomWrap .list li{width: calc(50% - 10px); border-radius: 10px; margin-right: 20px; margin-bottom: 20px;}
+    .priceWrap .recomWrap .list li:nth-child(2n){margin-right: 0;}
+    .priceWrap .recomWrap .list li:nth-last-child(-n + 2){margin-bottom: 0;}
+    .priceWrap .recomWrap .list li .textWrap{padding:0 20px;}
+    .priceWrap .recomWrap .priceBanner a img{border-radius: 10px;}
+
+
+    /*제작의뢰 inquiry.html*/
+    .subTitleWrap .text{margin-top: 10px;}
+
+    /*로그인 login.html*/
+    .loginWrap{margin-top: 70px;}
+
+
+
+    /*마이페이지 mypage.html*/
+    .mypageWrap{margin-top: 70px;}
+
+
+    /*푸터 modal*/
+    .footerModal .textWrap{max-height:calc(100vh - 436px); overflow-y: auto;}
+
+
+    /*230116 수정사항 */
+    .mainBannerWrap{margin-top: 70px;}
+    .mainBannerWrap .textWrap{width: 94%;}
+    .mainBannerWrap .textWrap .tit{font-size: 42px; line-height:1.2;}
+    .mainBannerWrap .textWrap .txt{font-size: 16px;margin: 15px 0 40px;}
+    .mainBannerWrap .textWrap .more-btn{font-size: 15px; }
+
+    .processWrap .stepWrap li{margin-right: 60px; width: 120px;}
+    .processWrap .stepWrap li .iconWrap{height: 120px;}
+    .processWrap .stepWrap li .textWrap .text{font-size: 14px;}
+    .processWrap .stepWrap li .step{font-size: 17px;}
+    .processWrap .stepWrap li .textWrap .title{font-size: 17px;}
+
+    .processWrap .stepWrap li:nth-child(1) .iconWrap img{width: 60px;}
+    .processWrap .stepWrap li:nth-child(2) .iconWrap img{width: 58px;}
+    .processWrap .stepWrap li:nth-child(3) .iconWrap img{width: 56px;}
+    .processWrap .stepWrap li:nth-child(4) .iconWrap img{width: 56px;}
+    .processWrap .stepWrap li:nth-child(6) .iconWrap img{width: 52px;}
+
+    .mainCont .pt120{padding-top: 100px !important;}
+    .mainCont .pb120{padding-bottom: 100px !important;}
+
+    .insuranceWrap .tableWrap{width: 780px;}
+    .insuranceWrap .privacyWrap {width: 780px;}
+
+    .subCont .aboutWrap .titleWrap .title{font-size: 32px; padding-top: 30px; margin-bottom: 10px;}
+    .subCont .aboutWrap .titleWrap .title:after{font-size: 50px; letter-spacing: 0;}
+    .subCont .aboutWrap .titleWrap .title span{font-size: 32px;}
+    .subCont .aboutWrap .titleWrap .text{font-size: 16px;}
+    .subCont .aboutWrap .textWrap .iconText{width: calc(50% - 40px);}
+    .subCont .aboutWrap .textWrap .iconText li p{width: calc(100% - 70px); font-size: 16px;}
+    .subCont .aboutWrap .textWrap .iconText li p span.blue{font-size: 16px;}
+    .subCont .aboutWrap .textWrap .imgWrap:after{right:40px;}
+
+    .subCont .titleWrap .title{font-size: 32px;}
+    .subCont.businessWrap .iconWrap li{width: 220px;}
+
+}
+
+
+
+@media screen and (max-width: 1200px) {
+    /* ruleset for 1025px - 1200px */
+    /*메인 index*/
+    .headerWrap .headerInner .navWrap .depth1 > li a{font-size: 16px; width: 130px;}
+    .headerWrap .headerInner .navWrap .infoMenu{margin-left: 20px;}
+    .headerWrap .headerInner .navWrap .infoMenu li a{font-size: 13px;}
+    .headerWrap .headerInner .navWrap .depth1 .depth2 li a{font-size: 15px;}
+
+    .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction{bottom:30px;}
+
+
+
+    .mainCont .bannerWrap li a .text .title{font-size: 17px; margin-bottom: 3px;}
+    .mainCont .bannerWrap li a .text .info{font-size: 14px;}
+
+
+    .mainCont .aboutWrap .textWrap .imgWrap:after{background-size: 30%}
+    .mainCont.businessWrap .iconWrap li{width: 180px;}
+    .mainCont.businessWrap .iconWrap li span.icon{width: 100px;height: 100px;}
+    .mainCont.businessWrap .iconWrap li:nth-child(1) span.icon:after{background-image: url(../images/mainIcon04.png); width: 42px;}
+    .mainCont.businessWrap .iconWrap li:nth-child(2) span.icon:after{background-image: url(../images/mainIcon05.png); width: 54px;}
+    .mainCont.businessWrap .iconWrap li:nth-child(3) span.icon:after{background-image: url(../images/mainIcon06.png); width: 45px;}
+    .mainCont.businessWrap .iconWrap li:nth-child(4) span.icon:after{background-image: url(../images/mainIcon07.png); width: 47px;}
+    .mainCont.businessWrap .iconWrap li:nth-child(5) span.icon:after{background-image: url(../images/mainIcon08.png); width: 45px;}
+
+
+
+    .mainBannerWrap .textWrap p{font-size: 36px;}
+    .mainBannerWrap .textWrap p.title{font-size: 50px; margin-top: 12px;}
+    .swiper-pagination-bullet{width: 25px;height: 25px;}
+
+
+    /*230105 수정사항 start*/
+    /*.mainCont.businessWrap .iconWrap li p.tit{margin-top: 15px; font-size: 16px;}
+    .mainCont.businessWrap .iconWrap li p.info{font-size: 14px; line-height: 1.2; margin-top: 5px;}
+
+    .mainCont .vrTour-wrap .tabWrap li a{font-size: 15px;}
+
+    .mainCont .vrTour-wrap .vrList li a img{width: 140px; height: 112px; border-radius: 10px;}
+    .mainCont .vrTour-wrap .vrList li a .infoWrap{width: calc(100% - 160px);}
+    .mainCont .vrTour-wrap .vrList li a .infoWrap .title{font-size: 16px;}
+    .mainCont .vrTour-wrap .vrList li a .infoWrap .text{white-space: nowrap; -webkit-line-clamp: 1; display:block; height:auto;}
+    .mainCont .vrTour-wrap .vrList li a .infoWrap .priceWrap{margin-top: 10px;}
+    .mainCont .vrTour-wrap .vrList li a .infoWrap .priceWrap .discount{font-size: 14px;}
+    .mainCont .vrTour-wrap .vrList li a .infoWrap .priceWrap .price{font-size: 12px;}
+    */
+    .mainCont .vrTour-wrap .tabCont .vrList li .infoWrap .title{font-size: 16px;}
+
+    /*230105 수정사항 end*/
+    .page-btn a{width: 220px; height: 45px; font-size: 15px;}
+
+    .mainCont.inquiryWrap .titleWrap .text{font-size: 15px;}
+    .tableWrap > div .title{font-size: 15px;}
+    .tableWrap > div .checkWrap label{font-size: 15px;}
+    textarea{font-size: 15px;}
+    .inquiryWrap .textWrap p{font-size: 14px;}
+    .familySite .list li{margin: 0 20px;}
+    .familySite .list li a{height: 32px;}
+    .footerWrap .footerInner .leftWrap .logo{display:none;}
+
+    .footerWrap .footerInner .leftWrap .menuList{margin: 0 0 50px;}
+    .footerWrap .footerInner .leftWrap .menuList li a{font-size: 14px;}
+    .footerWrap .footerInner .rightWrap p{font-size: 13px;}
+    .footerWrap .footerInner .rightWrap p.number{font-size: 26px;}
+    .footerWrap .footerInner .rightWrap .btnWrap a{width: 130px;}
+
+
+
+
+    /*회사소개 about.html*/
+    .aboutWrap .textWrap .aboutList{width: calc(40% - 30px);}
+    .aboutWrap .textWrap .aboutList li{height: 45px; margin-bottom: 10px;}
+
+    .aboutWrap .textWrap .imgWrap:after{background-size: 25%}
+
+    .aboutWrap .historyChart .text .date{font-size: 22px;}
+
+
+    /*vr투어 리스트 vrList.html*/
+    .vrList-wrap .link-tabWrap li a{font-size: 15px;}
+    .vrList-wrap .listWrap .list li a img{width: 140px; height: 112px; border-radius: 10px;}
+    .vrList-wrap .listWrap .list li a .infoWrap{width: calc(100% - 160px);}
+    .vrList-wrap .listWrap .list li a .infoWrap .title{font-size: 16px;}
+    .vrList-wrap .listWrap .list li a .infoWrap .text{white-space: nowrap; -webkit-line-clamp: 1; display:block; height: auto;}
+    .vrList-wrap .listWrap .list li a .infoWrap .priceWrap{margin-top: 10px;}
+    .vrList-wrap .listWrap .list li a .infoWrap .priceWrap .price{font-size: 12px;}
+    .vrList-wrap .listWrap .list li a .infoWrap .priceWrap .discount{font-size: 14px;}
+
+
+    /*제작가격 price.html*/
+    .priceWrap .recomWrap .titleWrap p.title{font-size: 24px;}
+    .priceWrap .recomWrap .titleWrap p.title span{font-size: 24px;}
+    .priceTable-wrap p.title{font-size: 18px;}
+    .priceTable-wrap p.title:after{width: 35px; height: 2px;}
+    .priceWrap .recomWrap .titleWrap .text{font-size: 15px;}
+    .priceWrap .recomWrap .titleWrap .text span{font-size: 15px;}
+
+    /*제작의뢰 inquiry.html*/
+    .subTitleWrap .text{font-size: 15px;}
+
+
+
+    /*230116 수정사항 */
+    /*여행자보험 insurance.html*/
+    /* .insuranceWrap .tableWrap > div .title{width: 28%;}
+    .insuranceWrap .tableWrap > div .inputWrap{width: 72%;} */
+
+    .mainBannerWrap .textWrap .tit{font-size: 35px;}
+    .mainBannerWrap .textWrap .txt{font-size: 15px;}
+
+    /* .subCont .aboutWrap .textWrap .imgWrap:after{background-size: 30%}
+    .subCont.businessWrap .iconWrap li{width: 180px;}
+    .subCont.businessWrap .iconWrap li span.icon{width: 100px;height: 100px;}
+    .subCont.businessWrap .iconWrap li:nth-child(1) span.icon:after{background-image: url(../images/mainIcon04.png); width: 42px;}
+    .subCont.businessWrap .iconWrap li:nth-child(2) span.icon:after{background-image: url(../images/mainIcon05.png); width: 54px;}
+    .subCont.businessWrap .iconWrap li:nth-child(3) span.icon:after{background-image: url(../images/mainIcon06.png); width: 45px;}
+    .subCont.businessWrap .iconWrap li:nth-child(4) span.icon:after{background-image: url(../images/mainIcon07.png); width: 47px;}
+    .subCont.businessWrap .iconWrap li:nth-child(5) span.icon:after{background-image: url(../images/mainIcon08.png); width: 45px;} */
+
+    .subCont.businessWrap .iconWrap li p.tit{margin-top: 15px; font-size: 16px;}
+    .subCont.businessWrap .iconWrap li p.info{font-size: 14px; line-height: 1.2; margin-top: 5px;}
+
+}
+
+@media screen and (max-width: 1024px) {
+    /* ruleset for 768px - 1024px */
+
+    /*메인 index*/
+    .pc-headerWrap{display: none;}
+    .m-headerWrap{display: block !important; height: 75px; position:fixed; width: 100%; top:0; left:0; right:0; border-bottom:1px solid rgba(255,255,255,0.3);z-index: 99999999; }
+    .m-headerWrap .headerInner{width: 94%; height: 75px; margin: 0 auto; display:flex; justify-content: space-between; align-items: center;}
+    .m-headerWrap .headerInner h1.logoWrap {height: 100%;}
+    .m-headerWrap .headerInner h1.logoWrap a{display:flex; justify-content: center; align-items: center; height: 100%; width: 130px;}
+    .m-headerWrap .headerInner h1.logoWrap a img{width: 100%;}
+
+    .m-headerWrap .headerInner .menuBtn{display:flex; justify-content: space-between; align-items: center; flex-direction: column; width: 35px; height: 25px;}
+    .m-headerWrap .headerInner .menuBtn span{display:block; width: 100%; height: 3px; background: #fff;  border-radius: 3px;}
+
+    .m-headerWrap.actived{background: #fff; border-bottom: 1px solid #d7d7d7; box-shadow: 0 0 15px 5px rgba(0,0,0,0.05);}
+    .m-headerWrap.actived h1.logoWrap a img{display:none; }
+    .m-headerWrap.actived h1.logoWrap a:after{content:''; display:block;background-image: url(../images/logo_b.png); background-repeat: no-repeat; width: 100%; height:100%; background-size:contain; background-position:center;}
+    .m-headerWrap.actived .menuBtn span{background: #303030;}
+
+    .m-menuWrap{width:0vw; height:100vh; background: #fff; position:fixed; top:0; bottom:0; right:0; z-index: 99999999; box-shadow: 0 0 10px 5px rgba(0,0,0,0.05); transition: width 0.5s; display:inherit;}
+    .m-menuWrap.actived{width: 60vw;}
+    .m-menuWrap .topWrap{height: 75px; border-bottom: 1px solid #d7d7d7;display:flex; justify-content: space-between; align-items: center; padding: 0 3vw; opacity:0; transition:opacity 0.3s;}
+    .m-menuWrap.actived .topWrap{opacity:1;}
+    .m-menuWrap .topWrap .infoMenu{display:flex; justify-content: flex-start; align-items: center; }
+    .m-menuWrap .topWrap .infoMenu li a{font-size: 14px; color: #808080; font-weight: 400; font-family: 'roboto'; margin-right: 10px;}
+    .m-menuWrap .topWrap .infoMenu li a:after{content:''; display:inline-block; width: 1px; height: 10px; background: #d7d7d7; margin-left: 10px;}
+    .m-menuWrap .topWrap .infoMenu li:last-child a{margin-right: 0;}
+    .m-menuWrap .topWrap .infoMenu li:last-child a:after{display:none;}
+
+
+    .m-menuWrap .topWrap a.close-btn{font-size: 0; display:flex; justify-content: center; align-items: center; width: auto; height: 100%; padding-left: 10px;}
+    .m-menuWrap .topWrap a.close-btn:after{content:'\f00d'; display:block; font-weight: 900; font-family: "Font Awesome 6 Pro"; font-size: 35px; color: #303030;}
+    .m-menuWrap .menuList{opacity:0; transition:opacity 0.3s;}
+    .m-menuWrap.actived .menuList{opacity:1;}
+    .m-menuWrap .menuList > li > a{display:flex; justify-content: space-between; align-items: center; height: 60px; padding: 0 3vw; border-bottom: 1px solid #d7d7d7; font-size: 18px; color: #303030; font-weight: 500; }
+    .m-menuWrap .menuList > li > a.actived{background: #2e3192; color: #fff;}
+    .m-menuWrap .menuList > li > a.actived i{color: #fff; transform: rotate(180deg); opacity: 0.8;}
+    .m-menuWrap .menuList > li > a i{color: #aaa; font-size: 14px;}
+    .m-menuWrap .menuList > li > .depth2{border-bottom: 1px solid #d7d7d7; display:none;}
+    .m-menuWrap .menuList > li > .depth2 li a{display:flex; justify-content: flex-start; align-items: center; height: 45px; padding: 0 3vw; background: #f5f5f5; font-size: 16px;}
+
+
+
+    .mainBannerWrap {margin-top: 75px;}
+    .mainBannerWrap .textWrap{padding-bottom: 10px;}
+    .mainBannerWrap .textWrap p{font-size: 28px;}
+    .mainBannerWrap .textWrap p.title{font-size: 42px; margin-top: 10px;}
+    .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction{bottom:20px;}
+
+    .mainCont .bannerWrap li{margin-right: 20px; width: calc(33.33% - 13.33px);}
+    .mainCont .bannerWrap li a img{border-radius: 10px;}
+    .mainCont .bannerWrap li a .text{left:0; width: 100%;}
+    .mainCont .bannerWrap li a .text .title{font-size: 17px; margin-bottom: 0; width: 100%; text-align: center;}
+    .mainCont .bannerWrap li a .text .info{display: none;}
+
+    .mainCont .bannerWrap li a:after{content:''; display:block; width: 100%;height: 100%; position:absolute; top:0; left:0; background: rgba(46,49,146,0.1); z-index: 9;}
+    .mainCont .bannerWrap li a:hover:after{background: rgba(46,49,146,0.1);}
+
+
+    .mainCont .aboutWrap .titleWrap .title{font-size: 28px; padding-top: 25px;}
+    .mainCont .aboutWrap .titleWrap .title span{font-size: 28px;}
+    .mainCont .aboutWrap .titleWrap .title:after{font-size: 45px;}
+
+    .mainCont .aboutWrap .textWrap .imgWrap{width: 45%;}
+    .mainCont .aboutWrap .textWrap .iconText{width: calc(55% - 20px);}
+    .mainCont .aboutWrap .textWrap .iconText li{margin-bottom: 15px;}
+    .mainCont .aboutWrap .textWrap .iconText li span.icon{width: 50px;height: 50px;}
+    .mainCont .aboutWrap .textWrap .iconText li span.icon:after{width: 23px;height: 23px; background-size: 100%;}
+    .mainCont .aboutWrap .textWrap .iconText li p{color: #666; font-weight: 400; font-size: 15px;}
+    .mainCont .aboutWrap .textWrap .iconText li p span.blue{font-size: 15px;}
+    .mainCont .aboutWrap .textWrap .imgWrap:after{right:30px;}
+
+
+    .mainCont .titleWrap{margin-bottom: 30px;}
+    .mainCont .aboutWrap .textWrap{margin-top: 30px;}
+    .mainCont .titleWrap .title{font-size: 28px;}
+    .mainCont.businessWrap{padding: 65px 0;}
+    /*230105 수정사항 start*/
+    /*.mainCont.businessWrap .iconWrap li{padding: 0 15px; width: 140px;}
+    .mainCont.businessWrap .iconWrap li span.icon{width: 90px;height: 90px;}
+
+
+    .mainCont.businessWrap .iconWrap li:nth-child(1) span.icon:after{background-image: url(../images/mainIcon04.png); width: 38px;}
+    .mainCont.businessWrap .iconWrap li:nth-child(2) span.icon:after{background-image: url(../images/mainIcon05.png); width: 46px;}
+    .mainCont.businessWrap .iconWrap li:nth-child(3) span.icon:after{background-image: url(../images/mainIcon06.png); width: 39px;}
+    .mainCont.businessWrap .iconWrap li:nth-child(4) span.icon:after{background-image: url(../images/mainIcon07.png); width: 42px;}
+    .mainCont.businessWrap .iconWrap li:nth-child(5) span.icon:after{background-image: url(../images/mainIcon08.png); width: 39px;}*/
+    /*230105 수정사항 end*/
+
+
+    .mainCont.businessWrap .iconWrap li p.tit{font-size: 15px;}
+
+    /*230105 수정사항 start*/
+    /*.mainCont .vrTour-wrap .tabWrap li{margin-right: 15px;}
+    .mainCont .vrTour-wrap .tabWrap li a{padding: 0 20px; height: 35px;}
+    .mainCont .vrTour-wrap .vrList{margin-top: 35px;}
+
+    .mainCont .vrTour-wrap .vrList li{width: 100%; margin-right: 0; margin-bottom: 0; padding: 20px 0;border-top: 1px solid #d7d7d7;}
+    .mainCont .vrTour-wrap .vrList li:last-child{border-bottom: 1px solid #d7d7d7;}
+    */
+    .mainCont .vrTour-wrap .tabCont .vrList li{width: calc(33.33% - 20px);}
+    .mainCont .vrTour-wrap .tabCont .vrList li:nth-child(4n){margin-right: 30px;}
+    .mainCont .vrTour-wrap .tabCont .vrList li:nth-child(3n){margin-right: 0px;}
+    .mainCont .vrTour-wrap .tabCont .vrList li:hover .infoWrap .title{color: #303030;}
+
+    .mainCont .vrTour-wrap .page-btn a {background: #2e3192; border-color:#2e3192; color: #fff;}
+
+    .tableWrap > div{margin-bottom: 15px; min-height: 40px;}
+    .tableWrap > div .title{min-height:40px;}
+    .tableWrap > div .inputWrap input[type="text"], .tableWrap > div .inputWrap input[type="number"]{height: 40px; line-height: 39px;}
+    .selectBox{height: 40px;}
+    .tableWrap > div.form-w50{width: calc(50% - 10px); margin-right: 20px;}
+
+    .tableWrap > div .checkWrap{height:auto; margin-bottom: -10px;}
+    .tableWrap > div .checkWrap label{margin-bottom: 15px;}
+    .tableWrap > div .inputWrap textarea{height: 100px;}
+
+    .inquiryWrap .privacyWrap{margin-top: 30px;}
+    .inquiryWrap .privacyWrap .checkWrap{font-size: 14px; margin-top: 15px;}
+    .inquiryWrap .page-btn a{background: #2e3192; border-color:#2e3192; color: #fff;}
+
+    .pc-familySite{display:none;}
+    .m-familySite{display: block;}
+
+
+    .mFamily{padding: 40px 0; width: 100%; }
+    .mFamily .swiper-slide {
+        height:30px; width: 20%;
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+
+    .mFamily .swiper-slide a{height:100%;}
+    .mFamily .swiper-slide a img{height:100%;}
+
+    .swiper-button-prev:after, .swiper-rtl .swiper-button-next:after{font-size: 26px; font-weight: 500; color: #aaa;}
+    .swiper-button-next:after, .swiper-rtl .swiper-button-prev:after{font-size: 26px; font-weight: 500; color: #aaa;}
+
+
+
+    /*회사소개 about.html*/
+    .subBanner-wrap{margin-top: 75px;}
+    .subTitleWrap{margin-bottom: 30px;}
+    .subTitleWrap span{font-size: 14px; margin-bottom: 2px;}
+    .subTitleWrap .title{font-size: 28px;}
+
+    .pc-subBanner{display:none;}
+    .m-subBanner{display:block;}
+    .aboutWrap .textWrap{flex-wrap:wrap;}
+    .subCont.aboutWrap .textWrap .imgWrap{width: 100%; margin-bottom: 20px; height: 320px;}
+    .subCont.aboutWrap .textWrap .imgWrap img{height: 100%;object-fit: cover;}
+    .subCont.aboutWrap .textWrap .imgWrap:after{background-size: 18%;}
+    .aboutWrap .textWrap .aboutList{width: 100%; text-align: center;}
+    .aboutWrap .textWrap .aboutList li{width: 100%; margin-bottom: 10px; height: 50px; line-height: 49px; font-size: 16px; border-radius: 10px; }
+    .aboutWrap .textWrap .aboutList li span{font-size: 16px;}
+
+
+    .aboutWrap .orgWrap .orgInner{width: 94%;}
+
+    .aboutWrap .contactWrap .mapWrap .mapInfo{padding: 50px 30px;}
+    .aboutWrap .contactWrap .mapWrap .root_daum_roughmap .wrap_map{height: 420px;}
+
+
+    /*vr투어 리스트 vrList.html*/
+    .vrList-wrap .link-tabWrap li{margin-right: 15px;}
+    .vrList-wrap .link-tabWrap li a{padding: 0 20px; height: 35px;}
+    .vrList-wrap .listWrap .topSel{border-bottom: 0; margin-top: 35px;}
+    .vrList-wrap .listWrap .topSel .sortWrap li a{font-size: 13px; height: 25px;}
+
+
+    .vrList-wrap .listWrap .list{margin-top: 0; }
+    .vrList-wrap .listWrap .list li{width: 100%; margin-right: 0; margin-bottom: 0; padding: 20px 0; border-top: 1px solid #d7d7d7;}
+
+
+
+    /*제작가격 price.html*/
+    .priceWrap .recomWrap .titleWrap{margin-bottom: 30px;}
+    .priceWrap .recomWrap .list{margin-bottom: 30px;}
+    .pc-priceBanner{display:none;}
+    .m-priceBanner{display:block;}
+
+    .vrPriceTable{margin-top: 30px;}
+    .priceTable tr th{font-size: 14px;}
+    .priceTable thead tr th{height: 45px; font-size: 14px;}
+
+    .priceTable tr td{height: 45px; font-size: 14px;}
+
+    /*230116 수정사항*/
+    /*여행자보험 insurance.html*/
+    /* .insuranceWrap .tableWrap > div .title{width: 35%;}
+    .insuranceWrap .tableWrap > div .inputWrap{width: 65%;}
+    .insuranceWrap .tableWrap > div .checkWrap{min-height: 40px;  margin-bottom: 0;}
+    .insuranceWrap .tableWrap > div .checkWrap label{margin-bottom: 0;} */
+
+    /* 230105 수정사항 start */
+    /* .insuranceWrap .tableWrap > div .tab li{width: 140px;} */
+    .insuranceWrap .tableWrap > div .tab li a{font-size: 15px;}
+    .insuranceWrap .tableWrap > div .excel1 .upload-btn{height: 40px; font-size: 15px;}
+    .insuranceWrap .tableWrap > div .excel1 .file-down{width: 140px;}
+    .insuranceWrap .tableWrap > div .excel1 .upload-btn{width: 140px;}
+    .insuranceWrap .tableWrap > div .excel1 input{width: calc(100% - 150px);}
+
+    .insuranceWrap .tableWrap > div .excel2 .excel-table tr th{font-size: 14px;}
+    .insuranceWrap .tableWrap > div .excel2 .excel-table tr td{font-size: 14px;}
+    .insuranceWrap .tableWrap > div .excel2 .excel-table tr td input{font-size: 14px;}
+    /* 230105 수정사항 end */
+
+    /*로그인 login.html*/
+    .loginWrap{margin-top: 75px;}
+    .login-wrap h4{font-size: 28px;}
+    .login-wrap .sns-wrap .kakao-btn{font-size: 15px;}
+
+
+    /*마이페이지 mypage.html*/
+    .mypageWrap{margin-top: 75px;}
+    .mypageWrap .mypageCont{height: 711px;}
+    .mypageWrap .mypageCont .inqWrap .titleWrap h4{font-size: 28px;}
+    .mypageWrap .mypageCont .profWrap{width: 180px;}
+
+    .mypageWrap .mypageCont .profWrap .profInfo{padding: 40px 0;}
+    .mypageWrap .mypageCont .profWrap .profInfo img{width: 80px;height: 80px;}
+
+    .mypageWrap .mypageCont .profWrap .profInfo .name{font-size: 17px; margin-top: 10px;}
+    .mypageWrap .mypageCont .profWrap .profInfo .name span{font-size: 17px;}
+    .mypageWrap .mypageCont .profWrap .profInfo .logoutBtn{height: 30px;}
+    .mypageWrap .mypageCont .profWrap .profInfo .logoutBtn:hover{background: #fff;}
+    .mypageWrap .mypageCont .profWrap .menuWrap li a{height: 50px; font-size: 15px;}
+
+    .mypageWrap .mypageCont .inqWrap{width: calc(100% - 180px);}
+    .mypageWrap .mypageCont .inqWrap .titleWrap{padding: 40px 20px 15px;}
+    .mypageWrap .mypageCont .inqWrap .totalWrap{padding: 10px 20px;}
+    .mypageWrap .mypageCont .inqWrap .list li a{padding: 12px 20px;}
+    .mypageWrap .mypageCont .profWrap .menuWrap li a:hover{background: #fff; color: #303030; border-color:#d7d7d7;}
+    .mypageWrap .mypageCont .profWrap .menuWrap li a:hover i{color: #aaa; opacity: 1;}
+    .mypageWrap .mypageCont .profWrap .menuWrap li a.actived{background: #2e3192; border-color:#2e3192; color: #fff;}
+    .mypageWrap .mypageCont .profWrap .menuWrap li a.actived i{color: #fff; opacity: 0.9;}
+
+    .mypageWrap .mypageCont .inqWrap .list li a .date{width: 85px;}
+    .mypageWrap .mypageCont .inqWrap .list li a .title{width: calc(100% - 175px); font-size: 15px; margin-right: 20px;}
+    .mypageWrap .mypageCont .inqWrap .list li a:hover{background: #fff;}
+
+    .mypageWrap .mypageCont .inqWrap .list li a span.anw{font-size: 14px; height: 26px; font-weight: 500; width: 70px;}
+
+
+    .mypageWrap .mypageCont .inqWrap .paging{margin-top: 30px;}
+    .mypageWrap .mypageCont .inqWrap .paging .page-num a:nth-last-child(-n + 5){display:none;}
+
+
+
+
+    .paging .page-arrow:hover{background: #fff; border-color:#d7d7d7}
+    .paging .page-arrow:hover:before{color: #aaa;}
+    .paging .page-num a:hover{background: #fff; border: none; color: #808080;}
+    .paging .page-num a.actived{ background: #2e3192; border:1px solid #2e3192; color: #fff;}
+
+
+
+    /*여행자 보험가입양식 뷰페이지 insurance_view.html*/
+    .ins-viewWrap table th{padding: 10px 15px;}
+    .ins-viewWrap table colgroup col:nth-child(1){width: 34% !important;}
+    .ins-viewWrap table colgroup col:nth-child(2){width: 66% !important;}
+
+
+    /*모달 modal*/
+    .modal .modal-inner{width: 94%;}
+
+
+    /*230116 수정사항 */
+    .pc-bannerWrap{display:none;}
+    .m-bannerWrap{display:block;}
+    .mainBannerWrap .textWrap{padding-bottom: 0; transform:translateX(-50%); top:60px;left:50%; }
+
+    .mainBannerWrap .textWrap .tit{text-align: center; line-height:1.3;}
+    .mainBannerWrap .textWrap .txt{text-align: center; margin: 15px 0 60px;}
+    .mainBannerWrap .textWrap .more-btn{margin:0 auto;}
+
+    .mainBannerWrap .swiper-slide img{height: 680px;}
+
+    .processWrap .stepWrap{margin-top: 0px; flex-wrap:wrap;}
+    .processWrap .stepWrap li{margin-right: 0; margin: 0 40px; width: 130px; margin-top: 40px;}
+    .processWrap .stepWrap li .iconWrap{height: 130px; margin: 10px 0;}
+    .processWrap .stepWrap li:last-child{margin:0 40px; margin-top: 40px;}
+    .processWrap .stepWrap li .step{font-size: 16px;}
+    .processWrap .stepWrap li .textWrap .title{font-size: 16px;}
+
+    .insuranceWrap .tableWrap{width: 620px;}
+    .insuranceWrap .privacyWrap {width: 620px;}
+    .subCont.inquiryWrap .tableWrap{width: 620px;}
+    .subCont.inquiryWrap .privacyWrap {width: 620px;}
+
+
+    .subCont .aboutWrap .textWrap{margin-top: 30px;}
+    .subCont .aboutWrap .textWrap .iconText{width: 100%;}
+    .subCont .titleWrap .title{font-size: 28px;}
+    .subCont.businessWrap{padding: 65px 0;}
+
+    .subCont .aboutWrap .textWrap .imgWrap:after{background-size: 30%}
+    .subCont.businessWrap .iconWrap li{width: 180px;}
+    .subCont.businessWrap .iconWrap li span.icon{width: 100px;height: 100px;}
+    .subCont.businessWrap .iconWrap li:nth-child(1) span.icon:after{background-image: url(../images/mainIcon04.png); width: 42px;}
+    .subCont.businessWrap .iconWrap li:nth-child(2) span.icon:after{background-image: url(../images/mainIcon05.png); width: 54px;}
+    .subCont.businessWrap .iconWrap li:nth-child(3) span.icon:after{background-image: url(../images/mainIcon06.png); width: 45px;}
+    .subCont.businessWrap .iconWrap li:nth-child(4) span.icon:after{background-image: url(../images/mainIcon07.png); width: 47px;}
+    .subCont.businessWrap .iconWrap li:nth-child(5) span.icon:after{background-image: url(../images/mainIcon08.png); width: 45px;}
+
+    .subCont.businessWrap .iconWrap li p.tit{font-size: 15px;}
+
+}
+
+
+
+
+@media screen and (max-width: 767px) {
+    /* ruleset for 481px - 767px */
+
+    /* 포트폴리오 버튼 변경처리 20230201 */
+    .mOnly {display:inline-block;}
+    .pcOnly {display:none !important;}
+
+
+    /*메인 index*/
+    .m-headerWrap{height: 70px;}
+    .m-headerWrap .headerInner{height: 70px;}
+    .m-menuWrap .topWrap{height: 70px;}
+    .m-headerWrap .headerInner h1.logoWrap a{width: 120px;}
+    .m-menuWrap.actived{width: 80vw;}
+    .m-menuWrap .menuList > li > a{height: 55px; font-size: 17px;}
+    .m-menuWrap .menuList > li > .depth2 li a{font-size: 15px;}
+
+
+    .mainBannerWrap {margin-top: 70px;}
+    .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction{bottom: 10px;}
+    .swiper-pagination-bullet{width: 20px;height: 20px;}
+    .swiper-pagination-bullet:after{width: 4px; height: 4px;}
+    .mainBannerWrap .textWrap p{font-size: 20px;}
+    .mainBannerWrap .textWrap p.title{font-size: 32px;margin-top: 5px;}
+
+
+    .mainCont .mt120{margin-top: 80px !important;}
+    .mainCont.mt120{margin-top: 80px !important;}
+    .mainCont .pc-bannerWrap{display:none;}
+    .mainCont .m-bannerWrap{display:flex;}
+    .mainCont .bannerWrap{flex-wrap:wrap;}
+    .mainCont .bannerWrap li{width: 100%; margin-right: 0; margin-bottom: 10px; }
+    .mainCont .bannerWrap li:last-child{margin-bottom: 0;}
+
+    .mainCont .bannerWrap li a{border-radius: 10px;}
+    .mainCont .bannerWrap li a img{border-radius: 10px;}
+
+    .mainCont .bannerWrap li a .text {left:20px}
+    .mainCont .bannerWrap li a .text .title{font-size: 17px; text-align: left; margin-bottom: 5px;}
+    .mainCont .bannerWrap li a .text .info{display:block;}
+    .mainCont .aboutWrap .titleWrap .text{font-size: 15px;}
+    .mainCont .aboutWrap .titleWrap .text:before{font-size: 17px;}
+    .mainCont .aboutWrap .titleWrap .text:after{font-size: 17px;}
+
+    .mainCont .titleWrap{margin-bottom: 20px;}
+    .mainCont .aboutWrap .textWrap{flex-wrap:wrap; margin-top: 20px;}
+
+    .mainCont .aboutWrap .textWrap .imgWrap{width: 100%; display:none;}
+
+    .mainCont .aboutWrap .textWrap .iconText{width: 100%; margin-top: 20px;}
+    .mainCont .aboutWrap .textWrap .iconText li span.icon{width: 60px;height: 60px;}
+    .mainCont .aboutWrap .textWrap .iconText li span.icon:after{width: 30px;height: 30px; background-size: auto;}
+
+    /*230105 수정사항 start*/
+    .mainCont.businessWrap .iconWrap{flex-wrap:wrap; margin-top: 30px;}
+    /*.mainCont.businessWrap .iconWrap li span.icon{width: 90px;height: 90px;}*/
+
+    .mainCont.businessWrap .iconWrap li{padding: 0 20px; width: 40%;}
+    .mainCont.businessWrap .iconWrap li:nth-last-child(-n + 2){margin-top: 30px;}
+    .mainCont .vrTour-wrap .tabWrap li{margin-right: 10px;}
+
+    /*230105 수정사항 start*/
+    .mainCont .vrTour-wrap .tabWrap li a{font-size: 14px; padding: 0 20px;}
+
+    /*
+    .mainCont .vrTour-wrap .vrList{margin-top: 20px;}
+    .mainCont .vrTour-wrap .vrList li{padding: 15px 0;}
+
+    .mainCont .vrTour-wrap .vrList li a img{width: 120px; height: 96px;}
+
+
+    .mainCont .vrTour-wrap .vrList li a .infoWrap{width: calc(100% - 130px);}
+    .mainCont .vrTour-wrap .vrList li a .infoWrap .type{font-size: 12px; padding: 4px 8px;}
+    .mainCont .vrTour-wrap .vrList li a .infoWrap .title{font-size: 15px;}
+    .mainCont .vrTour-wrap .vrList li a .infoWrap .text{margin-top: 2px;}
+    .mainCont .vrTour-wrap .vrList li a .infoWrap .priceWrap .price{font-size: 13px;}
+    */
+    .mainCont .vrTour-wrap .tabCont .vrList li{width: calc(50% - 10px); margin-right: 20px; margin-top: 20px;}
+    .mainCont .vrTour-wrap .tabCont .vrList li:nth-child(4n){margin-right: 20px;}
+    .mainCont .vrTour-wrap .tabCont .vrList li:nth-child(3n){margin-right: 20px;}
+    .mainCont .vrTour-wrap .tabCont .vrList li:nth-child(2n){margin-right: 0px;}
+    .mainCont .vrTour-wrap .tabCont .vrList li .infoWrap .type{font-size: 12px;}
+    .mainCont .vrTour-wrap .tabCont .vrList li .infoWrap .title{font-size: 15px; line-height: 1.3em; height:2.6em;}
+
+
+    /*230105 수정사항 end*/
+
+    .page-btn a{font-size: 14px; width: 200px; }
+
+    /*230105 수정사항 start*/
+    .mainCont.inquiryWrap{padding: 80px 0; background:url('../images//mainInquiry_m.jpg') 50% 50% no-repeat;}
+    .mainCont.inquiryWrap .privacyWrap .text{font-size: 14px;}
+    /*230105 수정사항 end*/
+    .mainCont.inquiryWrap .titleWrap .text{font-size: 14px;}
+
+    .tableWrap > div{margin-bottom: 10px;}
+    .tableWrap > div.form-w50{width: 100%; margin-right: 0;}
+    .tableWrap > div .title{font-size: 14px;}
+    input{font-size: 14px;}
+    .selectBox .label{font-size: 14px;}
+    .selectBox .optionItem{font-size: 14px;}
+
+    .tableWrap > div .checkWrap label{font-size: 14px; margin-right: 20px;}
+    textarea{font-size: 14px;}
+    .tableWrap > div .inputWrap textarea{height: 80px;}
+
+
+    .inquiryWrap .textWrap{padding: 15px;}
+    .inquiryWrap .textWrap p{font-size: 14px; line-height: 1.5}
+
+    .mFamily{padding: 30px 0;}
+    .mFamily .swiper-slide{width: 28%; height: 28px;}
+
+
+    .footerWrap{padding: 15px 0 40px;}
+    .footerWrap .footerInner{flex-wrap:wrap; width: 100%;}
+    .footerWrap .footerInner .leftWrap{width: 100%; padding-bottom: 20px; border-bottom: 1px solid #404040;}
+    .footerWrap .footerInner .leftWrap .menuList{margin-bottom: 20px; padding: 0 3%; border-bottom: 1px solid #404040; padding-bottom: 15px;}
+    .footerWrap .footerInner .leftWrap .info{padding: 0 3%;}
+    .footerWrap .footerInner .leftWrap .adress{padding: 0 3%;}
+    .footerWrap .footerInner .leftWrap .copyright{padding: 0 3%; margin-top: 10px;}
+    .footerWrap .footerInner .pc-rightWrap{display:none;}
+    .footerWrap .footerInner .rightWrap.m-rightWrap{display:flex;}
+    .footerWrap .footerInner .rightWrap{width: 100%; padding: 0 3%; align-items: flex-start; padding-top: 17px;}
+    .footerWrap .footerInner .rightWrap p.number{margin-bottom: 2px; line-height: 1; }
+    .footerWrap .footerInner .rightWrap p{font-size: 13px; line-height: 1; }
+
+    .footerWrap .footerInner .rightWrap .btnWrap{width: 100%;}
+    .footerWrap .footerInner .rightWrap .btnWrap a{width: 50%; margin-top: 20px;}
+
+    .footerWrap .footerInner .rightWrap .btnWrap a.line-btn{border:1px solid #404040; background: #404040; color: #fff;}
+
+
+    /*회사소개 about.html*/
+    .subBanner-wrap p.subMenu{font-size: 24px;}
+    .subBanner-wrap{margin-top: 70px;}
+    .subTitleWrap{margin-bottom: 20px;}
+    .subCont .mt120{margin-top: 80px !important;}
+    .subCont .mt120{margin-bottom: 80px !important;}
+    .subCont .pt120{padding-top: 80px !important;}
+    .subCont .pb120{padding-bottom: 80px !important;}
+    .aboutWrap .textWrap .imgWrap{height: 200px;}
+    .aboutWrap .textWrap .aboutList li{font-size: 15px; height: 45px; line-height: 44px;}
+    .aboutWrap .textWrap .aboutList li span{font-size: 15px;}
+    .aboutWrap .orgWrap{padding: 80px 0;}
+    .orgWrap .pc-img{display:none;}
+    .orgWrap .m-img{display:block;}
+
+    .aboutWrap .historyChart .text .date{font-size: 20px;}
+    .aboutWrap .historyChart .text .info{font-size: 14px;}
+
+    .aboutWrap .historyChart:after{left:7px; transform: inherit;}
+    .aboutWrap .historyChart:before{width: 15px; height: 15px; left:0px; transform: inherit;}
+
+    .aboutWrap .historyChart .text{width: 100%; padding-right: 0; padding-left: 37px; margin-left: 0; text-align: left; padding-top: 40px; }
+    .aboutWrap .historyChart .text:before{right:inherit; left:2px; top:45px;}
+
+    .aboutWrap .contactWrap{padding: 80px 0;}
+    .aboutWrap .contactWrap .mapWrap .mapInfo{padding: 20px; bottom: 10px; right:inherit; width: calc(100% - 20px); left:50%; transform: translateX(-50%);}
+    .aboutWrap .contactWrap .mapWrap .mapInfo li{margin-bottom: 15px;}
+    .aboutWrap .contactWrap .mapWrap .mapInfo li .tit{font-size: 15px;}
+    .aboutWrap .contactWrap .mapWrap .mapInfo li .txt{font-size: 14px; line-height: 1.3;}
+
+
+
+    /*vr투어 리스트 vrList.html*/
+
+
+    .vrList-wrap .link-tabWrap li{margin-right: 10px;}
+    .vrList-wrap .link-tabWrap li a{font-size: 14px;}
+
+    .vrList-wrap .listWrap .topSel{margin-top: 20px;}
+    .vrList-wrap .listWrap .topSel p.total{font-size: 13px;}
+    .vrList-wrap .listWrap .topSel .sortWrap li{margin-right: 5px;}
+    .vrList-wrap .listWrap .topSel .sortWrap li a{font-size: 13px; padding: 0 8px;}
+
+    .vrList-wrap .listWrap .list li{padding: 15px 0;}
+    .vrList-wrap .listWrap .list li a img{width: 120px;height: 96px;}
+    .vrList-wrap .listWrap .list li a .infoWrap{width: calc(100% - 130px);}
+    .vrList-wrap .listWrap .list li a .infoWrap span.type{font-size: 12px; padding: 4px 8px;}
+    .vrList-wrap .listWrap .list li a .infoWrap .title{font-size: 15px;}
+    .vrList-wrap .listWrap .list li a .infoWrap .text{margin-right: 2px;}
+    .vrList-wrap .listWrap .list li a .infoWrap .priceWrap .price{font-size: 13px;}
+    .vrList-wrap .listWrap .list li a .infoWrap .priceWrap .discount{font-size: 14px;}
+
+
+    /* .paging .page-num a:nth-last-child(-n + 5){display:none;} */
+
+
+    /*제작가격 price.html*/
+    .priceWrap .recomWrap .titleWrap{margin-bottom: 20px;}
+    .priceWrap .recomWrap .titleWrap p.title{font-size: 20px; }
+    .priceWrap .recomWrap .titleWrap p.title span{font-size: 20px; }
+    .priceWrap .recomWrap .titleWrap p.title:before{font-size: 20px;}
+    .priceWrap .recomWrap .titleWrap p.title:after{font-size: 20px;}
+    .priceWrap .recomWrap .titleWrap .text{font-size: 14px;}
+    .priceWrap .recomWrap .titleWrap .text span{font-size: 14px;}
+    .priceWrap .recomWrap .list li{width: 100%; margin-right: 0; margin-bottom: 10px; height: 70px;}
+    .priceWrap .recomWrap .list li:nth-last-child(-n + 2){margin-bottom: 10px;}
+    .priceWrap .recomWrap .list li:last-child{margin-bottom: 0px;}
+    .priceWrap .recomWrap .list li:after{font-size: 70px; bottom:-20px; font-weight: 700;}
+    .priceWrap .recomWrap .list li .textWrap .tit{font-size: 15px;}
+
+    .priceWrap .recomWrap .list{margin-bottom: 20px;}
+
+
+    .priceTable-wrap p.title{font-size: 17px;}
+    .priceTable colgroup col:nth-child(1){width: 22% !important;}
+    .priceTable colgroup col:nth-child(2),.priceTable colgroup col:nth-child(3),.priceTable colgroup col:nth-child(4){width: 26% !important;}
+    .priceTable thead tr th{line-height: 1.3; font-size: 14px;}
+
+    .priceTable tr th{border-bottom: 3px solid #fff; border-right: 3px solid #fff;}
+    .priceTable tr td{border-bottom: 3px solid #fff; border-right: 3px solid #fff;}
+
+    /*제작의뢰 inquiry.html*/
+    .subTitleWrap .text{font-size: 14px;}
+
+
+    /*여행자보험 insurance.html*/
+    .insuranceWrap .tableWrap > div .title{width: 230px;}
+    .insuranceWrap .tableWrap > div .inputWrap{width: calc(100% - 230px);}
+
+    /* 230105 수정사항 start */
+
+    .insuranceWrap .tableWrap > div{flex-wrap:wrap; margin-bottom: 25px;}
+    .insuranceWrap .tableWrap > div .title{width: 100%; min-height: auto; margin-bottom: 10px;}
+    .insuranceWrap .tableWrap > div .inputWrap{width: 100%;}
+    .insuranceWrap .tableWrap > div .checkWrap{min-height: auto;}
+
+    .insuranceWrap .tableWrap > div .tab li{width: 50%;}
+    .insuranceWrap .tableWrap > div .tab li a{font-size: 14px; height: 40px; line-height: 39px;}
+    .insuranceWrap .tableWrap > div .excel1 .upload-btn{width: 80px; font-size: 14px;}
+    .insuranceWrap .tableWrap > div .excel1 input{width: calc(100% - 90px);}
+    .insuranceWrap .tableWrap > div .excel1 .file-down{font-size: 13px;position:relative; width: 130px;}
+    .insuranceWrap .tableWrap > div .excel1 .file-down i{ font-size: 11px;}
+
+    /* 230105 수정사항 end */
+
+    /*로그인 login.html*/
+    .loginWrap{margin-top: 70px; min-height: calc(100vh - 392px);}
+    .login-wrap {width: 100%; margin: 0 auto; padding: 60px 40px;}
+    .login-wrap .sns-wrap p.snsTitle{font-size: 14px;}
+
+
+
+    /*마이페이지 mypage.html*/
+    .mypageWrap{margin-top: 70px;}
+    .mypageWrap .pt120{padding-top: 60px !important;}
+    .mypageWrap .pb120{padding-bottom: 60px !important;}
+    .mypageWrap .mypageCont{flex-wrap:wrap; height:auto;}
+    .mypageWrap .mypageCont .inqWrap .titleWrap h4{font-size: 26px;}
+    .mypageWrap .mypageCont .profWrap{width: 100%; border-right: 0;}
+    .mypageWrap .mypageCont .profWrap .profInfo{padding: 30px;}
+    .mypageWrap .mypageCont .profWrap .profInfo img{width: 120px;height: 120px;}
+    .mypageWrap .mypageCont .profWrap .menuWrap{display:flex; justify-content: space-between; align-items: center; width: 100%;}
+    .mypageWrap .mypageCont .profWrap .menuWrap li{width: 50%;}
+    .mypageWrap .mypageCont .profWrap .menuWrap li a{border:1px solid #d7d7d7; border-left: 0;  height: 50px; justify-content: center;}
+    .mypageWrap .mypageCont .profWrap .menuWrap li:last-child a{border-right: 0;}
+    .mypageWrap .mypageCont .profWrap .menuWrap li a i{display:none;}
+    .mypageWrap .mypageCont .inqWrap{width: 100%; padding-bottom: 20px;}
+    .mypageWrap .mypageCont .inqWrap .titleWrap{padding: 30px 20px 15px;}
+    .mypageWrap .mypageCont .inqWrap .paging{margin: 20px 0 0;}
+
+
+
+
+
+
+    /*제작의뢰 뷰페이지 inquriy_view.html*/
+    .page-table2 tr th{font-size: 14px; padding: 10px; height: 45px;}
+    .page-table2 tr th p{font-size: 14px;}
+    .page-table2 tr td{font-size: 14px; padding: 10px; height: 45px;}
+    .page-table2 tr td p{font-size: 14px;}
+    .page-table2 tr td textarea{font-size: 14px;}
+    .page-table2 tr td input{font-size: 14px; }
+    .page-table2 tr td input[type="text"]{font-size: 14px; height: 40px;}
+    .page-table2 tr td input[type="number"]{font-size: 14px; height: 40px;}
+    .inqTableWrap table td div label{font-size: 14px; margin-right: 20px;}
+
+    .answerWrap{padding: 15px;}
+    .answerWrap p{font-size: 14px; }
+
+    .input-table tr td{padding: 5px 10px;}
+    .inqTableWrap table textarea{height: 200px;}
+
+
+
+    /*모달 modal*/
+    .modal .modal-inner{border-radius: 10px;}
+    .modal .modal-inner .modal-btn a{ font-size: 14px;}
+
+    /*푸터 modal*/
+    .footerModal .textWrap{padding: 10px; }
+    .footerModal .textWrap p{font-size: 14px; line-height: 1.5;}
+    .footerModal1 .textWrap p.title{font-size: 15px;}
+    .footerModal2 .textWrap p span{font-size: 14px;}
+
+    .footerModal .textWrap{max-height:calc(100vh - 356px); overflow-y: auto;}
+
+    /*여행자 보험가입양식 뷰페이지 insurance_view.html*/
+    .ins-viewWrap table th{padding: 10px 15px; word-break: keep-all;}
+
+    /*비회원 모달*/
+    .modal.joinModal .modal-inner .modal-text{padding: 60px 20px 40px;}
+    .joinModal .modal-text p.title{font-size: 22px;}
+    .joinModal .modal-text p.text{font-size: 14px; margin-top: 8px;}
+
+    /*230116 수정사항 */
+    .mainBannerWrap .swiper-slide img{height:auto;}
+    .mainBannerWrap .textWrap .tit{font-size: 30px; line-height: 1.3; word-break: keep-all;}
+    .mainBannerWrap .textWrap .txt{font-size: 14px; line-height:1.4; margin: 15px 0 40px; word-break: keep-all;}
+    .mainBannerWrap .textWrap .more-btn{font-size: 14px; width: 140px; }
+
+    .mainCont .pt120{padding-top: 80px !important;}
+    .mainCont .pb120{padding-bottom: 80px !important;}
+
+    .insuranceWrap .tableWrap{width: 94%;}
+    .insuranceWrap .privacyWrap {width: 94%;}
+    .subCont.inquiryWrap .tableWrap{width: 94%;}
+    .subCont.inquiryWrap .privacyWrap {width: 94%;}
+
+    .subCont .aboutWrap .textWrap{flex-wrap:wrap; margin-top: 20px;}
+
+    .subCont .aboutWrap .textWrap .imgWrap{width: 100%; display:none;}
+
+    .subCont .aboutWrap .textWrap .iconText{width: 100%; margin-top: 20px;}
+    .subCont .aboutWrap .textWrap .iconText li span.icon{width: 60px;height: 60px;}
+    .subCont .aboutWrap .textWrap .iconText li span.icon:after{width: 30px;height: 30px; background-size: auto;}
+
+    .subCont.businessWrap .iconWrap{flex-wrap:wrap; margin-top: 30px;}
+
+    .subCont.businessWrap .iconWrap li{padding: 0 20px; width: 40%;}
+    .subCont.businessWrap .iconWrap li:nth-last-child(-n + 2){margin-top: 30px;}
+
+
+
+
+
+
+}
+
+
+
+
+
+
+@media screen and (max-width: 480px) {
+    /* ruleset for 375px - 480px */
+
+    /*메인 index*/
+    .m-headerWrap{height: 60px;}
+    .m-headerWrap .headerInner{height: 60px;}
+    .m-headerWrap .headerInner h1.logoWrap a{width: 100px;}
+    .m-headerWrap .headerInner .menuBtn{width: 30px;height: 20px;}
+    .m-headerWrap .headerInner .menuBtn span{height: 2px;}
+
+    .m-menuWrap.actived{width: 90vw;}
+    .m-menuWrap .topWrap .infoMenu li a{font-size: 13px;}
+    .m-menuWrap .menuList > li > a{font-size: 15px;}
+    .m-menuWrap .menuList > li > a i{font-size: 13px;}
+    .m-menuWrap .menuList > li > .depth2 li a{font-size: 14px;}
+
+    .mainBannerWrap {margin-top: 60px;}
+    .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction{bottom:15px;}
+
+    .swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet{margin: 0 3px;}
+
+    .mainBannerWrap .textWrap p{font-size: 16px;}
+    .mainBannerWrap .textWrap p.title{font-size: 26px;}
+
+
+    .mainCont .mt120{margin-top: 65px !important;}
+    .mainCont.mt120{margin-top: 65px !important;}
+
+    .mainCont .bannerWrap li a .text .title{font-size: 15px; font-weight: 600; margin-bottom: 3px;}
+    .mainCont .bannerWrap li a .text .info{font-size: 13px;}
+
+
+    .mainCont .aboutWrap .titleWrap .title{font-size: 24px; padding-top: 20px;}
+    .mainCont .aboutWrap .titleWrap .title span{font-size: 24px;}
+    .mainCont .aboutWrap .titleWrap .title:after{font-size: 40px;}
+    .mainCont .aboutWrap .titleWrap .text{font-size: 14px; font-weight: 600;}
+    .mainCont .aboutWrap .titleWrap .text:before{font-size: 16px; margin-right: 3px;}
+    .mainCont .aboutWrap .titleWrap .text:after{font-size: 16px; margin-left: 3px;}
+
+
+    .mainCont .aboutWrap .textWrap .iconText li span.icon{width: 50px; height: 50px;}
+    .mainCont .aboutWrap .textWrap .iconText li span.icon:after{width: 23px;height: 23px; background-size: 100%;}
+    .mainCont .aboutWrap .textWrap .iconText li p{font-size: 14px;}
+    .mainCont .aboutWrap .textWrap .iconText li p span.blue{font-size: 14px; font-weight: 600;}
+
+    .mainCont .titleWrap .title{font-size: 24px;}
+    .mainCont.businessWrap .iconWrap li{width: 50%; margin-bottom: 20px;}
+    .mainCont.businessWrap .iconWrap li:nth-last-child(-n + 2){margin-top: 0;}
+    .mainCont.businessWrap .iconWrap li:last-child{margin-bottom: 0;}
+
+    .mainCont.businessWrap .iconWrap li p.tit{font-weight: 600;}
+    .mainCont.businessWrap .iconWrap li p.info{height: 2.4em; font-size: 13px;}
+
+    .mainCont .vrTour-wrap .tabWrap{flex-wrap:wrap; margin-bottom: -10px;}
+    .mainCont .vrTour-wrap .tabWrap li{margin-right: 10px; margin-bottom: 10px;}
+    .mainCont .vrTour-wrap .tabWrap li a{padding: 0 20px; }
+
+    /*230105 수정사항 start*/
+    /*.mainCont .vrTour-wrap .vrList li a{align-items: flex-start;}
+    .mainCont .vrTour-wrap .vrList li a img{width: 80px; height: 64px; border-radius: 5px;}
+
+    .mainCont .vrTour-wrap .vrList li a .infoWrap{width: calc(100% - 90px);}
+    .mainCont .vrTour-wrap .vrList li a .infoWrap .text{font-size: 13px;}
+    .mainCont .vrTour-wrap .vrList li a .infoWrap .priceWrap .price{font-size: 12px;}
+    */
+    .mainCont .vrTour-wrap .tabCont .vrList li{width: calc(50% - 5px); margin-right: 10px;}
+    .mainCont .vrTour-wrap .tabCont .vrList li:nth-child(4n){margin-right: 10px;}
+    .mainCont .vrTour-wrap .tabCont .vrList li:nth-child(3n){margin-right: 10px;}
+    .mainCont .vrTour-wrap .tabCont .vrList li:nth-child(2n){margin-right: 0px;}
+    .mainCont .vrTour-wrap .tabCont .vrList li img{border-radius: 10px;}
+    .mainCont .vrTour-wrap .tabCont .vrList li .infoWrap .title{font-size: 14px;}
+    /*230105 수정사항 end*/
+
+    .page-btn{margin-top: 40px !important;}
+    .page-btn a{width: 100%;}
+
+    .mainCont.inquiryWrap{padding: 65px 0;}
+    .inquiryWrap .textWrap p{font-size: 13px;}
+    .inquiryWrap .page-btn a{width: 94%;}
+
+    .tableWrap > div .title{font-weight: 600;}
+
+    .mFamily .swiper-slide{height: 24px; width: 30%;}
+
+    .footerWrap .footerInner .leftWrap .menuList{justify-content: center;}
+    .footerWrap .footerInner .leftWrap .menuList li a{font-size: 13px;}
+    .footerWrap .footerInner .leftWrap .info li:after{height: 8px;}
+    .footerWrap .footerInner .leftWrap .info li{font-size: 12px; line-height: 1.4}
+    .footerWrap .footerInner .leftWrap .adress{font-size: 12px;}
+    .footerWrap .footerInner .leftWrap .copyright{font-size: 12px;}
+
+    .footerWrap .footerInner .rightWrap p.number{font-size: 24px;}
+    .footerWrap .footerInner .rightWrap p{font-size: 12px;}
+    .footerWrap .footerInner .rightWrap .btnWrap a{font-size: 13px; height: 35px;}
+
+
+
+    /*회사소개 about.html*/
+    .subBanner-wrap{margin-top: 60px;}
+    .subBanner-wrap p.subMenu{font-size: 20px;}
+
+    .subCont .mt120{margin-top: 65px !important;}
+    .subCont .mt120{margin-bottom: 65px !important;}
+    .subCont .pt120{padding-top: 65px !important;}
+    .subCont .pb120{padding-bottom: 65px !important;}
+
+    .subTitleWrap span{font-size: 12px;}
+    .subTitleWrap .title{font-size: 24px;}
+    .aboutWrap .textWrap .imgWrap{height: 160px;}
+    .aboutWrap .textWrap .imgWrap:after{background-size: 25%; right:20px;}
+    .aboutWrap .textWrap .imgWrap img{border-radius: 5px;}
+
+    .aboutWrap .textWrap .aboutList li{border-radius: 5px; height: 40px; line-height:39px; font-size: 14px; }
+    .aboutWrap .textWrap .aboutList li span{font-size: 14px;}
+
+    .aboutWrap .orgWrap{padding: 65px 0;}
+
+    .aboutWrap .historyChart .text .date{font-size: 17px;}
+    .aboutWrap .historyChart .text:before{top:43px;}
+
+    .aboutWrap .contactWrap .mapWrap .mapInfo li{margin-bottom: 10px;}
+    .aboutWrap .contactWrap .mapWrap .mapInfo li .tit{font-size: 14px;}
+    .aboutWrap .contactWrap .mapWrap .mapInfo li .txt{font-size: 13px; line-height: 1.4;}
+
+
+    /*vr투어 리스트 vrList.html*/
+    .vrList-wrap .link-tabWrap{margin-bottom: -10px;}
+    .vrList-wrap .link-tabWrap li{margin-bottom: 10px;}
+
+    .vrList-wrap .listWrap .topSel{flex-wrap:wrap;}
+
+    .vrList-wrap .listWrap .topSel .sortWrap{ margin-top: 10px; width: 100%;}
+    .vrList-wrap .listWrap .topSel .sortWrap li{width: 18%;}
+    .vrList-wrap .listWrap .topSel .sortWrap li:nth-last-child(-n + 2){width: 23%;}
+    .vrList-wrap .listWrap .topSel .sortWrap li a{width: 100%;}
+
+    .vrList-wrap .listWrap .list li a{align-items: flex-start;}
+    .vrList-wrap .listWrap .list li a img{width: 80px; height: 64px; border-radius: 5px;}
+    .vrList-wrap .listWrap .list li a .infoWrap{width: calc(100% - 90px);}
+    .vrList-wrap .listWrap .list li a .infoWrap .text{font-size: 13px;}
+    .vrList-wrap .listWrap .list li a .infoWrap .priceWrap .price{font-size: 12px;}
+
+    .paging .page-arrow{width: 32px;height: 32px;}
+    .paging .page-num a{width: 32px;height: 32px; font-size: 13px;}
+
+
+    /*제작가격 price.html*/
+    .priceWrap .recomWrap .titleWrap p.title{font-size: 18px;}
+    .priceWrap .recomWrap .titleWrap p.title span{font-size: 18px;}
+    .priceWrap .recomWrap .titleWrap p.title:before{font-size: 18px;}
+    .priceWrap .recomWrap .titleWrap p.title:after{font-size: 18px;}
+
+    .priceWrap .recomWrap .list li .textWrap .txt{font-size: 13px;}
+
+    .priceTable-wrap p.title{font-size: 16px;}
+    .priceTable thead tr th{font-size: 13px;}
+    .priceTable tr th{font-size: 13px; padding: 5px; border-bottom: 2px solid #fff; border-right: 2px solid #fff;}
+    .priceTable tr td{font-size: 13px; padding: 5px; border-bottom: 2px solid #fff; border-right: 2px solid #fff;}
+    .priceTable-wrap .detail{font-size: 13px;}
+
+
+
+
+    /*여행자보험 insurance.html*/
+    /*230105 수정사항 start*/
+    /*
+    .insuranceWrap .tableWrap > div{flex-wrap:wrap; margin-bottom: 25px;}
+    .insuranceWrap .tableWrap > div .title{width: 100%; min-height: auto; margin-bottom: 10px;}
+    .insuranceWrap .tableWrap > div .inputWrap{width: 100%;}
+    .insuranceWrap .tableWrap > div .checkWrap{min-height: auto;}
+    */
+    .insuranceWrap .page-btn{width: 94%; display:flex; justify-content: space-between; align-items: center; margin:0 auto}
+    .insuranceWrap .page-btn a:first-child{margin-right: 10px;}
+    /*230105 수정사항 end*/
+
+    /*로그인 login.html*/
+    .loginWrap{margin-top: 60px; min-height: calc(100vh - 400px);}
+    .login-wrap{border-radius: 10px; padding:60px 20px;}
+    .login-wrap h4{font-size: 24px; }
+    .login-wrap .sns-wrap{margin-top: 40px;}
+    .login-wrap .sns-wrap .kakao-btn{height: 45px; font-size: 14px; border-radius: 5px; margin-top: 15px;}
+
+
+
+    /*마이페이지 mypage.html*/
+    .mypageWrap .pt120{padding-top: 40px !important;}
+    .mypageWrap .pb120{padding-bottom: 40px !important;}
+    .mypageWrap{margin-top: 60px;}
+    .mypageWrap .mypageCont .profWrap .profInfo img{width: 80px;height: 80px;}
+    .mypageWrap .mypageCont .profWrap .profInfo .name{font-size: 16px;}
+    .mypageWrap .mypageCont .profWrap .profInfo .name span{font-size: 16px;}
+    .mypageWrap .mypageCont .profWrap .profInfo .logoutBtn{width: 120px; font-size: 13px;}
+    .mypageWrap .mypageCont .profWrap .menuWrap li a{height: 45px; font-size: 14px;}
+    .mypageWrap .mypageCont .inqWrap .totalWrap{padding: 10px;}
+    .mypageWrap .mypageCont .inqWrap .titleWrap{padding: 30px 10px 10px;}
+    .mypageWrap .mypageCont .inqWrap .titleWrap h4{font-size: 20px;}
+    .mypageWrap .mypageCont .inqWrap .totalWrap .total{font-size: 13px;}
+
+    .mypageWrap .mypageCont .inqWrap .list li a{padding: 10px;}
+    .mypageWrap .mypageCont .inqWrap .list li a .date{font-size: 13px; width: 75px;}
+    .mypageWrap .mypageCont .inqWrap .list li a .title{width: calc(100% - 155px); font-size: 14px;}
+
+    .mypageWrap .mypageCont .inqWrap .list li a span.anw{font-size: 12px; height: 24px; width: 60px;}
+
+
+
+    /*제작의뢰 뷰페이지 inquriy_view.html*/
+
+    .inq-viewWrap .page-tableBox table colgroup col:nth-child(1){width: 25% !important;}
+    .inq-viewWrap .page-tableBox table colgroup col:nth-child(2){width: 75% !important;}
+
+    .page-table2 tr th{font-weight: 600; padding: 0 5px;}
+
+    .answerWrap{margin-top: 15px;}
+
+    /*여행자 보험가입양식 뷰페이지 insurance_view.html*/
+    .ins-viewWrap table th{padding: 10px 10px;}
+    .ins-viewWrap .page-tableBox table colgroup col:nth-child(1){width: 35% !important;}
+    .ins-viewWrap .page-tableBox table colgroup col:nth-child(2){width: 65% !important;}
+
+    /*모달 modal*/
+    .modal .modal-inner .modal-title{padding: 0 15px;}
+    .modal .modal-inner .modal-title p{font-size: 16px; }
+    .modal .modal-inner .modal-text{padding: 20px 15px;}
+    .modal .modal-inner .modal-btn {padding: 10px 15px;}
+    .modal .modal-inner .modal-btn a{height: 40px;}
+
+    .footerModal .textWrap{max-height:calc(100vh - 316px); overflow-y: auto;}
+
+
+    /*비회원 모달*/
+    .modal.joinModal .modal-inner .modal-text{padding: 60px 15px 40px;}
+    .joinModal .modal-text p.title{font-size: 20px;}
+    .joinModal .modal-text p.text{font-size: 13px; margin-top: 5px;}
+
+
+    /*230116 수정사항 */
+    .mainBannerWrap .textWrap{top:40px;}
+    .mainBannerWrap .textWrap .tit{font-size: 24px;}
+    .mainBannerWrap .textWrap .txt{margin: 10px 0 30px;}
+    .mainBannerWrap .textWrap .more-btn{height:35px; line-height: 34px;}
+
+    .processWrap .stepWrap li{margin:20px;}
+    .processWrap .stepWrap li:last-child{margin: 20px;}
+    .processWrap .stepWrap li:nth-last-child(-n + 2){margin-bottom: 0px;}
+
+    .mainCont .pt120{padding-top: 65px !important;}
+    .mainCont .pb120{padding-bottom: 65px !important;}
+
+    .subCont.businessWrap .iconWrap li{width: 50%; margin-bottom: 20px;}
+    .subCont.businessWrap .iconWrap li:nth-last-child(-n + 2){margin-top: 0;}
+    .subCont.businessWrap .iconWrap li:last-child{margin-bottom: 0;}
+
+    .subCont.businessWrap .iconWrap li p.tit{font-weight: 600;}
+    .subCont.businessWrap .iconWrap li p.info{height: 2.4em; font-size: 13px;}
+
+
+    .subCont.businessWrap .iconWrap li{padding: 0px; width: 40%;}
+    .subCont.businessWrap .iconWrap li span.icon{width: 90px;height: 90px;}
+
+    .subCont.businessWrap .iconWrap li:nth-child(1) span.icon:after{background-image: url(../images/mainIcon04.png); width: 38px;}
+    .subCont.businessWrap .iconWrap li:nth-child(2) span.icon:after{background-image: url(../images/mainIcon05.png); width: 46px;}
+    .subCont.businessWrap .iconWrap li:nth-child(3) span.icon:after{background-image: url(../images/mainIcon06.png); width: 39px;}
+    .subCont.businessWrap .iconWrap li:nth-child(4) span.icon:after{background-image: url(../images/mainIcon07.png); width: 42px;}
+    .subCont.businessWrap .iconWrap li:nth-child(5) span.icon:after{background-image: url(../images/mainIcon08.png); width: 39px;}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

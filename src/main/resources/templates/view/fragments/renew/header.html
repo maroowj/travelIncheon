@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<th:block th:fragment="topMenuFragment">
+    <header class="headerWrap pc-headerWrap down">
+        <div class="headerInner">
+            <h1 class="logoWrap"><a href="/"><img src="/renew/images/logo_w.png" alt="트레블 인천"></a></h1>
+            <div class="navWrap">
+                <ul class="depth1">
+                    <!--
+                    <li><a href="http://schooltrip.co.kr" target="_blank">여행상품</a></li>
+
+                    <li>
+                        <a href="/vr">VR 포트폴리오</a>
+
+                        <ul class="depth2">
+                            <li><a href="/vr">포트폴리오</a></li>
+                            <li><a href="/vr/price">제작가격</a></li>
+                            <li><a href="/vr/inquiry">제작의뢰</a></li>
+                        </ul>
+
+                    </li>
+
+                    <li><a href="http://schooltrip.co.kr" target="_blank">체험학습</a></li>
+                    <li><a href="/insurance">여행자보험</a></li>
+                -->
+                    <li><a href="/vr">포트폴리오</a></li>
+                    <li><a href="/vr/price">제작 가격</a></li>
+                    <li><a href="/vr/inquiry">제작문의</a></li>
+                    <li><a href="/insurance">여행자보험</a></li>
+                </ul>
+
+                <ul class="infoMenu  login-ul">
+                    <!--<li><a href="/login" >LOGIN</a></li>
+                    <li><a href="/mypage">MYPAGE</a></li>-->
+                </ul>
+            </div>
+
+        </div>
+        <div class="header-bg" style="display:none;" ></div>
+    </header>
+
+    <!--모바일 헤더-->
+    <header class="m-headerWrap actived">
+        <div class="headerInner">
+            <h1 class="logoWrap">
+                <a href="/"><img src="/renew/images/logo_w.png" alt="트레블 인천"></a>
+            </h1>
+            <a href="#" class="menuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
+        </div>
+    </header>
+
+    <div class="m-menuWrap">
+        <div class="topWrap">
+            <ul class="infoMenu login-ul">
+                <!--<li><a href="/login">LOGIN</a></li>
+                <li><a href="/mypage">MYPAGE</a></li>-->
+            </ul>
+            <a href="#" class="close-btn">닫기</a>
+        </div>
+
+        <ul class="menuList">
+            <!--
+            <li><a href="http://schooltrip.co.kr" target="_blank">여행상품 <i class="fa-solid fa-chevron-right"></i></a> </li>
+            <li>
+                <a href="#" class="hasDep2">VR 포트폴리오 <i class="fa-solid fa-chevron-down"></i></a>
+                <ul class="depth2">
+                    <li><a href="/vr">VR 포트폴리오</a></li>
+                    <li><a href="/vr/price">제작가격</a></li>
+                    <li><a href="/vr/inquiry">제작의뢰</a></li>
+                </ul>
+            </li>
+            <li><a href="http://schooltrip.co.kr" target="_blank">채험학습 <i class="fa-solid fa-chevron-right"></i></a> </li>
+            <li><a href="/insurance">여행자보험 <i class="fa-solid fa-chevron-right"></i></a></li>
+            -->
+            <li><a href="/vr">포트폴리오</a></li>
+            <li><a href="/vr/price">제작 가격</a></li>
+            <li><a href="/vr/inquiry">제작문의</a></li>
+            <li><a href="/insurance">여행자보험</a></li>
+        </ul>
+    </div>
+    <script>
+        let chkLogin = false;
+        let memberName;
+        let profilePicture;
+        loginChk();
+        function loginChk() {
+            $.ajax({
+                type:"get",
+                url:"/api/common/login",
+                async:false,
+                success:function(data) {
+                    if(!data.login) {
+                        chkLogin=false;
+                        $('.login-ul').html(
+                            '<li><a href="/login">LOGIN</a></li>\n' +
+                            '<li><a href="/mypage">MYPAGE</a></li>'
+                        );
+                    }else {
+                        chkLogin=true;
+                        memberName=data.name;
+                        profilePicture=data.profilePicture;
+                        $('.login-ul').html(
+                            '<li><a href="/user/logout">LOGOUT</a></li>\n' +
+                            '<li><a href="/mypage">MYPAGE</a></li>'
+                        );
+                    }
+                },
+                error: function (request, status, error) {
+                    console.log(request.status + ' ' + error.statusText + ' ' + request.responseText);
+                }
+            });
+        }
+    </script>
+</th:block>
+
+
+

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<footer th:fragment="footerFragment">
+
+    <script type="text/javascript" th:inline="javascript">
+        let main_no = "menu"+main_menu;
+
+        $('.leftMenu-inner .menu-area li').each(function(){
+            if( $(this).hasClass(main_no) ){
+                $(this).addClass("on");
+            }else{
+                $(this).removeClass("on");
+            }
+        });
+
+        // ckeditor5 적용
+        let editor;
+        const editorCnt = document.querySelectorAll( '#editor' ).length;
+        if( editorCnt == 1 ) {
+            ClassicEditor
+                .create(document.querySelector('#editor'), {
+                    toolbar: {
+                        items: [
+                            'heading',
+                            '|',
+                            'bold',
+                            'italic',
+                            'blockQuote',
+                            '|',
+                            'alignment',
+                            'fontFamily',
+                            'fontSize',
+                            'fontColor',
+                            'fontBackgroundColor',
+                            'highlight',
+                            '|',
+                            'imageUpload',
+                            'link',
+                            'undo',
+                            'redo',
+                            '|',
+                            'outdent',
+                            'numberedList',
+                            'bulletedList',
+                            'indent',
+                        ]
+                    },
+                    language: "ko",
+                    image: {
+                        resizeUnit: "px",
+                        toolbar: [
+                            "imageStyle:alignLeft",
+                            "imageStyle:alignCenter",
+                            "imageStyle:alignRight",
+                        ],
+                        styles: ["full", "alignLeft", "alignRight"],
+                        type: ["JPEG", "JPG", "GIF", "PNG"],
+                    },
+                    fontSize: {
+                        options: [16,18,'default',22,24,26,28,30,32,34,36,40,44,48,60,72]
+                    },
+                    ckfinder: {
+                        uploadUrl: "/ck/fileUpload" // 내가 지정한 업로드 url (post로 요청감)
+                    },
+                    link : {
+                        addTargetToExternalLinks: true,
+                        decorators: [
+                            {
+                                mode: 'auto',
+                                label: '새창 링크',
+                                attributes: {
+                                    target: '_blank',
+                                }
+                            }
+                        ]
+                    }
+                })
+                .then( newEditor => {
+                    editor = newEditor;
+                })
+                .catch( error => {
+                    console.log( error );
+                });
+        }
+
+        // 탑메뉴 검색 기능
+
+        $("#topMenuKeyword").on("keydown", function(e){
+            if(e.keyCode==13) {
+                $("#topMenuSearchIcon").click();
+            }
+        })
+
+        $("#topMenuSearchIcon").on("click", function(){
+            let topMenuSearchType = $("#topMenuSearchType").val();
+            let topMenuKeyword = $("#topMenuKeyword").val();
+
+            if(topMenuKeyword=="") {
+                toastModal("검색어를 입력하세요");
+                return;
+            }
+
+            if(topMenuSearchType=="companyTitle") {
+                location.href="/admin/company?pp=company&companyTitle="+topMenuKeyword;
+            }else if(topMenuSearchType=="firstCourseTitle") {
+                location.href="/admin/first-course?pp=course&firstCourseTitle="+topMenuKeyword;
+            }else if(topMenuSearchType=="secondCourseTitle") {
+                location.href="/admin/second-course?pp=course&secondCourseTitle="+topMenuKeyword;
+            }
+        });
+
+
+    </script>
+
+</footer>
+
+</html>

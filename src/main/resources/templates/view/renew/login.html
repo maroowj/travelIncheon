@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/renew/layout}"
+      xmlns:th="http://www.thymeleaf.org">
+
+<div layout:fragment="content">
+    <!--컨텐츠 영역-->
+
+    <div class="subCont loginWrap">
+        <div class="auto pt120 pb120">
+            <div class="login-wrap">
+                <h4>로그인</h4>
+                <div class="sns-wrap">
+                    <p class="snsTitle">SNS 계정 로그인</p>
+
+                    <a href="#" class="kakao-btn" onclick="kakaoLogin()"><i class="fa-solid fa-comment"></i> 카카오톡으로 로그인</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--script START-->
+    <script>
+        Kakao.init('e1c0d7ca2f295a6d197739f5eff48bf7');
+
+        function kakaoLogin() {
+            Kakao.Auth.login({
+                scope: 'profile_nickname,profile_image,account_email,gender,birthday,age_range',
+                success: function () {
+                    Kakao.API.request({
+                        url: '/v2/user/me',
+                        success: function (response) {
+                            let kakaoData = {
+                                age: response.kakao_account.age_range,
+                                birth: response.kakao_account.birthday,
+                                email: response.kakao_account.email,
+                                gender: response.kakao_account.gender,
+                            };
+                            location.href = '/login/kakao?provider=kakao' +
+                                '&sid=' + response.id +
+                                '&nickname=' + response.properties.nickname +
+                                '&thumbnailImageUrl=' + response.properties.thumbnail_image +
+                                '&gender=' + kakaoData.gender +
+                                '&age=' + kakaoData.age +
+                                '&email=' + kakaoData.email +
+                                '&birth=' + kakaoData.birth;
+                        },
+                        fail: function (error) {
+                            console.log(error);
+                        }
+                    })
+                },
+                fail: function (error) {
+                    console.log(error);
+                }
+            })
+        }
+    </script>
+    <!--script END-->
+</div>
+</html>

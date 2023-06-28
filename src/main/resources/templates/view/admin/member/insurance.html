@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/default_layout}"
+      xmlns:th="http://www.thymeleaf.org">
+
+<style layout:fragment="css">
+    #memberList td.add-d-flex{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #memberList span.user{
+        max-width: calc(100% - 70px);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal;
+    }
+    #memberList span.kakao{
+        background-color: var(--kakao);
+        border-radius: 4px;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        margin-left: 8px;
+    }
+    #memberList span.kakao i{
+        display: inline-block;
+        width: 10.71px;
+        height: 10px;
+        background: url('/images/logo/logo_kakao.svg') no-repeat;
+        background-size: 10.71px 10px;
+    }
+    #memberList span.facebook{
+        background-color: var(--facebook);
+        border-radius: 4px;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        margin-left: 8px;
+    }
+    #memberList span.facebook i{
+        display: inline-block;
+        width: 5.56px;
+        height: 10px;
+        background: url('/images/logo/logo_facebook.svg') no-repeat;
+        background-size: 5.56px 10px;
+    }
+    .search-wrap {
+        position: relative;
+        /*padding: 15px 47px 15px 30px;*/
+        padding: unset;
+        margin-bottom: 15px;
+        /*border-bottom: 1px solid var(--light-grey2);*/
+    }
+    .search-wrap > input{
+        width: 100%;
+        height: 50px;
+        border: 1px solid var(--light-grey2);
+        background: var(--light-grey1);
+        border-radius: 5px;
+        padding: 0 50px 0 20px;
+        font-size: 15px;
+    }
+    .search-wrap .search-icon {
+        position: absolute;
+        right: 0px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 50px;
+        text-align: center;
+        font-size: 20px;
+    }
+    .company-table .select-box {
+        position: relative;
+        margin-left: 20px;
+        width: 150px;
+    }
+    .company-table .select-box select {
+        border: 1px solid #e5e5e5;
+        border-radius: 5px;
+        height: 35px;
+        line-height: 34px;
+        padding: 0 10px;
+        cursor: pointer;
+        appearance: none;
+    }
+    .company-table .select-box:after {
+        content: '\f0d7';
+        display: inline-block;
+        font-size: 14px;
+        font-weight: 900;
+        font-family: "Font Awesome 6 Pro";
+        color: #666;
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translate(-50%,-50%);
+        cursor: pointer;
+    }
+    .modal textarea {
+        border: 1px solid #e5e5e5;
+        border-radius: 5px;
+        height: 200px;
+        padding: 10px;
+        width: 100%;
+        resize: none;
+        font-size: 15px;
+        margin-top: 30px;
+    }
+    .course-detail select{
+        background: transparent;
+        border: unset;
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 30px;
+        color: #333;
+    }
+</style>
+
+<div layout:fragment="content">
+
+    <main role="main" class="main-content">
+        <script>
+            const main_menu = 8;
+        </script>
+
+        <!--컨텐츠 영역-->
+        <div class="contents">
+            <div class="admin-contents-title">
+                <h3 class="admin-title">여행자 보험 관리</h3>
+            </div><!--admin-contents-title-->
+
+            <div class="course2-list-wrap">
+                <!--검색-->
+                <div class="search-wrap">
+                    <input type="text" placeholder="단체명 또는 여행사명으로 검색" id="keyword" class="keyword">
+                    <i id="search-icon" class="fa-solid fa-magnifying-glass search-icon"></i>
+                </div>
+
+                <div class="company-table course2-table">
+                    <div class="admin-table-title-wrap">
+                        <div class="admin-table-title">
+                            <p class="title">전체</p>
+                            <p class="detail-text">여행자 보험 리스트</p>
+                            <div class="select-box ">
+                                <select id="category" class="w100pro" style="width: 100%">
+                                    <option value="" selected hidden>카테고리</option>
+                                    <option value="">전체</option>
+                                    <option value="국내여행">국내여행</option>
+                                    <option value="해외여행">해외여행</option>
+                                </select>
+                            </div>
+                            <div class="select-box">
+                                <select id="answerBoolean" class="w100pro" style="width: 100%">
+                                    <option value="" selected hidden>답변여부</option>
+                                    <option value="">전체</option>
+                                    <option value="noAnswer">답변대기</option>
+                                    <option value="answer">답변완료</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="reserve-check-btn">
+<!--                            <a class="blue-btn cupoint">선택한 문의 답변</a>-->
+                            <!--<a class="s-blue-btn cupoint">선택한 문의 답변 수정</a>-->
+<!--                            <a class="gray-btn cupoint">선택한 문의 삭제</a>-->
+                        </div>
+                    </div>
+
+                    <!--table START-->
+                    <table class="admin-table">
+                        <colgroup>
+<!--                            <col style="width:4%">-->
+                            <col style="width:12%">
+                            <col style="width:12%">
+                            <col style="">
+                            <col style="width:12%">
+                            <col style="width:12%">
+                            <col style="width:12%">
+                        </colgroup>
+                        <thead>
+                        <tr>
+<!--                            <th class="after-none"><input type="checkbox" class="all-check"></th>-->
+                            <th>번호</th>
+                            <th>카테고리</th>
+                            <th>단체명 (여행사명)</th>
+                            <th>연락처</th>
+                            <th>가입인원</th>
+                            <th>답변여부</th>
+                        </tr>
+                        </thead>
+                        <!--<tbody id="companyCourseList"></tbody>-->
+                        <tbody id="qnaList">
+                        <!--<tr>
+                            <td><input type='checkbox' class='checked'></td>
+                            <td class="info">1</td>
+                            <td class="info">국내여행</td>
+                            <td class="info">트래블인천 여행사협동조합</td>
+                            <td class="info">연락처</td>
+                            <td class="info">10명</td>
+                            <td class="info"><span class='reserve-state r-state4'>답변대기</span></td>
+                        </tr>-->
+                        <!--<tr>
+                            <td><input type='checkbox' class='checked'></td>
+                            <td class="info">1</td>
+                            <td class="info">국내여행</td>
+                            <td class="info">트래블인천 여행사협동조합</td>
+                            <td class="info">10명</td>
+                            <td class="info">작성자명</td>
+                            <td class="info"><span class='reserve-state r-state3'>답변완료</span></td>
+                        </tr>-->
+                        </tbody>
+                    </table>
+
+                    <div id="pagination"></div>
+                </div><!--company-table-->
+            </div>
+
+        </div><!--contents-->
+
+        <!--코스 상세보기 MODAL START-->
+        <div id="course-modal" class="modal admin-modal course-modal">
+            <div class="modal-wrap">
+                <div class="modal-title-wrap">
+                    <p class="title">여행자 보험 문의정보</p>
+                    <i class="fa-solid fa-xmark close"></i>
+                </div>
+
+                <div class="modal-text-wrap">
+                    <div class="course-detail-wrap">
+                        <div class="course-detail w100pro">
+                            <!--작성자 정보-->
+                            <table class="date-table modal-table">
+                                <colgroup>
+                                    <col style="width:140px">
+                                    <col style="width:calc(50% - 70px)">
+                                    <col style="width:140px">
+                                    <col style="width:calc(50% - 140px)">
+                                </colgroup>
+                                <tbody>
+                                <tr>
+                                    <!--<th>작성자</th>
+                                    <td>
+                                        <div class="d-flex-wrap reservation-date">
+                                            김미
+                                        </div>
+                                    </td>-->
+                                    <th class="b-left">작성자 아이디</th>
+                                    <td>
+                                        <div id="snsId" class="d-flex-wrap booking-status"></div>
+                                    </td>
+                                </tr>
+
+                                <!--문의 정보 qna-area-->
+                                <table class="qna-area reserve-table modal-table">
+                                    <colgroup>
+                                        <col style="width:140px">
+                                        <col style="width:calc(50% - 70px)">
+                                        <col style="width:140px">
+                                        <col style="width:calc(50% - 140px)">
+                                    </colgroup>
+                                    <tbody>
+                                    <tr>
+                                        <th>가입 단체명 또는 여행사명</th>
+                                        <td colspan="3">
+                                            <div id="name" class="d-flex-wrap reservation-date"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>여행 종류</th>
+                                        <td colspan="3">
+                                            <div id="travelType" class="d-flex-wrap reservation-date"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>보장 종류</th>
+                                        <td colspan="3">
+                                            <div id="insuranceType" class="d-flex-wrap reservation-date"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>출발날짜</th>
+                                        <td colspan="3">
+                                            <div id="departureDate" class="d-flex-wrap reservation-date"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>귀국날짜</th>
+                                        <td colspan="3">
+                                            <div id="returnDate" class="d-flex-wrap reservation-date"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>가입 인원은<br>몇명인가요?</th>
+                                        <td colspan="3">
+                                            <div id="joinNumber" class="d-flex-wrap reservation-date"></div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                </tbody>
+                                <textarea id="answer" placeholder="답변 내용을 입력해주세요."></textarea>
+                            </table>
+                            <!--사용자 정보 table END-->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-bottom">
+                    <a class="modal-btn close-btn cupoint">닫기</a>
+                    <a class="modal-btn reserve-btn cupoint" onclick="insertAnswer()">답변하기</a>
+                </div>
+            </div><!--modal-wrap-->
+            <div class="modal-bg-cover"></div>
+        </div>
+
+    </main>
+
+    <script th:inline="javascript">
+        let page=1;
+        let insuranceSeq;
+        $(function(){
+            getInsuranceList();
+        })
+
+        // 2차 코스 리스트 불러오기
+        function getInsuranceList(){
+            let query = $("#keyword").val();
+            let answerBoolean = $("#answerBoolean").val();
+            let travelType = $("#category").val();
+            $.ajax({
+                type: "GET",
+                url: "/api/admin/insurance",
+                data: {
+                    "page": page-1,
+                    "size": 10,
+                    "answer": answerBoolean,
+                    "travelType": travelType,
+                    "query": query
+                },
+                success: function(data){
+                    // console.log(data);
+                    let list = data.content;
+                    let tag = '';
+                    if(list.length!=0) {
+                        for(i=0; i<list.length; i++) {
+                            let obj = list[i].content;
+                            let answerTag = '<td class="info"><span class=\'reserve-state r-state4\'>답변대기</span></td>';
+                            if(list[i].answer!=null && list[i].answer!="") {
+                                answerTag = '<td class="info"><span class=\'reserve-state r-state3\'>답변완료</span></td>';
+                            }
+                            tag += '<tr seq="'+list[i].seq+'">' +
+                                    '<td class="info">'+list[i].rowNum+'</td>' +
+                                '<td class="info">'+obj.travelType+'</td>' +
+                                '<td class="info">'+obj.name+'</td>' +
+                                '<td class="info">'+obj.tel+'</td>' +
+                                '<td class="info">'+obj.joinNumber+'</td>' +
+                                answerTag +
+                                '</tr>';
+                        }
+                    }else {
+                        tag += '<tr><td colspan="6">여행 보험 문의 내역이 존재하지 않습니다.</td></tr>';
+                    }
+                    $("#qnaList").html(tag);
+                    fPagination(data, page);
+
+                    $(".info").off("click").on("click", function(){
+                        insuranceSeq = $(this).parent().attr("seq");
+                        getInsuranceDetails(insuranceSeq);
+                        $("#course-modal").css("display", "block");
+                    });
+                }
+            });
+        }
+
+        $("#pagination").on("click", "ul li a", function() {
+            page = parseInt($(this).attr("gopage"));
+            getInsuranceList();
+        });
+
+        $("#keyword").on("keydown", function(e) {
+            if(e.keyCode==13) {
+                $("#search-icon").click();
+            }
+        });
+
+        $("#search-icon").on("click", function(){
+            page=1;
+            getInsuranceList();
+        });
+
+        $("#category").on("change", function () {
+            page=1;
+            getInsuranceList();
+        });
+
+        $("#answerBoolean").on("change", function () {
+            page=1;
+            getInsuranceList();
+        });
+
+        function getInsuranceDetails(insuranceSeq) {
+            $.ajax({
+                type:"get",
+                url:"/api/admin/insurance/"+insuranceSeq,
+                success:function(data) {
+                    let content = data.content;
+                    if(data.snsId!=null && data.snsId!="") {
+                        $("#snsId").text(data.snsId);
+                    }else {
+                        $("#snsId").text("비회원");
+                    }
+                    for(let key in content) {
+                        $("#"+key).text(content[key]);
+                    }
+                    $("#answer").val(data.answer);
+                },
+                error: function (request, status, error) {
+                    console.log(request.status + ' ' + error.statusText + ' ' + request.responseText);
+                }
+            });
+        }
+
+
+        function insertAnswer() {
+            let answer =$("#answer").val();
+            if(answer=="" || answer==null) {
+                toastModal("답변 내용을 입력해주세요.");
+                $("#answer").focus();
+                return;
+            }
+
+            $.ajax({
+                type:'put',
+                url:'/api/admin/insurance/'+insuranceSeq,
+                contentType:'application/json',
+                data: JSON.stringify({
+                    "answer":answer
+                }),
+                success:function() {
+                    toastModal("답변이 등록되었습니다.");
+                    setTimeout(()=>$(".close-btn").click(), 1000);
+                    getInsuranceList();
+                },
+                error: function (request, status, error) {
+                    console.log(request.status + ' ' + error.statusText + ' ' + request.responseText);
+                }
+            });
+        }
+    </script>
+
+</div>
+</html>

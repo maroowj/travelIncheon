@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/default_layout}"
+      xmlns:th="http://www.thymeleaf.org">
+
+<style layout:fragment="css">
+    .address{ width: calc(100%) !important; margin: 0px !important; }
+</style>
+
+<div layout:fragment="content">
+
+    <main role="main" class="main-content">
+        <script>
+            const main_menu = 2;
+        </script>
+
+        <!--컨텐츠 영역-->
+        <div class="contents admin">
+            <div class="admin-contents-title">
+                <h3 class="admin-title">1차 코스 추가</h3>
+            </div><!--admin-contents-title-->
+
+            <div id="courseAdd-wrap" class="courseAdd-wrap">
+                <div class="courseAdd-inner">
+                    <div class="course-thumImg-wrap">
+                        <img class="thumImage" src="/images/admin/test_3.jpg" alt="코스 썸네일 이미지">
+
+                        <div class="img-button">
+                            <a class="img-add-btn cupoint" onclick="$('#thumImage').click();">썸네일 이미지 등록</a>
+                            <input type="file" class="d-none" id="thumImage" accept="image/*" />
+                            <p class="img-size">※ 권장 이미지 사이즈 : 780x577</p>
+                        </div>
+                    </div>
+
+                    <div class="courseAdd-text-wrap">
+                        <div class="courseText-list courseText-list1">
+                            <p class="title">제목</p>
+                            <div class="add-d-flex">
+                                <div class="select-box">
+                                    <select id="companyList" data-name="업체">
+                                        <option value="" selected disabled>업체선택</option>
+                                    </select>
+                                </div>
+                                <input type="text" name="check" data-name="제목" class="firstCourseTitle" placeholder="제목을 입력해주세요.">
+                            </div>
+                        </div><!--courseText-list-->
+
+                        <div class="courseText-list courseText-list2">
+                            <p class="title">노출기간</p>
+                            <div class="add-d-flex">
+                                <input type="date" class="startDate">
+                                <span class="text">~</span>
+                                <input type="date" class="endDate">
+                            </div>
+                        </div><!--courseText-list-->
+
+                        <div class="courseText-list courseText-list1">
+                            <p class="title">주소</p>
+                            <div class="add-d-flex">
+                                <input type="text" name="check" data-name="주소" class="address" placeholder="주소를 입력해주세요.">
+                            </div>
+                        </div><!--courseText-list-->
+
+                        <div class="courseText-list courseText-list1">
+                            <p class="title">코스</p>
+                            <div class="add-d-flex">
+                                <div class="select-box">
+                                    <select id="courseType" data-name="코스">
+                                        <option value="" selected disabled>선택없음</option>
+                                        <option value="A코스">A코스</option>
+                                        <option value="B코스">B코스</option>
+                                        <option value="C코스">C코스</option>
+                                        <option value="D코스">D코스</option>
+                                        <option value="E코스">E코스</option>
+                                    </select>
+                                </div>
+                                <input type="text" name="check" data-name="코스" class="courseDetail" placeholder="예) 장소1 - 장소2 - 장소3 - 장소4 - 장소5">
+                            </div>
+                        </div><!--courseText-list-->
+
+                        <div class="courseText-list courseText-list3">
+                            <p class="title">소요시간</p>
+                            <div class="add-d-flex">
+                                <div class="select-box">
+                                    <select id="runningHour">
+                                        <option value=0>00</option>
+                                        <option value=60>01</option>
+                                        <option value=120>02</option>
+                                        <option value=180>03</option>
+                                        <option value=240>04</option>
+                                        <option value=300>05</option>
+                                        <option value=360>06</option>
+                                        <option value=420>07</option>
+                                        <option value=480>08</option>
+                                    </select>
+                                </div>
+                                <span class="text">시간</span>
+                                <div class="select-box">
+                                    <select id="runningMin">
+                                        <option value=0>00</option>
+                                        <option value=10>10</option>
+                                        <option value=20>20</option>
+                                        <option value=30 selected>30</option>
+                                        <option value=40>40</option>
+                                        <option value=50>50</option>
+                                    </select>
+                                </div>
+                                <span class="text">분 소요</span>
+                            </div>
+                        </div><!--courseText-list-->
+
+                        <div class="courseText-list courseText-list5">
+                            <p class="title">예약가능 요일</p>
+                            <ul class="check-box w25pro" style="border: 1px solid #e5e5e5;padding: 0.3em 1.2em 0.3em 0.5em;border-radius: 5px;">
+                                <li>
+                                    <input type="checkbox" id="mon" value="mon" name="week"><label for="mon">월</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="tue" value="tue" name="week"><label for="tue">화</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="wed" value="wed" name="week"><label for="wed">수</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="thu" value="thu" name="week"><label for="thu">목</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="fri" value="fri" name="week"><label for="fri">금</label>
+                                </li>
+                            </ul>
+                        </div><!--courseText-list-->
+
+                        <div id="reservationTime" class="courseText-list courseText-list4">
+                            <p class="title">예약가능 시간</p>
+                            <div class="reservationTime add-d-flex">
+                                <div class="select-box">
+                                    <select class="reservationHour">
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                        <option value="13">13</option>
+                                        <option value="14">14</option>
+                                        <option value="15">15</option>
+                                        <option value="16">16</option>
+                                        <option value="17">17</option>
+                                        <option value="18">18</option>
+                                    </select>
+                                </div>
+                                <span class="text">:</span>
+                                <div class="select-box">
+                                    <select class="reservationMin">
+                                        <option value="00">00</option>
+                                        <option value="10">10</option>
+                                        <option value="20">20</option>
+                                        <option value="30">30</option>
+                                        <option value="40">40</option>
+                                        <option value="50">50</option>
+                                    </select>
+                                </div>
+                                <div class="time-add-btn">
+                                    <a class="plus cupoint"><i class="fa-solid fa-plus"></i></a>
+                                    <a class="minus cupoint"><i class="fa-solid fa-minus"></i></a>
+                                </div>
+                            </div>
+                        </div><!--courseText-list-->
+
+                        <div class="courseText-list courseText-list5">
+                            <p class="title">예약 신청내용 <span>(예약 시 받을 내용)</span></p>
+                            <ul class="check-box">
+                                <li>
+                                    <input type="checkbox" id="applicant" class="applicant" name="reserve" checked><label for="applicant">신청기관명</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="applicantDetail" class="applicantDetail" name="reserve" checked><label for="applicantDetail">방문대상</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="guestNumber" class="guestNumber" name="reserve" checked><label for="guestNumber">방문인원수</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="managerPhone" class="managerPhone" name="reserve" checked><label for="managerPhone">담당자 연락처</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="vehicle" class="vehicle" name="reserve" checked><label for="vehicle">차량종류 및 수</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="etc" class="etc" name="reserve" checked><label for="etc">기타사항</label>
+                                </li>
+                            </ul>
+
+                            <div id="requireDiv" class="require-box">
+                                <div class="require-check">
+                                    <input type="checkbox" id="requirement" class="requirement" name="reserve" checked><label for="requirement">신청자필수사항 <span class="red">※ 미입력 시, 기본 항목으로 보여집니다.</span></label>
+                                </div>
+                                <div class="require-text">
+                                    <input type="text" placeholder="예) 프로그램 진행 시 촬영한 사진은 ‘트래블인천여행사협동조합’의 홍보 목적으로 사용할 수 있음에 동의합니다. 이에 동의하십니까?">
+                                    <div class="time-add-btn">
+                                        <a class="plus cupoint"><i class="fa-solid fa-plus"></i></a>
+                                        <a class="minus cupoint"><i class="fa-solid fa-minus"></i></a>
+                                    </div>
+                                </div><!--require-text-->
+                            </div>
+                        </div><!--courseText-list-->
+
+                        <div class="courseText-list courseText-list6">
+                            <p class="title">상세페이지 이미지</p>
+                            <div class="add-d-flex">
+                                <textarea id="editor"></textarea>
+                                <!--<a href="#" class="find-file">파일 찾기</a>-->
+                            </div>
+                        </div><!--courseText-list-->
+
+                    </div><!--courseAdd-text-wrap-->
+
+                </div>
+
+                <div class="courseAdd-button">
+                    <a class="none-btn cupoint" onclick="history.back();">취소</a>
+                    <a class="save-btn cupoint" onclick="inputNullChk();">코스 저장</a>
+                </div>
+            </div><!--courseAdd-wrap-->
+
+
+        </div><!--contents-->
+
+    </main>
+
+<script>
+
+    $(function(){
+        getCompanyList();
+    });
+
+    // 업체리스트 불러오기
+    function getCompanyList(){
+        $.ajax({
+            type: "GET",
+            url: "/api/admin/company/list",
+            success: function(data){
+                //console.log(data);
+                if( data.length != 0 ) {
+                    data.forEach(function (data) {
+                        if( data.withdrawal != 1 ) {
+                            let companyTag = "<option value='" + data.companySeq + "'>" + data.companyTitle + "</option>";
+                            $("#companyList").append(companyTag);
+                        }
+                    });
+                }
+            }
+        });
+    }
+
+    // 썸네일이미지등록 클릭 시
+    $("#thumImage").on("change", function() {
+        let file=$("#thumImage")[0].files[0];
+        let url=URL.createObjectURL(file);
+        $(".thumImage").attr("src", url);
+    });
+
+    // 예약가능시간의 +, - 클릭 시
+    $("#reservationTime").on("click", ".plus, .minus", function(e){
+        if( e.target.className.includes("plus") ) {
+            if( $(".reservationTime").length >= 1 ){
+                let timeBox = $(".reservationTime:first").clone();
+                timeBox.find("input").val("");
+                timeBox.find(".plus").remove();
+                timeBox.find(".minus").removeClass("hide");
+                $("#reservationTime").append(timeBox);
+
+                $(".reservationTime:first").find(".minus").addClass("hide");
+            }
+        }else{
+            if( $(".reservationTime").length != 1 ){
+                $(this).parent().parent().remove();
+                if( $(".reservationTime").length == 1 ){
+                    $(".reservationTime:first").find(".minus").removeClass("hide");
+                }
+            }else if( $(".reservationTime").length == 1 ){
+                toastModal("최소 1개 이상의 예약가능시간은 필수입니다.");
+            }
+        }
+    });
+
+    // 신청자필수사항 체크여부에 따라 비활성화
+    $("#requirement").click(function(){
+        if( $(this).is(":checked") ){
+            $("#requireDiv .require-text input").attr("disabled", false);
+            $("#requireDiv .plus, .minus").css("pointer-events", "");
+        }else{
+            $("#requireDiv .require-text input").attr("disabled", true);
+            $("#requireDiv .plus, .minus").css("pointer-events", "none");
+        }
+    });
+
+    // 신청자필수사항 +, - 클릭 시
+    $("#requireDiv").on("click", ".plus, .minus", function(e){
+        let boxLength = $(".require-text").length;
+
+        if( e.target.className.includes("plus") ) {
+            if( boxLength == 5 ){
+                toastModal("신청자 필수사항은 최대 5개까지 가능합니다.");
+            }else {
+                if (boxLength >= 1) {
+                    let requireBox = $(".require-text:first").clone();
+                    requireBox.find("input").val("");
+                    requireBox.find(".plus").remove();
+                    requireBox.find(".minus").removeClass("hide");
+                    $("#requireDiv").append(requireBox);
+
+                    $(".require-text:first").find(".minus").addClass("hide");
+                }
+            }
+        }else{
+            if( boxLength != 1 ){
+                $(this).parent().parent().remove();
+                if( boxLength == 1 ){
+                    $(".require-text:first").find(".minus").removeClass("hide");
+                }
+            }else if( boxLength == 1 ){
+                toastModal("최소 1개 이상의 신청자 필수사항은 필수입니다.");
+            }
+        }
+    });
+
+    // 코스저장 클릭 시
+    function addCourse(){
+        let formData = new FormData();
+
+        let reservationDay = [];
+        let reservationTime = [];
+
+        let requirement=0;
+        let applicant=0;
+        let applicantDetail=0;
+        let guestNumber=0;
+        let managerPhone=0;
+        let vehicle=0;
+        let etc=0;
+
+        let terms1="";
+        let terms2="";
+        let terms3="";
+        let terms4="";
+        let terms5="";
+
+        $("input[name='week']:checked").each(function(){ // 요일 체크
+            reservationDay.push( $(this).val() );
+        });
+
+        $("#reservationTime .reservationTime").each(function(){ // 예약가능시간 체크
+            reservationTime.push( $(this).find(".reservationHour").val()+":"+$(this).find(".reservationMin").val()+":00" );
+        });
+
+        $("input[name='reserve']:checked").each(function(){ // 예약신청내용 체크
+            let check = $(this).attr("class");
+
+            if( check == "requirement" ) requirement=1;
+            else if( check == "applicant" ) applicant=1;
+            else if( check == "applicantDetail" ) applicantDetail=1;
+            else if( check == "guestNumber" ) guestNumber=1;
+            else if( check == "managerPhone" ) managerPhone=1;
+            else if( check == "vehicle" ) vehicle=1;
+            else if( check == "etc" ) etc=1;
+        });
+
+        if( $("#requirement").is(":checked") ) {
+            $("#requireDiv .require-text input[type='text']").each(function (index) {
+                if (index == 0) terms1 = $(this).val();
+                else if (index == 1) terms2 = $(this).val();
+                else if (index == 2) terms3 = $(this).val();
+                else if (index == 3) terms4 = $(this).val();
+                else if (index == 4) terms5 = $(this).val();
+            });
+        }
+
+        formData.append("companySeq", $("#companyList option:selected").val());
+        formData.append("firstCourseTitle", $("#courseAdd-wrap .firstCourseTitle").val());
+        formData.append("startDate", $("#courseAdd-wrap .startDate").val());
+        formData.append("endDate", $("#courseAdd-wrap .endDate").val());
+        formData.append("address", $("#courseAdd-wrap .address").val());
+        formData.append("courseType", $("#courseType option:selected").val());
+        formData.append("courseDetail", $("#courseAdd-wrap .courseDetail").val());
+        formData.append("runningTime", parseInt($("#runningHour option:selected").val()) + parseInt($("#runningMin option:selected").val()));
+        formData.append("reservationDay", reservationDay);
+        formData.append("reservationTime", reservationTime);
+        formData.append("requirement", requirement);
+        formData.append("applicant", applicant);
+        formData.append("applicantDetail", applicantDetail);
+        formData.append("guestNumber", guestNumber);
+        formData.append("managerPhone", managerPhone);
+        formData.append("vehicle", vehicle);
+        formData.append("etc", etc);
+        formData.append("terms1", terms1);
+        formData.append("terms2", terms2);
+        formData.append("terms3", terms3);
+        formData.append("terms4", terms4);
+        formData.append("terms5", terms5);
+        if($("#thumImage")[0].files[0] != undefined) formData.append("thumbnailImage", $("#thumImage")[0].files[0]);
+
+        if(editor.getData()!=""){
+            formData.append("descriptionImage", editor.getData());
+        }
+
+        // FormData의 값 확인
+        /*for (var pair of formData.entries()) {
+            console.log(pair[0] + ', ' + pair[1]);
+        }*/
+
+        $.ajax({
+            type: "POST",
+            url: "/api/admin/course/first/save",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(data){
+                toastModal("'"+$("#companyList option:selected").text()+"' 의 1차코스가 등록되었습니다.");
+                setTimeout(() => location.href="/admin/first-course", 1000);
+            }
+        });
+    }
+
+    function inputNullChk(){
+        let isRight = true;
+
+        $("#courseAdd-wrap").find("input[name=check]").each(function(index, item){
+            if( $(this).val().trim() == '' ) {
+                toastModal($(this).attr("data-name")+"를(을) 입력해주세요.");
+                isRight = false;
+                return false;
+            }else{
+                if( $("input[name=week]:checked").length == 0 ) {
+                    toastModal("예약가능한 요일을 선택해주세요.");
+                    isRight = false;
+                    return false;
+                }else{
+                    if( $("#companyList option:selected").val() == "" ){
+                        toastModal("제목을 선택해주세요.");
+                        isRight = false;
+                        return false;
+                    }else{
+                        if( $("#courseType option:selected").val() == "" ) {
+                            toastModal("코스를 선택해주세요.");
+                            isRight = false;
+                            return false;
+                        }else {
+                            $("input[type=date]").each(function () {
+                                if ($(this).val() == "") {
+                                    toastModal("노출기간을 선택해주세요.");
+                                    isRight = false;
+                                    return false;
+                                }
+                            });
+                        }
+                    }
+                }
+            }
+        });
+
+        if (!isRight) return;
+        else addCourse();
+    }
+</script>
+
+</div>
+</html>

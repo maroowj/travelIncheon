@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/renew/layout}"
+      xmlns:th="http://www.thymeleaf.org">
+
+<div layout:fragment="content">
+
+    <!--컨텐츠 영역-->
+    
+    <div class="subCont mypageWrap inq-viewWrap ins-viewWrap">
+        <div class="pt120 pb120 auto inqTableWrap">
+            <div class="subTitleWrap">
+                <span class="blue">TRAVEL INSURANCE</span>
+                <p class="title">여행자 보험 가입 양식</p>
+                
+<!--                <p class="text">아래의 내용을 정확하게 작성해 주시면 짧은 시간안에 귀하에게 연락드리겠습니다.</p>-->
+            </div>
+            
+            <div class="page-tableBox">
+                <table class="page-table2">
+                    <colgroup>
+                        <col style = "width:27%">
+                        <col style = "width:73%">
+                    </colgroup>
+                    <tr>
+                        <th>가입 단체명 또는 여행사명</th>
+                        <td id="name"></td>
+                    </tr>
+                    <tr>
+                        <th>연락처</th>
+                        <td id="tel"></td>
+                    </tr>
+                    <tr>
+                        <th>국내여행인가요? 해외여행인가요?</th>
+                        <td id="travelType"></td>
+                    </tr>
+                    <tr>
+                        <th class="domestic">국내여행인 경우 (사망 1억원 보장)</th>
+                        <th class="d-none abroad">해외여행인 경우 (사망 1억원 보장)</th>
+                        <td id="insuranceType"></td>
+                    </tr>
+                    <tr>
+                        <th>출발날짜</th>
+                        <td id="departureDate"></td>
+                    </tr>
+                    <tr>
+                        <th>귀국날짜</th>
+                        <td id="returnDate"></td>
+                    </tr>
+                    <tr>
+                        <th>가입 인원은 몇명인가요?</th>
+                        <td id="joinNumber"></td>
+                    </tr>
+                </table>
+            </div>
+ 
+            <div id="answer" class="answerWrap"></div>
+            <div class="page-btn">
+                 <a href="/mypage" class="comm-btn black-btn mr10">목록</a>
+                 <a id="update" class="comm-btn blue-btn" style="cursor: pointer;">수정하기</a>
+            </div>
+        </div>
+    </div>
+    <!--script START-->
+    <script>
+        let insuranceSeq = window.location.pathname.split('/')[3];
+        let answerChk = false;
+        getInsuranceDetails(insuranceSeq);
+
+        function getInsuranceDetails(insuranceSeq) {
+            $.ajax({
+                type:"get",
+                url:"/api/user/form/" + insuranceSeq,
+                success:function(data) {
+                    let content = data.content;
+                    for(let key in content) {
+                        if(key!="createDate") {
+                            $("#"+key).html(content[key]);
+                        }
+
+                        if(key=="travelType") {
+                            if(content[key]=="국내여행") {
+                                $(".domestic").removeClass("d-none");
+                                $(".abroad").addClass("d-none");
+                            }else {
+                                $(".abroad").removeClass("d-none");
+                                $(".domestic").addClass("d-none");
+                            }
+                        }
+                    }
+                    if(data.answer=="" || data.answer==null) {
+                        $("#answer").addClass("d-none");
+                    }else {
+                        let answer = data.answer;
+                        answer = answer.replace(/\r\n/ig, '<br>');
+                        answer = answer.replace(/\\n/ig, '<br>');
+                        answer = answer.replace(/\n/ig, '<br>');
+                        $("#answer").html(answer);
+                        answerChk=true;
+                    }
+                },
+                error: function (request, status, error) {
+                    toastModal("잘못된 접근입니다.");
+                    setTimeout(() => history.back(), 700);
+                    console.log(request.status + ' ' + error.statusText + ' ' + request.responseText);
+                }
+            })
+        }
+
+        $("#update").on("click", ()=>{
+            if(answerChk) {
+                toastModal("답변이 완료된 게시글은 수정할 수 없습니다.");
+                return;
+            }
+            location.href="/mypage/insurance/update/"+insuranceSeq;
+        });
+
+    </script>
+    <!--script END-->
+</div>
+</html>

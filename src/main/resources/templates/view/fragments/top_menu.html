@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<th:block th:fragment="topMenuFragment">
+
+    <div class="topHead-wrap">
+        <div class="topHead-inner">
+            <div class="search-box">
+                <div class="select-box">
+                    <select name="" id="topMenuSearchType">
+                        <!--<option value="companyTitle" selected>업체명</option>
+                        <option value="firstCourseTitle">1차코스명</option>-->
+                        <option value="secondCourseTitle">포트폴리오명</option>
+                    </select>
+                </div>
+                <input type="text" class="search" id="topMenuKeyword" placeholder="검색어를 입력하세요.">
+                <i class="fa-solid fa-magnifying-glass search-icon" id="topMenuSearchIcon"></i>
+            </div>
+
+            <div class="logout-wrap">
+                <p class="admin-name">관리자<span>님</span></p>
+                <div class="btn-logout" onClick="location.href='/admin/logout'">
+                    <a href="#" class="logout-btn">로그아웃</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</th:block>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/default_layout}"
+      xmlns:th="http://www.thymeleaf.org">
+
+<style layout:fragment="css">
+    input::-webkit-inner-spin-button { appearance: none; -moz-appearance: none; -webkit-appearance: none; }
+    .admin-table tbody tr:hover{
+        background: unset !important;
+        cursor: default;
+    }
+    .courseAdd-button a{
+        background-color: var(--blue) !important;
+    }
+</style>
+
+<div layout:fragment="content">
+
+    <main role="main" class="main-content">
+
+        <script>
+            const main_menu = 6;
+        </script>
+
+        <!--컨텐츠 영역-->
+        <div class="contents">
+            <div class="admin-contents-title">
+                <h3 class="admin-title">부대비용</h3>
+                <!--<div class="top-btn">
+                    <a id="add" href="/admin/banner/insert" class="blue-btn company-add-btn cupoint">배너 추가</a>
+                    <a id="update" class="s-blue-btn cupoint">선택한 배너 수정</a>
+                    <a id="delete" class="gray-btn cupoint">선택한 배너 삭제</a>
+                </div>-->
+            </div><!--admin-contents-title-->
+
+            <div class="unit-cost-list-wrap">
+                <div class="unit-cost-table w100pro">
+
+
+                    <!--table START-->
+                    <table class="admin-table ma-b-40px" style="table-layout: fixed; width: 100%;">
+                        <tbody>
+                        <tr>
+                            <td class="unit-cost-title w20pro">버스비용</td>
+                            <td>
+                                <div class="unitCost-list">
+                                    <input type="text" class="cost w25pro t-right busFare" name="cost" data-name="버스비용" onkeyup="checkNumber(this); inputNumberFormat(this);"/><span class="ma-l-dot3">원</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="unit-cost-title w20pro">인솔자 비용</td>
+                            <td>
+                                <div class="unitCost-list">
+                                    <input type="text" class="cost w25pro t-right guideFee" name="cost" data-name="인솔자 비용" onkeyup="checkNumber(this); inputNumberFormat(this);"/><span class="ma-l-dot3">원</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="unit-cost-title w20pro">보험료</td>
+                            <td>
+                                <div class="unitCost-list">
+                                    <input type="text" class="cost w25pro t-right insuranceFee" name="cost" data-name="보험료" onkeyup="checkNumber(this); inputNumberFormat(this);"/><span class="ma-l-dot3">원</span>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="courseAdd-button">
+                        <a class="save-btn cupoint" id="save" onclick="costSave();">저장</a>
+                    </div>
+                    <!--<div class="t-center">
+                        <input type="button" id="save" class="cupoint" value="저장" onclick="costSave();" />
+                    </div>-->
+
+                </div>
+
+            </div>
+        </div><!--contents-->
+
+    </main>
+
+    <script>
+        $(function(){
+            getCost();
+        });
+
+        // 비용불러오기
+        function getCost(){
+            $.ajax({
+                type: "GET",
+                url: "/api/admin/unit",
+                success: function(data){
+                    // console.log(data);
+
+                    $(".busFare").val(fcomma(data.busFare));
+                    $(".guideFee").val(fcomma(data.guideFee));
+                    $(".insuranceFee").val(fcomma(data.insuranceFee));
+                }
+            });
+        }
+
+        function costSave(){
+            let isRight = true;
+
+            $("input[name=cost]").each(function (index, item) {
+                if ($(this).val().trim() == '') {
+                    toastModal($(this).attr("data-name") + "를(을) 입력해주세요.");
+                    isRight = false;
+                    return false;
+                }
+
+                if (!isRight) return;
+                else {
+                    $.ajax({
+                        type: "POST",
+                        url: "/api/admin/unit/update",
+                        data: {
+                            "busFare": uncomma($(".busFare").val()),
+                            "guideFee": uncomma($(".guideFee").val()),
+                            "insuranceFee": uncomma($(".insuranceFee").val())
+                        },
+                        success: function(data){
+                            toastModal("부대비용이 저장되었습니다.");
+                            setTimeout(() => location.reload(), 1000);
+                        }
+                    });
+                }
+            });
+        };
+
+        // input입력 시 천단위 콤마부여
+        function inputNumberFormat(obj) {
+            obj.value = fcomma(uncomma(obj.value));
+        }
+
+        // 숫자만 입력가능
+        function checkNumber(event) {
+            if(event.key >= 0 && event.key <= 9) {
+                return true;
+            }
+            return false;
+        }
+    </script>
+
+</div>
+</html>

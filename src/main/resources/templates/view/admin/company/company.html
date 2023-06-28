@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/default_layout}"
+      xmlns:th="http://www.thymeleaf.org">
+
+<style layout:fragment="css"></style>
+
+<!-- default_layout.html 에 정의한 main page 부분 -->
+<div layout:fragment="content">
+
+    <main role="main" class="main-content">
+        <script>
+            const main_menu = 1;
+        </script>
+
+        <!--컨텐츠 영역-->
+        <div class="contents">
+            <div class="admin-contents-title">
+                <h3 class="admin-title">업체관리</h3>
+                <div class="top-btn">
+                    <a class="blue-btn company-add-btn cupoint">업체추가</a>
+                    <a class="s-blue-btn company-update-btn cupoint">선택한 업체 수정</a>
+                    <a class="gray-btn cupoint company-delete-btn" onclick="deleteCompany();">선택한 업체 삭제</a>
+                </div>
+            </div><!--admin-contents-title-->
+
+            <div class="company-wrap">
+                <div id="company-list-wrap" class="company-list-wrap">
+                    <div class="search-wrap">
+                        <input type="text" placeholder="업체 검색" class="keyword" onkeyup="getCompanyList($(this).val())">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    </div>
+
+                    <ul class="companyList-wrap"></ul>
+                </div>
+
+                <div class="company-table modal-open-table">
+                    <div class="admin-table-title-wrap">
+                        <div class="admin-table-title">
+                            <p class="title">전체</p>
+                            <p class="detail-text">업체 코스 리스트</p>
+                        </div>
+                    </div>
+
+                    <!--table START-->
+                    <table class="admin-table company-table-wrap">
+                        <colgroup>
+                            <col style="width:8%">
+                            <col style="width:22%">
+                            <col style="width:26%">
+                            <col style="width:12%">
+                            <col style="width:20%">
+                            <col style="width:12%">
+                        </colgroup>
+                        <thead>
+                        <tr>
+                            <th>번호</th>
+                            <th>업체명</th>
+                            <th>코스명</th>
+                            <th>코스</th>
+                            <th>기간</th>
+                            <th>시간</th>
+                        </tr>
+                        </thead>
+                        <tbody id="companyCourseList"></tbody>
+                    </table>
+
+                    <div id="pagination"></div>
+                </div><!--company-table-->
+
+            </div><!--company-wrap-->
+        </div><!--contents-->
+
+        <!--코스 상세보기 MODAL START-->
+        <div id="course-modal" class="modal admin-modal course-modal">
+            <div class="modal-wrap">
+                <div class="modal-title-wrap">
+                    <p class="title">코스 상세보기</p>
+                    <i class="fa-solid fa-xmark close"></i>
+                </div>
+
+                <div class="modal-text-wrap">
+                    <div class="course-detail-wrap">
+                        <div class="img"><img src="" class="thumbImage" alt="코스 이미지"></div>
+                        <div class="course-detail">
+                            <p class="title firstCourseTitle"> <span class="course"></span></p>
+                            <ul class="detail-list">
+                                <li><span class="title">주최</span><span class="text companyTitle"></span></li>
+                                <li><span class="title">노출기간</span><span class="text showDate"></span></li>
+                                <li><span class="title">소요시간</span><br/><span class="text runningTime"></span></li>
+                                <li><span class="title">코스</span><span class="text courseDetail"></span></li>
+
+                                <li class="ma-top f-wrap">
+                                    <span class="title">예약신청 내용</span>
+                                    <span class="reserveText text">
+                                        <span class="applicant hide">신청기관명</span>
+                                        <span class="applicantDetail hide">방문대상</span>
+                                        <span class="guestNumber hide">방문대상</span>
+                                        <span class="managerPhone hide">담당자연락처</span>
+                                        <span class="vehicle hide">차량종류 및 수</span>
+                                        <span class="etc hide">기타사항</span>
+                                    </span>
+                                </li>
+                                <li class="ma-top f-wrap"><span class="title">신청자 필수 숙지사항</span>
+                                    <span class="text list terms1 hide"></span>
+                                    <span class="text list terms2 hide"></span>
+                                    <span class="text list terms3 hide"></span>
+                                    <span class="text list terms4 hide"></span>
+                                    <span class="text list terms5 hide"></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-bottom">
+                    <a class="modal-btn close-btn cupoint">닫기</a>
+                    <a class="modal-btn reserve-btn cupoint" onclick="updateCompany($(this))">수정하기</a>
+                </div>
+            </div><!--modal-wrap-->
+            <div class="modal-bg-cover"></div>
+        </div>
+
+        <!--업체추가 modal START-->
+        <div class="modal admin-modal company-add-modal" id="companyAdd">
+            <div class="modal-wrap">
+                <div class="modal-title-wrap">
+                    <p class="title">업체 추가</p>
+                    <i class="fa-solid fa-xmark close"></i>
+                </div>
+
+                <div class="modal-text-wrap">
+                    <table class="date-table modal-table">
+                        <colgroup>
+                            <col style="width:20%">
+                            <col style="width:80%">
+                        </colgroup>
+                        <tbody>
+                        <tr>
+                            <th>업체명</th>
+                            <td>
+                                <div class="d-flex-wrap w100pro"><input type="text" class="w100pro companyTitle" ></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>업체색상</th>
+                            <td>
+                                <div class="d-flex-wrap">
+                                    <div class="select-box w100pro">
+                                        <select class="w100pro company-color companyColor" onchange="changeComColor($('#companyAdd'));" style="color: #ff8b8b;">
+                                            <option value="#ff8b8b" class="cp1" selected>● #ff8b8b</option>
+                                            <option value="#e54d4d" class="cp2">● #e54d4d</option>
+                                            <option value="#fc9c47" class="cp3">● #fc9c47</option>
+                                            <option value="#fdc631" class="cp4">● #fdc631</option>
+                                            <option value="#9dcd80" class="cp5">● #9dcd80</option>
+                                            <option value="#43b86c" class="cp6">● #43b86c</option>
+                                            <option value="#22bfa0" class="cp7">● #22bfa0</option>
+                                            <option value="#3bc2d6" class="cp8">● #3bc2d6</option>
+                                            <option value="#228ecc" class="cp9">● #228ecc</option>
+                                            <option value="#415ac2" class="cp10">● #415ac2</option>
+                                            <option value="#9169ed" class="cp11">● #9169ed</option>
+                                            <option value="#ab52cc" class="cp12">● #ab52cc</option>
+                                            <option value="#e03da8" class="cp13">● #e03da8</option>
+                                            <option value="#9c9c9c" class="cp14">● #9c9c9c</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>주소</th>
+                            <td>
+                                <div class="d-flex-wrap">
+                                    <div class="d-flex-wrap w100pro"><input type="text" class="w100pro companyAddress" /></div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>추가설명</th>
+                            <td>
+                                <div class="d-flex-wrap">
+                                    <textarea name="" class="companyDescription" cols="30" rows="10"></textarea>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="modal-bottom">
+                    <a class="modal-btn close-btn cupoint">닫기</a>
+                    <a class="modal-btn reserve-btn cupoint" onclick="addUpdateCompany($('#companyAdd'));">추가</a>
+                </div>
+            </div><!--modal-wrap-->
+            <div class="modal-bg-cover"></div>
+        </div>
+
+        <!--업체수정 modal START-->
+        <div class="modal admin-modal company-update-modal" id="companyUpdate">
+            <div class="modal-wrap">
+                <div class="modal-title-wrap">
+                    <p class="title">업체 수정</p>
+                    <i class="fa-solid fa-xmark close"></i>
+                </div>
+
+                <div class="modal-text-wrap">
+                    <table class="date-table modal-table">
+                        <colgroup>
+                            <col style="width:20%">
+                            <col style="width:80%">
+                        </colgroup>
+                        <tbody>
+                        <tr>
+                            <th>업체명</th>
+                            <td>
+                                <div class="d-flex-wrap w100pro"><input type="text" value="" class="w100pro companyTitle"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>업체색상</th>
+                            <td>
+                                <div class="d-flex-wrap">
+                                    <div class="select-box w100pro">
+                                        <select class="w100pro company-color companyColor" onchange="changeComColor($('#companyUpdate'));" >
+                                            <option value="#ff8b8b" class="cp1">● #ff8b8b</option>
+                                            <option value="#e54d4d" class="cp2">● #e54d4d</option>
+                                            <option value="#fc9c47" class="cp3">● #fc9c47</option>
+                                            <option value="#fdc631" class="cp4">● #fdc631</option>
+                                            <option value="#9dcd80" class="cp5">● #9dcd80</option>
+                                            <option value="#43b86c" class="cp6">● #43b86c</option>
+                                            <option value="#22bfa0" class="cp7">● #22bfa0</option>
+                                            <option value="#3bc2d6" class="cp8">● #3bc2d6</option>
+                                            <option value="#228ecc" class="cp9">● #228ecc</option>
+                                            <option value="#415ac2" class="cp10">● #415ac2</option>
+                                            <option value="#9169ed" class="cp11">● #9169ed</option>
+                                            <option value="#ab52cc" class="cp12">● #ab52cc</option>
+                                            <option value="#e03da8" class="cp13">● #e03da8</option>
+                                            <option value="#9c9c9c" class="cp14">● #9c9c9c</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>주소</th>
+                            <td>
+                                <div class="d-flex-wrap">
+                                    <div class="d-flex-wrap w100pro"><input type="text" class="w100pro companyAddress" /></div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>추가설명</th>
+                            <td>
+                                <div class="d-flex-wrap">
+                                    <textarea class="companyDescription" cols="30" rows="10"></textarea>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <input type="hidden" class="companySeq">
+                </div>
+
+                <div class="modal-bottom">
+                    <a class="modal-btn close-btn cupoint">닫기</a>
+                    <a class="modal-btn reserve-btn cupoint" onclick="addUpdateCompany($('#companyUpdate'));">수정</a>
+                </div>
+            </div><!--modal-wrap-->
+            <div class="modal-bg-cover"></div>
+        </div>
+
+    </main>
+
+<script th:inline="javascript">
+    let page=1;
+
+    $(function(){
+        let pp = [[${param.pp}]];
+        if(pp!=null) {
+            let keyword= [[${param.companyTitle}]][0];
+            getCompanyList(keyword);
+            getCourseList(null, "companyTitle", keyword);
+            $("#topMenuKeyword").val(keyword);
+            $(".keyword").val(keyword);
+        }else {
+            getCompanyList();
+            getCourseList();
+        }
+    });
+
+    // leftmenu 업체 클릭 시
+    $("#company-list-wrap").on("click", ".companyList-wrap li", function(){
+        if( !$(this).hasClass("on") ) $(this).addClass("on");
+        $(".companyList-wrap li").not(this).removeClass("on");
+
+        let companySeq = $(this).find(".comSeq").attr("companySeq");
+        getCourseList(companySeq);
+    });
+
+    // 업체리스트 불러오기
+    function getCompanyList(keyword){
+        $.ajax({
+            type: "GET",
+            url: "/api/admin/company/list",
+            data: { "companyTitle": keyword },
+            success: function(data){
+                // console.log(data);
+                let companyTag = "<li class='on'><a class='cupoint'><span class='company-name'>전체</span></a></li>";
+
+                if( data.length != 0 ) {
+                    data.forEach(function (data) {
+                        if( data.withdrawal != 1 ) {
+                            companyTag +=
+                                "<li><a class='cupoint comSeq' companySeq='" + data.companySeq + "'><span class='company-name'>" + data.companyTitle + "</span></a></li>";
+                        }
+                    });
+                    $(".companyList-wrap").html(companyTag);
+                }else{
+                    $(".companyList-wrap").html(companyTag);
+                }
+            }
+        });
+    }
+
+    // 전체 업체코스리스트 불러오기
+    function getCourseList(companySeq, searchType, keyword){
+        $.ajax({
+            type: "GET",
+            url: "/api/admin/course/first/list",
+            data: {
+                "companySeq": companySeq,
+                "page": page-1,
+                "type":searchType,
+                "keyword":keyword
+            },
+            success: function(data){
+                // console.log(data);
+                let companyTag = "";
+
+                if( data.content.length != 0 ) {
+                    data.content.forEach(function (data, index) {
+                        let comColor = $("#companyAdd .companyColor").find("option[value='"+data.companyColor+"']").attr("class");
+
+                        companyTag +=
+                            "<tr firstCourseSeq='"+data.firstCourseSeq+"'>" +
+                            "<td>"+(index+1)+"</td>" +
+                            "<td class='info company-name "+comColor+"'>"+data.companyTitle+"</td>" +
+                            "<td class='info'>"+data.firstCourseTitle+"</td>" +
+                            "<td class='info course-type'>"+data.courseType+"</td>" +
+                            "<td class='info'>"+data.startDate.substring(0, 10)+" ~ "+data.endDate.substring(0, 10)+"</td>" +
+                            "<td class='info'>";
+
+                        data.reservationTime.forEach(function(time){
+                            companyTag += time.substring(0, 5)+"<br/>";
+                        });
+                        companyTag += "</td></tr>";
+                    });
+                    $("#companyCourseList").html(companyTag);
+                }else{
+                    $("#companyCourseList").html(companyTag);
+                }
+                fPagination(data, page);
+            }
+        });
+    }
+
+    $("#pagination").on("click", "ul li a", function() {
+        page = parseInt($(this).attr("gopage"));
+
+        getCourseList();
+    });
+
+    // 전체 업체 코스 리스트 행 클릭 시, 코스상세정보
+    $("#companyCourseList").on("click", ".info", function() {
+        let firstCourseSeq = $(this).parent().attr("firstCourseSeq");
+        $("#course-modal .runningTime").html("");
+
+        $.ajax({
+            type: "GET",
+            url: "/api/admin/course/first/detail",
+            data: { "firstCourseSeq": firstCourseSeq },
+            success: function (data) {
+                // console.log(data);
+                let detail=data;
+
+                //이미지 불러오기
+                if( detail.thumbnailImage != null) {
+                    let fileName = detail.thumbnailImage.fileName;
+                    let url = detail.thumbnailImage.dirManager.dirUrl;
+                    let src = url + fileName;
+                    $(".thumbImage").attr("src", src);
+                }else{
+                    $(".thumbImage").attr("src", "/images/admin/test_3.jpg");
+                }
+
+                if( data.length != 0 ) {
+                    $("#course-modal .reserve-btn").attr("seq", firstCourseSeq);
+                    $("#course-modal .firstCourseTitle").text(detail.firstCourseTitle);
+                    $("#course-modal .firstCourseTitle").append("<span class='course'>"+detail.courseType+"</span>");
+                    $("#course-modal .companyTitle").text(detail.company.companyTitle);
+                    $("#course-modal .showDate").text(detail.startDate.substring(0, 10)+" ~ "+detail.endDate.substring(0, 10));
+
+                    detail.reservationTime.forEach(function(time){
+                        let hour = parseInt(time.substring(0, 2)) + parseInt(fConvertHour(detail.runningTime));
+                        let min = parseInt(time.substring(3, 5)) + parseInt(fConvertMin(detail.runningTime));
+
+                        if( min > 60 ){
+                            min=min-60; hour=hour+1;
+                        }
+
+                        $("#course-modal .runningTime").append(time.substring(0, 5)+" ~ "+hour+":"+min+" ("+detail.runningTime+"분 소요)</br>");
+                    });
+
+                    $("#course-modal .courseDetail").text(detail.courseDetail);
+
+                    if( detail.requirement == 1 ) {
+                        $("#course-modal .terms1").text(detail.terms1);
+                        $("#course-modal .terms2").text(detail.terms2);
+                        $("#course-modal .terms3").text(detail.terms3);
+                        $("#course-modal .terms4").text(detail.terms4);
+                        $("#course-modal .terms5").text(detail.terms5);
+
+                        $("#course-modal .list").each(function(){
+                            if( $(this).text() != "" ) $(this).removeClass("hide");
+                            else $(this).addClass("hide");
+                        });
+                    }else{
+                        $("#course-modal .list").each(function(){
+                            $(this).addClass("hide"); $(this).text("");
+                        });
+                    }
+
+                    if( detail.applicant == 1 ) $("#course-modal .applicant").removeClass("hide");
+                    else $("#course-modal .applicant").addClass("hide");
+
+                    if( detail.applicantDetail == 1 ) $("#course-modal .applicantDetail").removeClass("hide");
+                    else $("#course-modal .applicantDetail").addClass("hide");
+
+                    if( detail.guestNumber == 1 ) $("#course-modal .guestNumber").removeClass("hide");
+                    else $("#course-modal .guestNumber").addClass("hide");
+
+                    if( detail.managerPhone == 1 ) $("#course-modal .managerPhone").removeClass("hide");
+                    else $("#course-modal .managerPhone").addClass("hide");
+
+                    if( detail.vehicle == 1 ) $("#course-modal .vehicle").removeClass("hide");
+                    else $("#course-modal .vehicle").addClass("hide");
+
+                    if( detail.etc == 1 ) $("#course-modal .etc").removeClass("hide");
+                    else $("#course-modal .etc").addClass("hide");
+                }
+            }
+        });
+    });
+
+    // '선택한 업체 수정' 클릭 시
+    $(".company-update-btn").click(function(){
+        let companySeq;
+
+        let li = $(".companyList-wrap").find(".on");
+        companySeq = li.find(".comSeq").attr("companySeq");
+
+        if( companySeq != undefined ) $('.company-update-modal').css('display', 'block');
+
+        $.ajax({
+            type: "GET",
+            url: "/api/admin/company/detail",
+            data: { "companySeq": companySeq },
+            success: function(data){
+                //console.log(data);
+
+                $("#companyUpdate .companySeq").val(data.companySeq);
+                $("#companyUpdate .companyTitle").val(data.companyTitle);
+                $("#companyUpdate .companyAddress").val(data.companyAddress);
+                $("#companyUpdate .companyColor").find("option[value='"+data.companyColor+"']").prop("selected", true);
+                $("#companyUpdate").find(".companyColor").css("color", data.companyColor);
+                $("#companyUpdate .companyDescription").val(data.companyDescription);
+            }
+        });
+    });
+
+    // 업체등록 및 수정
+    function addUpdateCompany(modal){
+        let companyTitle = modal.find(".companyTitle").val();
+        let companyAddress = modal.find(".companyAddress").val();
+        let companyColor = modal.find(".companyColor option:selected").val();
+        let companyDescription = modal.find(".companyDescription").val();
+
+        if( modal.selector == "#companyAdd" ) { // 업체신규등록
+            $.ajax({
+                type: "POST",
+                url: "/api/admin/company/save",
+                data: JSON.stringify({
+                    "companyTitle": companyTitle,
+                    "companyColor": companyColor,
+                    //"companyAddress": companyAddress,
+                    "companyDescription": companyDescription
+                }),
+                contentType: "application/json",
+                success: function () {
+                    toastModal("업체 등록이 완료되었습니다.");
+                    setTimeout(() => location.reload(), 1000);
+                }
+            });
+        }else{ // 업체수정
+            let companySeq = modal.find(".companySeq").val();
+
+            $.ajax({
+                type: "POST",
+                url: "/api/admin/company/update",
+                data: JSON.stringify({
+                    "companySeq": companySeq,
+                    "companyTitle": companyTitle,
+                    "companyColor": companyColor,
+                    //"companyAddress": companyAddress,
+                    "companyDescription": companyDescription
+                }),
+                contentType: "application/json",
+                success: function () {
+                    toastModal("업체 정보 수정이 완료되었습니다.");
+                    setTimeout(() => location.reload(), 1000);
+                }
+            });
+        }
+    }
+
+    // 업체 삭제
+    function deleteCompany(){
+        let companySeq;
+        let li = $(".companyList-wrap").find(".on");
+        companySeq = li.find(".comSeq").attr("companySeq");
+
+        if( companySeq != undefined ) {
+            if (!confirm("'"+li.find(".comSeq span").text()+"' 업체를 삭제합니다.")) return;
+
+            $.ajax({
+                type: "POST",
+                url: "/api/admin/company/delete",
+                data: { "companySeq": companySeq },
+                success: function () {
+                    toastModal("업체 삭제가 완료되었습니다.");
+                    setTimeout(() => location.reload(), 1000);
+                }
+            });
+        }
+    }
+
+    // 업체추가 modal 내, 업체 색상 변경 시
+    function changeComColor(color){
+        color.find(".companyColor").css("color", color.find(".companyColor option:selected").val());
+    }
+
+    // 코스 상세보기 modal 수정하기 클릭 -> 페이지이동
+    function updateCompany(seq){
+        let firstCourseSeq = seq.attr("seq");
+        location.href="/admin/first-course/update?firstCourseSeq="+firstCourseSeq;
+    }
+</script>
+
+</div>
+</html>

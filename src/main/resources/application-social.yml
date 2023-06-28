@@ -1,0 +1,40 @@
+social:
+  kakao:
+    client-id: 9a6191145ee2e58008373d0ee9e313ab
+    redirect: /oauth/kakao/redirect
+    url:
+      login: https://kauth.kakao.com/oauth/authorize
+      token: https://kauth.kakao.com/oauth/token
+      profile: https://kapi.kakao.com/v2/user/me
+      unlink: https://kapi.kakao.com/v1/user/unlink
+    accessToken: uUC95elhU1R_ktZ8gWdrtbPJz1AQaD0TqlV4nAo9dZwAAAF-MtWWBA
+  google:
+    client-id: 742097650184-hkm2n5k8m2fep6ke4e88veadmemcou33.apps.googleusercontent.com
+    client-secret: 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
+    redirect: /oauth/google/redirect
+    url:
+      login: https://accounts.google.com/o/oauth2/v2/auth
+      token: https://oauth2.googleapis.com/token
+      profile: https://oauth2.googleapis.com/tokeninfo
+      unlink:
+    accessToken: eyJhbGciOiJSUzI1NiIsImtpZCI6ImQwMWMxYWJlMjQ5MjY5ZjcyZWY3Y2EyNjEzYTg2YzlmMDVlNTk1NjciLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI3NDIwOTc2NTAxODQtaGttMm41azhtMmZlcDZrZTRlODh2ZWFkbWVtY291MzMuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI3NDIwOTc2NTAxODQtaGttMm41azhtMmZlcDZrZTRlODh2ZWFkbWVtY291MzMuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMDExMTA5MTkyNzI3NzExOTI0MzAiLCJlbWFpbCI6ImxlZXdvbnNlb2syMDQ2QGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJhdF9oYXNoIjoiN19FbHM5S1dIQ3lWYU1YcjRPckpNUSIsIm5hbWUiOiLsnbTsm5DshJ0iLCJwaWN0dXJlIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUFUWEFKeEJzZnViUTlkZWFzcVNOTWktRkxFdUY0WDBtZWh4UHB5cUNfMXk9czk2LWMiLCJnaXZlbl9uYW1lIjoi7JuQ7ISdIiwiZmFtaWx5X25hbWUiOiLsnbQiLCJsb2NhbGUiOiJrbyIsImlhdCI6MTY0MTUzMTc3NywiZXhwIjoxNjQxNTM1Mzc3fQ.BVJpMlJuKXiRZC85jWCLOBaaQ_0KwSxCvocQj1j4jPfloY0rx46nzlLwyNvQ8cRm7dYfNaENm8TspBIZsUmoCdMAmFQDaOq_o8vrvkhGNvuARM2bwatccn5WQmZOaLWLm_n5uZ2RKgX1AcDIq0YvCCrj93zfdvMNzhNe-JpPP4bKZtAv-JM0raCkl3uy6zfOyaYCtN4-mEV_5Zxb6i_XVJrpE_1mGGL3zcEHgU7u0GdVY_RFUySuhgsfJiE7L-hQr_nmil7B6v6zG3hyIaSVBx6dnfHTQuhSjbsiMYQGBSda_vl38hQEbgBEk8J7ACC_yHL2Q-JJsnvjWUHo8luGvw
+  naver:
+    client-id: AlR9mSdVCmE7B_SFjzPd
+    client-secret: 2kGlw79WWC
+    redirect: /oauth/naver/redirect
+    url:
+      login: https://nid.naver.com/oauth2.0/authorize
+      token: https://nid.naver.com/oauth2.0/token
+      profile: https://openapi.naver.com/v1/nid/me
+      unlink: https://nid.naver.com/oauth2.0/token
+    accessToken: AAAAOGaSYpNDfdNa9yS0VFfXw2_JlZ2H4tf4WHRSaeXEeYhNuh8pcN7NGR7GFmqXJpp4BX-vz_1VTtoEgVOYBkrcCWU
+  facebook:
+    client-id: 315703467123297
+    client-secret: b6d563dfc196e4e9102991a0924c6af3
+    redirect: /oauth/facebook/redirect
+    url:
+      login: https://www.facebook.com/v12.0/dialog/oauth
+      token: https://graph.facebook.com/v12.0/oauth/access_token
+      profile: https://graph.facebook.com/me
+      unlink:
+    accessToken: EAAEfIXEDImEBAEVwCddONq0R9Hw4gzEWWu4NlsdsY8uySWKvwIlNBoMQP83kE7vpYnYPlMizPtQHSpsUojuX9NZAWowm0Xlpd5MjyYjdc0HZAyMPnsF6ZAk1eEeR24V9dVvQPuLwfQxr7A63aOtUe6wFXfY1oy9e7ZA6ZCplLxVKJHBet9ZAYzq5CBJJaiViCeXxjiH8IzPenO8dYieAuAE7dBMIgTnfrjI8cje1pFn42O31J2e31N

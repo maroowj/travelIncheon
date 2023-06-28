@@ -1,0 +1,361 @@
+/* identity color */
+:root{
+    --blue: #2E3192;
+    --dark-blue1: #272a88;
+    --dark-blue2: #25277e;
+    --s-blue: #00b6ee;
+    --dark-grey1: #666;
+    --red: #EB283A;
+    --dark-red: #C71121;
+    --light-red: rgba(235, 40, 58, 0.1);
+    /*--yellow: #F6BF00;*/
+    --yellow: #dfb416;
+    --light-yellow: rgba(254, 203, 0, 0.1);
+    /*--green: #34B234;*/
+    --green: #00AB3E;
+    --white-green: #55c47e;
+    --dark-green1: #00a23d;
+    --dark-green2: #009135;
+    /*--light-green: rgba(52, 178, 52, 0.1);*/
+    --light-green: rgba(0, 171, 62, 0.1);
+    --black: #333;
+    /*--dark-grey: #959B9B;*/
+    --dark-grey: #666;
+    --grey: #E2E6E6;
+    --light-grey1: #f7f7f9;
+    --light-grey2: #e5e5e5;
+    --white: #FFFFFF;
+    --facebook: #1977F3;
+    --kakao: #FEE500;
+}
+
+
+.vertical{width: calc(100% - 250px); margin-left: 250px;}
+
+/*select*/
+.admin .select-box{position:relative;}
+.admin .select-box:after{content:'\f0d7'; display:inline-block; font-size:14px; font-weight:900; font-family: "Font Awesome 6 Pro"; color:#666; position:absolute; top:50%; right:10px; transform: translateY(-50%);}
+
+.admin .select-box select{appearance: none; padding:0 25px 0 10px; border:1px solid #e5e5e5; border-radius: 5px; font-size:15px; }
+
+
+
+/*leftMenu*/
+body.admin{background:#f7f7f9; position:relative;}
+.body{width:100%; height:100%; display:flex; justify-content: space-between;}
+.leftMenu-wrap{width:250px; height:100%;}
+.leftMenu-inner{width:250px; background: var(--blue); position:fixed; top:0; bottom:0; left:0;}
+.leftMenu-inner .logo-wrap{height:130px; border-bottom:1px solid var(--dark-blue2); position:relative; }
+.leftMenu-inner .logo-wrap .img{width:162px; position:absolute; bottom:30px; left:30px; }
+.leftMenu-inner .logo-wrap .img img{width:100%; image-rendering: -webkit-optimize-contrast;}
+
+.leftMenu-inner .menu-area li a{display:block; padding:0 30px; display:flex; justify-content: flex-start; align-items: center; height:60px; color:#fff; font-weight:500;}
+.leftMenu-inner .menu-area li.on a, .leftMenu-inner .menu-area li.on a:hover{background:var(--dark-blue2);}
+.leftMenu-inner .menu-area li a:hover{background:var(--dark-blue1);}
+.leftMenu-inner .menu-area li a:before{display:inline-block; color:#fff; font-size:16px; font-weight: 900; font-family: "Font Awesome 6 Pro"; margin-right:8px; margin-top:-2px; vertical-align: middle;}
+.leftMenu-inner .menu-area li:nth-child(1) a:before{content:'\f1ad'; margin-left: 2px; margin-right: 10px;}
+.leftMenu-inner .menu-area li:nth-child(2) a:before{content:'\f3c5'; margin-left: 2px; margin-right: 10px;}
+.leftMenu-inner .menu-area li:nth-child(3) a:before{content:'\f3c5'; margin-left: 1px; margin-right: 10px;}
+.leftMenu-inner .menu-area li:nth-child(4) a:before{content:'\f133'; margin-right: 10px;}
+.leftMenu-inner .menu-area li:nth-child(5) a:before{content:'\f03e';}
+.leftMenu-inner .menu-area li:nth-child(6) a:before{content:'\f09d';}
+.leftMenu-inner .menu-area li:nth-child(7) a:before{content:'\f729'; font-size: 0.875rem;}
+.leftMenu-inner .menu-area li:nth-child(8) a:before{content:'\f2bb'; font-size: 0.875rem;}
+.leftMenu-inner .menu-area li:nth-child(9) a:before{content:'\f500'; font-size: 0.875rem;}
+
+/*topHead*/
+.contents-wrap{width:calc(100% - 250px);}
+.topHead-wrap{width:100%; border-bottom:1px solid #e5e5e5; height:130px; position:relative;}
+.topHead-inner {position:absolute; bottom:30px; left:0; width:100%; padding:0 30px; display:flex; align-items: center; justify-content: space-between;}
+.topHead-inner .search-box{position:relative; width:600px;}
+.topHead-inner .search-box input.search{width:600px; height:50px; padding:0 60px 0 160px; border-radius: 5px; border:none; font-size: 15px;}
+
+.topHead-inner .select-box{position:absolute; top:0; left:0; border-right:1px solid #e5e5e5; height:50px;}
+.topHead-inner .select-box:after{content:'\f0d7'; display:inline-block; font-size: 16px; color:#666; font-weight: 900; font-family: "Font Awesome 6 Pro"; position:absolute; top:50%; right:20px; transform: translateY(-50%);}
+.topHead-inner select{height:50px; width:140px; border:none !important; background:none; padding:0 20px; appearance: none; cursor: pointer; font-size: 15px;}
+input::placeholder{color:#9c9c9c;}
+.topHead-inner .search-box i.search-icon{position:absolute; top:50%; right:0; width:60px; height:50px; font-size:20px; transform: translateY(-50%);text-align: center; line-height: 50px;}
+
+.logout-wrap{display: flex; align-items: center; justify-content: flex-end;}
+.logout-wrap .admin-name{font-weight:600; color:#333; margin-right:10px; font-size: 15px;}
+.logout-wrap .admin-name > span{font-weight:400; color:#666;}
+.logout-wrap .logout-btn{border-radius: 5px; height:50px; width:120px; display:flex; align-items: center; justify-content: center; background:var(--blue); color:#fff; font-size: 14px;}
+.logout-wrap .logout-btn:before{content:'\f011';display:inline-block; font-size:14px; font-weight: 900; font-family: "Font Awesome 6 Pro"; color:#fff; margin-right:5px;}
+
+/*company 업체관리*/
+.contents{padding:30px 30px; width:100%;}
+.admin-contents-title{display:flex; align-items: center; justify-content: space-between;}
+.admin-contents-title h3{font-size:30px; font-weight: 500; color:#333;}
+.admin-contents-title .top-btn{display:flex; align-items: center; justify-content: flex-end;}
+.admin-contents-title .top-btn a{border-radius: 5px; padding:0 25px; height:40px; line-height: 41px; color:#fff; font-size: 14px; margin-left:10px;}
+.admin-contents-title .top-btn a.blue-btn{background:var(--blue); margin-left:0;}
+.admin-contents-title .top-btn a.s-blue-btn{background:#00b6ee;}
+.admin-contents-title .top-btn a.gray-btn{background:#666;}
+
+.company-wrap{display:flex; align-items: flex-start; justify-content: space-between; margin-top:20px; height:710px;}
+.company-wrap .company-list-wrap{/*width:320px; height:calc(100vh - 272px);*/ width:20%; height:100%; background:#fff; border-radius: 5px; overflow: hidden;}
+.company-wrap .company-list-wrap .search-wrap{position:relative; padding:15px 47px 15px 30px;  border-bottom:1px solid #e5e5e5;}
+.company-wrap .company-list-wrap .search-wrap >input{width:100%; height:50px; border:1px solid #e5e5e5; background:#f7f7f9; border-radius: 5px; padding:0 50px 0 20px; font-size: 15px;}
+.company-wrap .company-list-wrap .search-wrap .search-icon{position:absolute; right:47px; top:50%; transform: translateY(-50%); width:50px; text-align: center; font-size:20px;}
+
+.companyList-wrap{height:calc(100% - 81px); overflow-y: scroll; padding:15px 30px 30px; position:relative;}
+
+.companyList-wrap li {margin-bottom:10px;}
+.companyList-wrap li a{display:flex; justify-content: space-between; align-items: center; width:100%; height:50px; font-size:14px; font-weight: 400; background:#e5e5e5; border-radius: 5px; padding:0 20px;}
+.companyList-wrap li a:after{content:'\f054'; display:block; font-size:12px; font-weight:900; font-family: "Font Awesome 6 Pro"; color:#666;}
+.companyList-wrap li.on a, .companyList-wrap li a:hover{background:var(--blue); color:#fff;}
+.companyList-wrap li.on a:after, .companyList-wrap li a:hover:after{color:#fff;}
+.companyList-wrap li a span.company-name {display:inline-block; overflow: hidden; width:calc(100% - 15px); text-overflow: ellipsis; white-space: nowrap;}
+
+
+.company-table{background:#fff; /*width:calc(100% - 350px); height:calc(100vh - 272px);*/ width:calc(80% - 30px); height:100%; border-radius: 5px; overflow: hidden;}
+.admin-table-title-wrap{display: flex; align-items: center; justify-content: space-between; height:80px;}
+.admin-table-title-wrap .admin-table-title{display: flex; align-items: center; justify-content: flex-start;}
+.admin-table-title-wrap .admin-table-title .title{font-size:20px; color:#333; font-weight:500; margin-right:10px;}
+.admin-table-title-wrap .admin-table-title .detail-text{font-size:15px; color:#9c9c9c;}
+
+/*table*/
+.admin-table{width:100%; table-layout: fixed;}
+.admin-table table{font-size: 15px;}
+.admin-table thead th{background:#e9f3f7; height:50px; text-align: center; color:#333; font-size:14px; font-weight:500;}
+/*.admin-table thead th:after{content:'\f0dd'; display:inline-block; font-size:13px; color:#666; font-weight:900; font-family: "Font Awesome 6 Pro"; vertical-align: middle; margin-top:-6.5px; margin-left:5px;}*/
+
+.admin-table tbody tr{border-bottom:1px solid #e5e5e5; cursor: pointer;}
+.admin-table tbody tr:hover{background:#f4f9fb;}
+.admin-table tbody tr td{text-align: center; font-size:14px; height:50px; padding:0 10px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;}
+.admin-table tbody tr td.company-name:before{content:''; display:inline-block; width:7px; height:7px; border-radius: 50%; margin-right:5px; vertical-align: middle; margin-top:-3px;}
+.admin-table tbody tr td span.course-name{ text-overflow: ellipsis; white-space: nowrap; overflow: hidden;}
+
+/*업체컬러*/
+.admin-table tbody tr td.company-name.cp1:before{background:#ff8b8b;}
+.admin-table tbody tr td.company-name.cp2:before{background:#e54d4d;}
+.admin-table tbody tr td.company-name.cp3:before{background:#fc9c47;}
+.admin-table tbody tr td.company-name.cp4:before{background:#fdc631;}
+.admin-table tbody tr td.company-name.cp5:before{background:#9dcd80;}
+.admin-table tbody tr td.company-name.cp6:before{background:#43b86c;}
+.admin-table tbody tr td.company-name.cp7:before{background:#22bfa0;}
+.admin-table tbody tr td.company-name.cp8:before{background:#3bc2d6;}
+.admin-table tbody tr td.company-name.cp9:before{background:#228ecc;}
+.admin-table tbody tr td.company-name.cp10:before{background:#415ac2;}
+.admin-table tbody tr td.company-name.cp11:before{background:#9169ed;}
+.admin-table tbody tr td.company-name.cp12:before{background:#ab52cc;}
+.admin-table tbody tr td.company-name.cp13:before{background:#e03da8;}
+.admin-table tbody tr td.company-name.cp14:before{background:#9c9c9c;}
+
+.paging{display:flex; align-items: center; justify-content: center; margin-top:30px;}
+.paging li a{display:flex; align-items: center; justify-content: center; width:40px; height:20px; font-size:14px; font-weight:500; color:#9c9c9c;}
+.paging li a i{font-size:13px;}
+.paging li.on a, .paging li a:hover{color:var(--blue);}
+
+/*modal*/
+.course-modal .modal-text-wrap{border:none;}
+.course-modal .modal-bottom{border-top:1px solid #e5e5e5; padding-top:30px;}
+.course-detail-wrap{display:flex; justify-content: space-between; align-items: flex-start;}
+.course-detail-wrap .img{width:300px; height:215px; border-radius: 5px; overflow: hidden;}
+.course-detail-wrap .img img{width:100%; height:100%;}
+.course-detail-wrap .course-detail{width:calc(100% - 320px); padding-top:10px;}
+.course-detail-wrap .course-detail p.title{font-size:24px; color:#333; font-weight:500; line-height: 1.3; margin-bottom: 15px;}
+.course-detail-wrap .course-detail p.title > .course{display:inline-block; font-size:14px; color:#fff; padding:3px 8px 0; background:var(--blue); border-radius: 3px; margin-left:5px; margin-top:-4px; vertical-align: middle;}
+.course-detail-wrap .course-detail ul.detail-list li{font-size: 15px; margin-top:6px; }
+.course-detail-wrap .course-detail ul.detail-list li span.title:before{content:''; display:inline-block; width:4px; height:4px; background:var(--blue); border-radius: 50%; position:absolute;top:8px; left:0;}
+.course-detail-wrap .course-detail ul.detail-list li.ma-top{margin-top:15px;}
+
+.course-detail ul.detail-list li span.title{display:inline-block; color:#333; padding-left:10px; position:relative;}
+.course-detail ul.detail-list li span.title:after{content:':'; display:inline-block; font-size:14px; color:#333; margin:-3px 5px 0; vertical-align: middle; font-weight:500;}
+
+.course-detail ul.detail-list li.f-wrap{display:flex; flex-wrap:wrap; align-items: flex-start; justify-content: flex-start;}
+
+.course-detail ul.detail-list li.f-wrap span.text{display:block; width:100%;}
+.course-detail ul.detail-list li.f-wrap span.title:after{display:none;}
+.course-detail ul.detail-list li.f-wrap span.list{margin-bottom:5px; margin-top:3px; padding-left:10px; position:relative;}
+.course-detail ul.detail-list li.f-wrap span.list:before{content:'-'; display:inline-block; color:#666; font-weight:500; font-size: 15px; position:absolute; top:0; left:0;}
+
+/*업체 추가 색상*/
+/*select.company-color option span:before{content:'';display:inline-block; width:7px; height:7px; border-radius: 50%; margin-right:5px; vertical-align: middle; margin-top:-3px;}
+select.company-color option .cp1:before{background:#ff8b8b;}
+select.company-color option .cp2:before{background:#e54d4d;}
+select.company-color option .cp3:before{background:#fc9c47;}
+select.company-color option .cp4:before{background:#fdc631;}
+select.company-color option .cp5:before{background:#9dcd80;}
+select.company-color option .cp6:before{background:#43b86c;}
+select.company-color option .cp7:before{background:#22bfa0;}
+select.company-color option .cp8:before{background:#3bc2d6;}
+select.company-color option .cp9:before{background:#228ecc;}
+select.company-color option .cp10:before{background:#415ac2;}
+select.company-color option .cp11:before{background:#9169ed;}
+select.company-color option .cp12:before{background:#ab52cc;}
+select.company-color option .cp13:before{background:#e03da8;}
+select.company-color option .cp14:before{background:#9c9c9c;}*/
+
+.company-add-modal .modal-text-wrap{border:none;}
+
+/*select.company-color{font-size:15px; font-family: "Font Awesome 6 Pro"; font-weight:900;}*/
+select.company-color option{font-size:14px; font-family: "Font Awesome 6 Pro"; font-weight:900;}
+select.company-color option.cp1{color:#ff8b8b;}
+select.company-color option.cp2{color:#e54d4d;}
+select.company-color option.cp3{color:#fc9c47;}
+select.company-color option.cp4{color:#fdc631;}
+select.company-color option.cp5{color:#9dcd80;}
+select.company-color option.cp6{color:#43b86c;}
+select.company-color option.cp7{color:#22bfa0;}
+select.company-color option.cp8{color:#3bc2d6;}
+select.company-color option.cp9{color:#228ecc;}
+select.company-color option.cp10{color:#415ac2;}
+select.company-color option.cp11{color:#9169ed;}
+select.company-color option.cp12{color:#ab52cc;}
+select.company-color option.cp13{color:#e03da8;}
+select.company-color option.cp14{color:#9c9c9c;}
+
+
+/*1차코스*/
+.admin-table thead th.after-none:after{display:none;}
+
+.admin-table thead th input.all-check, table input.checked{cursor: pointer; width:16px; height:16px; border:1px solid #e5e5e5;}
+
+/*1차 코스추가*/
+.courseAdd-wrap{background:#fff; border-radius: 5px; padding:30px; margin-top:20px;}
+.courseAdd-inner{display:flex; align-items: flex-start; justify-content: space-between;}
+.course-thumImg-wrap{width:30%;}
+.course-thumImg-wrap img{width:100%; border-radius: 5px;}
+
+.courseAdd-wrap .img-button{display:flex; justify-content: space-between; align-items: center; margin-top:10px;}
+.courseAdd-wrap .img-button .img-add-btn{display:flex; align-items: center;justify-content: center; height:50px; width:160px; color:#fff; font-size:14px; background:#666; border-radius: 5px;}
+.courseAdd-wrap .img-button .img-size{font-size:14px; color:var(--blue); font-weight:500;}
+
+.courseAdd-text-wrap{width:70%; padding-left:30px;}
+.courseText-list{margin-top:30px;}
+.courseText-list:first-child{margin-top:0px;}
+.courseText-list p.title{color:#333; font-size:18px; font-weight:500; margin-bottom:5px;}
+.courseText-list p.title span{color:#9c9c9c; font-size:15px; margin-left:3px; font-weight:400;}
+.courseText-list .add-d-flex{display:flex; justify-content: flex-start; align-items: center;}
+
+.courseText-list select{width:100%; height:50px;}
+.courseText-list input {border:1px solid #e5e5e5; height:50px; border-radius: 5px; padding:0 10px;font-size:15px; }
+.courseText-list1 .select-box{width:220px;}
+.courseText-list1 input{width:calc(100% - 230px); margin-left:10px;}
+
+.courseText-list2 input{width:220px; padding-right:0;}
+.courseText-list2 span.text{margin:0 5px; font-size:15px;  color:#666;}
+
+.courseText-list3 .select-box{width:100px;}
+.courseText-list3 .text{margin:0 20px 0 5px; font-size:15px;}
+
+.courseText-list4 .select-box{width:100px;}
+.courseText-list4 .text{margin:0 5px;}
+.courseText-list .time-add-btn {margin-left:10px; display:flex; align-items: center; justify-content: flex-start;}
+.courseText-list .time-add-btn a{display:flex; align-items: center; justify-content: center; border-radius: 5px; background:#e5e5e5; color:#666; font-size:16px; font-weight: 900; width:35px; height:35px;}
+.courseText-list .time-add-btn a.plus{margin-right:5px;}
+
+.courseText-list .add-d-flex{margin-bottom:10px;}
+.courseText-list .add-d-flex:last-child{margin-bottom:0px;}
+
+.courseText-list5 .check-box{display: flex; align-items: center; justify-content:space-between;}
+.courseText-list5 .check-box li{display:flex; align-items: center;justify-content: flex-start; width:16.666%;}
+.courseText-list5 input{cursor:pointer; height:30px;}
+.courseText-list5 label{margin-left:3px; cursor:pointer; font-size:15px;}
+.courseText-list5 label > span{font-size:13px;}
+.courseText-list5 .require-check{display: flex; align-items: center; justify-content: flex-start;}
+.courseText-list5 .require-text{width:100%; display:flex; align-items: center; justify-content: flex-start; margin-bottom:10px;}
+.courseText-list5 .require-text:last-child{margin-bottom:0;}
+.courseText-list5 .require-text input{width:calc(100% - 85px); height:50px; cursor: inherit;}
+
+.courseText-list6 input{width:calc(100% - 130px); margin-right:10px;}
+.courseText-list6 a.find-file{width:120px; border-radius: 5px; background:#666; color:#fff; font-size:15px; height:50px; line-height: 50px; text-align: center;}
+
+.courseAdd-button {display:flex; align-items: center; justify-content: center; margin-top:30px;}
+.courseAdd-button a{display:inline-block; width:160px; height:50px; line-height: 50px; text-align: center; color:#fff; font-size:15px; border-radius: 5px;}
+.courseAdd-button a.none-btn{background:var(--blue); margin-right:10px;}
+.courseAdd-button a.save-btn{background:#00b6ee;}
+
+/*2차 코스*/
+.course2-list-wrap{margin-top:20px; height:710px;}
+.course2-table{width:100%; }
+
+/*2차 코스 추가*/
+.courseAdd2-text-wrap .courseText-list1 input{width:100%; margin-left:0;}
+
+/*예약관리*/
+.admin-reserve-wrap{height:810px;}
+
+.reserve-check-btn{display: flex; align-items: center; justify-content: flex-end;}
+.reserve-check-btn a{display:inline-block; border-radius:5px; padding:0 30px; height:40px; line-height: 41px; color:#fff; font-size:14px; margin-left:10px;}
+.reserve-check-btn a.blue-btn{background:var(--blue); margin-left:0;}
+.reserve-check-btn a.s-blue-btn{background:#00b6ee;}
+.reserve-check-btn a.gray-btn{background:#666;}
+
+
+.admin-reserve-table tbody tr td{height:60px;}
+.date-search-wrap input.select-date{border:1px solid #e5e5e5; border-radius: 5px; height:40px; width:180px; padding-left:10px; font-size:15px;}
+.date-search-wrap span.text{display:inline-block;font-size:14px; margin:0 5px;}
+.date-search-wrap a.search-btn{display:inline-block; margin-left:10px; background:var(--blue); border-radius: 5px; width:100px; height:40px; line-height: 42px; text-align: center; color:#fff; font-size: 14px; }
+
+.reserve-course-name{display:flex; align-items: center; justify-content: flex-start; flex-wrap: wrap; text-align: left;}
+.reserve-course-name p{width:100%; font-size:14px; display:block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-left:10px; position:relative;}
+.reserve-course-name p.course1:before{content:''; display:inline-block; width:6px; height:6px; border-radius: 50%; position:absolute; top:7px; left:0; }
+
+.reserve-course-name p.cp1:before{background:#ff8b8b;}
+.reserve-course-name p.cp2:before{background:#e54d4d;}
+.reserve-course-name p.cp3:before{background:#fc9c47;}
+.reserve-course-name p.cp4:before{background:#fdc631;}
+.reserve-course-name p.cp5:before{background:#9dcd80;}
+.reserve-course-name p.cp6:before{background:#43b86c;}
+.reserve-course-name p.cp7:before{background:#22bfa0;}
+.reserve-course-name p.cp8:before{background:#3bc2d6;}
+.reserve-course-name p.cp9:before{background:#228ecc;}
+.reserve-course-name p.cp10:before{background:#415ac2;}
+.reserve-course-name p.cp11:before{background:#9169ed;}
+.reserve-course-name p.cp12:before{background:#ab52cc;}
+.reserve-course-name p.cp13:before{background:#e03da8;}
+.reserve-course-name p.cp14:before{background:#9c9c9c;}
+
+span.reserve-state{display:inline-block; padding:0 15px; height:25px; line-height: 26px; color:#fff; font-size: 13px; border-radius: 5px; text-align: center;}
+span.reserve-state.r-state1{background:#21977f;}
+span.reserve-state.r-state2{background:#00b6ee;}
+span.reserve-state.r-state3{background:var(--blue);}
+span.reserve-state.r-state4{background:#666;}
+
+
+/*예약관리 modal*/
+.admin-info-modal th,.admin-info-modal .table-blue-bg,.admin-info-modal .d-flex-wrap{font-size:15px;}
+
+.admin-info-modal .all-time-title, .admin-info-modal .all-time-text{font-size:14px;}
+
+.admin-modal .modal-table th {font-size:15px;}
+.admin-modal .modal-table input {font-size:15px;}
+.admin-modal .modal-bottom .modal-btn {font-size:15px; line-height: 52px;}
+
+.admin-info-modal .program-detail li{margin-bottom:6px;}
+.admin-info-modal .program-detail p.title{font-size:14px; height:25px; line-height: 27px;}
+.admin-info-modal .program-detail p.text{font-size:14px; margin-top:3px;}
+
+/*배너관리*/
+.admin-banner-table tbody tr td{height:95px;}
+.admin-banner-table .banner-preview img{width:100%; height:auto;}
+.admin-banner-table .banner-text-wrap{display:flex; justify-content: flex-start; align-items: center; flex-wrap: wrap;}
+.admin-banner-table .banner-text-wrap .title{font-size:15px; color:#333; font-weight:400; width:100%; text-align: left; margin-bottom:6px;}
+.admin-banner-table .banner-text-wrap .text{font-size:14px; width:100%; text-align: left; line-height: 1.3; color:#9c9c9c;}
+.admin-banner-table .view-update a{display:inline-block; padding:10px;}
+.admin-banner-table .view-update a:hover{color:#00b6ee;}
+.admin-banner-table .view-update a:active{font-size:14px; color:#00b6ee;}
+
+/*배너추가*/
+.bannerAdd-wrap .courseText-list textarea{width:100%; height:120px; overflow-y:auto; font-size:15px; color:#666; border:1px solid #e5e5e5; border-radius: 5px; padding:10px;}
+.bannerAdd-wrap .courseText-list textarea::placeholder{color:#9c9c9c;}
+.bannerAdd-wrap .courseText-list ul.radio-box{display:flex; align-items: center; justify-content: flex-start;}
+.bannerAdd-wrap .courseText-list ul.radio-box li{display:flex; align-items: center; justify-content: flex-start; width:15%}
+.bannerAdd-wrap .courseText-list ul.radio-box li > input{width:16px; height:16px; cursor: pointer; margin:0 ;}
+.bannerAdd-wrap .courseText-list ul.radio-box li > label{cursor: pointer}
+.bannerAdd-wrap .courseText-list ul.radio-box li > label span{display:inline-block; font-size:15px; vertical-align: middle;}
+.bannerAdd-wrap .courseText-list ul.radio-box li > label span:before{content:''; display: inline-block; width:11px; height:11px; border-radius: 50%; margin:0 3px 0 10px;}
+.bannerAdd-wrap .courseText-list ul.radio-box li:first-child > label span:before{border:1px solid #9c9c9c; width:10px; height:10px; }
+.bannerAdd-wrap .courseText-list ul.radio-box li:last-child > label span:before{background:#333;}
+
+/*부대비용*/
+.unit-cost-table .admin-table tbody tr:first-child td{border-top: 1px solid #e5e5e5;}
+.unit-cost-table .admin-table tbody tr td{text-align: center; /*font-size:14px;*/ height:60px; padding:0 10px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;}
+.unit-cost-table{background:#fff; /*width:calc(100% - 350px); height:calc(100vh - 272px);*/ width:calc(80% - 30px); height:100%; border-radius: 5px; overflow: hidden;}
+.unit-cost-list-wrap{margin-top:20px; height:710px;}
+.unit-cost-table .unit-cost-title{color: #333; font-size: 18px; font-weight: 500; margin-bottom: 5px; border-right: 1px solid #e5e5e5}
+.unitCost-list{display: flex; align-items: center;}
+.unit-cost-table span{font-size: 18px; font-weight: 500; color: #333;}
+.unitCost-list input{border:1px solid #e5e5e5; height:50px; border-radius: 5px; padding:0 10px;font-size:15px; float: left}

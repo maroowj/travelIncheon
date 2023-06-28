@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script>
+        function popupLogin(loginUrl) {
+            window.open(loginUrl, 'popupLogin', 'width=730,height=400,scrollbars=0,toolbar=0,menubar=no')
+            console.log(loginUrl)
+        }
+    </script>
+</head>
+<body>
+<button id="kakao" onclick="kakaoLogin()"> <!--th:attr="onclick=|popupLogin('${kakaoLoginUri}')|"-->KakaoLogin</button>
+<br/>
+</body>
+
+<script>
+    Kakao.init('e1c0d7ca2f295a6d197739f5eff48bf7');
+
+
+    function kakaoLogin() {
+        Kakao.Auth.login({
+            scope: 'profile_nickname,profile_image,account_email,gender,birthday,age_range',
+            success: function () {
+                Kakao.API.request({
+                    url: '/v2/user/me',
+                    success: function (response) {
+                        let kakaoData = {
+                            age: response.kakao_account.age_range,
+                            birth: response.kakao_account.birthday,
+                            email: response.kakao_account.email,
+                            gender: response.kakao_account.gender,
+                        };
+                        location.href = '/login/do?provider=kakao' +
+                            '&sid=' + response.id +
+                            '&nickname=' + response.properties.nickname +
+                            '&thumbnailImageUrl=' + response.properties.thumbnail_image +
+                            '&gender=' + kakaoData.gender +
+                            '&age=' + kakaoData.age +
+                            '&email=' + kakaoData.email +
+                            '&birth=' + kakaoData.birth;
+                    },
+                    fail: function (error) {
+                        console.log(error);
+                    }
+                })
+            },
+            fail: function (error) {
+                console.log(error);
+            }
+        })
+    }
+
+</script>
+</html>

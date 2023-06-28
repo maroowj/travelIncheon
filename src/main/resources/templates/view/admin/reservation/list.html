@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/default_layout}"
+      xmlns:th="http://www.thymeleaf.org">
+
+<style layout:fragment="css"></style>
+
+<div layout:fragment="content">
+
+    <main role="main" class="main-content">
+        <script>
+            const main_menu = 4;
+        </script>
+
+        <!--컨텐츠 영역-->
+        <div class="contents">
+            <div class="admin-contents-title">
+                <h3 class="admin-title">예약관리</h3>
+
+                <div class="date-search-wrap">
+                    <input type="date" class="select-date" id="startDate">
+                    <span class="text">~</span>
+                    <input type="date" class="select-date" id="endDate">
+                    <a href="#" class="search-btn">검색</a>
+                </div>
+            </div><!--admin-contents-title-->
+
+            <div class="company-wrap admin-reserve-wrap">
+                <div id="company-list-wrap" class="company-list-wrap">
+                    <div class="search-wrap">
+                        <input type="text" placeholder="업체 검색" class="keyword" onkeyup="getCompanyList($(this).val())">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    </div>
+
+                    <ul class="companyList-wrap"></ul>
+                </div>
+
+                <div class="company-table modal-open-table">
+                    <div class="admin-table-title-wrap">
+                        <div class="admin-table-title">
+                            <p class="title">전체</p>
+                            <p class="detail-text">전체 예약관리</p>
+                        </div>
+                        <div class="reserve-check-btn">
+                            <a class="blue-btn cupoint">입금완료</a>
+                            <a class="s-blue-btn cupoint">예약확정</a>
+                            <a class="gray-btn cupoint">예약취소</a>
+                        </div>
+                    </div>
+
+                    <!--table START-->
+                    <table class="admin-table admin-reserve-table">
+                        <colgroup>
+                            <col style="width:5%">
+                            <col style="width:5%">
+                            <col style="width:8%">
+                            <col style="width:12%">
+                            <col style="width:30%">
+                            <col style="width:12%">
+                            <col style="width:16%">
+                            <col style="width:12%">
+                        </colgroup>
+                        <thead>
+                        <tr>
+                            <th class="after-none"><input type="checkbox" class="all-check"></th>
+                            <th>번호</th>
+                            <th>예약상태</th>
+                            <th>예약날짜</th>
+                            <th>코스명</th>
+                            <th>담당자 연락처</th>
+                            <th>신청기관명</th>
+                            <th>방문대상</th>
+                        </tr>
+                        </thead>
+                        <tbody id="reservationList"></tbody>
+
+                    </table>
+
+                    <div id="pagination"></div>
+                </div><!--company-table-->
+
+            </div><!--company-wrap-->
+        </div><!--contents-->
+
+        <!--예약신청 정보 MODAL START-->
+        <div id="reservation-modal" class="modal admin-modal info-modal admin-info-modal">
+            <div class="modal-wrap">
+                <div class="modal-title-wrap">
+                    <p class="title">예약신청 정보</p>
+                    <i class="fa-solid fa-xmark close"></i>
+                </div>
+                <div class="modal-text-wrap">
+                    <table class="date-table modal-table">
+                        <colgroup>
+                            <col style="width:140px">
+                            <col style="width:calc(50% - 70px)">
+                            <col style="width:140px">
+                            <col style="width:calc(50% - 140px)">
+                        </colgroup>
+                        <tbody>
+                        <tr>
+                            <th>일시</th>
+                            <td>
+                                <div class="d-flex-wrap reservation-date">
+                                    2022-04-29 10:00
+                                </div>
+                            </td>
+                            <th class="b-left">예약상태</th>
+                            <td>
+                                <div class="d-flex-wrap booking-status">
+                                    예약대기
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <!--일시 table END-->
+
+                    <table class="reserve-table modal-table">
+                        <colgroup>
+                            <col style="width:140px">
+                            <col style="width:calc(20% - 70px)">
+                            <col style="width:calc(30% - 70px)">
+                            <col style="width:140px">
+                            <col style="width:calc(50% - 140px)">
+                        </colgroup>
+                        <tbody>
+
+                        <tr>
+                            <th>신청기관명</th>
+                            <td  colspan="2">
+                                <div class="d-flex-wrap applicant">서울시립대학교</div>
+                            </td>
+                            <th class="b-left">방문대상</th>
+                            <td colspan="2">
+                                <div class="d-flex-wrap guest-type">대학생</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>방문대상 정보</th>
+                            <td  colspan="5">
+                                <div class="d-flex-wrap applicant-detail">
+                                    일반
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>방문인원수</th>
+                            <td  colspan="5">
+                                <div class="d-flex-wrap quest-number">
+                                    20명
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="program" rowspan="5">신청프로그램</th>
+                            <td rowspan="2" class="table-blue-bg">1차 코스</td>
+                            <td colspan="4">
+                                <div class="d-flex-wrap first-course"></div>
+                            </td>
+                        </tr>
+                        <tr id="secondInsert">
+                            <td colspan="4">
+                                <div class="d-flex-wrap">
+                                    <ul class="program-detail">
+                                        <li class="w100pro"><p class="title">소요시간</p><p class="text running-time">1시간 20분</p></li>
+                                        <li class="w100pro"><p class="title">코<span class="gap">&nbsp;</span>스</p><p class="text course-detail">홍보관 - 침출수처리장 - 50MW발전시설 - 제 2·3매립장 - 통합계량대 - 양묘온실 - 야생화공원</p></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="secondOne sec" num="0">
+                            <td rowspan="2" class="table-blue-bg">
+                                2차 코스
+                            </td>
+                            <td colspan="4">
+                                <div class="d-flex-wrap secondCourseTitle"></div>
+                            </td>
+                        </tr>
+                        <tr class="secondTwo sec2" num="0">
+                            <td colspan="4">
+                                <div class="d-flex-wrap">
+                                    <ul class="program-detail">
+                                        <li><p class="title">소요시간</p><p class="text runningTime"></p></li>
+                                        <li><p class="title">체험비용</p><p class="text cost"></p></li>
+                                        <li class="w100pro"><p class="title">코<span class="gap">&nbsp;</span>스</p><p class="text course"></p></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="5">
+                                <div class="d-flex-wrap">
+                                    <p class="all-time-title">전체 소요시간</p><p class="all-time-text"></p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>담당자 연락처</th>
+                            <td  colspan="5">
+                                <div class="d-flex-wrap manager-phone">
+                                    010-1234-1234
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>차량종류 및 수</th>
+                            <td  colspan="5">
+                                <div class="d-flex-wrap vehicle">
+                                    승합차 1대
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>기타</th>
+                            <td  colspan="5">
+                                <div class="d-flex-wrap etc">
+                                    기타내용
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="6">
+                                <div class="ma-tb-10px">
+                                    <p class="bold ma-b-4px">인솔자 비용 : <span class="f-right ma-l-4px">원</span><span class="f-right f-17 leaderCost">100,000</span></p>
+                                    <p class="bold ma-b-4px">여행자 보험비용(방문자수*1,000원) : <span class="f-right ma-l-4px">원</span><span class="f-right f-17 travelCost">0</span></p>
+                                    <p class="bold ma-b-4px">버스대절 비용(1대 기준/440,000원) : <span class="f-right ma-l-4px">원</span><span class="f-right f-17 busCost">0</span></p>
+                                    <p class="bold ma-b-4px">2차코스 비용(1인) : <span class="f-right ma-l-4px">원</span><span class="f-right one f-17">0</span></p>
+                                    <p class="bold ma-b-4px">2차코스 총 비용(방문자수*1인비용) : <span class="f-right ma-l-4px">원</span><span class="f-right tot f-17">0</span></p>
+                                    <hr/>
+                                    <p class="bold">총 합계 : <span class="f-right ma-l-4px">원</span><span class="f-right total f-17">0</span></p>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <!--신청내용 table END-->
+                </div><!--modal-text-wrap-->
+                <div class="modal-bottom">
+                    <a class="modal-btn close-btn cupoint" style="margin-right:0;">닫기</a>
+<!--                                <a href="../reserve" class="modal-btn reserve-btn">예약수정</a>-->
+                </div>
+            </div><!--modal-wrap-->
+            <div class="modal-bg-cover"></div>
+        </div>
+
+</main>
+
+    <script>
+        let page=1;
+        let companySeq;
+
+        $(function(){
+            getCompanyList();
+            getReservationList();
+        });
+
+        // leftmenu 업체 클릭 시
+        $("#company-list-wrap").on("click", ".companyList-wrap li", function(){
+            $(".all-check, .checked").prop("checked", false);
+            if( !$(this).hasClass("on") ) $(this).addClass("on");
+            $(".companyList-wrap li").not(this).removeClass("on");
+
+            companySeq = $(this).find(".comSeq").attr("companySeq");
+            getReservationList(companySeq);
+        });
+
+        // 업체리스트 불러오기
+        function getCompanyList(keyword){
+            $.ajax({
+                type: "GET",
+                url: "/api/admin/company/list",
+                data: { "companyTitle": keyword },
+                success: function(data){
+                    // console.log(data);
+                    let companyTag = "<li class='on'><a class='cupoint'><span class='company-name'>전체</span></a></li>";
+
+                    if( data.length != 0 ) {
+                        data.forEach(function (data) {
+                            if( data.withdrawal != 1 ) {
+                                companyTag +=
+                                    "<li><a class='cupoint comSeq' companySeq='" + data.companySeq + "'><span class='company-name'>" + data.companyTitle + "</span></a></li>";
+                            }
+                        });
+                        $(".companyList-wrap").html(companyTag);
+                    }else{
+                        $(".companyList-wrap").html(companyTag);
+                    }
+                }
+            });
+        }
+
+        // 전체 업체코스리스트 불러오기
+        function getReservationList(companySeq){
+            let startDate = $("#startDate").val();
+            let endDate = $("#endDate").val();
+
+            $.ajax({
+                type: "GET",
+                url: "/api/admin/reservation/list",
+                data: {
+                    "companySeq": companySeq,
+                    "page": page-1,
+                    "size":10,
+                    "dateFrom":startDate,
+                    "dateTo": endDate,
+                    "sort": "reservationSeq,desc"
+                },
+                success: function(data){
+                    // console.log(data);
+                    let rowNum = data.totalElements;
+                    let reservationTag = "";
+                    let bookingStatusTag = "";
+
+                    if( data.content.length != 0 ) {
+                        let startNum=(data.pageable.pageNumber+1-1)*data.pageable.pageSize+1;
+
+                        data.content.forEach(function (data, index) {
+                            let num = rowNum-(startNum + index) + 1;
+                            let comColor = $("#companyColor").find("span[color='"+data.companyColor+"']").attr("class");
+
+                            if (data.bookingStatus == "예약대기"){
+                                bookingStatusTag = "<span class='reserve-state r-state1'>" + data.bookingStatus + "</span>" +"</td>"
+                            } else if (data.bookingStatus == "예약확정") {
+                                bookingStatusTag = "<span class='reserve-state r-state2'>" + data.bookingStatus + "</span>" +"</td>"
+                            } else if (data.bookingStatus == "입금완료") {
+                                bookingStatusTag = "<span class='reserve-state r-state3'>" + data.bookingStatus + "</span>" +"</td>"
+                            } else if (data.bookingStatus == "예약취소") {
+                                bookingStatusTag = "<span class='reserve-state r-state4'>" + data.bookingStatus + "</span>" +"</td>"
+                            }
+
+                            reservationTag +=
+                                "<tr reservationSeq='"+data.reservationSeq+"' bookingStatus='"+data.bookingStatus+"'>" +
+                                "<td><input type='checkbox' class='checked'></td>" +
+                                "<td class='info'>"+num+"</td>" +
+                                "<td class='info booking-status'>"+
+                                bookingStatusTag +
+                                "<td class='info reservation-date'>"+ data.reservationDate+"</td>";
+
+                            if( data.secondCourse != null && data.secondCourse.length != 0 ) {
+                                reservationTag += "<td class='info fisrt-course'>" + "1차코스: " + data.firstCourse + " " + data.courseType + "<br>" + "2차코스: " + data.secondCourse + "</td>";
+                            }else{
+                                reservationTag += "<td class='info fisrt-course'>" + "1차코스: " + data.firstCourse + " " + data.courseType+ "</td>";
+                            }
+
+                            reservationTag +=
+                                "<td class='info manager-phone'>"+data.managerPhone+"</td>" +
+                                "<td class='info applicant'>"+data.applicant+"</td>" +
+                                "<td class='info guest'>" + data.guestType + data.guestNumber + "명" + "</td>";
+
+                        });
+                        $("#reservationList").html(reservationTag);
+                    }else{
+                        $("#reservationList").html(reservationTag);
+                    }
+                    fPagination(data, page);
+                }
+            });
+        }
+
+        $("#pagination").on("click", "ul li a", function() {
+            page = parseInt($(this).attr("gopage"));
+
+            getReservationList();
+        });
+
+        // 전체 예약 리스트 행 클릭 시, 상세정보
+        $("#reservationList").on("click", ".info", function() {
+            $("#reservation-modal .program").attr("rowspan", 5);
+            $("#reservation-modal .sec:not(:last)").remove();
+            $("#reservation-modal .sec2:not(:last)").remove();
+
+            $("#reservation-modal .sec").show();
+            $("#reservation-modal .sec2").show();
+
+            $("#reservation-modal").find(".all-time-text").text("");
+
+            let reservationSeq = $(this).parent().attr("reservationSeq");
+
+            $.ajax({
+                type: "GET",
+                url: "/api/admin/reservation/detail",
+                data: {"reservationSeq": reservationSeq},
+                success: function (data) {
+                    let prun=0;
+                    let pcost=0;
+                    let plusCnt = $("#reservation-modal .sec").length;
+                    let detail=data;
+
+                    if( data.length != 0 ) {
+                        $("#reservation-modal .reservation-date").text(detail.reservationList.reservationDate.substring(0, 10));
+                        $("#reservation-modal .booking-status").text(detail.reservationList.bookingStatus);
+                        $("#reservation-modal .applicant").text(detail.reservationList.applicant);
+                        $("#reservation-modal .guest-type").text(detail.reservationList.guestType);
+                        $("#reservation-modal .applicant-detail").text(detail.reservationList.applicantDetail);
+                        $("#reservation-modal .quest-number").text(detail.reservationList.guestNumber + "명");
+                        $("#reservation-modal .first-course").text(detail.reservationList.firstCourse.firstCourseTitle + " " +  detail.reservationList.firstCourse.courseType);
+                        $("#reservation-modal .running-time").text(detail.reservationList.firstCourse.runningTime+"분");
+
+                        prun+=parseInt(detail.reservationList.firstCourse.runningTime);
+
+                        $("#reservation-modal .course-detail").text(detail.reservationList.firstCourse.courseDetail);
+                        $("#reservation-modal .manager-phone").text(detail.reservationList.managerPhone);
+                        $("#reservation-modal .vehicle").text(detail.reservationList.vehicleType + " " + detail.reservationList.vehicleNumber + "대");
+                        $("#reservation-modal .etc").text(detail.reservationList.etc);
+
+                        if( data.secondCourseList.length != 0 ) {
+                            if( data.secondCourseList.length != plusCnt ){
+                                for (let i=0; i<data.secondCourseList.length-1; i++) {
+                                    let second1Box = $("#reservation-modal").find(".sec[num=0]").html();
+                                    let second2Box = $("#reservation-modal").find(".sec2[num=0]").html();
+
+                                    let secondBox = "<tr class='sec secondOne" + plusCnt + "' num='" + plusCnt + "'>" + second1Box + "</tr><tr class='sec2 secondTwo" + plusCnt + "' num='" + plusCnt + "'>" + second2Box + "</tr>";
+
+                                    $("#reservation-modal .program").attr("rowspan", (parseInt($("#reservation-modal .program").attr("rowspan")) + 2));
+                                    $(secondBox).insertAfter("#secondInsert");
+                                }
+                            }
+                        }else if( data.secondCourseList.length == 0 || data.secondCourseList == null ){
+                            $("#reservation-modal .sec").hide();
+                            $("#reservation-modal .sec2").hide();
+                            $("#reservation-modal .program").attr("rowspan", 3);
+                        }
+
+                        for (let i=0; i<data.secondCourseList.length; i++) {
+                            $("#reservation-modal tr[num="+i+"]").find(".secondCourseTitle").text(data.secondCourseList[i].secondCourseTitle);
+                            $("#reservation-modal tr[num="+i+"]").find(".runningTime").text(data.secondCourseList[i].runningTime+"분");
+                            $("#reservation-modal tr[num="+i+"]").find(".cost").text(fcomma(data.secondCourseList[i].cost)+"원");
+                            $("#reservation-modal tr[num="+i+"]").find(".course").text(data.secondCourseList[i].course);
+                            pcost += parseInt(data.secondCourseList[i].cost);
+                        }
+
+                        // 총 소요시간 구하기
+                        $("#reservation-modal .runningTime").each(function () {
+                            if( $(this).text() != "" ) {
+                                prun += parseInt($(this).text());
+                            }
+                        });
+
+                        let hour=fConvertHour(prun);
+                        let min=fConvertMin(prun);
+                        $("#reservation-modal").find(".all-time-text").text(hour+"시간 "+min+"분 소요");
+
+                        // 총 비용 구하기
+                        let guestNumber=detail.reservationList.guestNumber;
+
+                        if( guestNumber != "" ) {
+                            /*$("#reservation-modal .sec2 .cost").each(function () {
+                                pcost += parseInt($(this).attr("cost"));
+                            });
+*/
+                            let tot=parseInt(pcost * parseInt(guestNumber));
+
+                            $("#reservation-modal").find(".one").text(fcomma(pcost));
+
+                            if(isNaN(tot)) $("#reservation-modal").find(".tot").text(0);
+                            else $("#reservation-modal").find(".tot").text(fcomma(tot));
+                        }
+
+                        let traveltot=parseInt(guestNumber)*1000;
+                        if(isNaN(traveltot)) $("#reservation-modal").find(".travelCost").text(0);
+                        else $("#reservation-modal").find(".travelCost").text(fcomma(traveltot));
+
+                        let vehicleNumber=$("#reservation-modal").find(".vehicleNumber").val();
+                        let bustot=parseInt(vehicleNumber)*440000;
+                        if(isNaN(bustot)) $("#reservation-modal").find(".busCost").text(0);
+                        else $("#reservation-modal").find(".busCost").text(fcomma(bustot));
+
+                        let total = 100000;
+
+                        total +=parseInt(uncomma($("#reservation-modal").find(".travelCost").text()));
+                        total +=parseInt(uncomma($("#reservation-modal").find(".busCost").text()));
+                        total +=parseInt(uncomma($("#reservation-modal").find(".one").text()));
+                        total +=parseInt(uncomma($("#reservation-modal").find(".tot").text()));
+
+                        $("#reservation-modal").find(".total").text(fcomma(total));
+                    }
+                }
+            });
+        });
+
+        // 선택한 예약 입금완료 클릭
+        $(".blue-btn").click(function(){
+            if( $("#reservationList .checked:checked").length == 0){
+                toastModal("입금완료할 예약을 선택해주세요.");
+            }else{
+                $("#reservationList .checked:checked").each(function () {
+                    let reservationSeq=$(this).parent().parent().attr("reservationSeq");
+                    let type="입금완료";
+                    $.ajax({
+                        type: "POST",
+                        url: "/api/admin/reservation/update",
+                        data: {"reservationSeq": reservationSeq, "type": type},
+                        success: function () {
+                            getReservationList();
+                        }
+                    });
+                    toastModal("입금완료 상태로 변경되었습니다.");
+                    setTimeout(() => location.reload(), 1000);
+                });
+            }
+        });
+
+        // 선택한 예약 예약확정 클릭
+        $(".s-blue-btn").click(function(){
+            if( $("#reservationList .checked:checked").length == 0){
+                toastModal("예약확정할 예약을 선택해주세요.");
+            }else{
+                $("#reservationList .checked:checked").each(function () {
+                    let reservationSeq=$(this).parent().parent().attr("reservationSeq");
+                    let type="예약확정";
+                    $.ajax({
+                        type: "POST",
+                        url: "/api/admin/reservation/update",
+                        data: {"reservationSeq": reservationSeq, "type": type},
+                        success: function () {
+                            getReservationList();
+                        }
+                    });
+                    toastModal("예약 확정이 완료되었습니다.");
+                    setTimeout(() => location.reload(), 1000);
+                });
+            }
+        });
+
+        // 선택한 예약 예약취소 클릭
+        $(".gray-btn").click(function(){
+            if( $("#reservationList .checked:checked").length == 0){
+                toastModal("예약취소할 예약을 선택해주세요.");
+            }else{
+                if( !confirm("선택된 예약을 취소하시겠습니까?") ){
+                    $("#reservationList .checked:checked").prop("checked", false);
+                    return;
+                } else {
+                    $("#reservationList .checked:checked").each(function () {
+
+                        let reservationSeq=$(this).parent().parent().attr("reservationSeq");
+                        let type="예약취소";
+
+                        $.ajax({
+                            type: "POST",
+                            url: "/api/admin/reservation/update",
+                            data: {"reservationSeq": reservationSeq, "type": type},
+                            success: function () {
+                                toastModal("예약 취소가 완료되었습니다.");
+                                setTimeout(() => location.reload(), 1000);
+                            }
+                        });
+
+                    });
+
+                }
+            }
+        });
+
+        $(".search-btn").on("click", function (){
+           getReservationList(companySeq);
+        });
+    </script>
+
+</div>
+</html>

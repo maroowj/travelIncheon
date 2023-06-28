@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/renew/layout}"
+      xmlns:th="http://www.thymeleaf.org">
+
+<div layout:fragment="content">
+
+    <!--서브배너-->
+    <div class="subBanner-wrap pc-subBanner">
+        <img src="/renew/images/subBanner02.jpg" alt="포트폴리오">
+        <p class="subMenu">포트폴리오</p>
+    </div>
+    <div class="subBanner-wrap m-subBanner">
+        <img src="/renew/images/m_subBanner02.jpg" alt="포트폴리오">
+        <p class="subMenu">포트폴리오</p>
+    </div>
+    <!--컨텐츠 영역-->
+
+    <div class="subCont vrList-wrap">
+        <div class="auto mt120 mb120">
+            <div class="subTitleWrap">
+                <span class="blue">PORTFOLIO</span>
+                <P class="title">포트폴리오</P>
+            </div>
+
+            <ul class="link-tabWrap">
+                <li><a class="category cupoint actived">전체 상품</a></li>
+                <li><a class="category cupoint">박물관</a></li>
+                <li><a class="category cupoint">호텔</a></li>
+                <li><a class="category cupoint">관광지</a></li>
+                <li><a class="category cupoint">항공촬영</a></li>
+                <li><a class="category cupoint">기타</a></li>
+            </ul>
+
+
+            <div class="listWrap">
+                <div class="topSel">
+                    <p id="totalCount" class="total"></p>
+
+                    <ul class="sortWrap">
+                        <li><a class="actived" style="cursor: pointer;" sort="createDate,desc">최신순</a></li>
+                        <li><a style="cursor: pointer;" sort="secondCourseTitle,asc">이름순</a></li>
+                        <!-- <li><a style="cursor: pointer;" sort="cost,desc">높은가격순</a></li> -->
+                        <li><a style="cursor: pointer;" sort="cost,asc">인기순</a></li>
+                    </ul>
+                </div>
+
+                <div class="mainCont auto" style="width:100%;">
+                    <div class="vrTour-wrap">
+                        <div class="tabCont actived" id="tab1">
+                            <ul id="vrList" class="vrList">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <ul id="vrList" class="list"> -->
+                    <!--<li>
+                        <a href="#" target="_blank">
+                            <img src="/renew/images/travel_img1.jpg" alt="여행상품">
+
+                            <div class="infoWrap">
+                                <span class="type">관광지</span>
+                                <p class="title">[할인 28%] 통영 오션브리즈 요트투어 - 경남 통영 이색투어이색투어이색투어</p>
+                                <p class="text">통영 여행 꽃, 통영 요트 오션브리즈 통영 여행 꽃, 통영 요트 오션브리즈 통영 여행 꽃, 통영 요트 오션브리즈 통영 여행 꽃, 통영 요트 오션브리즈 통영 여행 꽃, 통영 요트 오션브리즈</p>
+
+                                <div class="priceWrap">
+                                    <p class="price">40,000원 ~</p>
+                                    <p class="discount blue">19,000원 ~</p>
+                                </div>
+                            </div>
+                        </a>
+
+                    </li>-->
+                <!-- </ul> -->
+
+
+                <!--paging-->
+                <div class="paging pagination">
+                    <!--<a href="#" class="page-arrow1 page-arrow mr05">처음 게시물 목록</a>
+                    <a href="#" class="page-arrow2 page-arrow mr05">이전 게시물 목록</a>
+                    <div class="page-num">
+                        <a href="#" class="actived">1</a>
+                        <a href="#">2</a>
+                        <a href="#">3</a>
+                        <a href="#">4</a>
+                        <a href="#">5</a>
+                        <a href="#">6</a>
+                        <a href="#">7</a>
+                        <a href="#">8</a>
+                        <a href="#">9</a>
+                        <a href="#">10</a>
+                    </div>
+                    <a href="#" class="page-arrow3 page-arrow mr05 ml05">다음 게시물 목록</a>
+                    <a href="#" class="page-arrow4 page-arrow ">마지막 게시물 목록</a>-->
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <!--script START-->
+    <script>
+        let category;
+        let page = 1;
+        let sort;
+        getVrList(category);
+
+        function getVrList(category) {
+            $.ajax({
+                type: "get",
+                url: "/api/common/vr",
+                data: {
+                    "category": category,
+                    "page": page - 1,
+                    "size":12,
+                    "sort": sort
+                },
+                success: function (data) {
+                    // console.log(data);
+                    let list = data.content;
+                    let tag = '';
+                    list.forEach(function (arg) {
+                        tag += '<li>' +
+                            '<a href="'+arg.url+'" target="_blank">' +
+                            '<img src="'+arg.thumbnailImage.url+'" alt="여행상품">' +
+                            '<div class="infoWrap">' +
+                            '<span class="type">'+arg.category+'</span>' +
+                            '<a href="'+arg.url+'" target="_blank" class="portLink">'+
+                            '<span class="pcOnly portfolioBtn">VR바로보기</span>'+
+                            '<span class="mOnly portfolioBtn">VR보기</span>'+
+                            '</a>' +
+                            '<a href="/vr/'+arg.secondCourseSeq.substring(5, 15)+'"  target="_self" class="portLink">'+
+                            '<span class="pcOnly portfolioBtn">상세정보확인</span>'+
+                            '<span class="mOnly portfolioBtn">상세정보</span>'+
+                            '</a>' +
+                            '<p class="title">'+arg.secondCourseTitle+'</p>' +
+                            // '<p class="text">'+arg.course+'</p>' +
+                            '</div>' +
+                            '</a>' +
+                            '</li>';
+                        /*
+                        tag += '<li>' +
+                            '<a href="/vr/' + arg.secondCourseSeq.substring(5, 15) + '">' +
+                            '<img src="' + arg.thumbnailImage.url + '" alt="여행상품">' +
+                            '<div class="infoWrap">' +
+                            '<span class="type">' + arg.category + '</span>' +
+                            '<p class="title">' + arg.secondCourseTitle + '</p>' +
+                            '<p class="text">' + arg.course + '</p>' +
+                            '</div>' +
+                            '</a>' +
+                            '</li>';
+
+                         */
+                    });
+                    $("#totalCount").html("총 " + data.totalElements + "개의 상품");
+                    $("#vrList").html(tag);
+                    fPagination2(data, page);
+                },
+                error: function (request, status, error) {
+                    console.log(request.status + ' ' + error.statusText + ' ' + request.responseText);
+                }
+            });
+        }
+
+        $(".pagination").on("click", "a", function () {
+            page = parseInt($(this).attr("gopage"));
+            getVrList(category);
+        });
+
+        $(".sortWrap > li > a").on("click", function () {
+            $('.sortWrap > li > a').removeClass('actived');
+            $(this).addClass('actived');
+            sort = $(this).attr("sort");
+            page = 1;
+            getVrList(category);
+        });
+
+        $(".link-tabWrap > li > a").on("click", function(){
+            $('.link-tabWrap > li > a').removeClass('actived');
+            $(this).addClass('actived');
+            category = $(this).text();
+            if(category=="전체 상품") {
+                category=null;
+            }
+            getVrList(category);
+        });
+    </script>
+    <!--script END-->
+</div>
+</html>

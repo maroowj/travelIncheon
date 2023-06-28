@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/renew/index_layout}"
+      xmlns:th="http://www.thymeleaf.org">
+
+<style layout:fragment="css"></style>
+
+<div layout:fragment="content">
+    <div class="mainBannerWrap swiper bannerSwiper pc-bannerWrap">
+        <ul class="swiper-wrapper">
+
+        </ul>
+        <!--
+<ul class="swiper-wrapper">
+
+<li class="swiper-slide">
+    <a href="#">
+        <img src="/renew/images/mainBanner01.jpg" alt="메인배너">
+        <div class="textWrap">
+            <p class="title">1트래블 인천협동조합</p>
+            <p class="info">1인천 시민이 함께 만드는 여행사</p>
+        </div>
+
+    </a>
+</li>
+<li class="swiper-slide">
+    <a href="#">
+        <img src="/renew/images/mainBanner02.jpg" alt="메인배너">
+        <div class="textWrap">
+            <p class="title">2트래블 인천협동조합</p>
+            <p class="info">1인천 시민이 함께 만드는 여행사</p>
+        </div>
+    </a>
+</li>
+<li class="swiper-slide">
+    <a href="#">
+        <img src="/renew/images/mainBanner03.jpg" alt="메인배너">
+        <div class="textWrap">
+            <p class="title">3트래블 인천협동조합</p>
+            <p class="info">1인천 시민이 함께 만드는 여행사</p>
+        </div>
+    </a>
+</li>
+<li class="swiper-slide">
+    <a href="#">
+        <img src="/renew/images/mainBanner01.jpg" alt="메인배너">
+        <div class="textWrap">
+            <p class="title">4트래블 인천협동조합</p>
+            <p class="info">1인천 시민이 함께 만드는 여행사</p>
+        </div>
+    </a>
+</li>
+<li class="swiper-slide">
+    <a href="#">
+        <img src="/renew/images/mainBanner02.jpg" alt="메인배너">
+        <div class="textWrap">
+            <p class="title">5트래블 인천협동조합</p>
+            <p class="info">1인천 시민이 함께 만드는 여행사</p>
+        </div>
+    </a>
+</li>
+</ul>
+
+<div class="textWrap">
+<p class="info">인천 시민이 함께 만드는 여행사</p>
+<p class="title">트래블 인천협동조합</p>
+</div>
+<ul class="swiper-wrapper">
+<li class="swiper-slide">
+    <a href="#"><img src="/renew/images/mainBanner01.jpg" alt="메인배너"></a>
+</li>
+<li class="swiper-slide">
+    <a href="#"><img src="/renew/images/mainBanner02.jpg" alt="메인배너"></a>
+</li>
+<li class="swiper-slide">
+    <a href="#"><img src="/renew/images/mainBanner03.jpg" alt="메인배너"></a>
+</li>
+</ul>
+-->
+
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <div class="mainBannerWrap swiper bannerSwiper m-bannerWrap">
+        <ul class="swiper-wrapper">
+        </ul>
+        <!--
+
+-->
+
+        <div class="swiper-pagination"></div>
+    </div>
+
+
+    <div class="mainCont page-start">
+
+
+        <div class="priceWrap">
+            <div class="recomWrap auto mt120">
+                <div class="titleWrap">
+                    <p class="title">이런 곳이라면 <span class="blue">추천</span>해드립니다.</p>
+                    <p class="text">더많은 고객 방문을 위한 선택! <span class="black">예약률 14% 증가</span></p>
+                </div>
+
+                <ul class="list">
+                    <li>
+                        <div class="textWrap">
+                            <p class="tit">공유 숙박 및 호텔</p>
+                            <p class="txt">3D 가상 투어를 통해 최고의 예약 경험 제공</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="textWrap">
+                            <p class="tit">매장이 돋보이는 카페</p>
+                            <p class="txt">유니크 메뉴, 키즈카페, 식당 등</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="textWrap">
+                            <p class="tit">홍보가 필요한 품격있는 공간</p>
+                            <p class="txt">병원, 전시관, 박물관 등 다양한 공간 홍보</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="textWrap">
+                            <p class="tit">온라인 쇼핑이 필요한 매장</p>
+                            <p class="txt">오프라인 매장과 동시에 온라인 매장을 준비</p>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="mainCont auto mt120">
+        <div class="vrTour-wrap">
+            <div class="titleWrap">
+                <p class="title">포트폴리오</p>
+                <p class="info" style="font-weight: 300; margin-top:10px;">아래의 이미지를 클릭하시고 다양한 공간을 둘러보세요.</p>
+            </div>
+            <ul class="tabWrap">
+                <li><a class="category actived" style="cursor: pointer">전체 상품</a></li>
+                <li><a class="category" style="cursor: pointer">박물관</a></li>
+                <li><a class="category" style="cursor: pointer">호텔</a></li>
+                <li><a class="category" style="cursor: pointer">관광지</a></li>
+                <li><a class="category" style="cursor: pointer">항공촬영</a></li>
+                <li><a class="category" style="cursor: pointer">기타</a></li>
+            </ul>
+
+            <div class="tabCont actived" id="tab1">
+                <ul id="vrList" class="vrList">
+                    <!--<li>
+                        <a href="#">
+                            <img src="/renew/images/travel_img1.jpg" alt="여행상품">
+                            <div class="infoWrap">
+                                <span class="type">관광지</span>
+                                <p class="title">[할인 28%] 통영 오션브리즈 요트투어 - 경남 통영 이색투어이색투어이색투어</p>
+                                <p class="text">통영 여행 꽃, 통영 요트 오션브리즈 통영 여행 꽃, 통영 요트 오션브리즈 통영 여행 꽃, 통영 요트 오션브리즈 통영 여행 꽃, 통영 요트 오션브리즈 통영 여행 꽃, 통영 요트 오션브리즈</p>
+
+                                <div class="priceWrap">
+                                    <p class="price">40,000원 ~</p>
+                                    <p class="discount blue">19,000원 ~</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="/renew/images/travel_img2.jpg" alt="여행상품">
+                            <div class="infoWrap">
+                                <span class="type">관광지</span>
+                                <p class="title">[할인 28%] 통영 오션브리즈 요트투어 - 경남 통영 이색투어</p>
+                                <p class="text">통영 여행 꽃, 통영 요트 오션브리즈</p>
+
+                                <div class="priceWrap">
+                                    <p class="price">40,000원 ~</p>
+                                    <p class="discount blue">19,000원 ~</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="/renew/images/travel_img1.jpg" alt="여행상품">
+                            <div class="infoWrap">
+                                <span class="type">관광지</span>
+                                <p class="title">[할인 28%] 통영 오션브리즈 요트투어 - 경남 통영 이색투어</p>
+                                <p class="text">통영 여행 꽃, 통영 요트 오션브리즈</p>
+
+                                <div class="priceWrap">
+                                    <p class="price">40,000원 ~</p>
+                                    <p class="discount blue">19,000원 ~</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="/renew/images/travel_img2.jpg" alt="여행상품">
+                            <div class="infoWrap">
+                                <span class="type">관광지</span>
+                                <p class="title">[할인 28%] 통영 오션브리즈 요트투어 - 경남 통영 이색투어</p>
+                                <p class="text">통영 여행 꽃, 통영 요트 오션브리즈</p>
+
+                                <div class="priceWrap">
+                                    <p class="price">40,000원 ~</p>
+                                    <p class="discount blue">19,000원 ~</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="/renew/images/travel_img1.jpg" alt="여행상품">
+                            <div class="infoWrap">
+                                <span class="type">관광지</span>
+                                <p class="title">[할인 28%] 통영 오션브리즈 요트투어 - 경남 통영 이색투어</p>
+                                <p class="text">통영 여행 꽃, 통영 요트 오션브리즈</p>
+
+                                <div class="priceWrap">
+                                    <p class="price">40,000원 ~</p>
+                                    <p class="discount blue">19,000원 ~</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="/renew/images/travel_img2.jpg" alt="여행상품">
+                            <div class="infoWrap">
+                                <span class="type">관광지</span>
+                                <p class="title">[할인 28%] 통영 오션브리즈 요트투어 - 경남 통영 이색투어</p>
+                                <p class="text">통영 여행 꽃, 통영 요트 오션브리즈</p>
+
+                                <div class="priceWrap">
+                                    <p class="price">40,000원 ~</p>
+                                    <p class="discount blue">19,000원 ~</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>-->
+                </ul>
+                <div class="page-btn">
+                    <a href="/vr" class="comm-btn white-btn">더보기 </a>
+                </div>
+            </div>
+
+            <!--<div class="tabCont" id="tab2">
+                <ul class="vrList">
+                    <li>
+                        <a href="#">
+                            <img src="/renew/images/travel_img1.jpg" alt="여행상품">
+                            <div class="infoWrap">
+                                <span class="type">박물관</span>
+                                <p class="title">[할인 28%] 통영 오션브리즈 요트투어 - 경남 통영 이색투어이색투어이색투어</p>
+                                <p class="text">통영 여행 꽃, 통영 요트 오션브리즈 통영 여행 꽃, 통영 요트 오션브리즈 통영 여행 꽃, 통영 요트 오션브리즈 통영 여행 꽃, 통영 요트 오션브리즈 통영 여행 꽃, 통영 요트 오션브리즈</p>
+
+                                <div class="priceWrap">
+                                    <p class="price">40,000원 ~</p>
+                                    <p class="discount blue">19,000원 ~</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="/renew/images/travel_img2.jpg" alt="여행상품">
+                            <div class="infoWrap">
+                                <span class="type">박물관</span>
+                                <p class="title">[할인 28%] 통영 오션브리즈 요트투어 - 경남 통영 이색투어</p>
+                                <p class="text">통영 여행 꽃, 통영 요트 오션브리즈</p>
+
+                                <div class="priceWrap">
+                                    <p class="price">40,000원 ~</p>
+                                    <p class="discount blue">19,000원 ~</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="/renew/images/travel_img1.jpg" alt="여행상품">
+                            <div class="infoWrap">
+                                <span class="type">박물관</span>
+                                <p class="title">[할인 28%] 통영 오션브리즈 요트투어 - 경남 통영 이색투어</p>
+                                <p class="text">통영 여행 꽃, 통영 요트 오션브리즈</p>
+
+                                <div class="priceWrap">
+                                    <p class="price">40,000원 ~</p>
+                                    <p class="discount blue">19,000원 ~</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="/renew/images/travel_img2.jpg" alt="여행상품">
+                            <div class="infoWrap">
+                                <span class="type">박물관</span>
+                                <p class="title">[할인 28%] 통영 오션브리즈 요트투어 - 경남 통영 이색투어</p>
+                                <p class="text">통영 여행 꽃, 통영 요트 오션브리즈</p>
+
+                                <div class="priceWrap">
+                                    <p class="price">40,000원 ~</p>
+                                    <p class="discount blue">19,000원 ~</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="/renew/images/travel_img1.jpg" alt="여행상품">
+                            <div class="infoWrap">
+                                <span class="type">박물관</span>
+                                <p class="title">[할인 28%] 통영 오션브리즈 요트투어 - 경남 통영 이색투어</p>
+                                <p class="text">통영 여행 꽃, 통영 요트 오션브리즈</p>
+
+                                <div class="priceWrap">
+                                    <p class="price">40,000원 ~</p>
+                                    <p class="discount blue">19,000원 ~</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="/renew/images/travel_img2.jpg" alt="여행상품">
+                            <div class="infoWrap">
+                                <span class="type">박물관</span>
+                                <p class="title">[할인 28%] 통영 오션브리즈 요트투어 - 경남 통영 이색투어</p>
+                                <p class="text">통영 여행 꽃, 통영 요트 오션브리즈</p>
+
+                                <div class="priceWrap">
+                                    <p class="price">40,000원 ~</p>
+                                    <p class="discount blue">19,000원 ~</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <div class="page-btn">
+                    <a href="/vr" class="comm-btn white-btn">더보기 </a>
+                </div>
+            </div>
+
+
+            <div class="tabCont" id="tab3">
+                <ul class="vrList">
+                    <li>
+                        <a href="#">
+                            <img src="/renew/images/travel_img1.jpg" alt="여행상품">
+                            <div class="infoWrap">
+                                <span class="type">호텔</span>
+                                <p class="title">[할인 28%] 통영 오션브리즈 요트투어 - 경남 통영 이색투어이색투어이색투어</p>
+                                <p class="text">통영 여행 꽃, 통영 요트 오션브리즈 통영 여행 꽃, 통영 요트 오션브리즈 통영 여행 꽃, 통영 요트 오션브리즈 통영 여행 꽃, 통영 요트 오션브리즈 통영 여행 꽃, 통영 요트 오션브리즈</p>
+
+                                <div class="priceWrap">
+                                    <p class="price">40,000원 ~</p>
+                                    <p class="discount blue">19,000원 ~</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="/renew/images/travel_img2.jpg" alt="여행상품">
+                            <div class="infoWrap">
+                                <span class="type">호텔</span>
+                                <p class="title">[할인 28%] 통영 오션브리즈 요트투어 - 경남 통영 이색투어</p>
+                                <p class="text">통영 여행 꽃, 통영 요트 오션브리즈</p>
+
+                                <div class="priceWrap">
+                                    <p class="price">40,000원 ~</p>
+                                    <p class="discount blue">19,000원 ~</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="/renew/images/travel_img1.jpg" alt="여행상품">
+                            <div class="infoWrap">
+                                <span class="type">호텔</span>
+                                <p class="title">[할인 28%] 통영 오션브리즈 요트투어 - 경남 통영 이색투어</p>
+                                <p class="text">통영 여행 꽃, 통영 요트 오션브리즈</p>
+
+                                <div class="priceWrap">
+                                    <p class="price">40,000원 ~</p>
+                                    <p class="discount blue">19,000원 ~</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="/renew/images/travel_img2.jpg" alt="여행상품">
+                            <div class="infoWrap">
+                                <span class="type">호텔</span>
+                                <p class="title">[할인 28%] 통영 오션브리즈 요트투어 - 경남 통영 이색투어</p>
+                                <p class="text">통영 여행 꽃, 통영 요트 오션브리즈</p>
+
+                                <div class="priceWrap">
+                                    <p class="price">40,000원 ~</p>
+                                    <p class="discount blue">19,000원 ~</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="/renew/images/travel_img1.jpg" alt="여행상품">
+                            <div class="infoWrap">
+                                <span class="type">호텔</span>
+                                <p class="title">[할인 28%] 통영 오션브리즈 요트투어 - 경남 통영 이색투어</p>
+                                <p class="text">통영 여행 꽃, 통영 요트 오션브리즈</p>
+
+                                <div class="priceWrap">
+                                    <p class="price">40,000원 ~</p>
+                                    <p class="discount blue">19,000원 ~</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="/renew/images/travel_img2.jpg" alt="여행상품">
+                            <div class="infoWrap">
+                                <span class="type">호텔</span>
+                                <p class="title">[할인 28%] 통영 오션브리즈 요트투어 - 경남 통영 이색투어</p>
+                                <p class="text">통영 여행 꽃, 통영 요트 오션브리즈</p>
+
+                                <div class="priceWrap">
+                                    <p class="price">40,000원 ~</p>
+                                    <p class="discount blue">19,000원 ~</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <div class="page-btn">
+                    <a href="/vr" class="comm-btn white-btn">더보기 </a>
+                </div>
+            </div>
+
+            <div class="tabCont" id="tab4">
+                <ul class="vrList" >
+                    <li>
+                        <a href="#">
+                            <img src="/renew/images/travel_img1.jpg" alt="여행상품">
+                            <div class="infoWrap">
+                                <span class="type">관광지</span>
+                                <p class="title">[할인 28%] 통영 오션브리즈 요트투어 - 경남 통영 이색투어이색투어이색투어</p>
+                                <p class="text">통영 여행 꽃, 통영 요트 오션브리즈 통영 여행 꽃, 통영 요트 오션브리즈 통영 여행 꽃, 통영 요트 오션브리즈 통영 여행 꽃, 통영 요트 오션브리즈 통영 여행 꽃, 통영 요트 오션브리즈</p>
+
+                                <div class="priceWrap">
+                                    <p class="price">40,000원 ~</p>
+                                    <p class="discount blue">19,000원 ~</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="/renew/images/travel_img2.jpg" alt="여행상품">
+                            <div class="infoWrap">
+                                <span class="type">관광지</span>
+                                <p class="title">[할인 28%] 통영 오션브리즈 요트투어 - 경남 통영 이색투어</p>
+                                <p class="text">통영 여행 꽃, 통영 요트 오션브리즈</p>
+
+                                <div class="priceWrap">
+                                    <p class="price">40,000원 ~</p>
+                                    <p class="discount blue">19,000원 ~</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="/renew/images/travel_img1.jpg" alt="여행상품">
+                            <div class="infoWrap">
+                                <span class="type">관광지</span>
+                                <p class="title">[할인 28%] 통영 오션브리즈 요트투어 - 경남 통영 이색투어</p>
+                                <p class="text">통영 여행 꽃, 통영 요트 오션브리즈</p>
+
+                                <div class="priceWrap">
+                                    <p class="price">40,000원 ~</p>
+                                    <p class="discount blue">19,000원 ~</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="/renew/images/travel_img2.jpg" alt="여행상품">
+                            <div class="infoWrap">
+                                <span class="type">관광지</span>
+                                <p class="title">[할인 28%] 통영 오션브리즈 요트투어 - 경남 통영 이색투어</p>
+                                <p class="text">통영 여행 꽃, 통영 요트 오션브리즈</p>
+
+                                <div class="priceWrap">
+                                    <p class="price">40,000원 ~</p>
+                                    <p class="discount blue">19,000원 ~</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="/renew/images/travel_img1.jpg" alt="여행상품">
+                            <div class="infoWrap">
+                                <span class="type">관광지</span>
+                                <p class="title">[할인 28%] 통영 오션브리즈 요트투어 - 경남 통영 이색투어</p>
+                                <p class="text">통영 여행 꽃, 통영 요트 오션브리즈</p>
+
+                                <div class="priceWrap">
+                                    <p class="price">40,000원 ~</p>
+                                    <p class="discount blue">19,000원 ~</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="/renew/images/travel_img2.jpg" alt="여행상품">
+                            <div class="infoWrap">
+                                <span class="type">관광지</span>
+                                <p class="title">[할인 28%] 통영 오션브리즈 요트투어 - 경남 통영 이색투어</p>
+                                <p class="text">통영 여행 꽃, 통영 요트 오션브리즈</p>
+
+                                <div class="priceWrap">
+                                    <p class="price">40,000원 ~</p>
+                                    <p class="discount blue">19,000원 ~</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <div class="page-btn">
+                    <a href="/vr" class="comm-btn white-btn">더보기 </a>
+                </div>
+            </div>
+
+            <div class="tabCont" id="tab5">
+                <ul class="vrList">
+                    <li>
+                        <a href="#">
+                            <img src="/renew/images/travel_img1.jpg" alt="여행상품">
+                            <div class="infoWrap">
+                                <span class="type">기타</span>
+                                <p class="title">[할인 28%] 통영 오션브리즈 요트투어 - 경남 통영 이색투어이색투어이색투어</p>
+                                <p class="text">통영 여행 꽃, 통영 요트 오션브리즈 통영 여행 꽃, 통영 요트 오션브리즈 통영 여행 꽃, 통영 요트 오션브리즈 통영 여행 꽃, 통영 요트 오션브리즈 통영 여행 꽃, 통영 요트 오션브리즈</p>
+
+                                <div class="priceWrap">
+                                    <p class="price">40,000원 ~</p>
+                                    <p class="discount blue">19,000원 ~</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="/renew/images/travel_img2.jpg" alt="여행상품">
+                            <div class="infoWrap">
+                                <span class="type">기타</span>
+                                <p class="title">[할인 28%] 통영 오션브리즈 요트투어 - 경남 통영 이색투어</p>
+                                <p class="text">통영 여행 꽃, 통영 요트 오션브리즈</p>
+
+                                <div class="priceWrap">
+                                    <p class="price">40,000원 ~</p>
+                                    <p class="discount blue">19,000원 ~</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="/renew/images/travel_img1.jpg" alt="여행상품">
+                            <div class="infoWrap">
+                                <span class="type">기타</span>
+                                <p class="title">[할인 28%] 통영 오션브리즈 요트투어 - 경남 통영 이색투어</p>
+                                <p class="text">통영 여행 꽃, 통영 요트 오션브리즈</p>
+
+                                <div class="priceWrap">
+                                    <p class="price">40,000원 ~</p>
+                                    <p class="discount blue">19,000원 ~</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="/renew/images/travel_img2.jpg" alt="여행상품">
+                            <div class="infoWrap">
+                                <span class="type">기타</span>
+                                <p class="title">[할인 28%] 통영 오션브리즈 요트투어 - 경남 통영 이색투어</p>
+                                <p class="text">통영 여행 꽃, 통영 요트 오션브리즈</p>
+
+                                <div class="priceWrap">
+                                    <p class="price">40,000원 ~</p>
+                                    <p class="discount blue">19,000원 ~</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="/renew/images/travel_img1.jpg" alt="여행상품">
+                            <div class="infoWrap">
+                                <span class="type">기타</span>
+                                <p class="title">[할인 28%] 통영 오션브리즈 요트투어 - 경남 통영 이색투어</p>
+                                <p class="text">통영 여행 꽃, 통영 요트 오션브리즈</p>
+
+                                <div class="priceWrap">
+                                    <p class="price">40,000원 ~</p>
+                                    <p class="discount blue">19,000원 ~</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="/renew/images/travel_img2.jpg" alt="여행상품">
+                            <div class="infoWrap">
+                                <span class="type">기타</span>
+                                <p class="title">[할인 28%] 통영 오션브리즈 요트투어 - 경남 통영 이색투어</p>
+                                <p class="text">통영 여행 꽃, 통영 요트 오션브리즈</p>
+
+                                <div class="priceWrap">
+                                    <p class="price">40,000원 ~</p>
+                                    <p class="discount blue">19,000원 ~</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <div class="page-btn">
+                    <a href="/vr" class="comm-btn white-btn">더보기 </a>
+                </div>
+            </div>-->
+        </div>
+
+
+
+
+        <div class="priceWrap">
+            <div class="mt120 auto">
+                <div class="titleWrap">
+                    <p class="title">제작가격</p>
+                </div>
+
+
+                <div class="priceTable-wrap vrPriceTable">
+                    <p class="title">360도 VR 촬영 가격 안내</p>
+
+                    <table class="priceTable">
+                        <colgroup>
+                            <col style="width:16%">
+                            <col style="width:28%">
+                            <col style="width:28%">
+                            <col style="width:28%">
+                        </colgroup>
+
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>월 1만원(30평 이하)</th>
+                            <th>월 3만원(300평 이하)</th>
+                            <th>월 5만원(300평 이상)</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th>패키지 내용</th>
+                            <td>360도 메타포트 공간 캡쳐 메타태그 편집</td>
+                            <td>360도 메타포트 공간 캡쳐 메타태그 편집</td>
+                            <td>360도 메타포트 공간 캡쳐 메타태그 편집</td>
+                        </tr>
+                        <tr>
+                            <th>촬영시간</th>
+                            <td>60분</td>
+                            <td>120분</td>
+                            <td>180분</td>
+                        </tr>
+                        <tr>
+                            <th>수정횟수</th>
+                            <td>1회</td>
+                            <td>2회</td>
+                            <td>3회</td>
+                        </tr>
+                        <tr>
+                            <th>작업일</th>
+                            <td>2일</td>
+                            <td>3일</td>
+                            <td>5일</td>
+                        </tr>
+                        <tr>
+                            <th>출장비</th>
+                            <td>20만원</td>
+                            <td>20만원</td>
+                            <td>20만원</td>
+                        </tr>
+                        <tr>
+                            <th>촬영비</th>
+                            <td>무료</td>
+                            <td>10만원</td>
+                            <td>30만원~</td>
+                        </tr>
+                        <tr>
+                            <th>적용</th>
+                            <td>카페</td>
+                            <td>중대형 카페</td>
+                            <td>병원, 호텔, 박물관</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="priceTable-wrap">
+                    <p class="title">항공(드론) 촬영 가격 안내</p>
+
+                    <table class="priceTable">
+                        <colgroup>
+                            <col style="width:16%">
+                            <col style="width:28%">
+                            <col style="width:28%">
+                            <col style="width:28%">
+                        </colgroup>
+
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>20만원 STANDARD</th>
+                            <th>30만원 DELUXE</th>
+                            <th>100만원 PREMIUM</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th>패키지 내용</th>
+                            <td>드론 촬영(원본)</td>
+                            <td>드론 촬영(원본 + 컷 편집)</td>
+                            <td>항공데이터 (항공VR + 3D매핑)</td>
+                        </tr>
+                        <tr>
+                            <th>촬영시간</th>
+                            <td>60분</td>
+                            <td>120분</td>
+                            <td>120</td>
+                        </tr>
+                        <tr>
+                            <th>수정횟수</th>
+                            <td>0회</td>
+                            <td>0회</td>
+                            <td>3회</td>
+                        </tr>
+                        <tr>
+                            <th>작업일</th>
+                            <td>7일</td>
+                            <td>10일</td>
+                            <td>10일</td>
+                        </tr>
+                        <tr>
+                            <th>출장비</th>
+                            <td>별도</td>
+                            <td>별도</td>
+                            <td>포함</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <p class="detail blue">전국 출장 가능 (실비 청구)</p>
+                </div>
+            </div>
+
+            <div class="pt120 pb120  mt120  processWrap">
+                <div class="titleWrap">
+                    <p class="title">VR제작 절차</p>
+                </div>
+                <div class="auto">
+                    <ul class="stepWrap">
+                        <li>
+                            <p class="blue step">STEP 01</p>
+                            <div class="iconWrap">
+
+                                <span class="img"><img src="/renew/images/processImg01.png" alt="제작의뢰"></span>
+                            </div>
+                            <div class="textWrap">
+                                <p class="title">제작의뢰</p>
+                                <p class="text">고객님이 VR제작을 의뢰합니다</p>
+                            </div>
+                        </li>
+                        <li>
+                            <p class="blue step">STEP 02</p>
+                            <div class="iconWrap">
+
+                                <span class="img"><img src="/renew/images/processImg02.png" alt="촬영 일정 상담"></span>
+                            </div>
+                            <div class="textWrap">
+                                <p class="title">촬영 일정 상담</p>
+                                <p class="text">촬영 담당자와 고객님이 상담 후 촬영 일정을 정합니다</p>
+                            </div>
+                        </li>
+                        <li>
+                            <p class="blue step">STEP 03</p>
+                            <div class="iconWrap">
+
+                                <span class="img"><img src="/renew/images/processImg03.png" alt="현장 촬영"></span>
+                            </div>
+                            <div class="textWrap">
+                                <p class="title">촬영</p>
+                                <p class="text">촬영 담당자가 현장을 방문, VR 3D 촬영을 합니다</p>
+                            </div>
+                        </li>
+                        <li>
+                            <p class="blue step">STEP 04</p>
+                            <div class="iconWrap">
+
+                                <span class="img"><img src="/renew/images/processImg04.png" alt="VR 렌더링"></span>
+                            </div>
+                            <div class="textWrap">
+                                <p class="title">VR 편집</p>
+                                <p class="text">촬영된 VR 영상을 편집합니다</p>
+                            </div>
+                        </li>
+                        <li>
+                            <p class="blue step">STEP 05</p>
+                            <div class="iconWrap">
+
+                                <span class="img"><img src="/renew/images/processImg05.png" alt="VR 결과물 검수"></span>
+                            </div>
+                            <div class="textWrap">
+                                <p class="title">결과물 검수</p>
+                                <p class="text">고객님이 결과물을 확인, 검수합니다</p>
+                            </div>
+                        </li>
+                        <li>
+                            <p class="blue step">STEP 06</p>
+                            <div class="iconWrap">
+
+                                <span class="img"><img src="/renew/images/processImg06.png" alt="제작물 게시"></span>
+                            </div>
+                            <div class="textWrap">
+                                <p class="title">제작물 게시</p>
+                                <p class="text">검수된 최종물을 게시합니다 <!--<span class="info">(별도 구매 필요)</span>--></p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div id="inquiry-div" class="mainCont inquiryWrap mt120">
+        <div class="titleWrap">
+            <p class="title">제작문의</p>
+            <p class="text">문의사항을 남겨주시면 친절하게 답변해드리겠습니다.</p>
+        </div>
+
+
+        <div class="tableWrap">
+            <div class="form-w50">
+                <p class="title">신청자</p>
+                <div class="inputWrap"><input type="text" id="name"></div>
+            </div>
+            <div class="form-w50 mr00">
+                <p class="title">연락처</p>
+                <div class="inputWrap">
+                    <input type="text" id="tel" placeholder="- 없이 입력해주세요." oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                </div>
+                <!--<p class="title">상호명</p>-->
+                <!--<div class="inputWrap"><input type="text" id="businessName"></div>-->
+            </div>
+            <div class="form-w50">
+                <p class="title">서비스 형태</p>
+                <div class="inputWrap">
+                    <div class="selectWrap w100pro">
+                        <div class="selectBox textSelect w100pro">
+                            <button id="serviceType" class="label">서비스 형태를 선택해주세요.</button>
+                            <ul class="optionList">
+                                <li class="optionItem">3D VR</li>
+                                <li class="optionItem">항공촬영</li>
+                                <li class="optionItem">3D VR + 항공촬영</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-w50 mr00">
+                <p class="title">평수</p>
+                <div class="inputWrap">
+                    <div class="selectWrap w100pro">
+                        <div class="selectBox w100pro">
+                            <button id="area" class="label">평수를 선택해주세요.</button>
+                            <ul class="optionList">
+                                <li class="optionItem">30평 이하</li>
+                                <li class="optionItem">100평 이상</li>
+                                <li class="optionItem">300평 이상</li>
+                                <li class="optionItem">500평 이상</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <p class="title">업종</p>
+                <div class="inputWrap">
+                    <div class="selectWrap w100pro">
+                        <div class="selectBox textSelect w100pro">
+                            <button id="businessType" class="label">업종을 선택해주세요.</button>
+                            <ul class="optionList">
+                                <li class="optionItem">카페/가게</li>
+                                <li class="optionItem">호텔</li>
+                                <li class="optionItem">병원</li>
+                                <li class="optionItem">박물관/전시관</li>
+                                <li class="optionItem">학교</li>
+                                <li class="optionItem">기타</li>
+                            </ul>
+                        </div>
+                        <div class="inputText">
+                            <input type="text" id="etc" placeholder="기타 내용을 입력해주세요.">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="form-w50">
+                <p class="title">연락처</p>
+                <div class="inputWrap">
+                    <input type="text" id="tel" placeholder="-없이 입력해주세요." oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                </div>
+            </div>
+            <div class="form-w50 mr00">
+                <p class="title">이메일</p>
+                <div class="inputWrap">
+                    <input type="text" id="email" placeholder="ex)myname@example.com">
+                </div>
+            </div>-->
+            <div>
+                <p class="title">주소</p>
+                <div class="inputWrap">
+                    <input type="text" id="address" placeholder="간단하게 기입해도 됩니다. ex) 인천시청 앞에서 5분거리, 인천 영종도">
+                </div>
+            </div>
+            <!--<div>
+                <p class="title">글 남기기</p>
+                <div class="inputWrap">
+                    <textarea id="content"></textarea>
+                </div>
+            </div>-->
+        </div>
+
+        <div class="privacyWrap">
+            <label for="privacy">
+                <div class="textWrap scroll-style">
+                    <p>트래블인천을 운영하는 트래블인천협동조합(이하 "당사")는 "정보통신망 이용촉진 및 정보보호 등에 관한 법률"에 따라서 해당 법률을 준수하고 있습니다.<br>
+                        “당사”는 개인정보보호법에 따라 "사용자"의 개인정보 보호 및 권익을 보호하고 개인정보와 관련한 "사용자"의 고충을 원활하게 처리할 수 있도록 다음과 같은 처리방침을 두고 있습니다.<br>
+                        이후 개인정보처리방침을 개정하는 경우 웹사이트 공지사항(또는 개별공지)을 통하여 공지할 것입니다.</p>
+
+                    <p class="title">제1조. 개인정보의 처리 목적</p>
+                    <p>
+                        당사는 개인정보를 안전하게 보호하고, 권익에 침해되지 않도록 보관해야 한다는 방침에 따라 최선을 다해 노력하고 있습니다.<br>
+                        개인정보는 회원가입, 원활한 고객상담, 유료서비스 등 제공을 위해 활용되며, 개인정보처리방침을 통해 당사가 어떤 정보를 수집하고, 수집한 정보를 어떻게 사용하며, 필요에 따라 누구와 이를 공유(‘위탁 또는 제공’)하며 이용목적을 달성한 정보를 언제, 어떻게 파기하는지 등 ‘개인정보보호’와 관련한 정보를 투명하게 제공하는 것을 목적으로 두고 있습니다.<br>
+                        향후, 서비스 약관 변경 및 개인 정보 추가 수집 등 관련된 개인정보처리방침이 개정될 시에는 웹 사이트 공지사항 또는 메일을 통한 개별 안내를 통하여 개정된 내용을 알기 쉽게 공지할 것입니다.<br>
+
+                    </p>
+                    <p class="title">제2조. 개인정보의 수집항목 및 수집방법</p>
+                    <p>
+                        당사는 회원가입 또는 서비스 제공을 위해 회원의 개인정보를 수집하고 있으며, 수집하는 개인정보 항목에 따른 구체적인 수집항목 및 방법은 다음과 같습니다.
+                    </p>
+
+                    <p class="subTitle">1. 수집하는 개인정보의 항목</p>
+                    <p>
+                        a. 당사는 최초 회원 가입시 아래와 같은 최소한의 개인정보를 필수항목으로 수집하고 있습니다.<br>
+                        •	필수항목 : 이메일 주소, 이름, 비밀번호<br>
+                        •	선택항목 : 프로필 사진, 회사/단체 이름, 회사/단체 규모, 산업군, 부서, 유형(개인/기업/단체), 지역, 전화번호, 필드값 등<br>
+                        b. 서비스 이용 과정이나 고객상담 과정에서 아래와 같은 정보들이 추가로 수집될 수 있습니다.<br>
+                        •	거래정보 : 개인의 경우 생년월일(정기결제에 한함), 신용카드정보(신용카드번호, 유효기간, 비밀번호 앞 두 자리), 세금계산서 발행을 위한 회계 담당자 정보(이름, 연락처, 이메일주소) 등<br>
+                        •	서비스 이용 정보 : 문의자 정보 (이름, 이메일 주소, 전화번호), 전화번호, IP 주소, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록, 브라우저 정보, 운영체제 정보(OS), 사용 기기 정보, MAC 주소, 방문 일시 등</p>
+
+                    <p class="subTitle">2, 개인정보 수집방법</p>
+                    <p>
+                        a. 당사는 다음과 같은 방법으로 개인정보를 수집합니다.<br>
+                        •	홈페이지, 서면양식, 전화, 이메일, 이벤트 응모, 팩스, 상담 툴<br>
+                        •	파트너로부터의 제공
+                    </p>
+                    <p class="title">제3조. 개인정보의 수집 및 이용목적</p>
+                    <p>당사는 회원가입을 통해서 수집한 회원님의 개인정보를 다음과 같은 목적에 따라서 활용함을 명시합니다.</p>
+                    <p class="subTitle">1. 회원관리</p>
+                    <p>a. 서비스 제공 및 개선, 개인식별, 이용약관 위반 회원에 대한 이용제한 조치, 서비스의 원활한 운영에 지장을 미치는 행위 및 서비스 부정이용 행위 제재, 가입의사 확인, 가입 및 가입횟수 제한, 만14세 미만 아동의 개인정보 수집 시 법정 대리인 동의여부 확인, 추후 법정 대리인 본인확인, 분쟁 조정을 위한 기록보존, 불만처리 등 민원처리, 고지사항 전달, 회원탈퇴 의사의 확인 등</p>
+                    <p class="subTitle">2. 신규 서비스 개발 및 마케팅·광고에 활용</p>
+                    <p>a. 신규 서비스 개발 및 맞춤 서비스 제공, 통계학적 특성에 따른 서비스 제공 및 광고 게재, 서비스의 유효성 확인, 자사 및 제휴 이벤트 정보 및 참여기회 제공, 광고성 정보 제공,접속빈도 파악, 회원의 서비스이용에 대한 통계 분석 등</p>
+
+                    <p class="subTitle">3. 서비스 제공에 관한 계약 이행 및 유료서비스 제공에 따른 요금정산</p>
+                    <p>a. 유료서비스 제공, 특정 맞춤 서비스 제공, 유료서비스 이용에 대한 과금, 구매 및 요금 결제, 본인인증, 물품배송 또는 청구서 등 발송, 요금 추심 등</p>
+                    <p class="subTitle">4. 법적 증거로 활용</p>
+                    <p>a. 법적 분쟁 시 증거자료 제출</p>
+
+                    <p class="title">제4조. 개인정보 수집 동의</p>
+                    <p>회원가입 시 회원님께서 충분히 개인정보취급방침을 확인할 수 있도록 표기하고, 동의한 이후에 가입할 수 있도록 환경을 조성합니다.<br>
+                        회원가입을 완료한 모든 회원은 상기 모든 개인정보 수집 절차 및 이용 목적에 동의한 것으로 간주합니다.</p>
+                    <p class="title">제 5조. 개인정보의 보유 및 이용 기간</p>
+                    <p>
+                        당사는 법령에 따른 개인정보 보유·이용기간 또는 정보주체로부터 개인정보를 수집 시에 동의 받은 개인정보 보유,이용기간 내에서 개인정보를 처리,보유합니다.<br>
+                        각각의 개인정보 처리 및 보유 기간은 다음과 같습니다.<br>
+                        1. 계약 또는 청약철회 등에 관한 기록: 5년 (전자상거래 등에서의 소비자보호에 관한 법률 시행령 제6조)<br>
+                        2. 대금결제 및 재화 등의 공급에 관한 기록: 5년 (전자상거래 등에서의 소비자보호에 관한 법률 시행령 제6조)<br>
+                        3. 소비자의 불만 또는 분쟁처리에 관한 기록: 3년 (전자상거래 등에서의 소비자보호에 관한 법률 시행령 제6조)<br>
+                        4. 표시·광고에 관한 기록: 6개월 (전자상거래 등에서의 소비자보호에 관한 법률 시행령 제6조)<br>
+                        5. 웹사이트 방문기록: 3개월 (통신비밀보호법 시행령 제41조)<br>
+                        6. 관련 법률에 그 근거가 없더라도, 기타 당사의 중대한 손실을 예방하거나, 범죄 및 소송 등을 위해 보관해야 하는 경우에는 개인정보를 보관할 수 있습니다.<br>
+                        단, 그 목적을 달성하기 위한 최소한의 기간 및 항목만 보관합니다.<br>
+                        a. 회원가입을 탈퇴한 경우 재가입 방지를 위한 식별정보<br>
+                        b. 이용약관에 의해 부득이 회원에서 제명된 경우 거래거절을 위한 식별정보<br>
+                        7. “당사”는 개인정보 유효기간제에 따라 1년간 서비스를 이용하지 않은 회원의 개인정보를 별도로 분리 보관 또는 파기하며, 분리 보관된 개인정보는 4년간 보관 후 지체 없이 파기합니다.<br>
+                        이 분리 보관 또는 파기에 대해서는 위 1년의 기간 만료 30일 전까지 개인정보가 분리 보관 또는 파기된다는 사실, 기간 만료일, 파기되는 개인정보의 항목 등에 대하여 이메일로 해당 회원에게 통지합니다.
+                    </p>
+
+                    <p class="title">제 6조. 개인정보의 파기 절차 및 방법</p>
+                    <p>당사는 원칙적으로 개인정보 처리목적이 달성된 경우에는 지체없이 해당 개인정보를 파기합니다. 파기 절차 및 방법은 다음과 같습니다.</p>
+                    <p class="subTitle">1. 파기절차</p>
+                    <p>a. "사용자"가 입력한 정보는 목적 달성 후 별도의 DB에 옮겨져(종이의 경우 별도의 서류) 내부 방침 및 기타 관련 법령에 따라 일정기간 저장된 후 혹은 즉시 파기됩니다.
+                        이 때, DB로 옮겨진 개인정보는 법률에 의한 경우가 아니고서는 다른 목적으로 이용되지 않습니다.</p>
+                    <p class="subTitle">2. 파기방법</p>
+                    <p>
+                        a. 전자적 파일 형태의 정보는 기록을 재생할 수 없는 기술적 방법을 사용합니다.<br>
+                        b. 종이에 출력된 개인정보는 분쇄기로 분쇄하거나 소각을 통하여 파기합니다.
+                    </p>
+
+                    <p class="title"> 제7조. 개인정보 제공</p>
+
+                    <p>당사는 "사용자"의 개인정보를 원칙적으로 외부에 제공하지 않습니다. 다만, 아래의 경우에는 예외로 합니다.<br>
+                        1. "사용자"들이 사전에 동의한 경우<br>
+                        2. 통계작성, 학술연구 또는 시장조사를 위하여 필요한 경우로서 특정 개인을 식별할 수 없는 형태로 제공하는 경우<br>
+                        3. 영업의 양도·합병 등에 관한 사유가 발생하는 경우(단, 당사는 영업의 양도 등에 관한 사유가 발생하여 "사용자"의 개인정보 이전이 필요한 경우,<br>
+                        관계법률에서 규정한 절차와 방법에 따라 개인정보 이전에 관한 사실 등을 사전에 고지하며, "사용자"에게는 개인정보 이전에 관한 동의 철회권을 부여합니다.)<br>
+                        4. 법령의 규정에 의거하거나, 수사 목적으로 사기관의 요구가 있는 경우
+                    </p>
+                    <p class="title">제 8조.개인정보 위탁</p>
+
+                    <p>1. 당사는 위탁계약 체결 시 개인정보 보호법 제26조에 따라 위탁업무 수행목적 외 개인정보 처리금지, 기술적․관리적 보호조치, 재위탁 제한, 수탁자에 대한 관리․감독, 손해배상 등 책임에 관한 사항을 계약서 등 문서에 명시하고,수탁자가 개인정보를 안전하게 처리하는지를 감독하고 있습니다.<br>
+                        2. 본 개인정보처리방침에 따른 위탁업무의 내용이나 수탁자가 변경될 경우에 당사는 변경 사항을 지체없이 본 개인정보 처리방침을 통하여 공개하도록 하겠습니다.</p>
+
+                    <p class="title"> 제9조. "사용자" 및 법정대리인의 권리와 그 행사방법</p>
+                    <p>
+                        1. "사용자" 및 법정대리인은 언제든지 등록되어 있는 자신 혹은 만 14세 미만 아동의 개인정보를 조회하거나 수정할 수 있으며, 가입해지를 요청할 수도 있습니다.<br>
+                        고객센터에 회원이 탈퇴 신청 메일을 보낼 경우 회원 본인임을 확인한 후 탈퇴 처리를 합니다.<br>
+                        2. 당사는 "사용자"의 요청에 의해 해지 또는 삭제된 개인정보를 "사용자" 혹은 법정 대리인의 요청에 의해 해지 또는 삭제된 개인정보를 "제 5조 개인정보의 보유 및 이용기간"에 명시된 바에 따라 처리하고 그 외의 용도로 열람 또는 이용할 수 없도록 처리하고 있습니다.<br>
+                        3. 법정대리인 등의 대리인을 통하여 제1항의 권리행사를 하는 경우 개인정보보호법 시행규칙 별표 제11호 서식에 따른 위임장을 제출하여야 합니다.<br>
+                        4. 개인정보의 열람 및 처리정지 요구는 개인정보보호법 제35조 제5항, 제37조 제2항에 의하여 제한될 수 있고, 정정 및 삭제요구도 다른 법령에서 그 개인정보가 수집대상으로 명시되어 있는 경우 그 삭제를 요구할 수 없습니다.
+                    </p>
+                    <p class="title">제10조. 개인정보 자동 수집 장치의 설치•운영 및 거부에 관한 사항</p>
+
+                    <p>트래블인천협동조합은 개별적인 맞춤서비스를 제공하기 위해 이용정보를 저장하고 수시로 불러오는 ‘쿠키(cookie)’를 사용합니다.<br>
+                        쿠키는 웹사이트를 운영하는데 이용되는 서버(http)가 "사용자"의 컴퓨터 브라우저에게 보내는 소량의 정보이며 "사용자"들의 PC 컴퓨터내의 하드디스크에 저장되기도 합니다.<br>
+                        1. 쿠키의 사용 목적 : "사용자"가 방문한 각 서비스와 웹 사이트들에 대한 방문 및 이용형태, 인기 검색어, 보안접속 여부, 등을 파악하여 "사용자"에게 최적화된 정보 제공을 위해 사용됩니다.<br>
+                        2. 쿠키의 설치•운영 및 거부 : 웹브라우저 상단의 도구>인터넷 옵션>개인정보 메뉴의 옵션 설정을 통해 쿠키 저장을 거부 할 수 있습니다.<br>
+                        3. 쿠키 저장을 거부할 경우 서비스 이용에 어려움이 발생할 수 있습니다.</p>
+
+                    <p class="title">제11조. 개인정보의 안전성 확보 조치</p>
+
+                    <p>
+                        당사는 개인정보보호법 제29조에 따라 다음과 같이 안전성 확보에 필요한 기술적/관리적 및 물리적 조치를 하고 있습니다.
+                    </p>
+                    <p class="subTitle">1. 개인정보 취급 직원의 최소화 및 교육</p>
+                    <p>a. 개인정보를 취급하는 직원을 지정하고 담당자에 한정시켜 최소화 하여 개인정보를 관리하는 대책을 시행하고 있습니다.</p>
+                    <p class="subTitle">2. 해킹 등에 대비한 기술적 대책</p>
+                    <p>a. 당사는 해킹이나 컴퓨터 바이러스 등에 의한 개인정보 유출 및 훼손을 막기 위하여 보안프로그램을 설치하고 주기적인 갱신·점검을 하며 외부로부터 접근이 통제된 구역에 시스템을 설치하고 기술적/물리적으로 감시 및 차단하고 있습니다.</p>
+                    <p class="subTitle">3. 개인정보의 암호화</p>
+                    <p>a. "사용자"의 개인정보는 비밀번호는 암호화 되어 저장 및 관리되고 있어, 본인만이 알 수 있으며 중요한 데이터는 파일 및 전송 데이터를 암호화 하거나 파일 잠금 기능을 사용하는 등의 별도 보안기능을 사용하고 있습니다.</p>
+                    <p class="subTitle">4. 개인정보에 대한 접근 제한</p>
+                    <p>a. 개인정보를 처리하는 데이터베이스시스템에 대한 접근권한의 부여,변경,말소를 통하여 개인정보에 대한 접근통제를 위하여 필요한 조치를 하고 있으며 침입차단시스템을 이용하여 외부로부터의 무단 접근을 통제하고 있습니다.</p>
+
+                    <p class="title">제12조. 개인정보 처리방침 변경 고지</p>
+                    <p>상기 개인정보처리방침은 시행일로부터 적용되며, 법령 및 방침에 따른 변경내용의 추가, 삭제 및 정정이 있는 경우에는 변경사항의 시행 최소 7일 전부터 공지사항을 통하여 고지할 것입니다.</p>
+
+                    <p class="title">제13조. 개인정보 관리 책임자 및 담당자</p>
+                    <p>당사는 개인정보 처리에 관한 업무를 총괄해서 책임지고, 개인정보 처리와 관련한 정보주체의 불만처리 및 피해구제 등을 위하여 아래와 같이 개인정보 보호책임자를 지정하고 있습니다.</p>
+                    <p class="subTitle">1. 개인정보관리 담당부서 : 고객지원팀</p>
+                    <p>a. 이메일: travelincheon@naver.com</p>
+
+                    <p class="subTitle">2. 개인정보관리책임자</p>
+                    <p>
+                        성명: 김기중<br>
+                        a. 전화번호: 1688-7923<br>
+                        이메일: travelincheon@naver.com
+                    </p>
+
+                    <p>회원님은 당사 및 당사의 서비스(트래블인천협동조합)를 이용하시면서 발생한 모든 개인정보 보호 관련 문의, 불만처리, 피해구제 등에 관한 사항을 개인정보 보호책임자 및 담당부서로 문의하실 수 있습니다.</p>
+
+                    <p>기타 개인정보침해에 대한 신고나 상담이 필요하신 경우에는 아래 기관에 문의하시기 바랍니다.<br>
+                        •	    개인정보 침해신고센터 (https://privacy.kisa.or.kr/kor/main.jsp / 국번없이 118)<br>
+                        •	    대검찰청 인터넷범죄수사센터 (http://www.spo.go.kr / 02-3480-2000)<br>
+                        •	    경찰청 사이버안전국(http://cyberbureau.police.go.kr / 국번없이 182)<br>
+                    </p>
+
+
+                    <p>본 정책은 2022년 4월 28일부터 시행됩니다.</p>
+
+                </div>
+
+                <div class="checkWrap"><input type="checkBox" id="privacy" name="privacy">개인정보 수집 이용에 동의합니다.</div>
+            </label>
+        </div>
+
+        <div class="page-btn">
+            <a class="comm-btn black-btn" onclick="fnInquiry()" style="cursor: pointer;">문의하기</a>
+        </div>
+    </div>
+
+
+    <div class="auto familySite pc-familySite">
+        <ul class="list">
+            <li><a href="https://www.ito.or.kr/" target="_blank"><img src="/renew/images/partnership01.png" alt="인천관광공사"></a></li>
+            <li><a href="https://www.ice.go.kr/main.do?s=ice" target="_blank"><img src="/renew/images/partnership02.png" alt="인천광역시교육청"></a></li>
+            <li><a href="https://www.slc.or.kr/main.do" target="_blank"><img src="/renew/images/partnership03.png" alt="수도권매립지관리공사"></a></li>
+            <li><a href="https://www.eco-i.or.kr/main/main.asp" target="_blank"><img src="/renew/images/partnership04.png" alt="인천환경공단"></a></li>
+            <li><a href="http://schooltrip.co.kr/" target="_blank"><img src="/renew/images/partnership05.png" alt="스쿨트립"></a></li>
+        </ul>
+    </div>
+
+
+
+    <div class="swiper mFamily m-familySite">
+        <ul class="swiper-wrapper">
+            <li class="swiper-slide"><a href="https://www.ito.or.kr/" target="_blank"><img src="/renew/images/partnership01.png" alt="인천관광공사"></a></li>
+            <li class="swiper-slide"><a href="https://www.ice.go.kr/main.do?s=ice" target="_blank"><img src="/renew/images/partnership02.png" alt="인천광역시교육청"></a></li>
+            <li class="swiper-slide"><a href="https://www.slc.or.kr/main.do" target="_blank"><img src="/renew/images/partnership03.png" alt="수도권매립지관리공사"></a></li>
+            <li class="swiper-slide"><a href="https://www.eco-i.or.kr/main/main.asp" target="_blank"><img src="/renew/images/partnership04.png" alt="인천환경공단"></a></li>
+            <li class="swiper-slide"><a href="http://schooltrip.co.kr/" target="_blank"><img src="/renew/images/partnership05.png" alt="스쿨트립"></a></li>
+        </ul>
+        <!--
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+        -->
+    </div>
+    <!--가입요청 모달-->
+    <div class="modal joinModal" style="display:none;">
+        <div class="modal-inner">
+            <div class="modal-text">
+                <p class="title">
+                    로그인이 필요한 페이지입니다.
+                </p>
+                <p class="text">로그인 또는 회원가입 후 작성해주시기 바랍니다.</p>
+            </div>
+            <div class="modal-btn">
+                <a class="comm-btn grey-btn cupoint close-btn">돌아가기</a>
+                <a href="/login" class="comm-btn blue-btn" style="margin-left: 1em;">로그인 하기</a>
+            </div>
+        </div>
+        <div class="join-modal-bg modal-bg"></div>
+    </div>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!--script START-->
+    <script>
+
+
+        var swiper = new Swiper(".pc-bannerWrap", {
+            pagination: {
+                el: ".swiper-pagination",
+                clickable : true,
+            },
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+
+        });
+
+        var swiperm = new Swiper(".m-bannerWrap", {
+            pagination: {
+                el: ".swiper-pagination",
+                clickable : true,
+            },
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+
+        });
+/*
+        var swiper2 = new Swiper(".m-familySite", {
+            slidesPerView: "auto",
+            spaceBetween: 30,
+            loop:true,
+            centeredSlides: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+*/
+
+        let category;
+        getVrList(category);
+        $("#inquiry-div input").on("click", function(){
+            if(!chkLogin) {
+                $(".joinModal").css("display", "block");
+            }
+        });
+        $("#inquiry-div button").on("click", function(){
+            if(!chkLogin) {
+                $(".joinModal").css("display", "block");
+            }
+        });
+
+        getBannerList();
+        // 배너리스트 불러오기
+        function getBannerList(){
+            $.ajax({
+                type: "GET",
+                url: "/api/user/banner/list",
+                success: function(data){
+                    console.log(data);
+                    let bannerDiv = [];
+                    let bannerDivm = [];
+
+                    if( data.length != 0 ) {
+                        for( let i=0; i<data.length; i++ ) {
+                            bannerDiv.push(
+                                "<li id='banner"+(i+1)+"' class='swiper-slide'>" +
+                                "<a href='"+data[i].reservationUrl+"'>" +
+                                "<img src='"+data[i].bannerImage.url+"' alt='"+data[i].bannerTitle+"'>" +
+                                "<div class='textWrap'>" +
+                                "<p class='tit'>"+data[i].bannerTitle.replace(/(?:\r\n|\r|\n)/g, '<br />')+"</p>" +
+                                "<p class='txt'>"+data[i].bannerContents.replace(/(?:\r\n|\r|\n)/g, '<br />')+"</p>" +
+                                "<span class='more-btn' onclick='location.href="+data[i].reservationUrl+"'>자세히보기</span>" +
+                                "</div>" +
+                                "</a></li>"
+                            );
+                        }
+                        swiper.appendSlide(bannerDiv);
+                        swiper.update();
+
+                        for( let i=0; i<data.length; i++ ) {
+                            $("#banner"+(i+1)+" .tit").css("color", data[i].bannerColor);
+                            $("#banner"+(i+1)+" .txt").css("color", data[i].bannerColor);
+                        }
+
+                        //모바일 대응
+                        for( let i=0; i<data.length; i++ ) {
+                            bannerDivm.push(
+                                "<li id='mbanner"+(i+1)+"' class='swiper-slide'>" +
+                                "<a href='"+data[i].reservationUrl+"'>" +
+                                "<img src='"+data[i].mobileBannerImage.url+"' alt='"+data[i].bannerTitle+"'>" +
+                                "<div class='textWrap'>" +
+                                "<p class='tit'>"+data[i].bannerTitle.replace(/(?:\r\n|\r|\n)/g, '<br />')+"</p>" +
+                                "<p class='txt'>"+data[i].bannerContents.replace(/(?:\r\n|\r|\n)/g, '<br />')+"</p>" +
+                                "<span class='more-btn' onclick='location.href="+data[i].reservationUrl+"'>자세히보기</span>" +
+                                "</div>" +
+                                "</a></li>"
+                            );
+                        }
+                        swiperm.appendSlide(bannerDivm);
+                        swiperm.update();
+
+                        for( let i=0; i<data.length; i++ ) {
+                            $("#mbanner"+(i+1)+" .tit").css("color", data[i].bannerColor);
+                            $("#mbanner"+(i+1)+" .txt").css("color", data[i].bannerColor);
+                        }
+                    }
+                }
+            });
+        }
+
+
+        function fnInquiry() {
+            if(!$("#privacy").prop("checked")) {
+                toastModal("개인정보 수입 이용에 동의해주세요");
+                return;
+            }
+
+            let name = $('#name').val();
+            // let businessName = $("#businessName").val();
+            let businessType = $("#businessType").text();
+            let serviceType = $("#serviceType").text();
+            let area = $("#area").text();
+            // let option = $("#option").text();
+            let tel = $("#tel").val();
+            // let email = $("#email").val();
+            let address = $("#address").val();
+            // let content = $("#content").val();
+
+            if(name=="") {
+                toastModal("성함을 입력해주세요");
+                $("#name").focus();
+                return;
+            }
+            if(tel=="") {
+                toastModal("연락처를 입력해주세요");
+                $("#tel").focus();
+                return;
+            }
+            // if(businessName=="") {
+            //     toastModal("상호명을 입력해주세요");
+            //     $("#businessName").focus();
+            //     return;
+            // }
+            if(serviceType == "서비스 형태를 선택해주세요.") {
+                toastModal("서비스 형태를 선택해주세요.");
+                $("#serviceType").focus();
+                return;
+            }
+            if(area == "평수를 선택해주세요.") {
+                toastModal("평수를 선택해주세요.");
+                $("#area").focus();
+                return;
+            }
+            if(businessType == "업종을 선택해주세요.") {
+                toastModal("업종을 선택해주세요.");
+                $("#businessType").focus();
+                return;
+            }
+            if($("#businessType").text() == "기타") {
+                businessType = $("#etc").val();
+                if(businessType=="") {
+                    toastModal("업종 기타 내용을 입력해주세요");
+                    $("#etc").focus();
+                    return;
+                }
+            }
+
+            /*if(option == "추가요청을 선택해주세요.") {
+                option = "없음";
+            }
+
+            if(email=="") {
+                toastModal("이메일을 입력해주세요");
+                $("#email").focus();
+                return;
+            }*/
+            if(address=="") {
+                toastModal("주소를 입력해주세요");
+                $("#address").focus();
+                return;
+            }
+            /*if(content=="") {
+                toastModal("문의 내용을 입력해주세요");
+                $("#content").focus();
+                return;
+            }*/
+
+            let objInquiry = {
+                "name":name,
+                // "businessName":businessName,
+                "businessType":businessType,
+                "serviceType":serviceType,
+                "area":area,
+                // "option":option,
+                "tel":tel,
+                // "email":email,
+                "address":address,
+                // "content":content
+            }
+
+            $.ajax({
+                type:"post",
+                url:"/api/user/inquiry",
+                contentType:"application/json",
+                data:JSON.stringify(objInquiry),
+                success:function() {
+                    toastModal("문의가 등록되었습니다.");
+                    setTimeout(() => location.reload(), 1000);
+                },
+                error: function (request, status, error) {
+                    console.log(request.status + ' ' + error.statusText + ' ' + request.responseText);
+                }
+            });
+        }
+
+        function getVrList(category) {
+            $.ajax({
+                type:"get",
+                url:"/api/common/vr",
+                data:{
+                    "category":category,
+                    "page":0,
+                    "size":12,
+                    "sort":"cost,asc"
+                },
+                success:function(data) {
+                    console.log(data);
+                    let list = data.content;
+                    let tag='';
+                    list.forEach(function(arg){
+                         tag += '<li>' +
+                                '<a href="'+arg.videoUrl+'" target="_blank">' +
+                                '<img src="'+arg.thumbnailImage.url+'" alt="여행상품">' +
+                                '<div class="infoWrap">' +
+                                '<span class="type">'+arg.category+'</span>' +
+                                 '<a href="'+arg.videoUrl+'" target="_blank" class="portLink">'+
+                                 '<span class="pcOnly portfolioBtn">VR바로보기</span>'+
+                                 '<span class="mOnly portfolioBtn">VR보기</span>'+
+                                 '</a>' +
+                                 '<a href="/vr/'+arg.secondCourseSeq.substring(5, 15)+'"  target="_self" class="portLink">'+
+                                 '<span class="pcOnly portfolioBtn">상세정보확인</span>'+
+                                 '<span class="mOnly portfolioBtn">상세정보</span>'+
+                                 '</a>' +
+                                '<p class="title">'+arg.secondCourseTitle+'</p>' +
+                                // '<p class="text">'+arg.course+'</p>' +
+                                '</div>' +
+                                '</a>' +
+                                '</li>';
+                    });
+                    $("#vrList").html(tag);
+                },
+                error: function (request, status, error) {
+                    console.log(request.status + ' ' + error.statusText + ' ' + request.responseText);
+                }
+            });
+        }
+
+        $(".tabWrap > li > a").on("click", function(){
+            $('.tabWrap > li > a').removeClass('actived');
+            $(this).addClass('actived');
+            category = $(this).text();
+            if(category=="전체 상품") {
+                category=null;
+            }
+            getVrList(category);
+        });
+    </script>
+    <!--script END-->
+</div>
+</html>

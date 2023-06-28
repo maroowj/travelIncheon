@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/renew/layout}"
+      xmlns:th="http://www.thymeleaf.org">
+
+<div layout:fragment="content">
+
+    <!--서브배너-->
+    <div class="subBanner-wrap pc-subBanner">
+        <img src="/renew/images/subBanner02.jpg" alt="VR투어">
+        <p class="subMenu">VR 제작가격</p>
+    </div>
+    <div class="subBanner-wrap m-subBanner">
+        <img src="/renew/images/m_subBanner02.jpg" alt="VR투어">
+        <p class="subMenu">VR 제작가격</p>
+    </div>
+
+    <!--컨텐츠 영역-->
+    <div class="subCont priceWrap auto">
+        <div class="mt120 mb120">
+            <div class="recomWrap">
+                <div class="titleWrap">
+                    <p class="title">이런곳이라면 <span class="blue">추천</span>해드립니다.</p>
+                    <p class="text">더많은 고객 방문을 위한 선택! <span class="black">예약률 14% 증가</span></p>
+                </div>
+
+                <ul class="list">
+                    <li>
+                        <div class="textWrap">
+                            <p class="tit">공유 숙박 및 호텔</p>
+                            <p class="txt">3D 가상 투어를 통해 최고의 예약 경험 제공</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="textWrap">
+                            <p class="tit">매장이 돋보이는 카페</p>
+                            <p class="txt">유니크 메뉴, 키즈카페, 식당 등</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="textWrap">
+                            <p class="tit">홍보가 필요한 품격있는 공간</p>
+                            <p class="txt">병원, 전시관, 박물관 등 다양한 공간 홍보</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="textWrap">
+                            <p class="tit">온라인 쇼핑이 필요한 매장</p>
+                            <p class="txt">오프라인 매장과 동시에 온라인 매장을 준비</p>
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="priceBanner pc-priceBanner">
+                    <a href="./inquiry.html"><img src="/renew/images/priceImg01.jpg" alt="월 1만원부터 첫 3개월 무료체험"></a>
+                </div>
+                <div class="priceBanner m-priceBanner">
+                    <a href="./inquiry.html"><img src="/renew/images/m_priceImg01.jpg" alt="월 1만원부터 첫 3개월 무료체험"></a>
+                </div>
+            </div>
+
+            <div class="mt120">
+                <div class="subTitleWrap">
+                    <span class="blue">VR &amp; DRONE PRICE</span>
+                    <p class="title">제작 가격</p>
+                </div>
+
+                <div class="priceTable-wrap vrPriceTable">
+                    <p class="title">360도 VR 촬영 가격 안내</p>
+
+                    <table class="priceTable">
+                        <colgroup>
+                            <col style="width:16%">
+                            <col style="width:28%">
+                            <col style="width:28%">
+                            <col style="width:28%">
+                        </colgroup>
+
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>월 1만원(30평 이하)</th>
+                            <th>월 3만원(300평 이하)</th>
+                            <th>월 5만원(300평 이상)</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th>패키지 내용</th>
+                            <td>360도 메타포트 공간 캡쳐 메타태그 편집</td>
+                            <td>360도 메타포트 공간 캡쳐 메타태그 편집</td>
+                            <td>360도 메타포트 공간 캡쳐 메타태그 편집</td>
+                        </tr>
+                        <tr>
+                            <th>촬영시간</th>
+                            <td>60분</td>
+                            <td>120분</td>
+                            <td>180분</td>
+                        </tr>
+                        <tr>
+                            <th>수정횟수</th>
+                            <td>1회</td>
+                            <td>2회</td>
+                            <td>3회</td>
+                        </tr>
+                        <tr>
+                            <th>작업일</th>
+                            <td>2일</td>
+                            <td>3일</td>
+                            <td>5일</td>
+                        </tr>
+                        <tr>
+                            <th>출장비</th>
+                            <td>20만원</td>
+                            <td>20만원</td>
+                            <td>20만원</td>
+                        </tr>
+                        <tr>
+                            <th>촬영비</th>
+                            <td>무료</td>
+                            <td>10만원</td>
+                            <td>30만원~</td>
+                        </tr>
+                        <tr>
+                            <th>적용</th>
+                            <td>카페</td>
+                            <td>중대형 카페</td>
+                            <td>병원, 호텔, 박물관</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="priceTable-wrap">
+                    <p class="title">항공(드론) 촬영 가격 안내</p>
+
+                    <table class="priceTable">
+                        <colgroup>
+                            <col style="width:16%">
+                            <col style="width:28%">
+                            <col style="width:28%">
+                            <col style="width:28%">
+                        </colgroup>
+
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>20만원 STANDARD</th>
+                            <th>30만원 DELUXE</th>
+                            <th>100만원 PREMIUM</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th>패키지 내용</th>
+                            <td>드론 촬영(원본)</td>
+                            <td>드론 촬영(원본 + 컷 편집)</td>
+                            <td>항공데이터 (항공VR + 3D매핑)</td>
+                        </tr>
+                        <tr>
+                            <th>촬영시간</th>
+                            <td>60분</td>
+                            <td>120분</td>
+                            <td>120</td>
+                        </tr>
+                        <tr>
+                            <th>수정횟수</th>
+                            <td>0회</td>
+                            <td>0회</td>
+                            <td>3회</td>
+                        </tr>
+                        <tr>
+                            <th>작업일</th>
+                            <td>7일</td>
+                            <td>10일</td>
+                            <td>10일</td>
+                        </tr>
+                        <tr>
+                            <th>출장비</th>
+                            <td>별도</td>
+                            <td>별도</td>
+                            <td>포함</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <p class="detail blue">전국 출장 가능 (실비 청구)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--script START-->
+    <script></script>
+    <!--script END-->
+</div>
+</html>

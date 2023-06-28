@@ -1,0 +1,3274 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/default_layout_user}"
+      xmlns:th="http://www.thymeleaf.org">
+
+<style layout:fragment="css">
+    a.disabled {
+        pointer-events: none;
+        cursor: default;
+    }
+
+    input::-webkit-inner-spin-button { appearance: none; -moz-appearance: none; -webkit-appearance: none; }
+</style>
+
+<!-- default_layout_user.html 에 정의한 main page 부분 -->
+<div layout:fragment="content">
+    <main role="main" class="main-content">
+        <script>
+            /*const main_menu = 1;*/
+        </script>
+
+        <!--html START-->
+
+        <div class="auto">
+            <div class="reserve-date-wrap">
+                <div class="date-wrap">
+<!--                    <a href="#" class="today-btn">오늘</a>-->
+                    <div class="move-btn-wrap">
+                        <a class="move-btn go-prev cupoint"><i class="fa-solid fa-chevron-left"></i></a>
+                        <a class="move-btn go-next cupoint"><i class="fa-solid fa-chevron-right"></i></a>
+                    </div>
+                    <p class="date-title nanumS"></p>
+                </div>
+                <ul class="reserve-text-wrap">
+                    <li>예약불가</li>
+                    <li>예약가능</li>
+                    <li>예약확정</li>
+                </ul>
+            </div>
+
+            <div id="calender-wrap" class="calender-wrap">
+                <ul class="week-dayName">
+                    <li class="sun">일</li>
+                    <li>월</li>
+                    <li>화</li>
+                    <li>수</li>
+                    <li>목</li>
+                    <li>금</li>
+                    <li class="sat">토</li>
+                </ul>
+                <div class="dates" id="dates">
+<!--                    <ul id="first_week">-->
+<!--                        <li>-->
+<!--                            <p class="day sun"></p>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <p class="day"></p>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <p class="day"></p>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <p class="day"></p>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <p class="day"></p>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <p class="day"></p>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <p class="day sat"></p>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                    <ul id="second_week">-->
+<!--                        <li>-->
+<!--                            <p class="day sun"></p>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <p class="day"></p>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <p class="day"></p>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <p class="day"></p>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <p class="day"></p>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <p class="day"></p>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <p class="day sat"></p>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                    <ul id="third_week">-->
+<!--                        <li>-->
+<!--                            <p class="day sun"></p>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <p class="day"></p>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <p class="day"></p>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <p class="day"></p>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <p class="day"></p>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <p class="day"></p>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <p class="day sat"></p>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                    <ul id="forth_week">-->
+<!--                        <li>-->
+<!--                            <p class="day sun"></p>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <p class="day"></p>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <p class="day"></p>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <p class="day"></p>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <p class="day"></p>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <p class="day"></p>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <p class="day sat"></p>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                    <ul id="fifth_week">-->
+<!--                        <li>-->
+<!--                            <p class="day sun"></p>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <p class="day"></p>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <p class="day"></p>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <p class="day"></p>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <p class="day"></p>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <p class="day"></p>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <p class="day sat"></p>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+
+                    <!--스케줄내용-->
+                    <!--<div class="schList-box sch-type1 sch1">10:00 예약불가</div>
+                    <div class="schList-box sch-type2 sch2">10:00 예약가능</div>
+                    <div class="schList-box sch-type3 sch3">10:00 서울시립대학교</div>
+                    <div class="schList-box sch-type1 sch1">10:00 예약불가</div>-->
+                </div><!--dates-->
+            </div><!--calender-wrap-->
+        </div><!--auto-->
+
+
+
+        <!--modal START-->
+
+        <!--예약가능 modal-->
+        <div id="insertp" class="modal reserve-modal pc-reserve-modal">
+            <div class="modal-wrap">
+                <div class="modal-title-wrap">
+                    <p class="title">예약신청</p>
+                    <i class="fa-solid fa-xmark close"></i>
+                </div>
+                <div class="modal-text-wrap">
+                    <table class="date-table modal-table">
+                        <colgroup>
+                            <col style="width:20%">
+                            <col style="width:18%">
+                            <col style="width:25%">
+                            <col style="width:20%">
+                            <col style="width:40%">
+                        </colgroup>
+                        <tbody>
+                        <tr>
+                            <th>견학날짜</th>
+                            <td colspan="4">
+                                <div class="d-flex-wrap">
+                                    <div class="datepicker-wrap">
+                                        <!--<input id="datepicker" type="text" autocomplete="off">-->
+                                        <input type="date" class="calender" id="currentDate" onchange="reservationCheck($('#insertp'));">
+                                    </div>
+                                    <div class="select-box">
+                                        <select id="time" class="time-sel" onchange="reservationCheck($('#insertp'));"></select>
+                                    </div>
+                                    <!--<span class="time-text">:</span>
+                                    <div class="select-box">
+                                        <select class="time-sel"></select>
+                                    </div>-->
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>예약가능일</th>
+                            <td colspan="4">
+                                <div class="d-flex-wrap">
+                                    <span class="reservation-date"></span>
+                                    <!--<div class="datepicker-wrap">
+                                        &lt;!&ndash;<input id="datepicker" type="text" autocomplete="off">&ndash;&gt;
+                                        <input type="date" class="calender" id="currentDate" onchange="reservationCheck($('#pModal'));">
+                                    </div>
+                                    <div class="select-box">
+                                        <select id="time" class="time-sel" onchange="reservationCheck($('#pModal'));"></select>
+                                    </div>-->
+                                    <!--<span class="time-text">:</span>
+                                    <div class="select-box">
+                                        <select class="time-sel"></select>
+                                    </div>-->
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <!--일시 table END-->
+
+                    <table class="reserve-table modal-table">
+                        <colgroup>
+                            <col style="width:20%">
+                            <col style="width:18%">
+                            <col style="width:25%">
+                            <col style="width:20%">
+                            <col style="width:40%">
+                        </colgroup>
+                        <tbody>
+                        <tr>
+                            <th>신청자 필수<br/>숙지사항</th>
+                            <td colspan="4">
+                                <div class="d-flex-wrap">
+                                    <ul class="agree-list w100pro">
+                                        <li class="defalut">
+                                            <p class="text">
+                                                프로그램 진행 시, 촬영한 사진은 '트래블인천'의 홍보목적으로 사용할 수 있습니다. 이에 동의하십니까?
+                                            </p>
+                                            <div class="radio-btn">
+                                                <input type="radio" id="agree-yes" value="예" name="ipagree" checked>
+                                                <label for="agree-yes" class="ma-r">예</label>
+
+                                                <input type="radio" id="agree-no" value="아니요" name="ipagree">
+                                                <label for="agree-no">아니요</label>
+                                            </div>
+                                        </li>
+                                        <li class="terms terms1">
+                                            <p class="text t1 termsText"></p>
+                                            <div class="radio-btn">
+                                                <input type="radio" id="agree-yes1" value="예" name="ipagree1" checked>
+                                                <label for="agree-yes1" class="ma-r">예</label>
+
+                                                <input type="radio" id="agree-no1" value="아니요" name="ipagree1">
+                                                <label for="agree-no1">아니요</label>
+                                            </div>
+                                        </li>
+                                        <li class="terms terms2">
+                                            <p class="text t2 termsText"></p>
+                                            <div class="radio-btn">
+                                                <input type="radio" id="agree-yes2" value="예" name="ipagree2" checked>
+                                                <label for="agree-yes2" class="ma-r">예</label>
+
+                                                <input type="radio" id="agree-no2" value="아니요" name="ipagree2">
+                                                <label for="agree-no2">아니요</label>
+                                            </div>
+                                        </li>
+                                        <li class="terms terms3">
+                                            <p class="text t3 termsText"></p>
+                                            <div class="radio-btn">
+                                                <input type="radio" id="agree-yes3" value="예" name="ipagree3" checked>
+                                                <label for="agree-yes3" class="ma-r">예</label>
+
+                                                <input type="radio" id="agree-no3" value="아니요" name="ipagree3">
+                                                <label for="agree-no3">아니요</label>
+                                            </div>
+                                        </li>
+                                        <li class="terms terms4">
+                                            <p class="text t4 termsText"></p>
+                                            <div class="radio-btn">
+                                                <input type="radio" id="agree-yes4" value="예" name="ipagree4" checked>
+                                                <label for="agree-yes4" class="ma-r">예</label>
+
+                                                <input type="radio" id="agree-no4" value="아니요" name="ipagree4">
+                                                <label for="agree-no4">아니요</label>
+                                            </div>
+                                        </li>
+                                        <li class="terms terms5">
+                                            <p class="text t5 termsText"></p>
+                                            <div class="radio-btn">
+                                                <input type="radio" id="agree-yes5" value="예" name="ipagree5" checked>
+                                                <label for="agree-yes5" class="ma-r">예</label>
+
+                                                <input type="radio" id="agree-no5" value="아니요" name="ipagree5">
+                                                <label for="agree-no5">아니요</label>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="trapplicant">
+                            <th>신청기관명<span class="red bold">*</span></th>
+                            <td  colspan="2">
+                                <div class="d-flex-wrap"><input type="text" placeholder="예) 인천초등학교" class="w100pro applicant"></div>
+                            </td>
+                            <th class="b-left">학년반</th>
+                            <td>
+                                <div class="d-flex-wrap"><input type="text" placeholder="예) 5-1" class="w100pro applicantDetail"></div>
+                            </td>
+                        </tr>
+                        <tr class="trapplicantDetail">
+                            <th>방문대상<span class="red bold">*</span></th>
+                            <td colspan="4">
+                                <div class="d-flex-wrap">
+                                    <div class="select-box w100pro">
+                                        <select class="w100pro check guestType">
+                                            <option>초등학생</option>
+                                            <option>중학생</option>
+                                            <option>고등학생</option>
+                                            <option>일반</option>
+                                            <option>공무원</option>
+                                            <option>외국인 (※ 통역대동 필수)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="trguestNumber">
+                            <th>방문인원수<span class="red bold">*</span></th>
+                            <td colspan="4">
+                                <div class="d-flex-wrap">
+                                    <input type="number" class="num-sel guestNumber" onkeyup="pTotal(); pTravelCost();">
+                                    <span class="num-text">명</span>
+                                    <!-- <p class="red warning-text">※ 견학인원은 20인이하입니다. (버스 1대당 20명 이하 탑승)</p> -->
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="program" rowspan="5">신청프로그램</th>
+                            <td rowspan="2" class="table-blue-bg">1차 코스</td>
+                            <td colspan="3">
+                                <div class="d-flex-wrap">
+                                    <div class="select-box w100pro">
+                                        <select class="w100pro firstCourse" onchange="changeFirstRead($('#insertp')); $('#currentDate').val(''); pRun(); toastModal('날짜를 다시 선택해주세요');"></select>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr id="secondInsert" class="firstInfo">
+                            <td colspan="3">
+                                <div class="d-flex-wrap">
+                                    <ul class="program-detail">
+                                        <li class="w100pro"><p class="title">소요시간</p><p class="text runningTime"></p></li>
+                                        <li class="w100pro"><p class="title">코<span class="gap">&nbsp;</span>스</p><p class="text courseDetail"></p></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="secondOne sec" num="0">
+                            <td rowspan="2" class="table-blue-bg">
+                                2차 코스
+                                <div class="add-btn-wrap">
+                                    <a class="add-btn cupoint plus"><i class="fa-solid fa-plus"></i></a>
+                                    <a class="remove-btn cupoint minus"><i class="fa-solid fa-minus"></i></a>
+                                </div>
+                            </td>
+                            <td colspan="3">
+                                <div class="d-flex-wrap">
+                                    <div class="select-box w100pro">
+                                        <select class="w100pro secondCourse" onchange="changeSecondRead($(this)); reservationCheck($('#insertp')); pTotal(); pRun();"></select>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="secondTwo sec2" num="0">
+                            <td colspan="3">
+                                <div class="d-flex-wrap">
+                                    <ul class="program-detail">
+                                        <li><p class="title">소요시간</p><p class="text sec-runningTime">-</p></li>
+                                        <li><p class="title">체험비용</p><p class="text sec-cost">-</p></li>
+                                        <li class="w100pro"><p class="title">코<span class="gap">&nbsp;</span>스</p><p class="text sec-course">-</p></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                <div class="d-flex-wrap">
+                                    <p class="all-time-title">전체 소요시간</p><p class="all-time-text"></p>
+                                    <p class="red warning-text">※ 이동시간은 제외입니다.</p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="trmanagerPhone">
+                            <th>담당자 연락처<span class="red bold">*</span></th>
+                            <td  colspan="4">
+                                <div class="d-flex-wrap">
+                                    <div class="select-box">
+                                        <select class="phone-sel check managerPhone1">
+                                            <option value="010" selected>010</option>
+                                            <option value="011" >011</option>
+                                        </select>
+                                    </div>
+                                    <span class="phone-text">-</span>
+                                    <input type="number" class="phone-sel managerPhone2" onkeyup="maxLengthCheck(this, 4);">
+                                    <span class="phone-text">-</span>
+                                    <input type="number" class="phone-sel managerPhone3" onkeyup="maxLengthCheck(this, 4);">
+                                    <p class="red warning-text">※ 예약 승인 문자를 핸드폰으로 보내드리오니 정확히 입력 부탁드립니다.</p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>이메일<span class="red bold">*</span></th>
+                            <td colspan="4">
+                                <div class="d-flex-wrap"><input type="text" class="w100pro email" placeholder="이메일 형식으로 입력해주세요. 예) test@naver.com"></div>
+                            </td>
+                        </tr>
+                        <tr class="trvehicle">
+                            <th>차량종류 및 수</th>
+                            <td  colspan="4">
+                                <div class="d-flex-wrap">
+                                    <div class="select-box">
+                                        <select class="car-sel check vehicleType" onchange="changeBusFee($('#insertp'));">
+                                            <option value="440000">버스(45인승)</option>
+                                            <option value="330000">버스(25인승)</option>
+                                        </select>
+                                    </div>
+                                    <input type="number" class="num-sel ma-left vehicleNumber" value="0" onkeyup="pBusCost();"/>
+                                    <span class="num-text">대</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="tretc">
+                            <th>기타</th>
+                            <td  colspan="4">
+                                <div class="d-flex-wrap">
+                                    <textarea class="etc" cols="30" rows="10"></textarea>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>선택비용</th>
+                            <td colspan="4">
+                                <div class="d-flex-wrap">
+                                    <input type="checkbox" id="pInsFee" class="plusFee cupoint" name="pFee" style="width: 17px" checked /><label for="pInsFee" class="cupoint" >여행자보험</label>
+                                    <input type="checkbox" id="pGuideFee" class="plusFee ma-l-20px cupoint" name="pFee" style="width: 17px" checked /><label for="pGuideFee" class="cupoint" >인솔자</label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>비밀번호<span class="red bold">*</span></th>
+                            <td colspan="4">
+                                <div class="d-flex-wrap">
+                                    <input type="password" class="w100pro password" placeholder="숫자 6자리 입력"  onkeyup="maxLengthCheck(this, 6);">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="5">
+                                <div class="ma-tb-10px">
+                                    <p class="bold ma-b-4px">2차코스 비용(1인) : <span class="f-right ma-l-4px">원</span><span class="f-right one f-17" onchange="pTotalCost();">0</span></p>
+                                    <hr/>
+                                    <p class="bold ma-b-4px">인솔자 비용 : <span class="f-right ma-l-4px">원</span><span class="f-right f-17 guideFee"></span></p>
+                                    <p class="bold ma-b-4px">여행자 보험비용(1인*<span class="insuranceFee"></span>원) : <span class="f-right ma-l-4px">원</span><span class="f-right f-17 travelCost" onchange="pTotalCost();">0</span></p>
+                                    <p class="bold ma-b-4px">차량비용(45인승 440,000원/25인승 330,000원<span class="busFare d-none"></span>) : <span class="f-right ma-l-4px">원</span><span class="f-right f-17 busCost" onchange="pTotalCost();">0</span></p>
+                                    <p class="bold ma-b-4px">2차코스 총 비용(방문자수*1인비용) : <span class="f-right ma-l-4px">원</span><span class="f-right tot f-17" onchange="pTotalCost();">0</span></p>
+                                    <hr/>
+                                    <p class="bold">총 합계 : <span class="f-right ma-l-4px">원</span><span class="f-right total f-17">0</span></p>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <!--신청내용 table END-->
+                </div><!--modal-text-wrap-->
+                <div class="modal-bottom">
+                    <a class="modal-btn close-btn cupoint">취소</a>
+                    <a class="modal-btn reserve-btn cupoint reservation-btn" onclick="inputNullChk($('#insertp'));">예약</a>
+                </div>
+            </div><!--modal-wrap-->
+            <div class="modal-bg-cover"></div>
+        </div>
+
+
+
+        <!--예약가능 모바일 modal-->
+        <div id="insertm" class="modal reserve-modal m-reserve-modal">
+            <div class="modal-wrap">
+                <div class="modal-title-wrap">
+                    <p class="title">예약신청</p>
+                    <i class="fa-solid fa-xmark close"></i>
+                </div>
+                <div class="modal-text-wrap">
+                    <table class="date-table modal-table">
+                        <colgroup>
+                            <col style="width:25%">
+                            <col style="width:75%">
+                        </colgroup>
+                        <tbody>
+                        <tr>
+                            <th>견학날짜</th>
+                            <td>
+                                <div class="d-flex-wrap">
+                                    <div class="datepicker-wrap">
+                                        <!--<input id="datepicker" type="text" autocomplete="off">-->
+                                        <input type="date" class="calender" id="currentDate2" onchange="reservationCheck($('#insertm'));">
+                                    </div>
+                                    <div class="select-box">
+                                        <select id="time2" class="time-sel" onchange="reservationCheck($('#insertm'));"></select>
+                                    </div>
+                                    <!--<span class="time-text">:</span>
+                                    <div class="select-box time-sel-box">
+                                        <select class="time-sel">
+                                            <option>00</option>
+                                            <option>30</option>
+                                        </select>
+                                    </div>-->
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>예약가능일</th>
+                            <td colspan="4">
+                                <div class="d-flex-wrap">
+                                    <span class="reservation-date"></span>
+                                    <!--<div class="datepicker-wrap">
+                                        &lt;!&ndash;<input id="datepicker" type="text" autocomplete="off">&ndash;&gt;
+                                        <input type="date" class="calender" id="currentDate" onchange="reservationCheck($('#pModal'));">
+                                    </div>
+                                    <div class="select-box">
+                                        <select id="time" class="time-sel" onchange="reservationCheck($('#pModal'));"></select>
+                                    </div>-->
+                                    <!--<span class="time-text">:</span>
+                                    <div class="select-box">
+                                        <select class="time-sel"></select>
+                                    </div>-->
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <!--일시 table END-->
+
+                    <table class="reserve-table modal-table">
+                        <colgroup>
+                            <col style="width:25%">
+                            <col style="width:75%">
+                        </colgroup>
+                        <tbody>
+                        <tr>
+                            <th>신청자 필수<br/>숙지사항</th>
+                            <td>
+                                <div class="d-flex-wrap">
+                                    <ul class="agree-list w100pro">
+                                        <li class="defalut">
+                                            <p class="text">
+                                                프로그램 진행 시, 촬영한 사진은 '트래블인천'의 홍보목적으로 사용할 수 있습니다. 이에 동의하십니까?
+                                            </p>
+                                            <div class="radio-btn">
+                                                <input type="radio" id="agree2-yes" value="예" name="imagree" checked>
+                                                <label for="agree2-yes" class="ma-r">예</label>
+
+                                                <input type="radio" id="agree2-no" value="아니요" name="imagree">
+                                                <label for="agree2-no">아니요</label>
+                                            </div>
+                                        </li>
+                                        <li class="terms terms1">
+                                            <p class="text t1 termsText"></p>
+                                            <div class="radio-btn">
+                                                <input type="radio" id="agree2-yes1" value="예" name="imagree1" checked>
+                                                <label for="agree2-yes1" class="ma-r">예</label>
+
+                                                <input type="radio" id="agree2-no1" value="아니요" name="imagree1">
+                                                <label for="agree2-no1">아니요</label>
+                                            </div>
+                                        </li>
+                                        <li class="terms terms2">
+                                            <p class="text t2 termsText"></p>
+                                            <div class="radio-btn">
+                                                <input type="radio" id="agree2-yes2" value="예" name="imagree2" checked>
+                                                <label for="agree2-yes2" class="ma-r">예</label>
+
+                                                <input type="radio" id="agree2-no2" value="아니요" name="imagree2">
+                                                <label for="agree2-no2">아니요</label>
+                                            </div>
+                                        </li>
+                                        <li class="terms terms3">
+                                            <p class="text t3 termsText"></p>
+                                            <div class="radio-btn">
+                                                <input type="radio" id="agree2-yes3" value="예" name="imagree3" checked>
+                                                <label for="agree2-yes3" class="ma-r">예</label>
+
+                                                <input type="radio" id="agree2-no3" value="아니요" name="imagree3">
+                                                <label for="agree2-no3">아니요</label>
+                                            </div>
+                                        </li>
+                                        <li class="terms terms4">
+                                            <p class="text t4 termsText"></p>
+                                            <div class="radio-btn">
+                                                <input type="radio" id="agree2-yes4" value="예" name="imagree4" checked>
+                                                <label for="agree2-yes4" class="ma-r">예</label>
+
+                                                <input type="radio" id="agree2-no4" value="아니요" name="imagree4">
+                                                <label for="agree2-no4">아니요</label>
+                                            </div>
+                                        </li>
+                                        <li class="terms terms5">
+                                            <p class="text t5 termsText"></p>
+                                            <div class="radio-btn">
+                                                <input type="radio" id="agree2-yes5" value="예" name="imagree5" checked>
+                                                <label for="agree2-yes5" class="ma-r">예</label>
+
+                                                <input type="radio" id="agree2-no5" value="아니요" name="imagree5">
+                                                <label for="agree2-no5">아니요</label>
+                                            </div>
+                                        </li>
+                                        <!--<li>
+                                            <p class="text">
+                                                현장투어 차량은 교육신청자 측 차량(버스/승합차)를 이용하여 진행합니다. 이에 동의하십니까?
+                                            </p>
+                                            <div class="radio-btn">
+                                                <input type="radio" id="yes3" value="agree-yes3" name="agree3">
+                                                <label for="yes3" class="ma-r">예</label>
+
+                                                <input type="radio" id="no3" value="agree-no3" name="agree3">
+                                                <label for="no3">아니요</label>
+
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <p class="text">
+                                                현장투어 차량은 교육신청자 측 차량(버스/승합차)를 이용하여 진행합니다. 이에 동의하십니까?
+                                            </p>
+                                            <div class="radio-btn">
+                                                <input type="radio" id="yes4" value="agree-yes4" name="agree4">
+                                                <label for="yes4" class="ma-r">예</label>
+
+                                                <input type="radio" id="no4" value="agree-no4" name="agree4">
+                                                <label for="no4">아니요</label>
+                                            </div>
+                                        </li>-->
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="trapplicant">
+                            <th>신청기관명<span class="red bold">*</span></th>
+                            <td>
+                                <div class="d-flex-wrap"><input type="text" placeholder="예) 인천초등학교" class="w100pro applicant"></div>
+                            </td>
+                        </tr>
+                        <tr class="trapplicantDetail">
+                            <th>방문대상</th>
+                            <td>
+                                <div class="d-flex-wrap"><input type="text" placeholder="예) 5-1" class="w100pro applicantDetail"></div>
+                            </td>
+                        </tr>
+                        <tr class="trguestNumber">
+                            <th>방문대상<span class="red bold">*</span></th>
+                            <td>
+                                <div class="d-flex-wrap">
+                                    <div class="select-box w100pro">
+                                        <select class="w100pro check guestType">
+                                            <option>초등학생</option>
+                                            <option>중학생</option>
+                                            <option>고등학생</option>
+                                            <option>일반</option>
+                                            <option>공무원</option>
+                                            <option>외국인 (※ 통역대동 필수)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>방문인원수<span class="red bold">*</span></th>
+                            <td>
+                                <div class="d-flex-wrap">
+                                    <input type="number" class="num-sel guestNumber" onkeyup="mTotal(); mTravelCost();">
+                                    <span class="num-text">명</span>
+                                    <!-- <p class="red warning-text">※ 견학인원은 20인이하입니다. (버스 1대당 20명 이하 탑승)</p> -->
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="program" rowspan="8">신청프로그램</th>
+                            <td class="table-blue-bg">1차 코스</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="d-flex-wrap">
+                                    <div class="select-box w100pro">
+                                        <select class="w100pro firstCourse" onchange="mRun(); changeFirstRead($('#insertm')); $('#currentDate2').val(''); toastModal('날짜를 다시 선택해주세요');"></select>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr id="secondInsert2" class="secondInfo">
+                            <td>
+                                <div class="d-flex-wrap">
+                                    <ul class="program-detail">
+                                        <li class="w100pro"><p class="title">소요시간</p><p class="text runningTime"></p></li>
+                                        <li class="w100pro"><p class="title">코<span class="gap">&nbsp;</span>스</p><p class="text courseDetail"></p></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="sec secondOne" num="0">
+                            <td class="table-blue-bg table-d-flex">2차 코스
+                                <div class="add-btn-wrap">
+                                    <a class="add-btn cupoint plus"><i class="fa-solid fa-plus"></i></a>
+                                    <a class="remove-btn cupoint minus"><i class="fa-solid fa-minus"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="sec2 secondTwo" num="0">
+                            <td>
+                                <div class="d-flex-wrap">
+                                    <div class="select-box w100pro">
+                                        <select class="w100pro secondCourse" onchange="mRun(); changeSecondRead($(this)); reservationCheck($('#insertm')); mTotal();"></select>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="sec3 secondThree" num="0">
+                            <td>
+                                <div class="d-flex-wrap">
+                                    <ul class="program-detail">
+                                        <li><p class="title">소요시간</p><p class="text sec-runningTime">-</p></li>
+                                        <li><p class="title">체험비용</p><p class="text sec-cost">-</p></li>
+                                        <li class="w100pro"><p class="title">코<span class="gap">&nbsp;</span>스</p><p class="text sec-course">-</p></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="table-blue-bg">전체 소요시간</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="d-flex-wrap confirm-text jc-center all-time-text"></div>
+                            </td>
+                        </tr>
+                        <tr class="trmanagerPhone">
+                            <th>담당자 연락처<span class="red bold">*</span></th>
+                            <td>
+                                <div class="d-flex-wrap phone-td-wrap">
+                                    <div class="select-box">
+                                        <select class="phone-sel check managerPhone1">
+                                            <option value="010" selected>010</option>
+                                            <option value="011" >011</option>
+                                        </select>
+                                    </div>
+                                    <span class="phone-text">-</span>
+                                    <input type="number" class="phone-sel managerPhone2" onkeyup="maxLengthCheck(this, 4);">
+                                    <span class="phone-text">-</span>
+                                    <input type="number" class="phone-sel managerPhone3" onkeyup="maxLengthCheck(this, 4);">
+                                    <p class="red warning-text">※ 예약 승인 문자를 핸드폰으로 보내드리오니 정확히 입력 부탁드립니다.</p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>이메일<span class="red bold">*</span></th>
+                            <td colspan="4">
+                                <div class="d-flex-wrap"><input type="text" class="w100pro email" placeholder="이메일 형식으로 입력해주세요. 예) test@naver.com"></div>
+                            </td>
+                        </tr>
+                        <tr class="trvehicle">
+                            <th>차량종류 및 수</th>
+                            <td>
+                                <div class="d-flex-wrap">
+                                    <div class="select-box car-sel-box">
+                                        <select class="car-sel check vehicleType" onchange="changeBusFee($('#insertm'));">
+                                            <option value="440000">버스(45인승)</option>
+                                            <option value="330000">버스(25인승)</option>
+                                        </select>
+                                    </div>
+                                    <input type="text" class="car-text vehicleNumber" value="0" onkeyup="mBusCost();">
+                                    <span class="num-text">대</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="tretc">
+                            <th>기타</th>
+                            <td  colspan="4">
+                                <div class="d-flex-wrap">
+                                    <textarea class="etc" cols="30" rows="10"></textarea>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>선택비용</th>
+                            <td colspan="4">
+                                <div class="d-flex-wrap">
+                                    <input type="checkbox" id="mInsFee" class="plusFee cupoint" name="mFee" checked /><label for="mInsFee" class="cupoint" >여행자보험</label>
+                                    <input type="checkbox" id="mGuideFee" class="plusFee ma-l-20px cupoint" name="mFee" checked /><label for="mGuideFee" class="cupoint" >인솔자</label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>비밀번호<span class="red bold">*</span></th>
+                            <td  colspan="4">
+                                <div class="d-flex-wrap">
+                                    <input type="password" class="w100pro password" placeholder="숫자 6자리 입력"  onkeyup="maxLengthCheck(this, 6);">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="5">
+                                <div class="ma-tb-10px">
+                                    <p class="bold ma-b-4px">2차코스 비용(1인) : <span class="f-right ma-l-4px">원</span><span class="f-right one f-17" onchange="mTotalCost();">0</span></p>
+                                    <hr/>
+                                    <p class="bold ma-b-4px">인솔자 비용 : <span class="f-right ma-l-4px">원</span><span class="f-right f-17 guideFee"></span></p>
+                                    <p class="bold ma-b-4px">여행자 보험비용(1인*<span class="insuranceFee"></span>원) : <span class="f-right ma-l-4px">원</span><span class="f-right f-17 travelCost" onchange="mTotalCost();">0</span></p>
+                                    <p class="bold ma-b-4px">차량비용(45인승 440,000원/25인승 330,000원<span class="busFare d-none"></span>) : <span class="f-right ma-l-4px">원</span><span class="f-right f-17 busCost" onchange="mTotalCost();">0</span></p>
+                                    <p class="bold ma-b-4px">2차코스 총 비용(방문자수*1인비용) : <span class="f-right ma-l-4px">원</span><span class="f-right tot f-17" onchange="mTotalCost();">0</span></p>
+                                    <hr/>
+                                    <p class="bold">총 합계 : <span class="f-right ma-l-4px">원</span><span class="f-right total f-17">0</span></p>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <!--신청내용 table END-->
+                </div><!--modal-text-wrap-->
+                <div class="modal-bottom">
+                    <a class="modal-btn close-btn cupoint">취소</a>
+                    <a class="modal-btn reserve-btn reservation-btn cupoint" onclick="inputNullChk($('#insertm'));">예약</a>
+                </div>
+            </div><!--modal-wrap-->
+            <div class="modal-bg-cover"></div>
+        </div>
+
+
+
+        <!--예약확정 확인 modal-->
+        <div id="confirm-modal" class="modal confirm-modal">
+            <div class="modal-wrap">
+                <div class="modal-title-wrap">
+                    <p class="title">예약신청 확인</p>
+                    <i class="fa-solid fa-xmark close"></i>
+                </div>
+                <div class="modal-text-wrap">
+                    <table class="date-table modal-table">
+                        <colgroup>
+                            <col style="width:20%">
+                            <col style="width:80%">
+                        </colgroup>
+                        <tbody>
+                        <tr>
+                            <th>견학날짜</th>
+                            <td>
+                                <div class="confirm-text reservationDate"></div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <!--일시 table END-->
+
+                    <table class="reserve-table modal-table">
+                        <colgroup>
+                            <col style="width:20%">
+                            <col style="width:80%">
+                        </colgroup>
+                        <tbody>
+                        <tr>
+                            <th>신청기관명</th>
+                            <td>
+                                <div class="confirm-text"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>비밀번호</th>
+                            <td>
+                                <div class="d-flex-wrap">
+                                    <input type="password" class="w100pro confirm-pass" placeholder="숫자 6자리 입력" onkeyup="maxLengthCheck(this, 6);">
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <!--신청내용 table END-->
+                </div><!--modal-text-wrap-->
+                <div class="modal-bottom">
+                    <a class="modal-btn cancle-btn cupoint" style="background: #2969b0; margin-right: 20px;">예약취소</a>
+                    <a class="modal-btn reserve-btn confirm-btn cupoint">예약확인</a>
+                </div>
+            </div><!--modal-wrap-->
+            <div class="modal-bg-cover"></div>
+        </div>
+
+
+
+        <!--예약수정 modal-->
+        <div id="pModal" class="modal info-modal pc-info-modal">
+            <div class="modal-wrap">
+                <div class="modal-title-wrap">
+                    <p class="title">예약신청 정보</p>
+                    <i class="fa-solid fa-xmark close"></i>
+                </div>
+                <div class="modal-text-wrap">
+                    <table class="date-table modal-table">
+                        <colgroup>
+                            <col style="width:20%">
+                            <col style="width:15%">
+                            <col style="width:25%">
+                            <col style="width:20%">
+                            <col style="width:40%">
+                        </colgroup>
+                        <tbody>
+                        <tr>
+                            <th>견학날짜</th>
+                            <td colspan="4">
+                                <div class="d-flex-wrap">
+                                    <div class="datepicker-wrap">
+                                        <!--<input id="datepicker" type="text" autocomplete="off">-->
+                                        <input type="date" class="calender reservationDate" id="currentDate3" readonly>
+                                    </div>
+                                    <div class="">
+                                        <input type="text" class="reservationTime" readonly/>
+                                        <!--<select class="time-sel">
+                                            <option>10</option>
+                                            <option>14</option>
+                                        </select>-->
+                                    </div>
+                                    <!--<span class="time-text">:</span>
+                                    <div class="select-box">
+                                        <select class="time-sel">
+                                            <option>00</option>
+                                            <option>30</option>
+                                        </select>
+                                    </div>-->
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <!--일시 table END-->
+
+                    <table class="reserve-table modal-table">
+                        <colgroup>
+                            <col style="width:20%">
+                            <col style="width:15%">
+                            <col style="width:25%">
+                            <col style="width:20%">
+                            <col style="width:40%">
+                        </colgroup>
+                        <tbody>
+                        <tr>
+                            <th>신청자 필수 숙지사항</th>
+                            <td colspan="4">
+                                <div class="d-flex-wrap">
+                                    <ul class="agree-list w100pro">
+                                        <li class="defalut">
+                                            <p class="text">
+                                                프로그램 진행 시, 촬영한 사진은 '트래블인천'의 홍보목적으로 사용할 수 있습니다. 이에 동의하십니까?
+                                            </p>
+                                            <div class="radio-btn">
+                                                <input type="radio" value="예" name="pagree" disabled>
+                                                <label for="agree-yes" class="ma-r">예</label>
+
+                                                <input type="radio" value="아니요" name="pagree" disabled>
+                                                <label for="agree-no">아니요</label>
+                                            </div>
+                                        </li>
+                                        <li class="terms terms1">
+                                            <p class="text t1 termsText"></p>
+                                            <div class="radio-btn">
+                                                <input type="radio" value="예" name="pagree1" disabled>
+                                                <label for="agree-yes1" class="ma-r">예</label>
+
+                                                <input type="radio" value="아니요" name="pagree1" disabled>
+                                                <label for="agree-no1">아니요</label>
+                                            </div>
+                                        </li>
+                                        <li class="terms terms2">
+                                            <p class="text t2 termsText"></p>
+                                            <div class="radio-btn">
+                                                <input type="radio" value="예" name="pagree2" disabled>
+                                                <label for="agree-yes2" class="ma-r">예</label>
+
+                                                <input type="radio" value="아니요" name="pagree2" disabled>
+                                                <label for="agree-no2">아니요</label>
+                                            </div>
+                                        </li>
+                                        <li class="terms terms3">
+                                            <p class="text t3 termsText"></p>
+                                            <div class="radio-btn">
+                                                <input type="radio" value="예" name="pagree3" disabled>
+                                                <label for="agree-yes3" class="ma-r">예</label>
+
+                                                <input type="radio" value="아니요" name="pagree3" disabled>
+                                                <label for="agree-no3">아니요</label>
+                                            </div>
+                                        </li>
+                                        <li class="terms terms4">
+                                            <p class="text t4 termsText"></p>
+                                            <div class="radio-btn">
+                                                <input type="radio" value="예" name="pagree4" disabled>
+                                                <label for="agree-yes4" class="ma-r">예</label>
+
+                                                <input type="radio" value="아니요" name="pagree4" disabled>
+                                                <label for="agree-no4">아니요</label>
+                                            </div>
+                                        </li>
+                                        <li class="terms terms5">
+                                            <p class="text t5 termsText"></p>
+                                            <div class="radio-btn">
+                                                <input type="radio" value="예" name="pagree5" disabled>
+                                                <label for="agree-yes5" class="ma-r">예</label>
+
+                                                <input type="radio" value="아니요" name="pagree5" disabled>
+                                                <label for="agree-no5">아니요</label>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>신청기관명<span class="red bold">*</span></th>
+                            <td  colspan="2">
+                                <div class="d-flex-wrap"><input type="text" value="" class="w100pro applicant" readonly></div>
+                            </td>
+                            <th class="b-left">학년반</th>
+                            <td  colspan="2">
+                                <div class="d-flex-wrap"><input type="text" value="" class="w100pro applicantDetail" readonly></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>방문대상<span class="red bold">*</span></th>
+                            <td  colspan="4">
+                                <div class="d-flex-wrap">
+                                    <div class=" w100pro">
+                                        <input type="text" class="w100pro guestType" readonly/>
+                                        <!--<select class="w100pro guestType">
+                                            <option value="초등학생">초등학생</option>
+                                            <option value="중학생">중학생</option>
+                                            <option value="일반">일반</option>
+                                            <option value="공무원">공무원</option>
+                                            <option value="외국인 (※ 통역대동 필수)">외국인 (※ 통역대동 필수)</option>
+                                        </select>-->
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>방문인원수<span class="red bold">*</span></th>
+                            <td  colspan="4">
+                                <div class="d-flex-wrap">
+                                    <input type="text" class="num-sel guestNumber" value="20">
+                                    <span class="num-text">명</span>
+                                    <!-- <p class="red  warning-text">※ 견학인원은 20인이하입니다. (버스 1대당 20명 이하 탑승)</p> -->
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th rowspan="5" class="program">신청프로그램</th>
+                            <td rowspan="2" class="table-blue-bg">1차 코스</td>
+                            <td colspan="3">
+                                <div class="d-flex-wrap">
+                                    <div class=" w100pro">
+                                        <input type="text" class="w100pro firstCourseTitle" readonly>
+                                       <!-- <select class="w100pro">
+                                            <option>수도권매립지관리공사 A코스</option>
+                                            <option>수도권매립지관리공사 B코스</option>
+                                            <option>수도권매립지관리공사 C코스</option>
+                                        </select>-->
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr id="psecondInsert">
+                            <td colspan="3">
+                                <div class="d-flex-wrap">
+                                    <ul class="program-detail">
+                                        <li class="w100pro"><p class="title">소요시간</p><p class="text runningTime"> </p></li>
+                                        <li class="w100pro"><p class="title">코<span class="gap">&nbsp;</span>스</p><p class="text courseDetail"></p></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="secondOne sec" num="0">
+                            <td rowspan="2" class="table-blue-bg">
+                                2차 코스
+                                <div class="add-btn-wrap">
+<!--                                    <a href="#" class="remove-btn"><i class="fa-solid fa-minus"></i></a>-->
+                                </div>
+                            </td>
+                            <td colspan="3">
+                                <div class="d-flex-wrap">
+                                    <div class="w100pro">
+                                        <input type="text" class="w100pro secondCourseTitle" readonly/>
+                                        <!--<select class="w100pro">
+                                            <option value="1" selected>국립생물자원관</option>
+                                            <option value="2">인천어린이과학관</option>
+                                            <option value="3">인천국제공항</option>
+                                        </select>-->
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="secondTwo sec2" num="0">
+                            <td colspan="3">
+                                <div class="d-flex-wrap">
+                                    <ul class="program-detail">
+                                        <li><p class="title">소요시간</p><p class="text runningTime"></p></li>
+                                        <li><p class="title">체험비용</p><p class="text cost">무료</p></li>
+                                        <li class="w100pro"><p class="title">코<span class="gap">&nbsp;</span>스</p><p class="text course"></p></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr><!--
+                        <tr>
+                            <td rowspan="2" class="table-blue-bg">
+                                2차 코스
+                                <div class="add-btn-wrap">
+                                    <a href="#" class="add-btn"><i class="fa-solid fa-plus"></i></a>
+                                    <a href="#" class="remove-btn"><i class="fa-solid fa-minus"></i></a>
+                                </div>
+                            </td>
+                            <td colspan="3">
+                                <div class="d-flex-wrap">
+                                    <div class="select-box w100pro">
+                                        <select class="w100pro">
+                                            <option>국립생물자원관</option>
+                                            <option>인천어린이과학관</option>
+                                            <option>인천국제공항</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <div class="d-flex-wrap">
+                                    <ul class="program-detail">
+                                        <li><p class="title">소요시간</p><p class="text">2시간 40분</p></li>
+                                        <li><p class="title">체험비용</p><p class="text">무료</p></li>
+                                        <li class="w100pro"><p class="title">코<span class="gap">&nbsp;</span>스</p><p class="text">학교 - 1차 견학코스 - 이동 - 국립자원관 - 학교</p></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>-->
+                        <tr>
+                            <td colspan="4">
+                                <div class="d-flex-wrap">
+                                    <p class="all-time-title">전체 소요시간</p><p class="all-time-text">6시간 40분 소요</p>
+                                    <p class="red warning-text">※ 이동시간은 제외입니다.</p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>담당자 연락처<span class="red bold">*</span></th>
+                            <td  colspan="4">
+                                <div class="d-flex-wrap">
+                                    <div class="">
+                                        <input type="text" class="w100pro managerPhone" readonly/>
+<!--                                        <select class="phone-sel">-->
+<!--                                            <option value="1" selected>010</option>-->
+<!--                                            <option value="2">011</option>-->
+<!--                                        </select>-->
+                                    </div><!--
+                                    <span class="phone-text">-</span>
+                                    <input type="text" class="phone-sel" value="1234">
+                                    <span class="phone-text">-</span>
+                                    <input type="text" class="phone-sel" value="1234">
+                                    <p class="red warning-text">※ 예약 승인 문자를 핸드폰으로 보내드리오니 정확히 입력 부탁드립니다.</p>-->
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>차량종류 및 수</th>
+                            <td  colspan="4">
+                                <div class="d-flex-wrap">
+                                    <div class="">
+                                        <input type="text" class="num-sel vehicleType" style="width: 110px !important;" readonly>
+                                        <!--<select class="car-sel">
+                                            <option value="1">버스</option>
+                                            <option value="2" selected>승합차</option>
+                                        </select>-->
+                                    </div>
+                                    <input type="text" class="num-sel ma-left vehicleNumber" readonly>
+                                    <span class="num-text">대</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>기타</th>
+                            <td  colspan="4">
+                                <div class="d-flex-wrap">
+                                    <textarea class="etc" cols="30" rows="10" readonly disabled></textarea>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>선택비용</th>
+                            <td colspan="4">
+                                <div class="d-flex-wrap">
+                                    <input type="checkbox" class="plusFee cupoint" style="width: 17px" disabled />여행자보험
+                                    <input type="checkbox" class="plusFee ma-l-20px cupoint" style="width: 17px" disabled />인솔자
+                                </div>
+                            </td>
+                        </tr>
+                        <!--
+                        <tr>
+                            <th>비밀번호<span class="red bold">*</span></th>
+                            <td  colspan="4">
+                                <div class="d-flex-wrap">
+                                    <input type="text" class="w100pro">
+                                </div>
+                            </td>
+                        </tr>-->
+                        <tr>
+                            <td colspan="5">
+                                <div class="ma-tb-10px">
+                                    <p class="bold ma-b-4px">2차코스 비용(1인) : <span class="f-right ma-l-4px">원</span><span class="f-right one f-17" onchange="pTotalCost();">0</span></p>
+                                    <hr/>
+                                    <p class="bold ma-b-4px">인솔자 비용 : <span class="f-right ma-l-4px">원</span><span class="f-right f-17 guideFee"></span></p>
+                                    <p class="bold ma-b-4px">여행자 보험비용(1인*<span class="insuranceFee"></span>원) : <span class="f-right ma-l-4px">원</span><span class="f-right f-17 travelCost" onchange="pTotalCost();">0</span></p>
+                                    <p class="bold ma-b-4px">차량비용(1대 기준/<span class="busFare"></span>원) : <span class="f-right ma-l-4px">원</span><span class="f-right f-17 busCost" onchange="pTotalCost();">0</span></p>
+                                    <p class="bold ma-b-4px">2차코스 총 비용(방문자수*1인비용) : <span class="f-right ma-l-4px">원</span><span class="f-right tot f-17" onchange="pTotalCost();">0</span></p>
+                                    <hr/>
+                                    <p class="bold">총 합계 : <span class="f-right ma-l-4px">원</span><span class="f-right total f-17">0</span></p>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <!--신청내용 table END-->
+                </div><!--modal-text-wrap-->
+                <div class="modal-bottom">
+                    <a class="modal-btn close-btn cupoint">닫기</a>
+<!--                    <a href="/reserve" class="modal-btn reserve-btn">예약수정</a>-->
+                </div>
+            </div><!--modal-wrap-->
+            <div class="modal-bg-cover"></div>
+        </div>
+
+
+
+        <!--예약가능 모바일 modal-->
+        <div id="mModal" class="modal info-modal m-info-modal">
+            <div class="modal-wrap">
+                <div class="modal-title-wrap">
+                    <p class="title">예약신청 정보</p>
+                    <i class="fa-solid fa-xmark close"></i>
+                </div>
+                <div class="modal-text-wrap">
+                    <table class="date-table modal-table">
+                        <colgroup>
+                            <col style="width:20%">
+                            <col style="width:15%">
+                            <col style="width:25%">
+                            <col style="width:20%">
+                            <col style="width:40%">
+                        </colgroup>
+                        <tbody>
+                        <tr>
+                            <th>견학날짜</th>
+                            <td colspan="4">
+                                <div class="d-flex-wrap">
+                                    <div class="datepicker-wrap">
+                                        <!--<input id="datepicker" type="text" autocomplete="off">-->
+                                        <input type="date" class="calender reservationDate" id="currentDate4" readonly>
+                                    </div>
+                                    <div class="">
+                                        <input type="text" class="reservationTime" readonly/>
+                                        <!--<select class="time-sel">
+                                            <option>10</option>
+                                            <option>14</option>
+                                        </select>-->
+                                    </div>
+                                    <!--<span class="time-text">:</span>
+                                    <div class="select-box">
+                                        <select class="time-sel">
+                                            <option>00</option>
+                                            <option>30</option>
+                                        </select>
+                                    </div>-->
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <!--일시 table END-->
+
+                    <table class="reserve-table modal-table">
+                        <colgroup>
+                            <col style="width:20%">
+                            <col style="width:15%">
+                            <col style="width:25%">
+                            <col style="width:20%">
+                            <col style="width:40%">
+                        </colgroup>
+                        <tbody>
+                        <tr>
+                            <th>신청자 필수 숙지사항</th>
+                            <td colspan="4">
+                                <div class="d-flex-wrap">
+                                    <ul class="agree-list w100pro">
+                                        <li class="defalut">
+                                            <p class="text">
+                                                프로그램 진행 시, 촬영한 사진은 '트래블인천'의 홍보목적으로 사용할 수 있습니다. 이에 동의하십니까?
+                                            </p>
+                                            <div class="radio-btn">
+                                                <input type="radio" value="예" name="magree" disabled>
+                                                <label for="agree-yes" class="ma-r">예</label>
+
+                                                <input type="radio" value="아니요" name="magree" disabled>
+                                                <label for="agree-no">아니요</label>
+                                            </div>
+                                        </li>
+                                        <li class="terms terms1">
+                                            <p class="text t1 termsText"></p>
+                                            <div class="radio-btn">
+                                                <input type="radio" value="예" name="magree1" disabled>
+                                                <label for="agree-yes1" class="ma-r">예</label>
+
+                                                <input type="radio" value="아니요" name="magree1" disabled>
+                                                <label for="agree-no1">아니요</label>
+                                            </div>
+                                        </li>
+                                        <li class="terms terms2">
+                                            <p class="text t2 termsText"></p>
+                                            <div class="radio-btn">
+                                                <input type="radio" value="예" name="magree2" disabled>
+                                                <label for="agree-yes2" class="ma-r">예</label>
+
+                                                <input type="radio" value="아니요" name="magree2" disabled>
+                                                <label for="agree-no2">아니요</label>
+                                            </div>
+                                        </li>
+                                        <li class="terms terms3">
+                                            <p class="text t3 termsText"></p>
+                                            <div class="radio-btn">
+                                                <input type="radio" value="예" name="magree3"  disabled>
+                                                <label for="agree-yes3" class="ma-r">예</label>
+
+                                                <input type="radio" value="아니요" name="magree3" disabled>
+                                                <label for="agree-no3">아니요</label>
+                                            </div>
+                                        </li>
+                                        <li class="terms terms4">
+                                            <p class="text t4 termsText"></p>
+                                            <div class="radio-btn">
+                                                <input type="radio" value="예" name="magree4" disabled>
+                                                <label for="agree-yes4" class="ma-r">예</label>
+
+                                                <input type="radio" value="아니요" name="magree4" disabled>
+                                                <label for="agree-no4">아니요</label>
+                                            </div>
+                                        </li>
+                                        <li class="terms terms5">
+                                            <p class="text t5 termsText"></p>
+                                            <div class="radio-btn">
+                                                <input type="radio" value="예" name="magree5" disabled>
+                                                <label for="agree-yes5" class="ma-r">예</label>
+
+                                                <input type="radio" value="아니요" name="magree5" disabled>
+                                                <label for="agree-no5">아니요</label>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>신청기관명<span class="red bold">*</span></th>
+                            <td  colspan="2">
+                                <div class="d-flex-wrap"><input type="text" value="" class="w100pro applicant" readonly></div>
+                            </td>
+                            <th class="b-left">학년반</th>
+                            <td  colspan="2">
+                                <div class="d-flex-wrap"><input type="text" value="" class="w100pro applicantDetail" readonly></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>방문대상<span class="red bold">*</span></th>
+                            <td  colspan="4">
+                                <div class="d-flex-wrap">
+                                    <div class=" w100pro">
+                                        <input type="text" class="w100pro guestType" readonly/>
+                                        <!--<select class="w100pro guestType">
+                                            <option value="초등학생">초등학생</option>
+                                            <option value="중학생">중학생</option>
+                                            <option value="일반">일반</option>
+                                            <option value="공무원">공무원</option>
+                                            <option value="외국인 (※ 통역대동 필수)">외국인 (※ 통역대동 필수)</option>
+                                        </select>-->
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>방문인원수<span class="red bold">*</span></th>
+                            <td  colspan="4">
+                                <div class="d-flex-wrap">
+                                    <input type="text" class="num-sel guestNumber" value="20">
+                                    <span class="num-text">명</span>
+                                    <!-- <p class="red  warning-text">※ 견학인원은 20인이하입니다. (버스 1대당 20명 이하 탑승)</p> -->
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th rowspan="5" class="program">신청프로그램</th>
+                            <td rowspan="2" class="table-blue-bg">1차 코스</td>
+                            <td colspan="3">
+                                <div class="d-flex-wrap">
+                                    <div class=" w100pro">
+                                        <input type="text" class="w100pro firstCourseTitle" readonly>
+                                        <!-- <select class="w100pro">
+                                             <option>수도권매립지관리공사 A코스</option>
+                                             <option>수도권매립지관리공사 B코스</option>
+                                             <option>수도권매립지관리공사 C코스</option>
+                                         </select>-->
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr id="msecondInsert">
+                            <td colspan="3">
+                                <div class="d-flex-wrap">
+                                    <ul class="program-detail">
+                                        <li class="w100pro"><p class="title">소요시간</p><p class="text runningTime"> </p></li>
+                                        <li class="w100pro"><p class="title">코<span class="gap">&nbsp;</span>스</p><p class="text courseDetail"></p></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="secondOne sec" num="0">
+                            <td rowspan="2" class="table-blue-bg">
+                                2차 코스
+                                <div class="add-btn-wrap">
+                                    <!--                                    <a href="#" class="remove-btn"><i class="fa-solid fa-minus"></i></a>-->
+                                </div>
+                            </td>
+                            <td colspan="3">
+                                <div class="d-flex-wrap">
+                                    <div class="w100pro">
+                                        <input type="text" class="w100pro secondCourseTitle" readonly/>
+                                        <!--<select class="w100pro">
+                                            <option value="1" selected>국립생물자원관</option>
+                                            <option value="2">인천어린이과학관</option>
+                                            <option value="3">인천국제공항</option>
+                                        </select>-->
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="secondTwo sec2" num="0">
+                            <td colspan="3">
+                                <div class="d-flex-wrap">
+                                    <ul class="program-detail">
+                                        <li><p class="title">소요시간</p><p class="text runningTime"></p></li>
+                                        <li><p class="title">체험비용</p><p class="text cost">무료</p></li>
+                                        <li class="w100pro"><p class="title">코<span class="gap">&nbsp;</span>스</p><p class="text course"></p></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr><!--
+                        <tr>
+                            <td rowspan="2" class="table-blue-bg">
+                                2차 코스
+                                <div class="add-btn-wrap">
+                                    <a href="#" class="add-btn"><i class="fa-solid fa-plus"></i></a>
+                                    <a href="#" class="remove-btn"><i class="fa-solid fa-minus"></i></a>
+                                </div>
+                            </td>
+                            <td colspan="3">
+                                <div class="d-flex-wrap">
+                                    <div class="select-box w100pro">
+                                        <select class="w100pro">
+                                            <option>국립생물자원관</option>
+                                            <option>인천어린이과학관</option>
+                                            <option>인천국제공항</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <div class="d-flex-wrap">
+                                    <ul class="program-detail">
+                                        <li><p class="title">소요시간</p><p class="text">2시간 40분</p></li>
+                                        <li><p class="title">체험비용</p><p class="text">무료</p></li>
+                                        <li class="w100pro"><p class="title">코<span class="gap">&nbsp;</span>스</p><p class="text">학교 - 1차 견학코스 - 이동 - 국립자원관 - 학교</p></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>-->
+                        <tr>
+                            <td colspan="4">
+                                <div class="d-flex-wrap">
+                                    <p class="all-time-title">전체 소요시간</p><p class="all-time-text">6시간 40분 소요</p>
+                                    <p class="red warning-text">※ 이동시간은 제외입니다.</p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>담당자 연락처<span class="red bold">*</span></th>
+                            <td  colspan="4">
+                                <div class="d-flex-wrap">
+                                    <div class="">
+                                        <input type="text" class="w100pro managerPhone" readonly/>
+                                        <!--                                        <select class="phone-sel">-->
+                                        <!--                                            <option value="1" selected>010</option>-->
+                                        <!--                                            <option value="2">011</option>-->
+                                        <!--                                        </select>-->
+                                    </div><!--
+                                    <span class="phone-text">-</span>
+                                    <input type="text" class="phone-sel" value="1234">
+                                    <span class="phone-text">-</span>
+                                    <input type="text" class="phone-sel" value="1234">
+                                    <p class="red warning-text">※ 예약 승인 문자를 핸드폰으로 보내드리오니 정확히 입력 부탁드립니다.</p>-->
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>차량종류 및 수</th>
+                            <td  colspan="4">
+                                <div class="d-flex-wrap">
+                                    <div class="">
+                                        <input type="text" class="num-sel vehicleType" style="width: 100px !important;" readonly>
+                                        <!--<select class="car-sel">
+                                            <option value="1">버스</option>
+                                            <option value="2" selected>승합차</option>
+                                        </select>-->
+                                    </div>
+                                    <input type="text" class="num-sel ma-left vehicleNumber" readonly>
+                                    <span class="num-text">대</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>기타</th>
+                            <td  colspan="4">
+                                <div class="d-flex-wrap">
+                                    <textarea class="etc" cols="30" rows="10" readonly disabled></textarea>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>선택비용</th>
+                            <td colspan="4">
+                                <div class="d-flex-wrap">
+                                    <input type="checkbox" class="plusFee cupoint" disabled />여행자보험
+                                    <input type="checkbox" class="plusFee ma-l-20px cupoint" disabled />인솔자
+                                </div>
+                            </td>
+                        </tr>
+                        <!--
+                        <tr>
+                            <th>비밀번호<span class="red bold">*</span></th>
+                            <td  colspan="4">
+                                <div class="d-flex-wrap">
+                                    <input type="text" class="w100pro">
+                                </div>
+                            </td>
+                        </tr>-->
+                        <tr>
+                            <td colspan="5">
+                                <div class="ma-tb-10px">
+                                    <p class="bold ma-b-4px">2차코스 비용(1인) : <span class="f-right ma-l-4px">원</span><span class="f-right one f-17" onchange="mTotalCost();">0</span></p>
+                                    <hr/>
+                                    <p class="bold ma-b-4px">인솔자 비용 : <span class="f-right ma-l-4px">원</span><span class="f-right f-17 guideFee"></span></p>
+                                    <p class="bold ma-b-4px">여행자 보험비용(1인*<span class="insuranceFee"></span>원) : <span class="f-right ma-l-4px">원</span><span class="f-right f-17 travelCost" onchange="mTotalCost();">0</span></p>
+                                    <p class="bold ma-b-4px">차량비용(1대 기준/<span class="busFare"></span>원) : <span class="f-right ma-l-4px">원</span><span class="f-right f-17 busCost" onchange="mTotalCost();">0</span></p>
+                                    <p class="bold ma-b-4px">2차코스 총 비용(방문자수*1인비용) : <span class="f-right ma-l-4px">원</span><span class="f-right tot f-17" onchange="mTotalCost();">0</span></p>
+                                    <hr/>
+                                    <p class="bold">총 합계 : <span class="f-right ma-l-4px">원</span><span class="f-right total f-17">0</span></p>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <!--신청내용 table END-->
+                </div><!--modal-text-wrap-->
+                <div class="modal-bottom">
+                    <a class="modal-btn close-btn cupoint">닫기</a>
+                    <!--                    <a href="/reserve" class="modal-btn reserve-btn">예약수정</a>-->
+                </div>
+            </div><!--modal-wrap-->
+            <div class="modal-bg-cover"></div>
+        </div>
+
+        <!--modal END-->
+
+        <!--html END-->
+
+
+        <!--script START-->
+        <script>
+            let cost;
+
+            document.getElementById('currentDate').value = new Date().toISOString().substring(0, 10);
+            document.getElementById('currentDate2').value = new Date().toISOString().substring(0, 10);
+
+            $(document).ready(function() {
+                calendarInit();
+                cost=getAllCost();
+
+                $("#insertp .busFare").text(fcomma(440000));
+                $("#insertm .busFare").text(fcomma(440000));
+                $("#insertp .guideFee").text(fcomma(cost[1]));
+                $("#insertm .guideFee").text(fcomma(cost[1]));
+                $(".insuranceFee").text(fcomma(cost[2]));
+            });
+            /*
+                달력 렌더링 할 때 필요한 정보 목록
+
+
+
+                현재 월(초기값 : 현재 시간)
+                금월 마지막일 날짜와 요일
+                전월 마지막일 날짜와 요일
+            */
+
+            function calendarInit() {
+
+                // 날짜 정보 가져오기
+                let date = new Date(); // 현재 날짜(로컬 기준) 가져오기
+                let utc = date.getTime() + (date.getTimezoneOffset() * 60 * 1000); // uct 표준시 도출
+                let kstGap = 9 * 60 * 60 * 1000; // 한국 kst 기준시간 더하기
+                let today = new Date(utc + kstGap); // 한국 시간으로 date 객체 만들기(오늘)
+
+                let thisMonth = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+                // 달력에서 표기하는 날짜 객체
+
+                let currentYear = thisMonth.getFullYear(); // 달력에서 표기하는 연
+                let currentMonth = thisMonth.getMonth(); // 달력에서 표기하는 월
+                let currentDate = thisMonth.getDate(); // 달력에서 표기하는 일
+
+                // kst 기준 현재시간
+                // console.log(thisMonth);
+
+                let startDate = getStartDate(thisMonth);
+                let endDate = getEndDate(thisMonth);
+
+                let fullData = new Object();
+
+                getMonthly(startDate, endDate);
+
+                // 캘린더 렌더링
+                renderCalender(thisMonth);
+
+                function renderCalender(thisMonth) {
+
+                    // 렌더링을 위한 데이터 정리
+                    currentYear = thisMonth.getFullYear();
+                    currentMonth = thisMonth.getMonth();
+                    currentDate = thisMonth.getDate();
+
+                    // 이전 달의 마지막 날 날짜와 요일 구하기
+                    let startDay = new Date(currentYear, currentMonth, 0);
+                    let prevDate = startDay.getDate();
+                    let prevDay = startDay.getDay();
+
+                    // 이번 달의 마지막날 날짜와 요일 구하기
+                    let endDay = new Date(currentYear, currentMonth + 1, 0);
+                    let nextDate = endDay.getDate();
+                    let nextDay = endDay.getDay();
+
+                    // console.log(prevDate, prevDay, nextDate, nextDay);
+
+                    // 현재 월 표기
+                    $('.date-title').text(currentYear + '년 ' + (currentMonth + 1) + '월');
+
+                    // 렌더링 html 요소 생성
+                    calendar = document.querySelector('#dates')
+                    calendar.innerHTML = '';
+
+                    let iHtml = "";
+
+                    let ulCnt = 0;
+                    // 지난달
+                    iHtml = "<ul>";
+                    for (let i = prevDate - prevDay; i <= prevDate; i++) {
+                        if(ulCnt != 0 && ulCnt % 7 == 0) iHtml = iHtml + "</ul><ul>";
+                        iHtml = iHtml + '<li class><p class="day"></p></li>';
+
+                        ulCnt++;
+
+                        if(ulCnt == 7) iHtml = "<ul>";
+                    }
+
+                    let today = new Date();
+
+                    // 이번달
+                    for (let i = 1; i <= nextDate; i++) {
+
+                        let courseList = fullData[i-1].courseList;
+                        let date = fullData[i-1].calendarDate;
+                        //console.log(date);
+                        let tmp = "";
+
+                        let oldDay = new Date(date);
+
+                        courseList.forEach(function(arg){
+                            let reservation = arg.reservation;
+                            let time = arg.time.substring(0, 5);
+                            if(reservation!=null) {
+                                tmp += "<a class='schList-box sch-type3 sch3 cupoint' reservationSeq='"+ reservation.reservationSeq +"' calendarDate='"+ date +"' onclick='reservationRead($(this));'><span>" + time + "</span>&nbsp;"+ reservation.applicant +"</a>"; // 예약이 있을 경우
+                            }else {
+                                if(oldDay <= today) {
+                                    tmp += "<a class='schList-box sch-type1 sch1' disabled firstCourseSeq='"+ arg.firstCourseSeq +"' calendarDate='"+ date +"'><span>"+ time +"</span>&nbsp;예약불가</a>"; // 오늘 이전인 경우
+                                }else {
+                                    tmp += "<a class='schList-box sch-type2 sch2 cupoint' firstCourseSeq='"+ arg.firstCourseSeq +"' calendarDate='"+ date +"' onclick='getFirstRead($(this));'><span>"+ time +"</span>&nbsp;"+ arg.firstCourseTitle +"</a>"; // 에약이 가능한 경우
+                                }
+
+                            }
+                        });
+
+                        if(ulCnt%7 == 0) iHtml = iHtml + "</ul><ul>";
+                        iHtml = iHtml + '<li class="monthly" idx="'+i+'"><p class="day">' + i + '</p>' + tmp + '</li>'
+                        ulCnt++;
+                    }
+                    // 다음달
+                    for (let i = 1; i <= (7 - nextDay == 7 ? 0 : 7 - nextDay - 1); i++) {
+                        iHtml = iHtml + '<li class><p class="day"></p></li>'
+                        if(ulCnt%7 == 0) iHtml = iHtml + "</ul>";
+                    }
+
+                    calendar.innerHTML = iHtml;
+
+                    // 오늘 날짜 표기
+                    if (today.getMonth() == currentMonth) {
+                        todayDate = today.getDate();
+                        let currentMonthDate = document.querySelectorAll('#dates');
+                        //currentMonthDate[todayDate -1].classList.add('today');
+                    }
+                }
+
+                // 이전달로 이동
+                $('.go-prev').on('click', function() {
+                    thisMonth = new Date(currentYear, currentMonth - 1, 1);
+                    getMonthly(getStartDate(thisMonth), getEndDate(thisMonth));
+                    renderCalender(thisMonth);
+                });
+
+                // 다음달로 이동
+                $('.go-next').on('click', function() {
+                    thisMonth = new Date(currentYear, currentMonth + 1, 1);
+                    getMonthly(getStartDate(thisMonth), getEndDate(thisMonth));
+                    renderCalender(thisMonth);
+                });
+
+
+                // 월별 예약 리스트 가져오기
+                function getMonthly(startDate, endDate){
+                    $.ajax({
+                        type: "get",
+                        url:"/api/user/reservation/calendar",
+                        data: {
+                           "startDate":startDate,
+                           "endDate":endDate
+                        },
+                        async:false,
+                        success:function(data){
+                            // console.log(data);
+                            let a = data[18].courseList;
+                            // console.log(a);
+
+                            fullData = data;
+/*
+                            for(let i=0; i<data.length; i++){
+                                let courseList = data[i].courseList;
+
+                                $(".monthly").each(function(){
+                                    let tmp="";
+                                    let idx = $(this).attr("idx");
+                                    if(i+1 == idx) {
+                                        courseList.forEach(function(arg){
+                                            let reservation = arg.reservation;
+                                            let time = arg.time.substring(0, 5);
+                                            if(reservation!=null) {
+                                                tmp += "<a href='#' class='schList-box sch-type3' reservationSeq='"+ arg.reservationSeq +"'><span>" + time + "</span>&nbsp;"+ reservation.applicant +"</a>"; // 예약이 있을 경우
+                                            }else {
+                                                tmp += "<a href='#' class='schList-box sch-type2' firstCourseSeq='"+ arg.firstCourseSeq +"'><span>"+ time +"</span>&nbsp;"+ arg.firstCourseTitle +"</a>"; // 에약이 가능한 경우
+                                            }
+                                        });
+                                   }
+                                   $(this).append(tmp);
+                                });
+                            }
+
+                            */
+
+                        },
+                        error:function(){
+                            console.log("ajax error(Monthly)");
+                        }
+                    });
+                }
+            }
+
+            function getStartDate(thisMonth) {
+                let year = thisMonth.getFullYear()+"";
+                let month = (thisMonth.getMonth()+1)+"";
+
+                if(month.length==1){
+                    month="0"+month;
+                }
+                if(month=="13") {
+                    month="01";
+                }
+                return year+"-"+month+"-01";
+            }
+            function getEndDate(thisMonth) {
+                let year = thisMonth.getFullYear()+"";
+                let month = (thisMonth.getMonth()+2)+"";
+
+                if(month.length==1){
+                    month="0"+month;
+                }
+                if(month=="13") {
+                    year = thisMonth.getFullYear()+1 + "";
+                    month="01";
+                }
+                return year+"-"+month+"-01";
+            }
+
+            // 예약확정 클릭 -> 예약정보 확인
+            $("#confirm-modal").on("click", ".confirm-btn", function(){
+                let seq=$("#confirm-modal").attr("seq");
+                let pw=$(".confirm-pass").val();
+
+                if( pw == "" ) toastModal("비밀번호를 입력해주세요.");
+                else {
+                    $.ajax({
+                        type: "GET",
+                        url: "/api/user/reservation/detail",
+                        data: {
+                            "reservationSeq": seq,
+                            "password": pw
+                        },
+                        success: function (data) {
+                            console.log(data);
+                            let p=$("#pModal");
+                            let m=$("#mModal");
+
+                            if (data.result == "success") {
+                                $('.confirm-modal').css('display', 'none');
+
+                                if( data.applicant == false ) $(".trapplicant").addClass("d-none");
+                                else $(".trapplicant").removeClass("d-none");
+
+                                if( data.applicantDetail == false ) $(".trapplicantDetail").addClass("d-none");
+                                else $(".trapplicantDetail").removeClass("d-none");
+
+                                if( data.guestNumber == false ) $(".trguestNumber").addClass("d-none");
+                                else $(".trguestNumber").removeClass("d-none");
+
+                                if( data.managerPhone == false ) $(".trmanagerPhone").addClass("d-none");
+                                else $(".trmanagerPhone").removeClass("d-none");
+
+                                if( data.vehicle == false ) $(".trvehicle").addClass("d-none");
+                                else $(".trvehicle").removeClass("d-none");
+
+                                if (matchMedia("screen and (max-width: 768px)").matches) {
+                                    $('.m-info-modal').css('display', 'block');
+
+                                    m.find(".reservationDate").val(data.data.reservation.reservationDate.substring(0, 10));
+                                    m.find(".reservationTime").val(data.data.reservation.reservationDate.substring(11, 16));
+                                    m.find(".applicant").val(data.data.reservation.applicant);
+                                    m.find(".applicantDetail").val(data.data.reservation.applicantDetail);
+                                    m.find(".guestType").val(data.data.reservation.guestType);
+                                    m.find(".guestNumber").val(data.data.reservation.guestNumber);
+
+                                    m.find(".firstCourseTitle").val(data.data.firstCourse.firstCourseTitle+" "+data.data.firstCourse.courseType);
+                                    m.find(".runningTime").text(data.data.firstCourse.runningTime+"분");
+                                    m.find(".courseDetail").text(data.data.firstCourse.courseDetail);
+
+                                    m.find(".managerPhone").val(data.data.reservation.managerPhone);
+                                    m.find(".vehicleType").val(data.data.reservation.vehicleType);
+                                    m.find(".vehicleNumber").val(data.data.reservation.vehicleNumber);
+                                    m.find(".etc").val(data.data.reservation.etc);
+
+                                    if( data.data.firstCourse.requirement == 1 ) {
+                                        if (data.data.reservation.terms1 != null) {
+                                            if (data.data.reservation.terms1.question != "") {
+                                                m.find(".defalut").hide();
+                                                m.find(".t1").text(data.data.reservation.terms1.question);
+                                                m.find("input[name=magree1][value=" + data.data.reservation.terms1.answer + "]").prop("checked", true);
+                                            } else {
+                                                m.find(".terms1").hide();
+                                                m.find(".defalut").show();
+                                            }
+                                        } else m.find(".terms1").hide();
+
+                                        if (data.data.reservation.terms2 != null) {
+                                            if (data.data.reservation.terms2.question != "") {
+                                                m.find(".terms2").show();
+                                                m.find(".t2").text(data.data.reservation.terms2.question);
+                                                m.find("input[name=magree2][value=" + data.data.reservation.terms2.answer + "]").prop("checked", true);
+                                            } else m.find(".terms2").hide();
+                                        } else m.find(".terms2").hide();
+
+                                        if (data.data.reservation.terms3 != null) {
+                                            if (data.data.reservation.terms3.question != "") {
+                                                m.find(".terms3").show();
+                                                m.find(".t3").text(data.data.reservation.terms3.question);
+                                                m.find("input[name=magree3][value=" + data.data.reservation.terms3.answer + "]").prop("checked", true);
+                                            } else m.find(".terms3").hide();
+                                        } else m.find(".terms3").hide();
+
+                                        if (data.data.reservation.terms4 != null) {
+                                            if (data.data.reservation.terms4.question != "") {
+                                                m.find(".terms4").show();
+                                                m.find(".t4").text(data.data.reservation.terms4.question);
+                                                m.find("input[name=magree4][value=" + data.data.reservation.terms4.answer + "]").prop("checked", true);
+                                            } else m.find(".terms4").hide();
+                                        } else m.find(".terms4").hide();
+
+                                        if (data.data.reservation.terms5 != null) {
+                                            if (data.data.reservation.terms5.question != "") {
+                                                m.find(".terms5").show();
+                                                m.find(".t5").text(data.data.reservation.terms5.question);
+                                                m.find("input[name=magree5][value=" + data.data.reservation.terms5.answer + "]").prop("checked", true);
+                                            } else m.find(".terms5").hide();
+                                        } else m.find(".terms5").hide();
+                                    }else{
+                                        m.find(".terms").hide();
+                                        m.find(".default").show();
+                                        m.find("input[name=magree][value=" + data.data.reservation.terms1.answer + "]").prop("checked", true);
+                                    }
+
+                                    let plusCnt = $("#mModal .sec").length;
+                                    let mcost=0;
+                                    let mrun=0;
+
+                                    mrun+=parseInt(data.data.firstCourse.runningTime);
+
+                                    if( data.data.secondCourseList.length != 0 ) {
+                                        if( data.data.secondCourseList.length != plusCnt ){
+                                            for (let i=0; i<data.data.secondCourseList.length-1; i++) {
+                                                let second1Box = m.find(".sec[num=0]").html();
+                                                let second2Box = m.find(".sec2[num=0]").html();
+
+                                                let secondBox = "<tr class='sec secondOne" + plusCnt + "' num='" + plusCnt + "'>" + second1Box + "</tr><tr class='sec2 secondTwo" + plusCnt + "' num='" + plusCnt + "'>" + second2Box + "</tr>";
+
+                                                $("#mModal .program").attr("rowspan", (parseInt($("#mModal .program").attr("rowspan")) + 2));
+                                                $(secondBox).insertAfter("#msecondInsert");
+                                            }
+                                        }
+                                    }else if( data.data.secondCourseList.length == 0 || data.data.secondCourseList == null ){
+                                        $("#mModal .sec").hide();
+                                        $("#mModal .sec2").hide();
+                                        $("#mModal .program").attr("rowspan", 3);
+                                    }
+
+                                    for (let i=0; i<data.data.secondCourseList.length; i++) {
+                                        $("#mModal tr[num="+i+"]").find(".secondCourseTitle").val(data.data.secondCourseList[i].secondCourseTitle);
+                                        $("#mModal tr[num="+i+"]").find(".runningTime").text(data.data.secondCourseList[i].runningTime+"분");
+                                        $("#mModal tr[num="+i+"]").find(".cost").text(fcomma(data.data.secondCourseList[i].cost)+"원");
+                                        $("#mModal tr[num="+i+"]").find(".course").text(data.data.secondCourseList[i].course);
+                                        mcost += parseInt(data.data.secondCourseList[i].cost);
+                                    }
+
+                                    // 총 소요시간 구하기
+                                    if( data.data.secondCourseList.length != 0 ) {
+                                        $("#mModal .runningTime").each(function () {
+                                            if ($(this).text() != "") {
+                                                mrun += parseInt($(this).text());
+                                            }
+                                        });
+                                    }
+
+                                    let hour=fConvertHour(mrun);
+                                    let min=fConvertMin(mrun);
+                                    $("#mModal").find(".all-time-text").text(hour+"시간 "+min+"분 소요");
+
+                                    // 총 비용 구하기
+                                    let guestNumber=data.data.reservation.guestNumber;
+
+                                    if( guestNumber != "" ) {
+                                        $("#reservation-modal .sec2 .cost").each(function () {
+                                            mcost += parseInt($(this).attr("cost"));
+                                        });
+
+                                        let tot=parseInt(mcost * parseInt(guestNumber));
+
+                                        $("#mModal").find(".one").text(fcomma(mcost));
+
+                                        if(isNaN(tot)) $("#mModal").find(".tot").text(0);
+                                        else $("#mModal").find(".tot").text(fcomma(tot));
+                                    }
+
+                                    let traveltot=parseInt(guestNumber)*parseInt(data.data.reservation.insuranceFee) //cost[2];
+                                    if(isNaN(traveltot)) $("#mModal").find(".travelCost").text(0);
+                                    else $("#mModal").find(".travelCost").text(fcomma(traveltot));
+
+                                    let vehicleNumber=$("#mModal").find(".vehicleNumber").val();
+                                    let bustot=parseInt(vehicleNumber)*parseInt(data.data.reservation.busFare) //cost[0];
+                                    if(isNaN(bustot)) $("#mModal").find(".busCost").text(0);
+                                    else $("#mModal").find(".busCost").text(fcomma(bustot));
+
+                                    $("#mModal").find(".busFare").text(fcomma(data.data.reservation.busFare));
+                                    $("#mModal").find(".guideFee").text(fcomma(data.data.reservation.guideFee));
+                                    let total = data.data.reservation.guideFee//cost[1];
+
+                                    total +=parseInt(uncomma($("#mModal").find(".travelCost").text()));
+                                    total +=parseInt(uncomma($("#mModal").find(".busCost").text()));
+                                    total +=parseInt(uncomma($("#mModal").find(".tot").text()));
+
+                                    $("#mModal").find(".total").text(fcomma(total));
+
+                                    if( data.data.reservation.insuranceFee == 0 ) m.find(".plusFee").first().prop("checked", false);
+                                    else m.find(".plusFee").first().prop("checked", true);
+
+                                    if( data.data.reservation.guideFee == 0 ) m.find(".plusFee").last().prop("checked", false);
+                                    else m.find(".plusFee").last().prop("checked", true);
+                                } else {
+                                    $('.pc-info-modal').css('display', 'block');
+
+                                    p.find(".reservationDate").val(data.data.reservation.reservationDate.substring(0, 10));
+                                    p.find(".reservationTime").val(data.data.reservation.reservationDate.substring(11, 16));
+                                    p.find(".applicant").val(data.data.reservation.applicant);
+                                    p.find(".applicantDetail").val(data.data.reservation.applicantDetail);
+                                    p.find(".guestType").val(data.data.reservation.guestType);
+                                    p.find(".guestNumber").val(data.data.reservation.guestNumber);
+
+                                    p.find(".firstCourseTitle").val(data.data.firstCourse.firstCourseTitle+" "+data.data.firstCourse.courseType);
+                                    p.find(".runningTime").text(data.data.firstCourse.runningTime+"분");
+                                    p.find(".courseDetail").text(data.data.firstCourse.courseDetail);
+
+                                    p.find(".managerPhone").val(data.data.reservation.managerPhone);
+                                    p.find(".vehicleType").val(data.data.reservation.vehicleType);
+                                    p.find(".vehicleNumber").val(data.data.reservation.vehicleNumber);
+                                    p.find(".etc").val(data.data.reservation.etc);
+
+                                    if( data.data.firstCourse.requirement == 1 ) {
+                                        if (data.data.reservation.terms1 != null) {
+                                            if (data.data.reservation.terms1.question != "") {
+                                                p.find(".defalut").hide();
+                                                p.find(".t1").text(data.data.reservation.terms1.question);
+                                                p.find("input[name=pagree1][value=" + data.data.reservation.terms1.answer + "]").prop("checked", true);
+                                            } else {
+                                                p.find(".terms1").hide();
+                                                p.find(".defalut").show();
+                                            }
+                                        } else p.find(".terms1").hide();
+
+                                        if (data.data.reservation.terms2 != null) {
+                                            if (data.data.reservation.terms2.question != "") {
+                                                p.find(".terms2").show();
+                                                p.find(".t2").text(data.data.reservation.terms2.question);
+                                                p.find("input[name=pagree2][value=" + data.data.reservation.terms2.answer + "]").prop("checked", true);
+                                            } else p.find(".terms2").hide();
+                                        } else p.find(".terms2").hide();
+
+                                        if (data.data.reservation.terms3 != null) {
+                                            if (data.data.reservation.terms3.question != "") {
+                                                p.find(".terms3").show();
+                                                p.find(".t3").text(data.data.reservation.terms3.question);
+                                                p.find("input[name=pagree3][value=" + data.data.reservation.terms3.answer + "]").prop("checked", true);
+                                            } else p.find(".terms3").hide();
+                                        } else p.find(".terms3").hide();
+
+                                        if (data.data.reservation.terms4 != null) {
+                                            if (data.data.reservation.terms4.question != "") {
+                                                p.find(".terms4").show();
+                                                p.find(".t4").text(data.data.reservation.terms4.question);
+                                                p.find("input[name=pagree4][value=" + data.data.reservation.terms4.answer + "]").prop("checked", true);
+                                            } else p.find(".terms4").hide();
+                                        } else p.find(".terms4").hide();
+
+                                        if (data.data.reservation.terms5 != null) {
+                                            if (data.data.reservation.terms5.question != "") {
+                                                p.find(".terms5").show();
+                                                p.find(".t5").text(data.data.reservation.terms5.question);
+                                                p.find("input[name=pagree5][value=" + data.data.reservation.terms5.answer + "]").prop("checked", true);
+                                            } else p.find(".terms5").hide();
+                                        } else p.find(".terms5").hide();
+                                    }else{
+                                        p.find(".terms").hide();
+                                        p.find(".default").show();
+                                        p.find("input[name=pagree][value=" + data.data.reservation.terms1.answer + "]").prop("checked", true);
+                                    }
+
+                                    let plusCnt = $("#pModal .sec").length;
+                                    let pcost=0;
+                                    let prun=0;
+
+                                    prun+=parseInt(data.data.firstCourse.runningTime);
+
+                                    if( data.data.secondCourseList.length != 0 ) {
+                                        if( data.data.secondCourseList.length != plusCnt ){
+                                            for (let i=0; i<data.data.secondCourseList.length-1; i++) {
+                                                let second1Box = p.find(".sec[num=0]").html();
+                                                let second2Box = p.find(".sec2[num=0]").html();
+
+                                                let secondBox = "<tr class='sec secondOne" + plusCnt + "' num='" + plusCnt + "'>" + second1Box + "</tr><tr class='sec2 secondTwo" + plusCnt + "' num='" + plusCnt + "'>" + second2Box + "</tr>";
+
+                                                $("#pModal .program").attr("rowspan", (parseInt($("#pModal .program").attr("rowspan")) + 2));
+                                                $(secondBox).insertAfter("#psecondInsert");
+                                            }
+                                        }
+                                    }else if( data.data.secondCourseList.length == 0 || data.data.secondCourseList == null ){
+                                        $("#pModal .sec").hide();
+                                        $("#pModal .sec2").hide();
+                                        $("#pModal .program").attr("rowspan", 3);
+                                    }
+
+                                    for (let i=0; i<data.data.secondCourseList.length; i++) {
+                                        $("#pModal tr[num="+i+"]").find(".secondCourseTitle").val(data.data.secondCourseList[i].secondCourseTitle);
+                                        $("#pModal tr[num="+i+"]").find(".runningTime").text(data.data.secondCourseList[i].runningTime+"분");
+                                        $("#pModal tr[num="+i+"]").find(".cost").text(fcomma(data.data.secondCourseList[i].cost)+"원");
+                                        $("#pModal tr[num="+i+"]").find(".course").text(data.data.secondCourseList[i].course);
+                                        pcost += parseInt(data.data.secondCourseList[i].cost);
+                                    }
+
+                                    // 총 소요시간 구하기
+                                    if( data.data.secondCourseList.length != 0 ) {
+                                        $("#pModal .sec2").find(".runningTime").each(function () {
+                                            if ($(this).text() != "") {
+                                                prun += parseInt($(this).text());
+                                                // console.log($(this));
+                                                // console.log(prun);
+                                            }
+                                        });
+                                    }
+
+                                    let hour=fConvertHour(prun);
+                                    let min=fConvertMin(prun);
+                                    $("#pModal").find(".all-time-text").text(hour+"시간 "+min+"분 소요");
+
+                                    // 총 비용 구하기
+                                    let guestNumber=data.data.reservation.guestNumber;
+
+                                    if( guestNumber != "" ) {
+                                        $("#reservation-modal .sec2 .cost").each(function () {
+                                            pcost += parseInt($(this).attr("cost"));
+                                        });
+
+                                        let tot=parseInt(pcost * parseInt(guestNumber));
+
+                                        $("#pModal").find(".one").text(fcomma(pcost));
+
+                                        if(isNaN(tot)) $("#pModal").find(".tot").text(0);
+                                        else $("#pModal").find(".tot").text(fcomma(tot));
+                                    }
+
+                                    let traveltot=parseInt(guestNumber)*parseInt(data.data.reservation.insuranceFee);//cost[2];
+                                    if(isNaN(traveltot)) $("#pModal").find(".travelCost").text(0);
+                                    else $("#pModal").find(".travelCost").text(fcomma(traveltot));
+
+                                    let vehicleNumber=$("#pModal").find(".vehicleNumber").val();
+                                    let bustot=parseInt(vehicleNumber)*parseInt(data.data.reservation.busFare) //cost[0];
+                                    if(isNaN(bustot)) $("#pModal").find(".busCost").text(0);
+                                    else $("#pModal").find(".busCost").text(fcomma(bustot));
+
+                                    $("#pModal").find(".busFare").text(fcomma(data.data.reservation.busFare));
+                                    $("#pModal").find(".guideFee").text(fcomma(data.data.reservation.guideFee));
+                                    let total = data.data.reservation.guideFee;//cost[1];
+
+                                    total +=parseInt(uncomma($("#pModal").find(".travelCost").text()));
+                                    total +=parseInt(uncomma($("#pModal").find(".busCost").text()));
+                                    total +=parseInt(uncomma($("#pModal").find(".tot").text()));
+
+                                    $("#pModal").find(".total").text(fcomma(total));
+
+                                    if( data.data.reservation.insuranceFee == 0 ) p.find(".plusFee").first().prop("checked", false);
+                                    else p.find(".plusFee").first().prop("checked", true);
+
+                                    if( data.data.reservation.guideFee == 0 ) p.find(".plusFee").last().prop("checked", false);
+                                    else p.find(".plusFee").last().prop("checked", true);
+                                }
+                                $(".confirm-pass").val("");
+                            } else {
+                                toastModal(data.message);
+                            }
+                        }
+                    });
+                }
+            });
+
+            // 예약확정 클릭 -> 예약취소
+            $("#confirm-modal").on("click", ".cancle-btn", function() {
+                let seq=$("#confirm-modal").attr("seq");
+                let pw = $(".confirm-pass").val();
+
+                if (pw == "") toastModal("비밀번호를 입력해주세요.");
+                else {
+                    $.ajax({
+                        type: "GET",
+                        url: "/api/user/reservation/detail",
+                        data: {
+                            "reservationSeq": seq,
+                            "password": pw
+                        },
+                        success: function (data) {
+                            if( data.result == "success" ){
+                                if( !confirm("해당 예약 정보를 취소합니다.") ) return;
+                                else {
+                                    $.ajax({
+                                        type: "POST",
+                                        url: "/api/user/reservation/cancel",
+                                        data: {
+                                            "reservationSeq": seq,
+                                            "password": pw
+                                        },
+                                        success: function (data) {
+                                            if (data == "1") {
+                                                toastModal("예약취소가 완료되었습니다.");
+                                                setTimeout(() => location.reload(), 1000);
+                                            }else if(data =="2") {
+                                                toastModal("예약확정 이후에는 삭제가 불가합니다.");
+                                                $(".confirm-pass").val("");
+                                            }
+                                        }
+                                    });
+                                }
+                            }else{
+                                toastModal("비밀번호가 일치하지 않습니다.");
+                            }
+                        }
+                    });
+                }
+            });
+
+            function reservationRead(div){
+                let seq=div.attr("reservationSeq");
+
+                $.ajax({
+                    type: "GET",
+                    url: "/api/user/reservation/detail",
+                    data: {
+                        "reservationSeq": seq,
+                        "password": "0"
+                    },
+                    success: function (data) {
+                        // console.log(data);
+                        $("#confirm-modal .confirm-text").text(data.applicant);
+                        $("#confirm-modal .reservationDate").text(data.reservationDate.substring(0, 16));
+                    }
+                });
+            }
+
+            let termsCheck;
+
+            function getFirstRead(div){
+                let firstCourseSeq=div.attr("firstCourseSeq");
+                let date=div.attr("calendardate");
+
+                $("#currentDate").val(date);
+                $("#currentDate2").val(date);
+                // if (matchMedia("screen and (max-width: 768px)").matches) reservationCheck($("#mModal"));
+                // else reservationCheck($("#pModal"));
+
+                $.ajax({
+                    type: "GET",
+                    url: "/api/user/course/first/detail",
+                    data: { "firstCourseSeq": firstCourseSeq },
+                    success: function(data){
+                        // console.log(data);
+                        let timeTag="";
+                        data.reservationTime.forEach(function(result){
+                            timeTag += "<option value='"+result+"'>"+result.substring(0, 5)+"</option>";
+                        });
+
+                        if( data.applicant == false ) $(".trapplicant").addClass("d-none");
+                        else $(".trapplicant").removeClass("d-none");
+
+                        if( data.applicantDetail == false ) $(".trapplicantDetail").addClass("d-none");
+                        else $(".trapplicantDetail").removeClass("d-none");
+
+                        if( data.guestNumber == false ) $(".trguestNumber").addClass("d-none");
+                        else $(".trguestNumber").removeClass("d-none");
+
+                        if( data.managerPhone == false ) $(".trmanagerPhone").addClass("d-none");
+                        else $(".trmanagerPhone").removeClass("d-none");
+
+                        if( data.vehicle == false ) $(".trvehicle").addClass("d-none");
+                        else $(".trvehicle").removeClass("d-none");
+
+                        if (matchMedia("screen and (max-width: 768px)").matches) { // 모바일모달
+                            let cnt=0;
+                            $("#time2").html(timeTag);
+
+                            $("#insertm .runningTime").text(data.runningTime+"분");
+                            $("#insertm .courseDetail").text(data.courseDetail);
+
+                            let dateTag=" <span>";
+
+                            $("#insertm .reservation-date").text(data.startDate+" ~ "+data.endDate);
+                            data.reservationDay.forEach(function(data){
+                                if( data=="mon" ) data="월";
+                                if( data=="tue" ) data="화";
+                                if( data=="wed" ) data="수";
+                                if( data=="thu" ) data="목";
+                                if( data=="fri" ) data="금";
+
+                                dateTag+=data+", ";
+                            });
+                            dateTag+="</span>";
+                            $("#insertm .reservation-date").append(dateTag);
+
+                            if( data.requirement == 0 ){
+                                $("#insertm .defalut").removeClass("hide"); $("#insertm .terms").addClass("hide");
+                                termsCheck=false;
+                            }else{
+                                if( cnt < 5 ) cnt=0;
+                                $("#insertm .defalut").addClass("hide");
+
+                                if( data.terms1 != "" ){
+                                    $("#insertm .terms1").removeClass("hide"); $("#insertm .t1").text(data.terms1); //$("#pModal .defalut").addClass("hide");
+                                }else{
+                                    $("#insertm .terms1").addClass("hide"); $("#insertm .defalut").removeClass("hide");
+                                }
+                                if( data.terms2 != "" ){
+                                    $("#insertm .terms2").removeClass("hide"); $("#insertm .t2").text(data.terms2); //$("#pModal .defalut").addClass("hide");
+                                }else{
+                                    $("#insertm .terms2").addClass("hide"); //$("#pModal .defalut").removeClass("hide");
+                                }
+                                if( data.terms3 != "" ){
+                                    $("#insertm .terms3").removeClass("hide"); $("#insertm .t3").text(data.terms3); //$("#pModal .defalut").addClass("hide");
+                                }else{
+                                    $("#insertm .terms3").addClass("hide"); //$("#pModal .defalut").removeClass("hide");
+                                }
+                                if( data.terms4 != "" ){
+                                    $("#insertm .terms4").removeClass("hide"); $("#insertm .t4").text(data.terms4); //$("#pModal .defalut").addClass("hide");
+                                }else{
+                                    $("#insertm .terms4").addClass("hide"); //$("#pModal .defalut").removeClass("hide");
+                                }
+                                if( data.terms5 != "" ){
+                                    $("#insertm .terms5").removeClass("hide"); $("#insertm .t5").text(data.terms5); //$("#pModal .defalut").addClass("hide");
+                                }else{
+                                    $("#insertm .terms5").addClass("hide"); //$("#pModal .defalut").removeClass("hide");
+                                }
+                                termsCheck=true;
+
+                                $("#insertm .termsText").each(function(){
+                                    if( $(this).text() == "" ){
+                                        $(this).parent().addClass("hide");
+                                        cnt++;
+
+                                        if( cnt == 5 ){
+                                            $("#insertm .defalut").removeClass("hide");
+                                            termsCheck=false;
+                                        }
+                                    }
+                                });
+                            }
+
+                            getAllCourseList(firstCourseSeq) ;
+                        } else { // pc모달
+                            let cnt=0;
+                            $("#time").html(timeTag);
+
+                            $("#insertp .runningTime").text(data.runningTime+"분");
+                            $("#insertp .courseDetail").text(data.courseDetail);
+
+                            let dateTag=" <span>";
+
+                            $("#insertp .reservation-date").text(data.startDate+" ~ "+data.endDate);
+                            data.reservationDay.forEach(function(data){
+                                if( data=="mon" ) data="월";
+                                if( data=="tue" ) data="화";
+                                if( data=="wed" ) data="수";
+                                if( data=="thu" ) data="목";
+                                if( data=="fri" ) data="금";
+
+                                dateTag+=data+", ";
+                            });
+                            dateTag+="</span>";
+                            $("#insertp .reservation-date").append(dateTag);
+
+                            if( data.requirement == 0 ){
+                                $("#insertp .defalut").removeClass("hide"); $("#insertp .terms").addClass("hide");
+                                termsCheck=false;
+                            }else{
+                                if( cnt < 5 ) cnt=0;
+                                $("#insertp .defalut").addClass("hide");
+
+                                if( data.terms1 != "" ){
+                                    $("#insertp .terms1").removeClass("hide"); $("#insertp .t1").text(data.terms1); //$("#pModal .defalut").addClass("hide");
+                                }else{
+                                    $("#insertp .terms1").addClass("hide"); $("#insertp .defalut").removeClass("hide");
+                                }
+                                if( data.terms2 != "" ){
+                                    $("#insertp .terms2").removeClass("hide"); $("#insertp .t2").text(data.terms2); //$("#pModal .defalut").addClass("hide");
+                                }else{
+                                    $("#insertp .terms2").addClass("hide"); //$("#pModal .defalut").removeClass("hide");
+                                }
+                                if( data.terms3 != "" ){
+                                    $("#insertp .terms3").removeClass("hide"); $("#insertp .t3").text(data.terms3); //$("#pModal .defalut").addClass("hide");
+                                }else{
+                                    $("#insertp .terms3").addClass("hide"); //$("#pModal .defalut").removeClass("hide");
+                                }
+                                if( data.terms4 != "" ){
+                                    $("#insertp .terms4").removeClass("hide"); $("#insertp .t4").text(data.terms4); //$("#pModal .defalut").addClass("hide");
+                                }else{
+                                    $("#insertp .terms4").addClass("hide"); //$("#pModal .defalut").removeClass("hide");
+                                }
+                                if( data.terms5 != "" ){
+                                    $("#insertp .terms5").removeClass("hide"); $("#insertp .t5").text(data.terms5); //$("#pModal .defalut").addClass("hide");
+                                }else{
+                                    $("#insertp .terms5").addClass("hide"); //$("#pModal .defalut").removeClass("hide");
+                                }
+                                termsCheck=true;
+
+                                $("#insertp .termsText").each(function(){
+                                    if( $(this).text() == "" ){
+                                        $(this).parent().addClass("hide");
+                                        cnt++;
+
+                                        if( cnt == 5 ){
+                                            $("#insertp .defalut").removeClass("hide");
+                                            //$("#pModal .terms").addClass("hide");
+                                            termsCheck=false;
+                                        }
+                                    }
+                                });
+                            }
+                            getAllCourseList(firstCourseSeq) ;
+                        }
+                    }
+                });
+            }
+
+            // 모달 내, 1차코스 selet박스 변경 시 정보 세팅(pc, mobile)
+            function changeFirstRead(type){
+                let firstCourseSeq=type.find(".firstCourse option:selected").attr("seq");
+
+                $.ajax({
+                    type: "GET",
+                    url: "/api/user/course/first/detail",
+                    data: { "firstCourseSeq": firstCourseSeq },
+                    success: function(data){
+                        // console.log(data);
+
+                        let timeTag="";
+                        data.reservationTime.forEach(function(result){
+                            timeTag += "<option value='"+result+"'>"+result.substring(0, 5)+"</option>";
+                        });
+
+                        if( data.applicant == false ) $(".trapplicant").addClass("d-none");
+                        else $(".trapplicant").removeClass("d-none");
+
+                        if( data.applicantDetail == false ) $(".trapplicantDetail").addClass("d-none");
+                        else $(".trapplicantDetail").removeClass("d-none");
+
+                        if( data.guestNumber == false ) $(".trguestNumber").addClass("d-none");
+                        else $(".trguestNumber").removeClass("d-none");
+
+                        if( data.managerPhone == false ) $(".trmanagerPhone").addClass("d-none");
+                        else $(".trmanagerPhone").removeClass("d-none");
+
+                        if( data.vehicle == false ) $(".trvehicle").addClass("d-none");
+                        else $(".trvehicle").removeClass("d-none");
+
+                        if (matchMedia("screen and (max-width: 768px)").matches) { // 모바일모달
+                            let cnt=0;
+                            $("#time2").html(timeTag);
+
+                            $("#insertm .runningTime").text(data.runningTime+"분");
+                            $("#insertm .courseDetail").text(data.courseDetail);
+
+                            let dateTag=" <span>";
+
+                            $("#insertm .reservation-date").text(data.startDate+" ~ "+data.endDate);
+                            data.reservationDay.forEach(function(data){
+                                if( data=="mon" ) data="월";
+                                if( data=="tue" ) data="화";
+                                if( data=="wed" ) data="수";
+                                if( data=="thu" ) data="목";
+                                if( data=="fri" ) data="금";
+
+                                dateTag+=data+", ";
+                            });
+                            dateTag+="</span>";
+                            $("#insertm .reservation-date").append(dateTag);
+
+                            if( data.requirement == 0 ){
+                                $("#insertm .defalut").removeClass("hide"); $("#insertm .terms").addClass("hide");
+                                termsCheck=false;
+                            }else{
+                                if( cnt < 5 ) cnt=0;
+                                $("#insertm .defalut").addClass("hide");
+
+                                if( data.terms1 != "" ){
+                                    $("#insertm .terms1").removeClass("hide"); $("#insertm .t1").text(data.terms1); //$("#pModal .defalut").addClass("hide");
+                                }else{
+                                    $("#insertm .terms1").addClass("hide"); $("#insertm .defalut").removeClass("hide");
+                                }
+                                if( data.terms2 != "" ){
+                                    $("#insertm .terms2").removeClass("hide"); $("#insertm .t2").text(data.terms2); //$("#pModal .defalut").addClass("hide");
+                                }else{
+                                    $("#insertm .terms2").addClass("hide"); //$("#pModal .defalut").removeClass("hide");
+                                }
+                                if( data.terms3 != "" ){
+                                    $("#insertm .terms3").removeClass("hide"); $("#insertm .t3").text(data.terms3); //$("#pModal .defalut").addClass("hide");
+                                }else{
+                                    $("#insertm .terms3").addClass("hide"); //$("#pModal .defalut").removeClass("hide");
+                                }
+                                if( data.terms4 != "" ){
+                                    $("#insertm .terms4").removeClass("hide"); $("#insertm .t4").text(data.terms4); //$("#pModal .defalut").addClass("hide");
+                                }else{
+                                    $("#insertm .terms4").addClass("hide"); //$("#pModal .defalut").removeClass("hide");
+                                }
+                                if( data.terms5 != "" ){
+                                    $("#insertm .terms5").removeClass("hide"); $("#insertm .t5").text(data.terms5); //$("#pModal .defalut").addClass("hide");
+                                }else{
+                                    $("#insertm .terms5").addClass("hide"); //$("#pModal .defalut").removeClass("hide");
+                                }
+                                termsCheck=true;
+
+                                $("#insertm .termsText").each(function(){
+                                    if( $(this).text() == "" ){
+                                        $(this).parent().addClass("hide");
+                                        cnt++;
+
+                                        if( cnt == 5 ){
+                                            $("#insertm .defalut").removeClass("hide");
+                                            termsCheck=false;
+                                        }
+                                    }
+                                });
+                            }
+                        } else { // pc모달
+                            let cnt=0;
+                            $("#time").html(timeTag);
+
+                            $("#insertp .runningTime").text(data.runningTime+"분");
+                            $("#insertp .courseDetail").text(data.courseDetail);
+
+                            let dateTag=" <span>";
+
+                            $("#insertp .reservation-date").text(data.startDate+" ~ "+data.endDate);
+                            data.reservationDay.forEach(function(data){
+                                if( data=="mon" ) data="월";
+                                if( data=="tue" ) data="화";
+                                if( data=="wed" ) data="수";
+                                if( data=="thu" ) data="목";
+                                if( data=="fri" ) data="금";
+
+                                dateTag+=data+", ";
+                            });
+                            dateTag+="</span>";
+                            $("#insertp .reservation-date").append(dateTag);
+
+                            if( data.requirement == 0 ){
+                                $("#insertp .defalut").removeClass("hide"); $("#insertp .terms").addClass("hide");
+                                termsCheck=false;
+                            }else{
+                                if( cnt < 5 ) cnt=0;
+                                $("#insertp .defalut").addClass("hide");
+
+                                if( data.terms1 != "" ){
+                                    $("#insertp .terms1").removeClass("hide"); $("#insertp .t1").text(data.terms1); //$("#pModal .defalut").addClass("hide");
+                                }else{
+                                    $("#insertp .terms1").addClass("hide"); $("#insertp .defalut").removeClass("hide");
+                                }
+                                if( data.terms2 != "" ){
+                                    $("#insertp .terms2").removeClass("hide"); $("#insertp .t2").text(data.terms2); //$("#pModal .defalut").addClass("hide");
+                                }else{
+                                    $("#insertp .terms2").addClass("hide"); //$("#pModal .defalut").removeClass("hide");
+                                }
+                                if( data.terms3 != "" ){
+                                    $("#insertp .terms3").removeClass("hide"); $("#insertp .t3").text(data.terms3); //$("#pModal .defalut").addClass("hide");
+                                }else{
+                                    $("#insertp .terms3").addClass("hide"); //$("#pModal .defalut").removeClass("hide");
+                                }
+                                if( data.terms4 != "" ){
+                                    $("#insertp .terms4").removeClass("hide"); $("#insertp .t4").text(data.terms4); //$("#pModal .defalut").addClass("hide");
+                                }else{
+                                    $("#insertp .terms4").addClass("hide"); //$("#pModal .defalut").removeClass("hide");
+                                }
+                                if( data.terms5 != "" ){
+                                    $("#insertp .terms5").removeClass("hide"); $("#insertp .t5").text(data.terms5); //$("#pModal .defalut").addClass("hide");
+                                }else{
+                                    $("#insertp .terms5").addClass("hide"); //$("#pModal .defalut").removeClass("hide");
+                                }
+                                termsCheck=true;
+
+                                $("#insertp .termsText").each(function(){
+                                    if( $(this).text() == "" ){
+                                        $(this).parent().addClass("hide");
+                                        cnt++;
+
+                                        if( cnt == 5 ){
+                                            $("#insertp .defalut").removeClass("hide");
+                                            //$("#pModal .terms").addClass("hide");
+                                            termsCheck=false;
+                                        }
+                                    }
+                                });
+                            }
+                        }
+                    }
+                });
+            }
+
+            // 모달 내, 2차코스 select박스 변경 시 정보 세팅
+            function changeSecondRead(select){
+                let secondCourseSeq=select.val();
+                let num=select.parent().parent().parent().parent().attr("num");
+
+                if( secondCourseSeq == "" ){
+                    if (matchMedia("screen and (max-width: 768px)").matches) { // 모바일모달
+                        $("#insertm .sec3").each(function () {
+                            if ($(this).attr("num") == num) {
+                                $(this).find(".sec-runningTime").text("-");
+                                $(this).find(".sec-cost").text("-");
+                                $(this).find(".sec-course").text("-");
+                            }
+                        });
+                    }else {
+                        $("#insertp .sec2").each(function () {
+                            if ($(this).attr("num") == num) {
+                                $(this).find(".sec-runningTime").text("-");
+                                $(this).find(".sec-cost").text("-");
+                                $(this).find(".sec-course").text("-");
+                            }
+                        });
+                    }
+                }else {
+                    $.ajax({
+                        type: "GET",
+                        url: "/api/user/course/second/detail",
+                        data: {"secondCourseSeq": secondCourseSeq},
+                        success: function (data) {
+                            // console.log(data);
+
+                            if (matchMedia("screen and (max-width: 768px)").matches) { // 모바일모달
+                                $("#insertm .sec3").each(function () {
+                                    if ($(this).attr("num") == num) {
+                                        $(this).find(".sec-runningTime").text(data.runningTime+"분");
+                                        $(this).find(".sec-cost").text(fcomma(data.cost)+"원");
+                                        $(this).find(".sec-course").text(data.course);
+                                    }
+                                });
+                            }else {
+                                $("#insertp .sec2").each(function () {
+                                    if ($(this).attr("num") == num) {
+                                        $(this).find(".sec-runningTime").text(data.runningTime+"분");
+                                        $(this).find(".sec-cost").text(fcomma(data.cost)+"원");
+                                        $(this).find(".sec-course").text(data.course);
+                                    }
+                                });
+                            }
+                        }
+                    });
+                }
+            }
+
+            // 전체코스리스트 불러오기
+            function getAllCourseList(firstCourseSeq) {
+                let searchDate = $("#currentDate").val() + " 00:00:00";
+                let searchDay = new Date($("#currentDate").val()).getDay();
+                let day ="";
+
+                if(searchDay == 1) {
+                    day = "mon";
+                }else if (searchDay == 2) {
+                    day = "tue";
+                }else if (searchDay == 3) {
+                    day = "wed";
+                }else if (searchDay == 4) {
+                    day = "thu";
+                }else if (searchDay == 5) {
+                    day = "fri";
+                }
+
+                $.ajax({
+                    type: "GET",
+                    url: "/api/user/course/list",
+                    data: {
+                        // "searchDate": searchDate,
+                        // "reservationDay": day
+                    },
+                    success: function (data) {
+                        // console.log(data);
+                        let first = data.firstCourseList;
+                        let second = data.secondCoursesList;
+
+                        let fTag="";
+                        let sTag="<option value='' selected>선택안함</option>";
+
+                        first.forEach(function(data){
+                            fTag += "<option run='"+data.runningTime+"' seq='"+data.firstCourseSeq+"'>"+data.firstCourseTitle+" - "+data.courseType+"</option>";
+
+                            if (matchMedia("screen and (max-width: 768px)").matches) {
+                                $("#insertm .firstCourse").html(fTag);
+                                $("#insertm .firstCourse option[seq="+firstCourseSeq+"]").prop("selected", true);
+                            }else{
+                                $("#insertp .firstCourse").html(fTag);
+                                $("#insertp .firstCourse option[seq="+firstCourseSeq+"]").prop("selected", true);
+                            }
+                        });
+
+                        second.forEach(function(data){
+                            sTag += "<option run='"+data.runningTime+"' cost='"+data.cost+"' value='"+data.secondCourseSeq+"'>"+data.secondCourseTitle+"</option>";
+
+                            if (matchMedia("screen and (max-width: 768px)").matches) $("#insertm .secondCourse").html(sTag);
+                            else $("#insertp .secondCourse").html(sTag);
+                        });
+                        pRun(); mRun();
+                    }
+                });
+            }
+
+            // 1차코스, 2차코스, 날짜, 시간 변경 시 예약가능일자 및 시간 체크
+            function reservationCheck(type){
+
+                let selDate = new Date(type.find(".calender").val());
+                let today = new Date();
+                if(selDate <= today) {
+                    type.find(".calender").val("");
+                    toastModal("오늘 또는 이전 날짜는 선택할 수 없습니다.");
+                    $("input[type=number], input[type=radio], input[type=text], .visitGroup, .check option, textarea").prop("disabled", true);
+                    return;
+                }
+
+                if( type != undefined ){
+                    if( $("#currentDate").val() != "" || $("#currentDate2").val() != "" ) {
+                        let secondGroup = [];
+                        let reserDate;
+                        let firstCourseSeq = type.find(".firstCourse option:selected").attr("seq");
+
+                        type.find(".secondCourse option:selected").each(function () {
+                            if ($(this).val() != "") {
+                                secondGroup.push($(this).val());
+                            }
+                        })
+
+                        if (type.attr("id") == "insertp") reserDate = $("#currentDate").val() + " " + $("#time option:selected").val();
+                        else reserDate = $("#currentDate2").val() + " " + $("#time2 option:selected").val();
+
+                        let reserDay = showday(reserDate.substring(0, 4), reserDate.substring(5, 7), reserDate.substring(8, 11));
+
+                        $.ajax({
+                            type: "GET",
+                            url: "/api/user/reservation/check",
+                            data: {
+                                "firstCourseSeq": firstCourseSeq,
+                                "secondCourseSeq": secondGroup,
+                                "reservationDate": reserDate,
+                                "reservationDay": reserDay
+                            },
+                            success: function (data) {
+                                if (data == 0) {
+                                    toastModal("예약이 가능합니다. 상세정보를 입력해주세요.");
+                                    $("input[type=number], input[type=radio], input[type=text], .visitGroup, .check option, textarea").prop("disabled", false);
+                                    $(".reservation-btn").removeClass("disabled");
+                                } else {
+                                    if (data == 1) toastModal("1차코스 예약가능한 날짜가 아닙니다.");
+                                    if (data == 2) toastModal("2차코스 예약가능한 날짜가 아닙니다.");
+                                    if (data == 3) toastModal("이미 예약이 완료된 일자입니다.");
+
+                                    $("input[type=number], input[type=radio], input[type=text], .visitGroup, .check option, textarea").prop("disabled", true);
+                                    $(".reservation-btn").addClass("disabled");
+                                }
+                            }
+                        });
+                    }
+                }else{
+                    if (matchMedia("screen and (max-width: 768px)").matches) reservationCheck($('#insertm')); // 모바일모달
+                    else reservationCheck($('#insertp'));
+                }
+            }
+
+            // (pc) 2차코스 +, - 클릭 시
+            let plusCnt=0;
+            $("#insertp").on("click", ".plus, .minus", function(e){
+                if( e.target.className.includes("plus") ) {
+                    if( $("#insertp .sec").length >= 1 ){
+                        let second1Box = $("#insertp .sec:first").html();
+                        let second2Box = $("#insertp .sec2:first").html();
+
+                        plusCnt++;
+
+                        let secondBox = "<tr class='sec secondOne"+plusCnt+"' num='"+plusCnt+"'>"+second1Box+"</tr><tr class='sec2 secondTwo"+plusCnt+"' num='"+plusCnt+"'>"+second2Box+"</tr>";
+
+                        $("#insertp .program").attr("rowspan", (parseInt($("#insertp .program").attr("rowspan"))+2));
+                        $(secondBox).insertAfter("#secondInsert");
+
+                        $(".secondTwo"+plusCnt).find(".sec-cost, .sec-runningTime, .sec-course").text("-");
+
+                        plusCnt=parseInt($("#insertp .sec").length)-1;
+
+                        reservationCheck($("#insertp"));
+                    }
+                }else{
+                    if( $("#insertp .sec").length != 1 ){
+                        let delNum=$(this).parent().parent().parent().attr('num');
+                        $("#insertp tr[num='"+delNum+"']").remove();
+                        $("#insertp .program").attr("rowspan", (parseInt($("#insertp .program").attr("rowspan"))-2));
+
+                        reservationCheck($("#insertp"));
+                        /*if( $(".sec").length == 1 ){
+                            toastModal("삭제가 불가합니다. '선택안함'으로 선택해주세요.");
+                        }*/
+                    }else if( $("#insertp .sec").length == 1 ){
+                        toastModal("삭제가 불가합니다. '선택안함'으로 선택해주세요.");
+                    }
+                }
+            });
+
+            // (mobile) 2차코스 +, - 클릭 시
+            let m_plusCnt=0;
+            $("#insertm").on("click", ".plus, .minus", function(e){
+                if( e.target.className.includes("plus") ) {
+                    if( $("#insertm .sec").length >= 1 ){
+                        let second1Box = $("#insertm .sec:first").html();
+                        let second2Box = $("#insertm .sec2:first").html();
+                        let second3Box = $("#insertm .sec3:first").html();
+
+                        m_plusCnt++;
+
+                        let secondBox =
+                            "<tr class='sec secondOne"+m_plusCnt+"' num='"+m_plusCnt+"'>"+second1Box+"</tr>"+
+                            "<tr class='sec2 secondTwo"+m_plusCnt+"' num='"+m_plusCnt+"'>"+second2Box+"</tr>"+
+                            "<tr class='sec3 secondThree"+m_plusCnt+"' num='"+m_plusCnt+"'>"+second3Box+"</tr>";
+
+                        $("#insertm .program").attr("rowspan", (parseInt($("#insertm .program").attr("rowspan"))+3));
+                        $(secondBox).insertAfter("#secondInsert2");
+
+                        $(".secondThree"+m_plusCnt).find(".sec-cost, .sec-runningTime, .sec-course").text("-");
+
+                        m_plusCnt=parseInt($("#insertm .sec").length)-1;
+
+                        reservationCheck($("#insertm"));
+                    }
+                }else{
+                    if( $("#insertm .sec").length != 1 ){
+                        let delNum=$(this).parent().parent().parent().attr('num');
+                        $("#insertm tr[num='"+delNum+"']").remove();
+                        $("#insertm .program").attr("rowspan", (parseInt($("#insertm .program").attr("rowspan"))-3));
+
+                        reservationCheck($("#insertm"));
+                        /*if( $(".sec").length == 1 ){
+                            toastModal("삭제가 불가합니다. '선택안함'으로 선택해주세요.");
+                        }*/
+                    }else if( $("#insertm .sec").length == 1 ){
+                        toastModal("삭제가 불가합니다. '선택안함'으로 선택해주세요.");
+                    }
+                }
+            });
+
+            // pmodal 총 소요시간 구하기
+            function pRun(){
+                let prun = 0;
+
+                prun += parseInt($("#insertp .firstCourse option:selected").attr("run"));
+                $("#insertp .secondCourse option:selected").each(function () {
+                    if ($(this).attr("run") != undefined) {
+                        prun += parseInt($(this).attr("run"));
+                    }
+                });
+
+                let hour=fConvertHour(prun);
+                let min=fConvertMin(prun);
+                $("#insertp").find(".all-time-text").text(hour+"시간 "+min+"분 소요");
+            }
+
+            // mmodal 총 소요시간 구하기
+            function mRun(){
+                let mrun = 0;
+
+                mrun += parseInt($("#insertm .firstCourse option:selected").attr("run"));
+                $("#insertm .secondCourse option:selected").each(function () {
+                    if ($(this).attr("run") != undefined) {
+                        mrun += parseInt($(this).attr("run"));
+                    }
+                });
+
+                let hour=fConvertHour(mrun);
+                let min=fConvertMin(mrun);
+                $("#insertm").find(".all-time-text").text(hour+"시간 "+min+"분 소요");
+            }
+
+            // pmodal 총 비용 구하기
+            function pTotal(){
+                let guestNumber=$("#insertp").find(".guestNumber").val();
+                let pcost=0;
+
+                if( guestNumber != "" ) {
+                    $("#insertp .secondCourse option:selected").each(function () {
+                        if ($(this).attr("cost") != undefined) {
+                            pcost += parseInt($(this).attr("cost"));
+                        }
+                    });
+
+                    let tot=parseInt(pcost * parseInt(guestNumber));
+
+                    $("#insertp").find(".one").text(fcomma(pcost));
+
+                    if(isNaN(tot)) $("#insertp").find(".tot").text(0);
+                    else $("#insertp").find(".tot").text(fcomma(tot));
+                }
+                pTotalCost();
+            }
+
+            // mmodal 총 비용 구하기
+            function mTotal(){
+                let guestNumber=$("#insertm").find(".guestNumber").val();
+                let mcost=0;
+
+                if( guestNumber != "" ) {
+                    $("#insertm .secondCourse option:selected").each(function () {
+                        if ($(this).attr("cost") != undefined) {
+                            mcost += parseInt($(this).attr("cost"));
+                        }
+                    });
+
+                    let tot=parseInt(mcost * parseInt(guestNumber));
+
+                    $("#insertm").find(".one").text(fcomma(mcost));
+
+                    if(isNaN(tot)) $("#insertm").find(".tot").text(0);
+                    else $("#insertm").find(".tot").text(fcomma(tot));
+                }
+                mTotalCost();
+            }
+
+            function pTravelCost(){
+                let guestNumber=$("#insertp").find(".guestNumber").val();
+                let tot=parseInt(guestNumber)*parseInt(uncomma($("#insertp").find(".insuranceFee").text()))//cost[2];
+
+                if(isNaN(tot)) $("#insertp").find(".travelCost").text(0);
+                else $("#insertp").find(".travelCost").text(fcomma(tot));
+
+                pTotalCost();
+            }
+
+            function mTravelCost(){
+                let guestNumber=$("#insertm").find(".guestNumber").val();
+                let tot=parseInt(guestNumber)*parseInt(uncomma($("#insertm").find(".insuranceFee").text())) //cost[2];
+
+                if(isNaN(tot)) $("#insertm").find(".travelCost").text(0);
+                else $("#insertm").find(".travelCost").text(fcomma(tot));
+
+                mTotalCost();
+            }
+
+            function pBusCost(){
+                let vehicleNumber=$("#insertp").find(".vehicleNumber").val();
+                let tot=parseInt(vehicleNumber)*parseInt(uncomma($("#insertp").find(".busFare").text())) //cost[0];
+
+                if(isNaN(tot)) $("#insertp").find(".busCost").text(0);
+                else $("#insertp").find(".busCost").text(fcomma(tot));
+
+                pTotalCost();
+            }
+
+            function mBusCost(){
+                let vehicleNumber=$("#insertm").find(".vehicleNumber").val();
+                let tot=parseInt(vehicleNumber)*parseInt(uncomma($("#insertm").find(".busFare").text())) //cost[0];
+
+                if(isNaN(tot)) $("#insertm").find(".busCost").text(0);
+                else $("#insertm").find(".busCost").text(fcomma(tot));
+
+                mTotalCost();
+            }
+
+            function pTotalCost(){
+                let tot = parseInt(uncomma($("#insertp").find(".guideFee").text()));
+
+                tot +=parseInt(uncomma($("#insertp").find(".travelCost").text()));
+                tot +=parseInt(uncomma($("#insertp").find(".busCost").text()));
+                tot +=parseInt(uncomma($("#insertp").find(".tot").text()));
+
+                $("#insertp").find(".total").text(fcomma(tot));
+            }
+            function mTotalCost(){
+                let tot = parseInt(uncomma($("#insertm").find(".guideFee").text()));
+
+                tot +=parseInt(uncomma($("#insertm").find(".travelCost").text()));
+                tot +=parseInt(uncomma($("#insertm").find(".busCost").text()));
+                tot +=parseInt(uncomma($("#insertm").find(".tot").text()));
+
+                $("#insertm").find(".total").text(fcomma(tot));
+            }
+
+            // 추가비용 체크
+            $("#insertp").on("click", "input[name=pFee]", function(e){
+                if( e.target.id == "pInsFee" ){
+                    if( $(this).is(':checked') == false ){
+                        $("#insertp .insuranceFee").text(0);
+                    }else{
+                        $("#insertp .insuranceFee").text(fcomma(cost[2]));
+                    }
+                    pTravelCost();
+                }else{
+                    if( $(this).is(':checked') == false ){
+                        $("#insertp .guideFee").text(0);
+                    }else{
+                        $("#insertp .guideFee").text(fcomma(cost[1]));
+                    }
+                    pTotalCost();
+                }
+            });
+
+            function changeBusFee(div){
+                let busFee=div.find(".vehicleType").val();
+                div.find(".busFare").text(fcomma(busFee));
+
+                if( div.attr("id") == "insertp" ) pBusCost();
+                else mBusCost();
+            }
+
+            $("#insertm").on("click", "input[name=mFee]", function(e){
+                if( e.target.id == "mInsFee" ){
+                    if( $(this).is(':checked') == false ){
+                        $("#insertm .insuranceFee").text(0);
+                    }else{
+                        $("#insertm .insuranceFee").text(fcomma(cost[2]));
+                    }
+                    mTravelCost();
+                }else{
+                    if( $(this).is(':checked') == false ){
+                        $("#insertm .guideFee").text(0);
+                    }else{
+                        $("#insertm .guideFee").text(fcomma(cost[1]));
+                    }
+                    mTotalCost();
+                }
+            });
+
+            // 예약하기
+            function reservationInsert(type){
+                let firstCourseSeq=type.find(".firstCourse option:selected").attr("seq");
+
+                let reserDate;
+                if( type.attr("id") == "insertp" ) reserDate=$("#currentDate").val()+" "+$("#time option:selected").val();
+                else reserDate=$("#currentDate2").val()+" "+$("#time2 option:selected").val();
+
+                let email=type.find(".email").val();
+                let password=type.find(".password").val();
+                let guestNumber=type.find(".guestNumber").val();
+
+                if( guestNumber == "" ) guestNumber=0;
+
+                let secondGroup=[];
+                type.find(".secondCourse option:selected").each(function(){
+                    secondGroup.push( $(this).val() );
+                })
+
+                let applicant=type.find(".applicant").val();
+                let applicantDetail=type.find(".applicantDetail").val();
+                let guestType=type.find(".guestType option:selected").val();
+                let managerPhone=type.find(".managerPhone1").val()+"-"+type.find(".managerPhone2").val()+"-"+type.find(".managerPhone3").val();
+                let vehicleType=type.find(".vehicleType option:selected").text();
+                let vehicleNumber=type.find(".vehicleNumber").val();
+                let etc=type.find(".etc").val();
+
+                let totalCost=uncomma(type.find(".total").text());
+
+                let busFare=uncomma(type.find(".busFare").text()); //cost[0];
+                let guideFee;
+                let insuranceFee;
+
+                if( type.find(".plusFee").first().is(":checked") == false ) insuranceFee=0;
+                else insuranceFee=cost[2];
+
+                if( type.find(".plusFee").last().is(":checked") == false ) guideFee=0;
+                else guideFee=cost[1];
+
+                let terms1;
+                let terms2;
+                let terms3;
+                let terms4;
+                let terms5;
+
+                if( termsCheck == false ){
+                    let defalut = {
+                        "question": type.find(".defalut > p").text(),
+                        "answer": type.find(".defalut input[type='radio']:checked").val()
+                    };
+                    terms1 = defalut;
+                }else {
+                    terms1 = {
+                        "question": type.find(".t1").text(),
+                        "answer": type.find(".terms1 input[type='radio']:checked").val()
+                    };
+                    terms2 = {
+                        "question": type.find(".t2").text(),
+                        "answer": type.find(".terms2 input[type='radio']:checked").val()
+                    };
+                    terms3 = {
+                        "question": type.find(".t3").text(),
+                        "answer": type.find(".terms3 input[type='radio']:checked").val()
+                    };
+                    terms4 = {
+                        "question": type.find(".t4").text(),
+                        "answer": type.find(".terms4 input[type='radio']:checked").val()
+                    };
+                    terms5 = {
+                        "question": type.find(".t5").text(),
+                        "answer": type.find(".terms5 input[type='radio']:checked").val()
+                    };
+                }
+
+                /*console.log(JSON.stringify(
+                    {
+                        "firstCourseSeq": firstCourseSeq,
+                        "reservationDate": reserDate,
+                        "email": email,
+                        "password": password,
+                        "guestNumber": guestNumber,
+                        "cost": totalCost,
+                        "secondCourseSeq": secondGroup,
+                        "applicant": applicant,
+                        "applicantDetail": applicantDetail,
+                        "guestType": guestType,
+                        "managerPhone": managerPhone,
+                        "vehicleType": vehicleType,
+                        "vehicleNumber": vehicleNumber,
+                        "etc": etc,
+                        "terms1": terms1,
+                        "terms2": terms2,
+                        "terms3": terms3,
+                        "terms4": terms4,
+                        "terms5": terms5,
+                        "busFare": busFare,
+                        "guideFee": guideFee,
+                        "insuranceFee": insuranceFee
+                    }
+                ));*/
+
+                $.ajax({
+                    type:"POST",
+                    url: "/api/user/reservation/insert",
+                    data: {
+                        "firstCourseSeq": firstCourseSeq,
+                        "reservationDate": reserDate,
+                        "email": email,
+                        "password": password,
+                        "guestNumber": guestNumber,
+                        "cost": totalCost,
+                        "secondCourseSeq": secondGroup,
+                        "applicant": applicant,
+                        "applicantDetail": applicantDetail,
+                        "guestType": guestType,
+                        "managerPhone": managerPhone,
+                        "vehicleType": vehicleType,
+                        "vehicleNumber": vehicleNumber,
+                        "etc": etc,
+                        "terms1": terms1,
+                        "terms2": terms2,
+                        "terms3": terms3,
+                        "terms4": terms4,
+                        "terms5": terms5,
+                        "busFare": busFare,
+                        "guideFee": guideFee,
+                        "insuranceFee": insuranceFee
+                    },
+                    // contentType: 'application/json',
+                    // dataType: 'json',
+                    success: function(data) {
+                        if (data == 1) {
+                            toastModal("예약이 완료되었습니다.");
+                            setTimeout(() => location.href = '/reservation', 1000);
+                        }else toastModal("예약이 실패되었습니다. 신청내용을 재확인해주세요.");
+                    }
+                });
+            }
+
+            // 요일 구하기
+            function showday(y,m,d){
+                inputDate = new Date(y,(m-1),d);
+                day = inputDate.getDay();
+
+                //요일에 해당하는 숫자를 문자로 변환시키기 위해 switch문을 사용하였다.
+
+                switch(day){
+                    case 1 : day="mon";
+                        break;
+                    case 2 : day="tue";
+                        break;
+                    case 3 : day="wed";
+                        break;
+                    case 4 : day="thu";
+                        break;
+                    case 5 : day="fri";
+                        break;
+                }
+                return day;
+            }
+
+            function inputNullChk(type) {
+                let isRight = true;
+
+                type.find("input").each(function (index, item) {
+                    if (type.find(".calender").val() == "") {
+                        toastModal("견학날짜를 선택해주세요.");
+                        isRight = false;
+                        return false;
+                    } else {
+                        if( type.find(".trapplicant").hasClass("d-none") == false ) {
+                            if (type.find(".applicant").val() == "") {
+                                toastModal("신청기관명을 입력해주세요.");
+                                isRight = false;
+                                return false;
+                            }
+                        }
+
+                        if( type.find(".trguestNumber").hasClass("d-none") == false ) {
+                            if (type.find(".guestNumber").val() == "") {
+                                toastModal("방문인원 수를 입력해주세요.");
+                                isRight = false;
+                                return false;
+                            }
+                        }
+
+                        if( type.find(".trmanagerPhone").hasClass("d-none") == false ) {
+                            if (type.find(".managerPhone2").val() == "" || type.find(".managerPhone3").val() == "") {
+                                toastModal("연락처를 입력해주세요.");
+                                isRight = false;
+                                return false;
+                            }
+                        }
+
+                        if (type.find(".email").val() == "") {
+                            toastModal("이메일을 입력해주세요.");
+                            isRight = false;
+                            return false;
+                        } else {
+                            if (!femailCheck(type.find(".email").val())) {
+                                toastModal("이메일 형식이 맞지 않습니다.");
+                                isRight = false;
+                                return false;
+                            } else {
+                                if (type.find(".password").val() == "") {
+                                    toastModal("비밀번호를 입력해주세요.");
+                                    isRight = false;
+                                    return false;
+                                } else {
+                                    if (type.find(".password").val().length < 6) {
+                                        toastModal("비밀번호는 6자리로 입력해주세요.");
+                                        isRight = false;
+                                        return false;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+
+                if (!isRight) return;
+                else reservationInsert(type);
+            }
+
+            function maxLengthCheck(object, length){
+                if (object.value.length > length){
+                    object.value = object.value.slice(0, length);
+                }
+            }
+        </script>
+    </main>
+</div>
+</html>

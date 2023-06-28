@@ -1,0 +1,59 @@
+#logging:
+#  level:
+#    root: info
+#    org.hibernate: debug
+#
+#spring:
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://210.114.10.47:3306/iamchoir?useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul&useServerPrepStmts=false
+#    username: bizoms
+#    password: muzi0812!@
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    generate-ddl: false
+#    show_sql: true
+#  url:
+#    base: http://localhost:8080
+
+#dev 환경
+---
+spring:
+  #datasource (mysql, mariadb)
+  datasource:
+    # driver-class-name: org.mariadb.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver # mysql 8.0 setting
+    #    url: jdbc:mysql://210.114.13.144:3306/field_trip?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul #배포시! 주석 제거
+    #url: jdbc:mysql://210.114.13.144:3306/field_trip_test2?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul
+    url: jdbc:mysql://localhost:3306/travel_incheon?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul
+    username: test
+    password: Abcd1234!
+    #username: field
+    #password: bizsalad1!
+    #username: bizoms
+    #password: muzi0812!@
+  jpa:
+    # databaseplatform: org.hibernate.dialect.MariaDB103Dialect
+    # databaseplatform: org.hibernate.dialect.MySQL5InnoDBDialect
+    database-platform: org.hibernate.dialect.MySQL8Dialect # mysql 8.0 setting
+    hibernate:
+      # 서버 restart 시 table 정보가 reset 되는 설정으로 create -> 개발은 validate 옵션으로 변경
+      ddl-auto: update
+    devtools:
+      livereload: #JSP 는 서버 재시작 없이 반영될 수 있도록 하는 설정, 개발시에는 true, 운영은 false 로 함. (페이지 로딩 속도 이슈)
+      enabled: true
+  jackson:
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false
+  #server:
+  #  port: 8080
+  servlet:
+    multipart:
+      maxFileSize: 10MB
+      maxRequestSize: 100MB
+  #    session:
+  #      timeout: 30m
+  #      tracking-modes: cookie
+  url:
+    base: http://localhost:8080

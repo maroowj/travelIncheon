@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/renew/layout}"
+      xmlns:th="http://www.thymeleaf.org">
+
+<div layout:fragment="content">
+    <!--서브배너-->
+    <div class="subBanner-wrap pc-subBanner">
+        <img src="/renew/images/subBanner02.jpg" alt="포트폴리오">
+        <p class="subMenu">포트폴리오</p>
+    </div>
+    <div class="subBanner-wrap m-subBanner">
+        <img src="/renew/images/m_subBanner02.jpg" alt="포트폴리오">
+        <p class="subMenu">포트폴리오</p>
+    </div>
+    <!--컨텐츠 영역-->
+
+    <div class="subCont vrList-wrap">
+        <div class="auto mt120 mb120">
+            <div class="subTitleWrap">
+                <span class="blue">PORTFOLIO</span>
+                <P class="title">포트폴리오</P>
+            </div>
+
+            <ul class="link-tabWrap">
+                <li><a href="/vr">전체 상품</a></li>
+                <li><a href="" class="actived">박물관</a></li>
+                <li><a href="/vr/hotel">호텔</a></li>
+                <li><a href="/vr/cafe">관광지</a></li>
+                <li><a href="/vr/air">항공촬영</a></li>
+                <li><a href="/vr/etc">기타</a></li>
+            </ul>
+
+
+            <div class="listWrap">
+                <div class="topSel">
+                    <p id="totalCount" class="total"></p>
+
+                    <ul class="sortWrap">
+                        <li><a class="actived" style="cursor: pointer;" sort="createDate,desc">최신순</a></li>
+                        <li><a style="cursor: pointer;" sort="secondCourseTitle,asc">이름순</a></li>
+                        <!-- <li><a style="cursor: pointer;" sort="cost,desc">높은가격순</a></li> -->
+                        <li><a style="cursor: pointer;" sort="cost,asc">인기순</a></li>
+                    </ul>
+                </div>
+
+                <ul id="vrList" class="list">
+                </ul>
+
+
+                <!--paging-->
+                <div class="paging pagination">
+
+                </div>
+            </div>
+        </div>
+        <!--script START-->
+        <script>
+            let category="박물관";
+            let page=1;
+            let sort;
+            getVrList(category);
+
+            function getVrList(category) {
+                $.ajax({
+                    type:"get",
+                    url:"/api/common/vr",
+                    data:{
+                        "category":category,
+                        "page":page-1,
+                        "sort": sort
+                    },
+                    success:function(data) {
+                        // console.log(data);
+                        let list = data.content;
+                        let tag='';
+                        list.forEach(function(arg){
+                            tag += '<li>' +
+                                '<a href="/vr/'+arg.secondCourseSeq.substring(5, 15)+'">' +
+                                '<img src="'+arg.thumbnailImage.url+'" alt="여행상품">' +
+                                '<div class="infoWrap">' +
+                                '<span class="type">'+arg.category+'</span>' +
+                                '<p class="title">'+arg.secondCourseTitle+'</p>' +
+                                '<p class="text">'+arg.course+'</p>' +
+                                '</div>' +
+                                '</a>' +
+                                '</li>';
+                        });
+                        $("#totalCount").html("총 "+data.totalElements+"개의 상품");
+                        $("#vrList").html(tag);
+                        fPagination2(data, page);
+                    },
+                    error: function (request, status, error) {
+                        console.log(request.status + ' ' + error.statusText + ' ' + request.responseText);
+                    }
+                });
+            }
+
+            $(".pagination").on("click", "a", function() {
+                page = parseInt($(this).attr("gopage"));
+                getVrList(category);
+            });
+
+            $(".sortWrap > li > a").on("click", function(){
+                $('.sortWrap > li > a').removeClass('actived');
+                $(this).addClass('actived');
+                sort = $(this).attr("sort");
+                page=1;
+                getVrList(category);
+            });
+        </script>
+        <!--script END-->
+</div>
+</html>

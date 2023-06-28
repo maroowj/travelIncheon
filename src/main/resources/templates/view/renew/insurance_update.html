@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/renew/layout}"
+      xmlns:th="http://www.thymeleaf.org">
+
+<div layout:fragment="content">
+    <!--컨텐츠 영역-->
+
+    <div class="subCont mypageWrap inq-viewWrap ins-viewWrap">
+        <div class="pt120 pb120 auto inqTableWrap">
+            <div class="subTitleWrap">
+                <span class="blue">TRAVEL INSURANCE</span>
+                <p class="title">여행자 보험 가입 양식</p>
+
+                <p class="text">아래의 내용을 정확하게 작성해 주시면 짧은 시간안에 귀하에게 연락드리겠습니다.</p>
+            </div>
+
+            <div class="page-tableBox">
+                <table class="page-table2 input-table">
+                    <colgroup>
+                        <col style = "width:27%">
+                        <col style = "width:73%">
+                    </colgroup>
+                    <tr>
+                        <th>가입 단체명 또는 여행사명</th>
+                        <td><input type="text" id="name"></td>
+                    </tr>
+                    <tr>
+                        <th>연락처</th>
+                        <td><input type="text" id="tel" placeholder="-없이 입력해주세요." oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"></td>
+                    </tr>
+                    <tr>
+                        <th>국내여행인가요? 해외여행인가요?</th>
+                        <td>
+                            <div class="inputWrap checkWrap radioWrap">
+                                <label for="trv1" class="insA">
+                                    <input type="radio" id="trv1" class="domestic" name="trv" value="domestic">국내여행
+                                </label>
+                                <label for="trv2" class="insB">
+                                    <input type="radio" id="trv2" class="abroad" name="trv" value="abroad">해외여행
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="tb-insA">
+                        <th>국내여행인 경우 (사망 1억원 보장)</th>
+                        <td>
+                            <div class="inputWrap checkWrap">
+                                <label for="trvT11">
+                                    <input type="radio" id="trvT11" name="trvT1" value="A1">A1
+                                </label>
+                                <label for="trvT12">
+                                    <input type="radio" id="trvT12" name="trvT1" value="A2">A2
+                                </label>
+                                <label for="trvT13">
+                                    <input type="radio" id="trvT13" name="trvT1" value="A3">A3
+                                </label>
+                            </div>
+
+                        </td>
+                    </tr>
+                    <tr class="tb-insB d-none">
+                        <th>해외여행인 경우 (사망 1억원 보장)</th>
+                        <td>
+                            <div class="inputWrap checkWrap">
+                                <label for="trvT21">
+                                    <input type="radio" id="trvT21" name="trvT2" value="B1">B1
+                                </label>
+                                <label for="trvT22">
+                                    <input type="radio" id="trvT22" name="trvT2" value="B2">B2
+                                </label>
+                                <label for="trvT23">
+                                    <input type="radio" id="trvT23" name="trvT2" value="B3">B3
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>출발날짜</th>
+                        <td>
+                            <div class="inputWrap">
+                                <div class="datepickerWrap">
+                                    <input type="text" id="datepicker1">
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>귀국날짜</th>
+                        <td>
+                            <div class="inputWrap">
+                                <div class="datepickerWrap">
+                                    <input type="text" id="datepicker2">
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>가입 인원은 몇명인가요?</th>
+                        <td>
+                            <input type="text" id="joinNumber" placeholder="숫자만 입력해주세요." maxlength="3" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="page-btn">
+                <a href="/mypage" class="comm-btn black-btn mr10">목록</a>
+                <a class="comm-btn blue-btn" style="cursor: pointer;" onclick="updateInsurance()">저장하기</a>
+            </div>
+        </div>
+    </div>
+    <!--script START-->
+    <script>
+        let insuranceSeq = window.location.pathname.split('/')[4];
+        getInsuranceDetails(insuranceSeq);
+
+        function getInsuranceDetails(insuranceSeq) {
+            $.ajax({
+                type:"get",
+                url:"/api/user/form/" + insuranceSeq,
+                success:function(data) {
+                    let content = data.content;
+                    $("#name").val(content.name);
+                    $("#tel").val(content.tel);
+                    let travelType = content.travelType;
+                    if(travelType=="국내여행") {
+                        travelType="domestic";
+                        $(".tb-insA").removeClass("d-none");
+                        $(".tb-insB").addClass("d-none");
+                        $("input[name='trvT1'][value="+content.insuranceType+"]").prop("checked", true);
+                    }else {
+                        travelType="abroad";
+                        $(".tb-insB").removeClass("d-none");
+                        $(".tb-insA").addClass("d-none");
+                        $("input[name='trvT2'][value="+content.insuranceType+"]").prop("checked", true);
+                    }
+                    $("input[name='trv'][value="+travelType+"]").prop("checked", true);
+                    $("#datepicker1").val(content.departureDate);
+                    $("#datepicker2").val(content.returnDate);
+                    $("#joinNumber").val(content.joinNumber);
+                },
+                error: function (request, status, error) {
+                    toastModal("잘못된 접근입니다.");
+                    setTimeout(() => history.back(), 700);
+                    console.log(request.status + ' ' + error.statusText + ' ' + request.responseText);
+                }
+            })
+        }
+
+        function updateInsurance() {
+            let name = $('#name').val();
+            let tel = $("#tel").val();
+            let travelType = $('input[name="trv"]:checked').val();
+            let insuranceType;
+            if (travelType == "domestic") {
+                travelType = "국내여행";
+                insuranceType = $('input[name="trvT1"]:checked').val();
+            } else if (travelType == "abroad") {
+                travelType = "해외여행";
+                insuranceType = $('input[name="trvT2"]:checked').val();
+            }
+            let departureDate = $("#datepicker1").val();
+            let returnDate = $("#datepicker2").val();
+            let joinNumber = $("#joinNumber").val();
+
+            if (name == "") {
+                toastModal("가입 단체명 또는 여행사명을 입력해주세요");
+                $("#name").focus();
+                return;
+            }
+            if (tel == "") {
+                toastModal("연락처를 입력해주세요");
+                $("#tel").focus();
+                return;
+            }
+            if (travelType == "" || travelType == undefined || travelType == null) {
+                toastModal("여행 종류를 선택해주세요");
+                return;
+            }
+            if (insuranceType == "" || insuranceType == undefined || insuranceType == null) {
+                toastModal("보장 등급을 선택해주세요");
+                return;
+            }
+            if (departureDate == "") {
+                toastModal("출국 날짜를 선택해주세요");
+                $("#datepicker1").focus();
+                return;
+            }
+            if (returnDate == "") {
+                toastModal("귀국 날짜를 선택해주세요");
+                $("#datepicker2").focus();
+                return;
+            }
+            if (joinNumber == "") {
+                toastModal("가입 인원을 입력해주세요");
+                $("#joinNumber").focus();
+                return;
+            }
+
+            let today = new Date();
+            let numDepartureDate = new Date(departureDate);
+            let numReturnDate = new Date(returnDate);
+
+            if (today >= numDepartureDate) {
+                toastModal("출발 날짜는 오늘 이후로 선택해주세요");
+                return;
+            }
+            if (today >= numReturnDate) {
+                toastModal("귀국 날짜는 오늘 이후로 선택해주세요");
+                return;
+            }
+            if (numDepartureDate >= numReturnDate) {
+                toastModal("출발 날짜는 귀국 날짜 이전으로 선택해주세요");
+                return;
+            }
+
+            let formData = new FormData();
+
+            let objInsurance = {
+                "name": name,
+                "tel": tel,
+                "travelType": travelType,
+                "insuranceType": insuranceType,
+                "departureDate": departureDate,
+                "returnDate": returnDate,
+                "joinNumber": joinNumber
+            }
+
+            objInsurance = JSON.stringify(objInsurance);
+            formData.append("content", objInsurance);
+
+            $.ajax({
+                type: "put",
+                url: "/api/user/form/" + insuranceSeq,
+                contentType: "application/json",
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                    toastModal("여행자 보험 가입 문의가 수정되었습니다.");
+                    setTimeout(() => location.href = "/mypage/insurance/"+insuranceSeq, 1000);
+                },
+                error: function (request, status, error) {
+                    console.log(request.status + ' ' + error.statusText + ' ' + request.responseText);
+                }
+            });
+
+        }
+
+    </script>
+    <!--script END-->
+</div>
+
+</html>

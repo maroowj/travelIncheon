@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/default_layout}"
+      xmlns:th="http://www.thymeleaf.org">
+
+<style layout:fragment="css">
+    #memberList td.add-d-flex{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #memberList span.user{
+        max-width: calc(100% - 70px);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal;
+    }
+    #memberList span.kakao{
+        background-color: var(--kakao);
+        border-radius: 4px;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        margin-left: 8px;
+    }
+    #memberList span.kakao i{
+        display: inline-block;
+        width: 10.71px;
+        height: 10px;
+        background: url('/images/logo/logo_kakao.svg') no-repeat;
+        background-size: 10.71px 10px;
+    }
+    #memberList span.facebook{
+        background-color: var(--facebook);
+        border-radius: 4px;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        margin-left: 8px;
+    }
+    #memberList span.facebook i{
+        display: inline-block;
+        width: 5.56px;
+        height: 10px;
+        background: url('/images/logo/logo_facebook.svg') no-repeat;
+        background-size: 5.56px 10px;
+    }
+    .search-wrap {
+        position: relative;
+        /*padding: 15px 47px 15px 30px;*/
+        padding: unset;
+        margin-bottom: 15px;
+        /*border-bottom: 1px solid var(--light-grey2);*/
+    }
+    .search-wrap > input{
+        width: 100%;
+        height: 50px;
+        border: 1px solid var(--light-grey2);
+        background: var(--light-grey1);
+        border-radius: 5px;
+        padding: 0 50px 0 20px;
+        font-size: 15px;
+    }
+    .search-wrap .search-icon {
+        position: absolute;
+        right: 0px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 50px;
+        text-align: center;
+        font-size: 20px;
+    }
+</style>
+
+<div layout:fragment="content">
+
+    <main role="main" class="main-content">
+        <script>
+            const main_menu = 9;
+        </script>
+
+        <!--컨텐츠 영역-->
+        <div class="contents">
+            <div class="admin-contents-title">
+                <h3 class="admin-title">회원 관리</h3>
+            </div><!--admin-contents-title-->
+
+            <div class="course2-list-wrap">
+                <!--검색-->
+                <div class="search-wrap">
+                    <input type="text" placeholder="SNS ID 또는 이름으로 검색" id="keyword" class="keyword">
+                    <i id="search-icon" class="fa-solid fa-magnifying-glass search-icon"></i>
+                </div>
+
+                <div class="company-table course2-table">
+                    <div class="admin-table-title-wrap">
+                        <div class="admin-table-title">
+                            <p class="title">전체</p>
+                            <p class="detail-text">회원 리스트</p>
+                        </div>
+                        <div class="reserve-check-btn">
+                            <!--<a class="blue-btn cupoint">선택한 회원 수정</a>-->
+                            <!--<a class="s-blue-btn cupoint">예약확정</a>-->
+                            <a id="btn-withdrawal" class="gray-btn cupoint" onclick="dropMember()">선택한 회원 탈퇴</a>
+                        </div>
+                    </div>
+
+                    <!--table START-->
+                    <table class="admin-table">
+                        <colgroup>
+                            <col style="width:4%">
+                            <col style="width:6%">
+                            <col style="">
+                            <col style="">
+                            <col style="">
+                        </colgroup>
+                        <thead>
+                        <tr>
+                            <th class="after-none"><input type="checkbox" class="all-check"></th>
+                            <th>번호</th>
+                            <th>아이디</th>
+                            <th>이름</th>
+                            <th>가입일</th>
+                        </tr>
+                        </thead>
+                        <!--<tbody id="companyCourseList"></tbody>-->
+                        <tbody id="memberList">
+                            <!--<tr>
+                                <td><input type='checkbox' class='checked'></td>
+                                <td class="info">1</td>
+                                <td class="info">kimee@naver.com</td>
+                                <td class="info">김미</td>
+                                <td class="info">2022-11-24</td>
+                            </tr>-->
+                        </tbody>
+                    </table>
+
+                    <div id="pagination"></div>
+                </div><!--company-table-->
+            </div>
+
+        </div><!--contents-->
+
+        <!--코스 상세보기 MODAL START-->
+        <div id="course-modal" class="modal admin-modal course-modal">
+            <div class="modal-wrap">
+                <div class="modal-title-wrap">
+                    <p class="title">회원정보</p>
+                    <i class="fa-solid fa-xmark close"></i>
+                </div>
+
+                <div class="modal-text-wrap">
+                    <div class="course-detail-wrap">
+                        <div class="course-detail w100pro">
+                            <table class="date-table modal-table">
+                                <colgroup>
+                                    <col style="width:140px">
+                                    <col style="width:calc(50% - 70px)">
+                                    <col style="width:140px">
+                                    <col style="width:calc(50% - 140px)">
+                                </colgroup>
+                                <tbody>
+                                <tr>
+                                    <th>아이디</th>
+                                    <td>
+                                        <div id="snsId" class="d-flex-wrap reservation-date"></div>
+                                    </td>
+                                    <th class="b-left">가입일</th>
+                                    <td>
+                                        <div id="createDate" class="d-flex-wrap booking-status"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>이름</th>
+                                    <td>
+                                        <div id="name" class="d-flex-wrap reservation-date"></div>
+                                    </td>
+                                    <th class="b-left">성별</th>
+                                    <td>
+                                        <div id="gender" class="d-flex-wrap booking-status"></div>
+                                    </td>
+                                </tr>
+                                <!--<tr>
+                                    <th>국가</th>
+                                    <td>
+                                        <div class="d-flex-wrap reservation-date">
+                                            미얀마
+                                        </div>
+                                    </td>
+                                    <th class="b-left">연락처</th>
+                                    <td>
+                                        <div class="d-flex-wrap booking-status">
+                                            010-0000-0000
+                                        </div>
+                                    </td>
+                                </tr>-->
+                                <!--<tr>
+                                    <th>주소</th>
+                                    <td colspan="3">
+                                        <div class="d-flex-wrap reservation-date">
+                                            경기도 000
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>회사</th>
+                                    <td>
+                                        <div class="d-flex-wrap reservation-date">
+                                            회사명
+                                        </div>
+                                    </td>
+                                    <th class="b-left">입사일</th>
+                                    <td>
+                                        <div class="d-flex-wrap booking-status">
+                                            22-00-00
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>E-7-4 점수</th>
+                                    <td>
+                                        <div class="d-flex-wrap reservation-date">
+                                            100점
+                                        </div>
+                                    </td>
+                                    <th class="b-left">통과여부</th>
+                                    <td>
+                                        <div class="d-flex-wrap booking-status">
+                                            통과
+                                        </div>
+                                    </td>
+                                </tr>-->
+                                </tbody>
+                            </table>
+                            <!--사용자 정보 table END-->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-bottom">
+                    <a class="modal-btn close-btn cupoint">닫기</a>
+                    <!--<a class="modal-btn reserve-btn cupoint" onclick="updateCompany($(this))">수정하기</a>-->
+                </div>
+            </div><!--modal-wrap-->
+            <div class="modal-bg-cover"></div>
+        </div>
+
+    </main>
+
+    <script th:inline="javascript">
+        let page=1;
+        let memberSeq;
+
+        $(function(){
+            getMemberList();
+        })
+
+        $("#keyword").on("keydown", function(e){
+            if(e.keyCode==13) {
+                $("#search-icon").click();
+            }
+        });
+
+        $("#search-icon").on("click", function(){
+            page=1;
+            getMemberList();
+        });
+
+        // 2차 코스 리스트 불러오기
+        function getMemberList(){
+            let query = $("#keyword").val();
+            $.ajax({
+                type: "GET",
+                url: "/api/admin/member",
+                data: {
+                    "page": page-1,
+                    "size": 10,
+                    "query": query
+                },
+                success: function(data){
+                    // console.log(data);
+                    let list = data.content;
+                    let tag = '';
+                    if(list.length!=0) {
+                        list.forEach(function(arg){
+                            tag += '<tr seq="'+arg.memberSeq+'">' +
+                                    '<td><input type=\'checkbox\' class=\'checked\'></td>' +
+                                    '<td class="info">'+arg.rowNum+'</td>' +
+                                    '<td class="info">'+arg.snsId+'</td>' +
+                                    '<td class="info">'+arg.name+'</td>' +
+                                    '<td class="info">'+arg.createDate+'</td>' +
+                                    '</tr>';
+                        });
+                    }else {
+                        tag += '<tr><td colspan="5">회원이 존재하지 않습니다.</td></tr>';
+                    }
+                    $("#memberList").html(tag);
+                    fPagination(data, page);
+                }
+            });
+        }
+
+        $("#pagination").on("click", "ul li a", function() {
+            page = parseInt($(this).attr("gopage"));
+
+            getMemberList();
+        });
+
+        // 전체 업체 코스 리스트 행 클릭 시, 코스상세정보
+        $("#memberList").on("click", ".info", function() {
+            memberSeq = $(this).parent().attr("seq");
+            getMemberDetails(memberSeq);
+            $("#course-modal").css("display", "block");
+
+        });
+
+
+        function getMemberDetails(memberSeq) {
+            $.ajax({
+                type:"get",
+                url:"/api/admin/member/"+memberSeq,
+                success:function(data) {
+                    console.log(data);
+                    for(let key in data) {
+                        if(key=="createDate") {
+                            $("#"+key).text(data[key].substring(0, 10));
+                        }else {
+                            $("#"+key).text(data[key]);
+                        }
+
+                    }
+                },
+                error: function (request, status, error) {
+                    console.log(request.status + ' ' + error.statusText + ' ' + request.responseText);
+                }
+            });
+        }
+
+        function dropMember() {
+            if($(".checked:checked").length==0) {
+                toastModal("탈퇴 처리 하려는 회원을 선택해주세요");
+                return;
+            }else {
+                if(!confirm("탈퇴 처리 된 해당 회원은 로그인 할 수 없으며,\n회원 목록에서도 보여지지 않습니다.\n탈퇴처리 하시겠습니까?")) {
+                    return;
+                }
+                let dropList = new Array();
+                $(".checked:checked").each(function() {
+                    dropList.push($(this).parent().parent().attr("seq"));
+                });
+
+                $.ajax({
+                    type:"put",
+                    url:"/api/admin/member/drop",
+                    contentType:"application/json",
+                    data:JSON.stringify({
+                        "dropList":dropList
+                    }),
+                    success:function() {
+                        toastModal("선택한 회원이 탈퇴 처리 되었습니다.");
+                        setTimeout(() => location.reload(), 1000);
+                    },
+                    error: function (request, status, error) {
+                        console.log(request.status + ' ' + error.statusText + ' ' + request.responseText);
+                    }
+                });
+            }
+        }
+    </script>
+
+</div>
+</html>

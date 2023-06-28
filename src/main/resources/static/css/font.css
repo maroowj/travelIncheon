@@ -1,0 +1,18 @@
+@import url('https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css');
+@import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+html, body, table, input, textarea, nav, button, div, p,
+#main_wrap span, h1, h2, h3, h4, h6, tr, td, ol, ul, li, select, pre,
+#main_wrap a:hover, a:active, html .selectboxit-container * {
+    font-family: 'Roboto','Noto Sans KR', 'Malgun Gothic', '맑은고딕', sans-serif !important;
+    font-size:16px;
+    color:#666;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: -0.1px;
+}
+
+
+.nanumS{font-family:'NanumSquare', sans-serif !important;}
+.roboto{font-family: 'Roboto', sans-serif !important;}
