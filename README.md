@@ -17,6 +17,12 @@
 * 🛠️사용 기술
   * Back-End: Spring Boot, Java, JPA, MySql, QueryDsl
   * Front-End: JavaScript, jQuery
+ 
+* 💡부가기능
+  * ckEditor를 이용한 코스 상세 정보 게시판형으로 작성 후 저장
+  * MySql5.7 이상 버전으로 JSON COLUMN 사용하여 데이터 저장
+  * Spring Security와 JWT 방식의 로그인 기능 구현
+  * 기존의 사용중인 File 업로드 알고리즘 로직 변경
 
 * 📅 DB
   * ERD
@@ -48,7 +54,3 @@
 ![admin_vr_update](https://github.com/maroowj/travelIncheon/assets/77284101/b5867600-bd58-4853-92fd-a7dbc9932207)
 ![admin_banner](https://github.com/maroowj/travelIncheon/assets/77284101/67d9a549-04a2-48b2-a762-56c0e62bda84)
 
-
-* 💡부가기능
-  * ckEditor를 이용한 코스 상세 정보 저장
-  * MySql5.7 이상 버전으로 JSON COLUMN 사용하여 데이터 저장
